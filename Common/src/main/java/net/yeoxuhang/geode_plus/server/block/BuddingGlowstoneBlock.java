@@ -1,20 +1,20 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import fuzs.geodecraft.common.config.CommonConfig;
+import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
-
 import net.yeoxuhang.geode_plus.GeodePlus;
-import fuzs.geodecraft.common.config.CommonConfig;
-import fuzs.geodecraft.common.init.BlockRegistry;
 
 import java.util.Collections;
 import java.util.List;
@@ -39,16 +39,22 @@ public class BuddingGlowstoneBlock extends AmethystBlock {
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
                 block = BlockRegistry.SMALL_GLOWSTONE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.SMALL_GLOWSTONE_BUD.value()) && blockstate.getValue(GlowstoneClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.SMALL_GLOWSTONE_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_GLOWSTONE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value()) && blockstate.getValue(GlowstoneClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_GLOWSTONE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.LARGE_GLOWSTONE_BUD.value()) && blockstate.getValue(GlowstoneClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.LARGE_GLOWSTONE_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.GLOWSTONE_CLUSTER.value();
             }
 
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(GlowstoneClusterBlock.FACING, direction).setValue(GlowstoneClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState()
+                        .setValue(AmethystClusterBlock.FACING, direction)
+                        .setValue(AmethystClusterBlock.WATERLOGGED,
+                                Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
 
@@ -56,7 +62,8 @@ public class BuddingGlowstoneBlock extends AmethystBlock {
     }
 
     public static boolean canClusterGrowAtState(BlockState p_152735_) {
-        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER) && p_152735_.getFluidState().getAmount() == 8;
+        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER)
+                && p_152735_.getFluidState().getAmount() == 8;
     }
 
     @Override
@@ -65,13 +72,16 @@ public class BuddingGlowstoneBlock extends AmethystBlock {
         ItemStack nether = new ItemStack(BlockRegistry.BUDDING_GLOWSTONE.value());
         ItemStack basalt = new ItemStack(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value());
         ItemStack blackstone = new ItemStack(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_GLOWSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(
+                BlockRegistry.BUDDING_GLOWSTONE.value())) {
             return Collections.singletonList(nether);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(
+                BlockRegistry.BUDDING_BASALT_GLOWSTONE.value())) {
             return Collections.singletonList(basalt);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(
+                BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value())) {
             return Collections.singletonList(blackstone);
         }
         return super.getDrops(blockState, builder);

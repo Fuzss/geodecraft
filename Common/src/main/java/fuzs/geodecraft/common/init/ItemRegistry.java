@@ -5,6 +5,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SmithingTemplateItem;
 
 public class ItemRegistry {
+    // TODO make these be found in dungeons in the biome rather than dropping from clusters randomly
     public static final Holder.Reference<Item> WRAP_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRY.registerItem(
             "wrap_armor_trim_smithing_template",
             () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.WRAP));

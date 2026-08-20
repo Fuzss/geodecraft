@@ -1,5 +1,7 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import fuzs.geodecraft.common.config.CommonConfig;
+import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -10,18 +12,16 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.Vec3;
-
 import net.yeoxuhang.geode_plus.GeodePlus;
-import fuzs.geodecraft.common.config.CommonConfig;
-import fuzs.geodecraft.common.init.BlockRegistry;
-
 import org.jetbrains.annotations.Nullable;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -47,40 +47,48 @@ public class BuddingPinkTopazBlock extends AmethystBlock {
                 block = BlockRegistry.SMALL_PINK_TOPAZ_BUD.value();
                 applyLuckAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 5);
 
-            } else if (blockstate.is(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value()) && blockstate.getValue(PinkTopazCrystalBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value();
                 applyLuckAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 10);
 
-            } else if (blockstate.is(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value()) && blockstate.getValue(PinkTopazCrystalBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_PINK_TOPAZ_BUD.value();
                 applyLuckAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 15);
 
-            } else if (blockstate.is(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value()) && blockstate.getValue(PinkTopazCrystalBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.PINK_TOPAZ_CRYSTAL.value();
                 applyLuckAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 20);
 
             }
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(PinkTopazCrystalBlock.FACING, direction).setValue(PinkTopazCrystalBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState()
+                        .setValue(AmethystClusterBlock.FACING, direction)
+                        .setValue(AmethystClusterBlock.WATERLOGGED,
+                                Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
 
         }
     }
+
     public static void applyLuckAround(ServerLevel serverLevel, Vec3 vec3, @Nullable Entity entity, int i) {
         MobEffectInstance mobEffectInstance = new MobEffectInstance(MobEffects.LUCK, 260, 0, false, false);
-        MobEffectUtil.addEffectToPlayersAround(serverLevel, entity, vec3, (double)i, mobEffectInstance, 200);
+        MobEffectUtil.addEffectToPlayersAround(serverLevel, entity, vec3, (double) i, mobEffectInstance, 200);
     }
 
     public static boolean canClusterGrowAtState(BlockState p_152735_) {
-        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER) && p_152735_.getFluidState().getAmount() == 8;
+        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER)
+                && p_152735_.getFluidState().getAmount() == 8;
     }
 
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
         ItemStack budding = new ItemStack(BlockRegistry.BUDDING_PINK_TOPAZ.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch) {
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);

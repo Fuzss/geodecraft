@@ -1,5 +1,6 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -29,10 +30,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yeoxuhang.geode_plus.GeodePlus;
-import fuzs.geodecraft.common.init.BlockRegistry;
-
 import org.jetbrains.annotations.Nullable;
 
+// TODO refactor this to extend AmethystClusterBlock, also should detect collision similar to cactus, simply stepping on it is not enough for the shape. Check the light level when active, probably not implemented correctly.
 public class RedstoneOresClusterBlock extends RedStoneOreBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final DirectionProperty FACING = BlockStateProperties.FACING;
@@ -47,7 +47,10 @@ public class RedstoneOresClusterBlock extends RedStoneOreBlock implements Simple
     public RedstoneOresClusterBlock(int box, int i, Properties properties) {
         super(properties);
         properties.pushReaction(PushReaction.DESTROY);
-        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)).setValue(LIT, false).setValue(FACING, Direction.UP));
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(WATERLOGGED, Boolean.valueOf(false))
+                .setValue(LIT, false)
+                .setValue(FACING, Direction.UP));
         this.upAabb = Block.box(i, 0.0D, i, (16 - i), box, (16 - i));
         this.downAabb = Block.box(i, (16 - box), i, (16 - i), 16.0D, (16 - i));
         this.northAabb = Block.box(i, i, (16 - box), (16 - i), (16 - i), 16.0D);
@@ -96,7 +99,10 @@ public class RedstoneOresClusterBlock extends RedStoneOreBlock implements Simple
         }
 
         ItemStack itemStack = player.getItemInHand(interactionHand);
-        return itemStack.getItem() instanceof BlockItem && (new BlockPlaceContext(player, interactionHand, itemStack, blockHitResult)).canPlace() ? InteractionResult.PASS : InteractionResult.SUCCESS;
+        return itemStack.getItem() instanceof BlockItem && (new BlockPlaceContext(player,
+                interactionHand,
+                itemStack,
+                blockHitResult)).canPlace() ? InteractionResult.PASS : InteractionResult.SUCCESS;
     }
 
     private static void interact(BlockState blockState, Level level, BlockPos blockPos) {
@@ -138,7 +144,13 @@ public class RedstoneOresClusterBlock extends RedStoneOreBlock implements Simple
                 double e = axis == Direction.Axis.X ? 0.5 + 0.5625 * direction.getStepX() : randomSource.nextFloat();
                 double f = axis == Direction.Axis.Y ? 0.5 + 0.5625 * direction.getStepY() : randomSource.nextFloat();
                 double g = axis == Direction.Axis.Z ? 0.5 + 0.5625 * direction.getStepZ() : randomSource.nextFloat();
-                level.addParticle(DustParticleOptions.REDSTONE, blockPos.getX() + e, blockPos.getY() + f, blockPos.getZ() + g, 0.0, 0.0, 0.0);
+                level.addParticle(DustParticleOptions.REDSTONE,
+                        blockPos.getX() + e,
+                        blockPos.getY() + f,
+                        blockPos.getZ() + g,
+                        0.0,
+                        0.0,
+                        0.0);
             }
         }
 
@@ -151,19 +163,23 @@ public class RedstoneOresClusterBlock extends RedStoneOreBlock implements Simple
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.SMALL_REDSTONE_BUD.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.SMALL_REDSTONE_BUD.value())) {
             int i = 1;
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.MEDIUM_REDSTONE_BUD.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.MEDIUM_REDSTONE_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(2);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.LARGE_REDSTONE_BUD.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.LARGE_REDSTONE_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.REDSTONE_CRYSTAL.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.REDSTONE_CRYSTAL.value())) {
             int i = 1 + serverLevel.random.nextInt(10);
             this.popExperience(serverLevel, blockPos, i);
         }
@@ -180,14 +196,18 @@ public class RedstoneOresClusterBlock extends RedStoneOreBlock implements Simple
             p_152039_.scheduleTick(p_152040_, Fluids.WATER, Fluids.WATER.getTickDelay(p_152039_));
         }
 
-        return p_152037_ == p_152036_.getValue(FACING).getOpposite() && !p_152036_.canSurvive(p_152039_, p_152040_) ? Blocks.AIR.defaultBlockState() : super.updateShape(p_152036_, p_152037_, p_152038_, p_152039_, p_152040_, p_152041_);
+        return p_152037_ == p_152036_.getValue(FACING).getOpposite() && !p_152036_.canSurvive(p_152039_, p_152040_) ?
+                Blocks.AIR.defaultBlockState() :
+                super.updateShape(p_152036_, p_152037_, p_152038_, p_152039_, p_152040_, p_152041_);
     }
 
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext p_152019_) {
         LevelAccessor levelaccessor = p_152019_.getLevel();
         BlockPos blockpos = p_152019_.getClickedPos();
-        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER)).setValue(FACING, p_152019_.getClickedFace());
+        return this.defaultBlockState()
+                .setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER))
+                .setValue(FACING, p_152019_.getClickedFace());
     }
 
     public BlockState rotate(BlockState p_152033_, Rotation p_152034_) {

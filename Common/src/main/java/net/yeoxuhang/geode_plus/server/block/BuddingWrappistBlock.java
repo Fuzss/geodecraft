@@ -1,18 +1,19 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import fuzs.geodecraft.common.config.CommonConfig;
+import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.yeoxuhang.geode_plus.GeodePlus;
-import fuzs.geodecraft.common.config.CommonConfig;
-import fuzs.geodecraft.common.init.BlockRegistry;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,6 +25,7 @@ public class BuddingWrappistBlock extends AmethystBlock {
     public BuddingWrappistBlock(Properties properties) {
         super(properties);
     }
+
     public void randomTick(BlockState p_220898_, ServerLevel p_220899_, BlockPos p_220900_, RandomSource p_220901_) {
         if (p_220901_.nextInt(30) == 0) {
             Direction direction = DIRECTIONS[p_220901_.nextInt(DIRECTIONS.length)];
@@ -32,16 +34,22 @@ public class BuddingWrappistBlock extends AmethystBlock {
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
                 block = BlockRegistry.SMALL_WRAPPIST_BUD.value();
-            } else if (blockstate.is(BlockRegistry.SMALL_WRAPPIST_BUD.value()) && blockstate.getValue(WrappistClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.SMALL_WRAPPIST_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_WRAPPIST_BUD.value();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_WRAPPIST_BUD.value()) && blockstate.getValue(WrappistClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.MEDIUM_WRAPPIST_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_WRAPPIST_BUD.value();
-            } else if (blockstate.is(BlockRegistry.LARGE_WRAPPIST_BUD.value()) && blockstate.getValue(WrappistClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.LARGE_WRAPPIST_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.WRAPPIST_CLUSTER.value();
             }
 
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(WrappistClusterBlock.FACING, direction).setValue(WrappistClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState()
+                        .setValue(AmethystClusterBlock.FACING, direction)
+                        .setValue(AmethystClusterBlock.WATERLOGGED,
+                                Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
 
@@ -49,14 +57,15 @@ public class BuddingWrappistBlock extends AmethystBlock {
     }
 
     public static boolean canClusterGrowAtState(BlockState blockState) {
-        return blockState.isAir() || blockState.is(net.minecraft.world.level.block.Blocks.WATER) && blockState.getFluidState().getAmount() == 8;
+        return blockState.isAir() || blockState.is(net.minecraft.world.level.block.Blocks.WATER)
+                && blockState.getFluidState().getAmount() == 8;
     }
 
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
         ItemStack budding = new ItemStack(BlockRegistry.BUDDING_WRAPPIST.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch) {
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);

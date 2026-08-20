@@ -1,19 +1,20 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import fuzs.geodecraft.common.config.CommonConfig;
+import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.yeoxuhang.geode_plus.GeodePlus;
-import fuzs.geodecraft.common.config.CommonConfig;
-import fuzs.geodecraft.common.init.BlockRegistry;
 
 import java.util.Collections;
 import java.util.List;
@@ -39,28 +40,28 @@ public class BuddingAncientDebrisBlock extends AmethystBlock {
             if (canClusterGrowAtState(blockstate)) {
                 block = BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value();
             } else if (blockstate.is(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value())
-                    && blockstate.getValue(AncientDebrisClusterBlock.FACING) == direction) {
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value();
             } else if (blockstate.is(BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value())
-                    && blockstate.getValue(AncientDebrisClusterBlock.FACING) == direction) {
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value();
             } else if (blockstate.is(BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value())
-                    && blockstate.getValue(AncientDebrisClusterBlock.FACING) == direction) {
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value();
             }
             if (block != null) {
                 BlockState blockstate1 = block.defaultBlockState()
-                        .setValue(AncientDebrisClusterBlock.FACING, direction)
-                        .setValue(AncientDebrisClusterBlock.WATERLOGGED,
+                        .setValue(AmethystClusterBlock.FACING, direction)
+                        .setValue(AmethystClusterBlock.WATERLOGGED,
                                 Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
-
         }
     }
 
     public static boolean canClusterGrowAtState(BlockState p_152735_) {
-        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER) && p_152735_.getFluidState().getAmount() == 8;
+        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER)
+                && p_152735_.getFluidState().getAmount() == 8;
     }
 
     @Override

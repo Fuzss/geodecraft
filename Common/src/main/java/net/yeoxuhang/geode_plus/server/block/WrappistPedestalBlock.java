@@ -1,6 +1,8 @@
 package net.yeoxuhang.geode_plus.server.block;
 
 import com.mojang.serialization.MapCodec;
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.TagRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -26,9 +28,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yeoxuhang.geode_plus.server.block.entity.WrappistPedestalBlockEntity;
-import fuzs.geodecraft.common.init.BlockRegistry;
-import fuzs.geodecraft.common.init.TagRegistry;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
@@ -39,6 +38,7 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
             .filter((p_207914_) -> Math.abs(p_207914_.getX()) == 2 || Math.abs(p_207914_.getZ()) == 2)
             .map(BlockPos::immutable)
             .toList();
+    private static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 8, 15);
 
     public WrappistPedestalBlock(Properties properties) {
         super(properties);
@@ -47,13 +47,11 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
 
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
-        return null;
+        throw new UnsupportedOperationException();
     }
 
-    private static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 8, 15);
-
     @Override
-    public @NotNull VoxelShape getShape(@NotNull BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
 
@@ -71,33 +69,31 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof WrappistPedestalBlockEntity wrappistPedestalBlock) {
-            int count = wrappistPedestalBlock.getItem(0).getCount();
+        if (level.getBlockEntity(pos) instanceof WrappistPedestalBlockEntity blockEntity) {
+            int count = blockEntity.getItem(0).getCount();
             if ((!player.isShiftKeyDown() && heldItem.getItem() != this.asItem())) {
                 ItemStack stack = heldItem.copy();
                 stack.setCount(1);
-                if (wrappistPedestalBlock.getItem(0).isEmpty()) {
-                    wrappistPedestalBlock.setItem(0, stack);
+                if (blockEntity.getItem(0).isEmpty()) {
+                    blockEntity.setItem(0, stack);
                     if (!player.isCreative()) {
                         heldItem.shrink(1);
                     }
                     return ItemInteractionResult.SUCCESS;
-                } else if (wrappistPedestalBlock.getItem(0).is(stack.getItem())
-                        && wrappistPedestalBlock.getItem(0).getMaxStackSize()
-                        >= wrappistPedestalBlock.getItem(0).getCount() + stack.getCount()) {
-                    wrappistPedestalBlock.getItem(0).grow(1);
+                } else if (blockEntity.getItem(0).is(stack.getItem()) && blockEntity.getItem(0).getMaxStackSize()
+                        >= blockEntity.getItem(0).getCount() + stack.getCount()) {
+                    blockEntity.getItem(0).grow(1);
                     if (!player.isCreative()) {
                         heldItem.shrink(1);
                     }
                     return ItemInteractionResult.SUCCESS;
-                } else if (wrappistPedestalBlock.getItem(0).is(Items.GOLDEN_APPLE)
-                        && !wrappistPedestalBlock.isEmpty()) {
+                } else if (blockEntity.getItem(0).is(Items.GOLDEN_APPLE) && !blockEntity.isEmpty()) {
                     for (BlockPos $$4 : Wrappist_OFFSETS) {
                         if (isValidWrappistBlock(level, pos, $$4)) {
                             if (player.isCreative()) {
                                 ItemStack stack1 = Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance();
                                 stack1.setCount(count);
-                                wrappistPedestalBlock.setItem(0, stack1);
+                                blockEntity.setItem(0, stack1);
                                 level.playSound(null,
                                         pos,
                                         SoundEvents.ENCHANTMENT_TABLE_USE,
@@ -105,13 +101,13 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
                                         1.0F,
                                         level.random.nextFloat() * 0.1F + 0.9F);
                                 player.addItem(stack1);
-                                wrappistPedestalBlock.setItem(0, ItemStack.EMPTY);
+                                blockEntity.setItem(0, ItemStack.EMPTY);
                                 return ItemInteractionResult.SUCCESS;
                             } else if (!player.isCreative() && player.experienceLevel >= 30) {
                                 player.giveExperienceLevels(-30);
                                 ItemStack stack1 = Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance();
                                 stack1.setCount(count);
-                                wrappistPedestalBlock.setItem(0, stack1);
+                                blockEntity.setItem(0, stack1);
                                 level.playSound(null,
                                         pos,
                                         SoundEvents.ENCHANTMENT_TABLE_USE,
@@ -119,13 +115,13 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
                                         1.0F,
                                         level.random.nextFloat() * 0.1F + 0.9F);
                                 player.addItem(stack1);
-                                wrappistPedestalBlock.setItem(0, ItemStack.EMPTY);
+                                blockEntity.setItem(0, ItemStack.EMPTY);
                                 return ItemInteractionResult.SUCCESS;
                             } else if (!player.isCreative() && player.experienceLevel < 30) {
                                 player.displayClientMessage(Component.translatable(
                                         "wrappist_pedestal.geode_plus.not_enought_xp"), true);
-                                player.addItem(wrappistPedestalBlock.getItem(0).copy());
-                                wrappistPedestalBlock.setItem(0, ItemStack.EMPTY);
+                                player.addItem(blockEntity.getItem(0).copy());
+                                blockEntity.setItem(0, ItemStack.EMPTY);
                                 level.playSound(null,
                                         pos,
                                         SoundEvents.BEACON_DEACTIVATE,
@@ -139,8 +135,8 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
                     return ItemInteractionResult.SUCCESS;
                 }
             } else {
-                player.addItem(wrappistPedestalBlock.getItem(0).copy());
-                wrappistPedestalBlock.setItem(0, ItemStack.EMPTY);
+                player.addItem(blockEntity.getItem(0).copy());
+                blockEntity.setItem(0, ItemStack.EMPTY);
                 return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
             }
         }

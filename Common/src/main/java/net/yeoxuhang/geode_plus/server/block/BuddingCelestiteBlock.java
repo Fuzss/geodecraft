@@ -1,19 +1,20 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import fuzs.geodecraft.common.config.CommonConfig;
+import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.yeoxuhang.geode_plus.GeodePlus;
-import fuzs.geodecraft.common.config.CommonConfig;
-import fuzs.geodecraft.common.init.BlockRegistry;
 
 import java.util.Collections;
 import java.util.List;
@@ -38,15 +39,21 @@ public class BuddingCelestiteBlock extends AmethystBlock {
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
                 block = BlockRegistry.SMALL_CELESTITE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.SMALL_CELESTITE_BUD.value()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.SMALL_CELESTITE_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_CELESTITE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_CELESTITE_BUD.value()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.MEDIUM_CELESTITE_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_CELESTITE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.LARGE_CELESTITE_BUD.value()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.LARGE_CELESTITE_BUD.value())
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.CELESTITE_CLUSTER.value();
             }
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(CelestiteClusterBlock.FACING, direction).setValue(CelestiteClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState()
+                        .setValue(AmethystClusterBlock.FACING, direction)
+                        .setValue(AmethystClusterBlock.WATERLOGGED,
+                                Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
 
@@ -55,14 +62,15 @@ public class BuddingCelestiteBlock extends AmethystBlock {
 
 
     public static boolean canClusterGrowAtState(BlockState p_152735_) {
-        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER) && p_152735_.getFluidState().getAmount() == 8;
+        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER)
+                && p_152735_.getFluidState().getAmount() == 8;
     }
 
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
         ItemStack budding = new ItemStack(BlockRegistry.BUDDING_CELESTITE.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch) {
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);
