@@ -1,13 +1,14 @@
 package net.yeoxuhang.geode_plus.server.registry;
 
 import net.minecraft.Util;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ArmorMaterials;
+import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.armortrim.TrimMaterial;
 import net.minecraft.world.item.armortrim.TrimPattern;
@@ -42,7 +43,7 @@ public class TrimMaterialsAndPatternsRegistry {
         createMaterial(context, resourceKey, item, style, f, Map.of());
     }
 
-    private static void createMaterial(BootstrapContext<TrimMaterial> context, ResourceKey<TrimMaterial> resourceKey, Item item, Style style, float f, Map<ArmorMaterials, String> map) {
+    private static void createMaterial(BootstrapContext<TrimMaterial> context, ResourceKey<TrimMaterial> resourceKey, Item item, Style style, float f, Map<Holder<ArmorMaterial>, String> map) {
         TrimMaterial trimMaterial = TrimMaterial.create(resourceKey.location().getPath(),
                 item,
                 f,
@@ -55,7 +56,8 @@ public class TrimMaterialsAndPatternsRegistry {
     private static void createPattern(BootstrapContext<TrimPattern> context, Item item, ResourceKey<TrimPattern> resourceKey) {
         TrimPattern trimPattern = new TrimPattern(resourceKey.location(),
                 BuiltInRegistries.ITEM.wrapAsHolder(item),
-                Component.translatable(Util.makeDescriptionId("trim_pattern", resourceKey.location())));
+                Component.translatable(Util.makeDescriptionId("trim_pattern", resourceKey.location())),
+                false);
         context.register(resourceKey, trimPattern);
     }
 

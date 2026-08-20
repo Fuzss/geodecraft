@@ -2,30 +2,29 @@ package net.yeoxuhang.geode_plus.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import fuzs.puzzleslib.api.client.renderer.v1.model.RootedModel;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.client.renderer.RenderType;
-public class WrappistPedestalBlockEntityModel extends Model {
-	public final ModelPart root;
+public class WrappistPedestalBlockEntityModel extends RootedModel {
 	public final ModelPart wrappist_pedestal;
 	public final ModelPart crystals;
-	public final ModelPart crystal1;
-	public final ModelPart crystal2;
-	public final ModelPart crystal3;
-	public final ModelPart crystal4;
+//	public final ModelPart crystal1;
+//	public final ModelPart crystal2;
+//	public final ModelPart crystal3;
+//	public final ModelPart crystal4;
 
 
 	public WrappistPedestalBlockEntityModel(ModelPart modelPart) {
-		super(RenderType::entityCutoutNoCull);
-		this.root = modelPart;
-		this.wrappist_pedestal = root.getChild("wrappist_pedestal");
+		super(modelPart, RenderType::entityCutoutNoCull);
+		this.wrappist_pedestal = modelPart.getChild("wrappist_pedestal");
 		this.crystals = wrappist_pedestal.getChild("crystals");
-		this.crystal1 = this.crystals.getChild("crystal1");
-		this.crystal2 = this.crystals.getChild("crystal2");
-		this.crystal3 = this.crystals.getChild("crystal3");
-		this.crystal4 = this.crystals.getChild("crystal4");
+//		this.crystal1 = this.crystals.getChild("crystal1");
+//		this.crystal2 = this.crystals.getChild("crystal2");
+//		this.crystal3 = this.crystals.getChild("crystal3");
+//		this.crystal4 = this.crystals.getChild("crystal4");
 	}
 
 	public static LayerDefinition createBodyLayer() {
@@ -59,10 +58,5 @@ public class WrappistPedestalBlockEntityModel extends Model {
 		.texOffs(0, 0).addBox(-7.0F, -14.0F, -7.0F, 0.0F, 6.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 64, 64);
-	}
-
-	@Override
-	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, float f, float g, float h, float k) {
-		wrappist_pedestal.render(poseStack, vertexConsumer, i, j, f, g, h, k);
 	}
 }

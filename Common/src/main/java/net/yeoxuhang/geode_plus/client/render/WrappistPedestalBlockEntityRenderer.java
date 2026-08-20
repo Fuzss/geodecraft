@@ -38,7 +38,7 @@ public class WrappistPedestalBlockEntityRenderer<T extends WrappistPedestalBlock
     }
 
     @Override
-    public void render(T entity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j) {
+    public void render(T entity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int lightCoords, int packedOverlay) {
         Level world = entity.getLevel();
         assert world != null;
         long gameTime = world.getGameTime();
@@ -47,8 +47,8 @@ public class WrappistPedestalBlockEntityRenderer<T extends WrappistPedestalBlock
         float tick = gameTime / 10.0F;
         poseStack.mulPose(Axis.XP.rotationDegrees(-180.0F));
         if (xmasTextures) {
-            wrappistPedestal.renderToBuffer(poseStack, multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(XMAS)), i, j, 1.0F, 1.0F, 1.0F, 1.0F);
-        } else wrappistPedestal.renderToBuffer(poseStack, multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)), i, j, 1.0F, 1.0F, 1.0F, 1.0F);
+            wrappistPedestal.renderToBuffer(poseStack, multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(XMAS)), lightCoords, packedOverlay);
+        } else wrappistPedestal.renderToBuffer(poseStack, multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)), lightCoords, packedOverlay);
         wrappistPedestal.wrappist_pedestal.setPos(8.0F, -2.0F, -8.0F);
         wrappistPedestal.crystals.setRotation(0.0F, -crystalTick % 360.0F, 0.0F);
         if (entity.hasLevel() && !entity.isEmpty()) {
@@ -57,7 +57,7 @@ public class WrappistPedestalBlockEntityRenderer<T extends WrappistPedestalBlock
             poseStack.scale(0.35F, 0.35F, 0.35F);
             poseStack.mulPose(Axis.YP.rotationDegrees(tick % 360.0F));
             poseStack.mulPose(Axis.XP.rotationDegrees(-180.0F));
-            this.itemRenderer.renderStatic(entity.getItem(0), ItemDisplayContext.FIXED, i, OverlayTexture.NO_OVERLAY, poseStack, multiBufferSource, entity.getLevel(), j);
+            this.itemRenderer.renderStatic(entity.getItem(0), ItemDisplayContext.FIXED, lightCoords, OverlayTexture.NO_OVERLAY, poseStack, multiBufferSource, entity.getLevel(), packedOverlay);
             poseStack.popPose();
         }
     }

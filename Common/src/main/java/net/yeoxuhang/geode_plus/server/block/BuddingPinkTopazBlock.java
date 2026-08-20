@@ -9,10 +9,8 @@ import net.minecraft.world.effect.MobEffectUtil;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.AmethystBlock;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
@@ -20,7 +18,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.Vec3;
 
 import net.yeoxuhang.geode_plus.GeodePlus;
-import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
+import net.yeoxuhang.geode_plus.config.ServerConfig;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 import javax.annotation.Nullable;
@@ -75,14 +73,14 @@ public class BuddingPinkTopazBlock extends AmethystBlock {
     }
 
     public static boolean canClusterGrowAtState(BlockState p_152735_) {
-        return p_152735_.isAir() || p_152735_.is(Blocks.WATER) && p_152735_.getFluidState().getAmount() == 8;
+        return p_152735_.isAir() || p_152735_.is(net.minecraft.world.level.block.Blocks.WATER) && p_152735_.getFluidState().getAmount() == 8;
     }
 
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
         ItemStack budding = new ItemStack(BlockRegistry.BUDDING_PINK_TOPAZ.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch){
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);

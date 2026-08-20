@@ -23,18 +23,17 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BlockEntityWithoutLevelRenderer.class)
-public class BlockEntityWithoutLevelRendererMixin {
+abstract class BlockEntityWithoutLevelRendererMixin {
     public WrappistPedestalBlockEntityModel wrappistPedestal;
     @Shadow
-    private final EntityModelSet entityModelSet;
-    @Shadow @Final private BlockEntityRenderDispatcher blockEntityRenderDispatcher;
-
-    public BlockEntityWithoutLevelRendererMixin(EntityModelSet entityModelSet) {
-        this.entityModelSet = entityModelSet;
-    }
+    @Final
+    private EntityModelSet entityModelSet;
+    @Shadow
+    @Final
+    private BlockEntityRenderDispatcher blockEntityRenderDispatcher;
 
     @Inject(method = "renderByItem", at = @At("HEAD"))
-    private void renderByItemFromGeodePlus(ItemStack itemStack, ItemDisplayContext itemDisplayContext, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
+    private void renderByItemFromGeodePlus(ItemStack itemStack, ItemDisplayContext itemDisplayContext, PoseStack poseStack, MultiBufferSource multiBufferSource, int lightCoords, int packedOverlay, CallbackInfo ci) {
         if (itemStack.is(BlockRegistry.WRAPPIST_PEDESTAL.value().asItem())) {
             float worldTick = this.blockEntityRenderDispatcher.level.getGameTime();
             float tick = worldTick / 10.0F;
@@ -42,12 +41,16 @@ public class BlockEntityWithoutLevelRendererMixin {
             poseStack.scale(1.1F, 1.1F, 1.1F);
             poseStack.translate(0.8, 1, 0);
             poseStack.mulPose(Axis.XP.rotationDegrees(-180.0F));
-            VertexConsumer vertexConsumer2 = ItemRenderer.getFoilBufferDirect(multiBufferSource, this.wrappistPedestal.renderType(WrappistPedestalBlockEntityRenderer.TEXTURE), false, itemStack.hasFoil());
-            this.wrappistPedestal.renderToBuffer(poseStack, vertexConsumer2, i, j, 1.0F, 1.0F, 1.0F, 1.0F);
+            VertexConsumer vertexConsumer2 = ItemRenderer.getFoilBufferDirect(multiBufferSource,
+                    this.wrappistPedestal.renderType(WrappistPedestalBlockEntityRenderer.TEXTURE),
+                    false,
+                    itemStack.hasFoil());
+            this.wrappistPedestal.renderToBuffer(poseStack, vertexConsumer2, lightCoords, packedOverlay);
             this.wrappistPedestal.crystals.setRotation(0.0F, tick % 360.0F, 0.0F);
             poseStack.popPose();
         }
     }
+
     @Inject(method = "onResourceManagerReload", at = @At("RETURN"))
     public void onResourceManagerReloadFromGeodePlus(ResourceManager resourceManager, CallbackInfo ci) {
         this.wrappistPedestal = new WrappistPedestalBlockEntityModel(this.entityModelSet.bakeLayer(GeodePlusClient.WRAPPIST_PEDESTAL));
