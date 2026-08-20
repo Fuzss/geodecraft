@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-20T17:53:23.002315	Block Loot Tables
+// 1.21.1	2026-08-20T23:52:11.348836	Block Loot Tables
 e780b979be69b34458acf4efe43d91415818796f data/geodecraft/loot_table/blocks/ancient_debris_cluster.json
 ceb75f052940ff0973ae013136334992624a9886 data/geodecraft/loot_table/blocks/ancient_debris_cluster_block.json
 f6a3627212736fdfefc76b527cc1c7d19f2d0644 data/geodecraft/loot_table/blocks/budding_ancient_debris.json
@@ -32,7 +32,7 @@ ea14660e7e524ee857edbd908e19901b81e4d5b1 data/geodecraft/loot_table/blocks/buddi
 febc21a20c52ffc8b3e317984e4d8d6b35eeaef1 data/geodecraft/loot_table/blocks/budding_wrappist.json
 cf7c894e269f15146c19b28946a0d2b0fee1f494 data/geodecraft/loot_table/blocks/celestite_block.json
 767c548c8e090b265d28810704eba03620df4a12 data/geodecraft/loot_table/blocks/celestite_cluster.json
-4abfce2a371f5eaae1f917e258dd5bb655abe809 data/geodecraft/loot_table/blocks/celestite_glass.json
+f1f2c9f680f52064151a8969f96d27c87ff6c789 data/geodecraft/loot_table/blocks/celestite_glass.json
 2d81ceffea60546bd96014539fd2a5c78f982616 data/geodecraft/loot_table/blocks/diamond_crystal.json
 8a7f246a33156abdc5676ed196c08cd22cb9ee45 data/geodecraft/loot_table/blocks/diamond_crystal_block.json
 fd30a25bb2b4b4494415dd5a61096b62dfc28c41 data/geodecraft/loot_table/blocks/echo_crystal.json
@@ -79,7 +79,7 @@ bebd309e9b9940ccc4eca7e19aae6b395058167c data/geodecraft/loot_table/blocks/nethe
 6ba416e46ee6ded2a8889a94ed11ba66bdee2af2 data/geodecraft/loot_table/blocks/nether_quartz_crystal_block.json
 d4637ff90f85501e0d8b1a4d2c19c7e44af3e32a data/geodecraft/loot_table/blocks/pink_topaz_block.json
 25b8bbfca68f37866f294c23f9050c90519104f0 data/geodecraft/loot_table/blocks/pink_topaz_crystal.json
-f37b53e1b72fc55e1ff2b4da0dce566e087ac8af data/geodecraft/loot_table/blocks/pink_topaz_glass.json
+51d49b2f371b5a218cd6811075524abaf246bf79 data/geodecraft/loot_table/blocks/pink_topaz_glass.json
 cbfaf7b95c3c3f43de8499fcc738f1fefcb9d3f6 data/geodecraft/loot_table/blocks/prismarine_cluster.json
 f0e3871253697f1860421103b726739cd6172193 data/geodecraft/loot_table/blocks/prismarine_cluster_block.json
 11ff40cf4e97b0ccfed4084f93403e43ce820b16 data/geodecraft/loot_table/blocks/redstone_crystal.json
@@ -102,6 +102,6 @@ c18838479c3acf4f207ec55bf83d894e6dad788f data/geodecraft/loot_table/blocks/smoot
 18d79657ec5a6ec84dd7879948761380e4573944 data/geodecraft/loot_table/blocks/smooth_end_stone_stairs.json
 15c223ccf407dda6e1306fceacaafcdfac880550 data/geodecraft/loot_table/blocks/smooth_end_stone_wall.json
 5657e6f0e39ca395bb550bd718bdf864b2b403aa data/geodecraft/loot_table/blocks/wrappist_block.json
-edb1d3908b2652bcd62b38e9a79424792b38adb6 data/geodecraft/loot_table/blocks/wrappist_cluster.json
-dabd625ba50e4c794a71887e35fbe2b74ef83d0d data/geodecraft/loot_table/blocks/wrappist_glass.json
+11625c5cbf2aea1659f5e877eb573b1c2823ff8d data/geodecraft/loot_table/blocks/wrappist_cluster.json
+df39678d383adac98b6dcea6220cf076e49e2736 data/geodecraft/loot_table/blocks/wrappist_glass.json
 25b9a1aff5e42aa29c21c50097bc11ab0912bc34 data/geodecraft/loot_table/blocks/wrappist_pedestal.json
