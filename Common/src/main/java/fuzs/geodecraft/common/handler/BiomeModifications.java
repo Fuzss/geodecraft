@@ -1,21 +1,21 @@
-package net.yeoxuhang.geode_plus;
+package fuzs.geodecraft.common.handler;
 
+import fuzs.geodecraft.common.Geodecraft;
+import fuzs.geodecraft.common.config.CommonConfig;
 import fuzs.puzzleslib.api.biome.v1.BiomeLoadingContext;
 import fuzs.puzzleslib.api.biome.v1.BiomeLoadingPhase;
 import fuzs.puzzleslib.api.biome.v1.BiomeModificationContext;
 import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.yeoxuhang.geode_plus.config.ServerConfig;
 import net.yeoxuhang.geode_plus.server.registry.PlacedFeatureRegistry;
 import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
 
-public class FabricBiomeModifier {
+public class BiomeModifications {
 
     public static void init(BiomeModificationsContext registrar) {
-        if (ServerConfig.WorldGeneration.shouldGeneratePrismarineGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).prismarineGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PRISMARINE_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PRISMARINE_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -23,10 +23,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateCelestiteGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).celestiteGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_CELESTITE_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_CELESTITE_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -34,10 +33,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGeneratePinkTopazGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).pinkTopazGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PINK_TOPAZ_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PINK_TOPAZ_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -45,10 +43,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateDiamondGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).diamondGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_DIAMOND_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_DIAMOND_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -56,8 +53,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_DIAMOND_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_DIAMOND_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -65,8 +61,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -74,10 +69,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateEmeraldGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).emeraldGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_EMERALD_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_EMERALD_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -85,8 +79,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_EMERALD_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_EMERALD_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -94,8 +87,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -103,10 +95,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateLapisGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).lapisGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -114,8 +105,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -123,8 +113,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -132,10 +121,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateRedstoneGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).redstoneGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_REDSTONE_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_REDSTONE_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -143,8 +131,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_REDSTONE_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_REDSTONE_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -152,8 +139,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -161,10 +147,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateEchoGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).echoGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -172,10 +157,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateNetherDebrisGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).ancientDebrisGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_ANCIENT_DEBRIS_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_ANCIENT_DEBRIS_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -183,8 +167,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_ANCIENT_DEBRIS_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_ANCIENT_DEBRIS_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -192,8 +175,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_ANCIENT_DEBRIS_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_ANCIENT_DEBRIS_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -201,10 +183,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateNetherGlowstoneGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).glowstoneGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_GLOWSTONE_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_GLOWSTONE_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -212,8 +193,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_GLOWSTONE_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_GLOWSTONE_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -221,8 +201,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_GLOWSTONE_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_GLOWSTONE_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -230,10 +209,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateNetherGoldNuggetGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).goldGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_GOLD_NUGGET_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_GOLD_NUGGET_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -241,8 +219,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_GOLD_NUGGET_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_GOLD_NUGGET_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -250,8 +227,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_GOLD_NUGGET_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_GOLD_NUGGET_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -259,10 +235,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateNetherQuartzGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).netherQuartzGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_QUARTZ_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_QUARTZ_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -270,8 +245,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_QUARTZ_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_QUARTZ_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -279,8 +253,7 @@ public class FabricBiomeModifier {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_QUARTZ_GEODE)
-                            && !context.is(TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_QUARTZ_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -288,10 +261,9 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateWrappistGeodes) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).wrappistGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_WRAPPIST_GEODE) && !context.is(
-                            TagRegistry.Biomes.BLACKLIST_BIOMES),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_WRAPPIST_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -299,7 +271,7 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGeneratePrismarineCrystal) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).prismarineCrystals) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
                     (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PRISMARINE_CRYSTAL),
                     (BiomeModificationContext context) -> {
@@ -309,7 +281,7 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateEchoCrystal) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).echoShardCrystals) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
                     (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_CRYSTAL),
                     (BiomeModificationContext context) -> {
@@ -327,7 +299,7 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateQuartzCrystal) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).netherQuartzCrystals) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
                     (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_QUARTZ_CRYSTAL),
                     (BiomeModificationContext context) -> {
@@ -345,7 +317,7 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateGlowstoneCrystal) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).glowstoneCrystals) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
                     (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_GLOWSTONE_CRYSTAL),
                     (BiomeModificationContext context) -> {
@@ -363,7 +335,7 @@ public class FabricBiomeModifier {
                     });
         }
 
-        if (ServerConfig.WorldGeneration.shouldGenerateWrappistCrystal) {
+        if (Geodecraft.CONFIG.get(CommonConfig.class).wrappistCrystals) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
                     (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_WRAPPIST_CRYSTAL),
                     (BiomeModificationContext context) -> {

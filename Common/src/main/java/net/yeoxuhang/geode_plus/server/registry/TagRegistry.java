@@ -2,7 +2,6 @@ package net.yeoxuhang.geode_plus.server.registry;
 
 import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.yeoxuhang.geode_plus.GeodePlus;
@@ -11,7 +10,6 @@ public class TagRegistry {
     static final TagFactory TAGS = TagFactory.make(GeodePlus.MOD_ID);
 
     public static class Biomes {
-        public static final TagKey<Biome> BLACKLIST_BIOMES = biomeTag("blacklist_biomes");
         //Geodes
         public static final TagKey<Biome> HAS_PRISMARINE_GEODE = biomeTag("has_prismarine_geode");
         public static final TagKey<Biome> HAS_LAPIS_GEODE = biomeTag("has_lapis_geode");
@@ -70,15 +68,8 @@ public class TagRegistry {
 
         public static final TagKey<Block> GEODES_CANNOT_REPLACE = blockTag("geodes_cannot_replace");
 
-
         private static TagKey<Block> blockTag(String name) {
             return TAGS.registerBlockTag(name);
-        }
-    }
-
-    public static class Items {
-        private static TagKey<Item> itemTag(String name) {
-            return TAGS.registerItemTag(name);
         }
     }
 }

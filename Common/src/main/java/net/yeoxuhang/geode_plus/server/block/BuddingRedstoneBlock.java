@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.yeoxuhang.geode_plus.GeodePlus;
-import net.yeoxuhang.geode_plus.config.ServerConfig;
+import fuzs.geodecraft.common.config.CommonConfig;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 import java.util.Collections;
@@ -68,13 +68,13 @@ public class BuddingRedstoneBlock extends RedStoneOreBlock {
         ItemStack stone = new ItemStack(BlockRegistry.BUDDING_REDSTONE.value());
         ItemStack deepslate = new ItemStack(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value());
         ItemStack sculk = new ItemStack(BlockRegistry.BUDDING_SCULK_REDSTONE.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_REDSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_REDSTONE.value())){
             return Collections.singletonList(stone);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value())){
             return Collections.singletonList(deepslate);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_REDSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_REDSTONE.value())){
             return Collections.singletonList(sculk);
         }
         return super.getDrops(blockState, builder);

@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 
 import net.yeoxuhang.geode_plus.GeodePlus;
-import net.yeoxuhang.geode_plus.config.ServerConfig;
+import fuzs.geodecraft.common.config.CommonConfig;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 import java.util.Collections;
@@ -73,13 +73,13 @@ public class BuddingLapisBlock extends AmethystBlock {
         ItemStack stone = new ItemStack(BlockRegistry.BUDDING_LAPIS.value());
         ItemStack sculk = new ItemStack(BlockRegistry.BUDDING_SCULK_LAPIS.value());
         ItemStack deepslate = new ItemStack(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_LAPIS.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_LAPIS.value())){
             return Collections.singletonList(stone);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_LAPIS.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_LAPIS.value())){
             return Collections.singletonList(sculk);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value())){
             return Collections.singletonList(deepslate);
         }
         return super.getDrops(blockState, builder);

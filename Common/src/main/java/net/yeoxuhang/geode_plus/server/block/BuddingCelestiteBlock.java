@@ -12,7 +12,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.yeoxuhang.geode_plus.GeodePlus;
-import net.yeoxuhang.geode_plus.config.ServerConfig;
+import fuzs.geodecraft.common.config.CommonConfig;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 import java.util.Collections;
@@ -62,7 +62,7 @@ public class BuddingCelestiteBlock extends AmethystBlock {
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
         ItemStack budding = new ItemStack(BlockRegistry.BUDDING_CELESTITE.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch){
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);

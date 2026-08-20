@@ -13,7 +13,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 
 import net.yeoxuhang.geode_plus.GeodePlus;
-import net.yeoxuhang.geode_plus.config.ServerConfig;
+import fuzs.geodecraft.common.config.CommonConfig;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 import java.util.Collections;
@@ -65,13 +65,13 @@ public class BuddingGlowstoneBlock extends AmethystBlock {
         ItemStack nether = new ItemStack(BlockRegistry.BUDDING_GLOWSTONE.value());
         ItemStack basalt = new ItemStack(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value());
         ItemStack blackstone = new ItemStack(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value());
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_GLOWSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_GLOWSTONE.value())){
             return Collections.singletonList(nether);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value())){
             return Collections.singletonList(basalt);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && CommonConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value())){
             return Collections.singletonList(blackstone);
         }
         return super.getDrops(blockState, builder);
