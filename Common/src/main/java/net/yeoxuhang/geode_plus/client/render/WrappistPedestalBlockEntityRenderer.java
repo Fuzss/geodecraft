@@ -6,7 +6,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
@@ -20,45 +19,53 @@ import net.yeoxuhang.geode_plus.server.block.entity.WrappistPedestalBlockEntity;
 import java.util.Calendar;
 
 public class WrappistPedestalBlockEntityRenderer<T extends WrappistPedestalBlockEntity> implements BlockEntityRenderer<T> {
-    public static final ResourceLocation TEXTURE = GeodePlus.id("textures/entity/wrappist_pedestal/default.png");
-    public static final ResourceLocation XMAS = GeodePlus.id("textures/entity/wrappist_pedestal/christmas.png");
+    public static final ResourceLocation TEXTURE_LOCATION = GeodePlus.id("textures/entity/wrappist_pedestal/default.png");
+    public static final ResourceLocation XMAS_LOCATION = GeodePlus.id("textures/entity/wrappist_pedestal/christmas.png");
+
     private final ItemRenderer itemRenderer;
-    private final EntityRenderDispatcher entityRenderer;
-    private boolean xmasTextures;
-    private static WrappistPedestalBlockEntityModel wrappistPedestal;
+    private final WrappistPedestalBlockEntityModel model;
+    private final boolean xmasTextures;
 
     public WrappistPedestalBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         this.itemRenderer = context.getItemRenderer();
-        this.entityRenderer = context.getEntityRenderer();
-        wrappistPedestal = new WrappistPedestalBlockEntityModel(context.bakeLayer(GeodePlusClient.WRAPPIST_PEDESTAL));
+        this.model = new WrappistPedestalBlockEntityModel(context.bakeLayer(GeodePlusClient.WRAPPIST_PEDESTAL));
         Calendar calendar = Calendar.getInstance();
-        if (calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26) {
-            this.xmasTextures = true;
-        }
+        this.xmasTextures = calendar.get(2) + 1 == 12 && calendar.get(5) >= 24 && calendar.get(5) <= 26;
     }
 
     @Override
-    public void render(T entity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int lightCoords, int packedOverlay) {
-        Level world = entity.getLevel();
-        assert world != null;
+    public void render(T blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource multiBufferSource, int lightCoords, int packedOverlay) {
+        Level world = blockEntity.getLevel();
         long gameTime = world.getGameTime();
-        float offsetY = (float)Math.sin((float)gameTime / 8.0F) * 0.025F;
+        float offsetY = (float) Math.sin((float) gameTime / 8.0F) * 0.025F;
         float crystalTick = gameTime / 35.0F;
         float tick = gameTime / 10.0F;
         poseStack.mulPose(Axis.XP.rotationDegrees(-180.0F));
-        if (xmasTextures) {
-            wrappistPedestal.renderToBuffer(poseStack, multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(XMAS)), lightCoords, packedOverlay);
-        } else wrappistPedestal.renderToBuffer(poseStack, multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(TEXTURE)), lightCoords, packedOverlay);
-        wrappistPedestal.wrappist_pedestal.setPos(8.0F, -2.0F, -8.0F);
-        wrappistPedestal.crystals.setRotation(0.0F, -crystalTick % 360.0F, 0.0F);
-        if (entity.hasLevel() && !entity.isEmpty()) {
+        this.model.pedestal.setPos(8.0F, -2.0F, -8.0F);
+        this.model.crystals.setRotation(0.0F, -crystalTick % 360.0F, 0.0F);
+        this.model.renderToBuffer(poseStack,
+                multiBufferSource.getBuffer(RenderType.entityCutoutNoCull(this.getTextureLocation())),
+                lightCoords,
+                packedOverlay);
+        if (blockEntity.hasLevel() && !blockEntity.isEmpty()) {
             poseStack.pushPose();
-            poseStack.translate(0.5, (double)offsetY - 1.0, -0.5);
+            poseStack.translate(0.5, (double) offsetY - 1.0, -0.5);
             poseStack.scale(0.35F, 0.35F, 0.35F);
             poseStack.mulPose(Axis.YP.rotationDegrees(tick % 360.0F));
             poseStack.mulPose(Axis.XP.rotationDegrees(-180.0F));
-            this.itemRenderer.renderStatic(entity.getItem(0), ItemDisplayContext.FIXED, lightCoords, OverlayTexture.NO_OVERLAY, poseStack, multiBufferSource, entity.getLevel(), packedOverlay);
+            this.itemRenderer.renderStatic(blockEntity.getItem(0),
+                    ItemDisplayContext.FIXED,
+                    lightCoords,
+                    OverlayTexture.NO_OVERLAY,
+                    poseStack,
+                    multiBufferSource,
+                    blockEntity.getLevel(),
+                    packedOverlay);
             poseStack.popPose();
         }
+    }
+
+    private ResourceLocation getTextureLocation() {
+        return this.xmasTextures ? XMAS_LOCATION : TEXTURE_LOCATION;
     }
 }
