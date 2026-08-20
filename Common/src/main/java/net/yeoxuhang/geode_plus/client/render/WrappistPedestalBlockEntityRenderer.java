@@ -20,13 +20,12 @@ import net.yeoxuhang.geode_plus.server.block.entity.WrappistPedestalBlockEntity;
 import java.util.Calendar;
 
 public class WrappistPedestalBlockEntityRenderer<T extends WrappistPedestalBlockEntity> implements BlockEntityRenderer<T> {
-    public static final ResourceLocation TEXTURE = GeodePlus.createResource("textures/entity/wrappist_pedestal/default.png");
-    public static final ResourceLocation XMAS = GeodePlus.createResource("textures/entity/wrappist_pedestal/christmas.png");
+    public static final ResourceLocation TEXTURE = GeodePlus.id("textures/entity/wrappist_pedestal/default.png");
+    public static final ResourceLocation XMAS = GeodePlus.id("textures/entity/wrappist_pedestal/christmas.png");
     private final ItemRenderer itemRenderer;
     private final EntityRenderDispatcher entityRenderer;
     private boolean xmasTextures;
     private static WrappistPedestalBlockEntityModel wrappistPedestal;
-
 
     public WrappistPedestalBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
         this.itemRenderer = context.getItemRenderer();

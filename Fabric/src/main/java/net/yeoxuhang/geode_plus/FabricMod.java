@@ -16,6 +16,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import net.yeoxuhang.geode_plus.server.registry.ModRegistry;
 
 import java.nio.file.Path;
 import java.util.stream.Stream;
@@ -29,11 +30,8 @@ public class FabricMod implements ModInitializer {
     @Override
     public void onInitialize() {
         setUpConfig(CONFIG);
-        GeodePlus.init();
+        ModRegistry.bootstrap();
         registerCreativeTab();
-        PotionBrewing.addMix(Potions.WATER, ItemRegistry.WRAPPIST_SHARD.get(), Potions.SLOW_FALLING);
-        PotionBrewing.addMix(Potions.WATER, ItemRegistry.CELESTITE_SHARD.get(), Potions.STRONG_HEALING);
-        PotionBrewing.addMix(Potions.WATER, ItemRegistry.PINK_TOPAZ.get(), Potions.LUCK);
         new FabricBiomeModifier().init();
     }
 
@@ -49,7 +47,6 @@ public class FabricMod implements ModInitializer {
                             ItemRegistry.WRAPPIST_SHARD,
                             ItemRegistry.CELESTITE_SHARD,
                             ItemRegistry.PINK_TOPAZ,
-                            //GeodePlusItemsRegistry.WRAPPIST_GOAT_HORN,
                             BlockRegistry.WRAPPIST_GLASS,
                             BlockRegistry.CELESTITE_GLASS,
                             BlockRegistry.PINK_TOPAZ_GLASS,

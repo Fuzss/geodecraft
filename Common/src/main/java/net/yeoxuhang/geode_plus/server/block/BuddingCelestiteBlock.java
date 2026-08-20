@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
+import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
@@ -38,13 +39,13 @@ public class BuddingCelestiteBlock extends AmethystBlock {
             BlockState blockstate = p_220899_.getBlockState(blockpos);
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
-                block = BlockRegistry.SMALL_CELESTITE_BUD.get();
-            } else if (blockstate.is(BlockRegistry.SMALL_CELESTITE_BUD.get()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
-                block = BlockRegistry.MEDIUM_CELESTITE_BUD.get();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_CELESTITE_BUD.get()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
-                block = BlockRegistry.LARGE_CELESTITE_BUD.get();
-            } else if (blockstate.is(BlockRegistry.LARGE_CELESTITE_BUD.get()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
-                block = BlockRegistry.CELESTITE_CLUSTER.get();
+                block = BlockRegistry.SMALL_CELESTITE_BUD.value();
+            } else if (blockstate.is(BlockRegistry.SMALL_CELESTITE_BUD.value()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
+                block = BlockRegistry.MEDIUM_CELESTITE_BUD.value();
+            } else if (blockstate.is(BlockRegistry.MEDIUM_CELESTITE_BUD.value()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
+                block = BlockRegistry.LARGE_CELESTITE_BUD.value();
+            } else if (blockstate.is(BlockRegistry.LARGE_CELESTITE_BUD.value()) && blockstate.getValue(CelestiteClusterBlock.FACING) == direction) {
+                block = BlockRegistry.CELESTITE_CLUSTER.value();
             }
             if (block != null) {
                 BlockState blockstate1 = block.defaultBlockState().setValue(CelestiteClusterBlock.FACING, direction).setValue(CelestiteClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
@@ -62,8 +63,8 @@ public class BuddingCelestiteBlock extends AmethystBlock {
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
-        ItemStack budding = new ItemStack(BlockRegistry.BUDDING_CELESTITE.get());
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch){
+        ItemStack budding = new ItemStack(BlockRegistry.BUDDING_CELESTITE.value());
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch){
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);

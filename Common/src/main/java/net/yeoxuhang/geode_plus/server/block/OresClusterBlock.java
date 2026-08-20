@@ -20,6 +20,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.yeoxuhang.geode_plus.GeodePlus;
 
 import javax.annotation.Nullable;
 
@@ -66,7 +67,7 @@ public class OresClusterBlock extends AmethystBlock implements SimpleWaterlogged
 
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack)) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)) {
             int i = 10;
             this.popExperience(serverLevel, blockPos, i);
         }

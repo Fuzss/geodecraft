@@ -1,5 +1,6 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -40,6 +41,11 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
         properties.pushReaction(PushReaction.IGNORE);
     }
 
+    @Override
+    protected MapCodec<? extends BaseEntityBlock> codec() {
+        return null;
+    }
+
     private static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 8, 15);
 
     @Override
@@ -48,7 +54,7 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
     }
 
     public boolean mayPlaceOn(BlockState groundState) {
-        return !groundState.is(BlockRegistry.WRAPPIST_PEDESTAL.get()) || !groundState.is(TagRegistry.Blocks.WRAPPIST_PEDESTAL_CANNOT_PLACE_ON);
+        return !groundState.is(BlockRegistry.WRAPPIST_PEDESTAL.value()) || !groundState.is(TagRegistry.Blocks.WRAPPIST_PEDESTAL_CANNOT_PLACE_ON);
     }
 
     @Override
@@ -133,7 +139,7 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
     }
 
     public static boolean isValidWrappistBlock(Level $$0, BlockPos $$1, BlockPos $$2) {
-        return $$0.getBlockState($$1.offset($$2)).is(BlockRegistry.WRAPPIST_BLOCK.get());
+        return $$0.getBlockState($$1.offset($$2)).is(BlockRegistry.WRAPPIST_BLOCK.value());
     }
 
     @Override

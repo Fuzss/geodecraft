@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -20,6 +19,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 import javax.annotation.Nullable;
@@ -37,7 +37,9 @@ public class NetherGoldClusterBlock extends AmethystBlock implements SimpleWater
     public NetherGoldClusterBlock(int box, int i, Properties properties) {
         super(properties);
         properties.pushReaction(PushReaction.DESTROY);
-        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)).setValue(FACING, Direction.UP));
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(WATERLOGGED, Boolean.valueOf(false))
+                .setValue(FACING, Direction.UP));
         this.upAabb = Block.box(i, 0.0D, i, (16 - i), box, (16 - i));
         this.downAabb = Block.box(i, (16 - box), i, (16 - i), 16.0D, (16 - i));
         this.northAabb = Block.box(i, i, (16 - box), (16 - i), (16 - i), 16.0D);
@@ -48,7 +50,7 @@ public class NetherGoldClusterBlock extends AmethystBlock implements SimpleWater
 
     public VoxelShape getShape(BlockState p_152021_, BlockGetter p_152022_, BlockPos p_152023_, CollisionContext p_152024_) {
         Direction direction = p_152021_.getValue(FACING);
-        switch(direction) {
+        switch (direction) {
             case NORTH:
                 return this.northAabb;
             case SOUTH:
@@ -68,19 +70,23 @@ public class NetherGoldClusterBlock extends AmethystBlock implements SimpleWater
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.SMALL_GOLD_NUGGET_BUD.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value())) {
             int i = 1;
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(2);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.LARGE_GOLD_NUGGET_BUD.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.GOLD_NUGGET_CLUSTER.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)
+                && blockState.is(BlockRegistry.GOLD_NUGGET_CLUSTER.value())) {
             int i = 1 + serverLevel.random.nextInt(10);
             this.popExperience(serverLevel, blockPos, i);
         }
@@ -97,14 +103,18 @@ public class NetherGoldClusterBlock extends AmethystBlock implements SimpleWater
             p_152039_.scheduleTick(p_152040_, Fluids.WATER, Fluids.WATER.getTickDelay(p_152039_));
         }
 
-        return p_152037_ == p_152036_.getValue(FACING).getOpposite() && !p_152036_.canSurvive(p_152039_, p_152040_) ? Blocks.AIR.defaultBlockState() : super.updateShape(p_152036_, p_152037_, p_152038_, p_152039_, p_152040_, p_152041_);
+        return p_152037_ == p_152036_.getValue(FACING).getOpposite() && !p_152036_.canSurvive(p_152039_, p_152040_) ?
+                Blocks.AIR.defaultBlockState() :
+                super.updateShape(p_152036_, p_152037_, p_152038_, p_152039_, p_152040_, p_152041_);
     }
 
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext p_152019_) {
         LevelAccessor levelaccessor = p_152019_.getLevel();
         BlockPos blockpos = p_152019_.getClickedPos();
-        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER)).setValue(FACING, p_152019_.getClickedFace());
+        return this.defaultBlockState()
+                .setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER))
+                .setValue(FACING, p_152019_.getClickedFace());
     }
 
     public BlockState rotate(BlockState p_152033_, Rotation p_152034_) {

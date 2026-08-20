@@ -14,6 +14,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 
+import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
@@ -39,13 +40,13 @@ public class BuddingLapisBlock extends AmethystBlock {
             BlockState blockstate = p_220899_.getBlockState(blockpos);
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
-                block = BlockRegistry.SMALL_LAPIS_BUD.get();
-            } else if (blockstate.is(BlockRegistry.SMALL_LAPIS_BUD.get()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
-                block = BlockRegistry.MEDIUM_LAPIS_BUD.get();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_LAPIS_BUD.get()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
-                block = BlockRegistry.LARGE_LAPIS_BUD.get();
-            } else if (blockstate.is(BlockRegistry.LARGE_LAPIS_BUD.get()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
-                block = BlockRegistry.LAPIS_CLUSTER.get();
+                block = BlockRegistry.SMALL_LAPIS_BUD.value();
+            } else if (blockstate.is(BlockRegistry.SMALL_LAPIS_BUD.value()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
+                block = BlockRegistry.MEDIUM_LAPIS_BUD.value();
+            } else if (blockstate.is(BlockRegistry.MEDIUM_LAPIS_BUD.value()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
+                block = BlockRegistry.LARGE_LAPIS_BUD.value();
+            } else if (blockstate.is(BlockRegistry.LARGE_LAPIS_BUD.value()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
+                block = BlockRegistry.LAPIS_CLUSTER.value();
             }
             if (block != null) {
                 BlockState blockstate1 = block.defaultBlockState().setValue(RedstoneOresClusterBlock.FACING, direction).setValue(RedstoneOresClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
@@ -58,7 +59,7 @@ public class BuddingLapisBlock extends AmethystBlock {
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack)) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)) {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
@@ -71,16 +72,16 @@ public class BuddingLapisBlock extends AmethystBlock {
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
-        ItemStack stone = new ItemStack(BlockRegistry.BUDDING_LAPIS.get());
-        ItemStack sculk = new ItemStack(BlockRegistry.BUDDING_SCULK_LAPIS.get());
-        ItemStack deepslate = new ItemStack(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.get());
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_LAPIS.get())){
+        ItemStack stone = new ItemStack(BlockRegistry.BUDDING_LAPIS.value());
+        ItemStack sculk = new ItemStack(BlockRegistry.BUDDING_SCULK_LAPIS.value());
+        ItemStack deepslate = new ItemStack(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value());
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_LAPIS.value())){
             return Collections.singletonList(stone);
         }
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_LAPIS.get())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_LAPIS.value())){
             return Collections.singletonList(sculk);
         }
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.get())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value())){
             return Collections.singletonList(deepslate);
         }
         return super.getDrops(blockState, builder);

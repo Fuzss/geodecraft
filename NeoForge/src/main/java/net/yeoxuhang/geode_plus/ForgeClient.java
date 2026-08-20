@@ -31,9 +31,6 @@ public class ForgeClient extends ForgeCommonProxy {
     public void serverSetUp() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         setUpConfig(CONFIG);
-        PotionBrewing.addMix(Potions.WATER, ItemRegistry.WRAPPIST_SHARD.get(), Potions.SLOW_FALLING);
-        PotionBrewing.addMix(Potions.WATER, ItemRegistry.CELESTITE_SHARD.get(), Potions.STRONG_HEALING);
-        PotionBrewing.addMix(Potions.WATER, ItemRegistry.PINK_TOPAZ.get(), Potions.LUCK);
     }
 
 

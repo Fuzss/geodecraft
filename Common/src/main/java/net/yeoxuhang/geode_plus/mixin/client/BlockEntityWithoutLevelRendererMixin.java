@@ -35,7 +35,7 @@ public class BlockEntityWithoutLevelRendererMixin {
 
     @Inject(method = "renderByItem", at = @At("HEAD"))
     private void renderByItemFromGeodePlus(ItemStack itemStack, ItemDisplayContext itemDisplayContext, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j, CallbackInfo ci) {
-        if (itemStack.is(BlockRegistry.WRAPPIST_PEDESTAL.get().asItem())) {
+        if (itemStack.is(BlockRegistry.WRAPPIST_PEDESTAL.value().asItem())) {
             float worldTick = this.blockEntityRenderDispatcher.level.getGameTime();
             float tick = worldTick / 10.0F;
             poseStack.pushPose();

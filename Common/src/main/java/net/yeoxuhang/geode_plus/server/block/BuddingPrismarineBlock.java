@@ -18,6 +18,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.Vec3;
+import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
@@ -43,16 +44,16 @@ public class BuddingPrismarineBlock extends AmethystBlock {
             BlockState blockstate = p_220899_.getBlockState(blockpos);
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
-                block = BlockRegistry.SMALL_PRISMARINE_BUD.get();
+                block = BlockRegistry.SMALL_PRISMARINE_BUD.value();
                 applyConduitPowerAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 5);
-            } else if (blockstate.is(BlockRegistry.SMALL_PRISMARINE_BUD.get()) && blockstate.getValue(PrismarineClusterBlock.FACING) == direction) {
-                block = BlockRegistry.MEDIUM_PRISMARINE_BUD.get();
+            } else if (blockstate.is(BlockRegistry.SMALL_PRISMARINE_BUD.value()) && blockstate.getValue(PrismarineClusterBlock.FACING) == direction) {
+                block = BlockRegistry.MEDIUM_PRISMARINE_BUD.value();
                 applyConduitPowerAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 10);
-            } else if (blockstate.is(BlockRegistry.MEDIUM_PRISMARINE_BUD.get()) && blockstate.getValue(PrismarineClusterBlock.FACING) == direction) {
-                block = BlockRegistry.LARGE_PRISMARINE_BUD.get();
+            } else if (blockstate.is(BlockRegistry.MEDIUM_PRISMARINE_BUD.value()) && blockstate.getValue(PrismarineClusterBlock.FACING) == direction) {
+                block = BlockRegistry.LARGE_PRISMARINE_BUD.value();
                 applyConduitPowerAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 15);
-            } else if (blockstate.is(BlockRegistry.LARGE_PRISMARINE_BUD.get()) && blockstate.getValue(PrismarineClusterBlock.FACING) == direction) {
-                block = BlockRegistry.PRISMARINE_CLUSTER.get();
+            } else if (blockstate.is(BlockRegistry.LARGE_PRISMARINE_BUD.value()) && blockstate.getValue(PrismarineClusterBlock.FACING) == direction) {
+                block = BlockRegistry.PRISMARINE_CLUSTER.value();
                 applyConduitPowerAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 20);
             }
             if (block != null) {
@@ -74,8 +75,8 @@ public class BuddingPrismarineBlock extends AmethystBlock {
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
-        ItemStack budding = new ItemStack(BlockRegistry.BUDDING_PRISMARINE.get());
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch){
+        ItemStack budding = new ItemStack(BlockRegistry.BUDDING_PRISMARINE.value());
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch){
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);

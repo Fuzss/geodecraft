@@ -13,6 +13,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import net.yeoxuhang.geode_plus.server.registry.ModRegistry;
 
 import java.util.stream.Stream;
 
@@ -160,7 +161,7 @@ public class ForgeMod {
         bus.addListener(this::clientSetup);
         BiomeModifierRegistry.register(bus);
         TAB.register(bus);
-        GeodePlus.init();
+        ModRegistry.bootstrap();
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

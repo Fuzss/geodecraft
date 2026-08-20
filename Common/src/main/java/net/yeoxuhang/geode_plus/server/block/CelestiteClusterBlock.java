@@ -37,7 +37,9 @@ public class CelestiteClusterBlock extends AmethystBlock implements SimpleWaterl
     public CelestiteClusterBlock(int box, int i, Properties properties) {
         super(properties);
         properties.pushReaction(PushReaction.DESTROY);
-        this.registerDefaultState(this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(false)).setValue(FACING, Direction.UP));
+        this.registerDefaultState(this.defaultBlockState()
+                .setValue(WATERLOGGED, Boolean.valueOf(false))
+                .setValue(FACING, Direction.UP));
         this.upAabb = Block.box(i, 0.0D, i, (16 - i), box, (16 - i));
         this.downAabb = Block.box(i, (16 - box), i, (16 - i), 16.0D, (16 - i));
         this.northAabb = Block.box(i, i, (16 - box), (16 - i), (16 - i), 16.0D);
@@ -48,7 +50,7 @@ public class CelestiteClusterBlock extends AmethystBlock implements SimpleWaterl
 
     public VoxelShape getShape(BlockState p_152021_, BlockGetter p_152022_, BlockPos p_152023_, CollisionContext p_152024_) {
         Direction direction = p_152021_.getValue(FACING);
-        switch(direction) {
+        switch (direction) {
             case NORTH:
                 return this.northAabb;
             case SOUTH:
@@ -76,14 +78,18 @@ public class CelestiteClusterBlock extends AmethystBlock implements SimpleWaterl
             p_152039_.scheduleTick(p_152040_, Fluids.WATER, Fluids.WATER.getTickDelay(p_152039_));
         }
 
-        return p_152037_ == p_152036_.getValue(FACING).getOpposite() && !p_152036_.canSurvive(p_152039_, p_152040_) ? Blocks.AIR.defaultBlockState() : super.updateShape(p_152036_, p_152037_, p_152038_, p_152039_, p_152040_, p_152041_);
+        return p_152037_ == p_152036_.getValue(FACING).getOpposite() && !p_152036_.canSurvive(p_152039_, p_152040_) ?
+                Blocks.AIR.defaultBlockState() :
+                super.updateShape(p_152036_, p_152037_, p_152038_, p_152039_, p_152040_, p_152041_);
     }
 
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext p_152019_) {
         LevelAccessor levelaccessor = p_152019_.getLevel();
         BlockPos blockpos = p_152019_.getClickedPos();
-        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER)).setValue(FACING, p_152019_.getClickedFace());
+        return this.defaultBlockState()
+                .setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER))
+                .setValue(FACING, p_152019_.getClickedFace());
     }
 
     public BlockState rotate(BlockState p_152033_, Rotation p_152034_) {
@@ -105,9 +111,9 @@ public class CelestiteClusterBlock extends AmethystBlock implements SimpleWaterl
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         int random = builder.getLevel().random.nextInt(20);
-        if (random == 0){
-            ItemStack itemStack = new ItemStack(ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
-            ItemStack itemStack2 = new ItemStack(ItemRegistry.CELESTITE_SHARD.get());
+        if (random == 0) {
+            ItemStack itemStack = new ItemStack(ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE);
+            ItemStack itemStack2 = new ItemStack(ItemRegistry.CELESTITE_SHARD);
             return List.of(itemStack, itemStack2, itemStack2, itemStack2, itemStack2);
         }
         return super.getDrops(blockState, builder);

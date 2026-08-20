@@ -163,7 +163,7 @@ public class WrappistCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig
                     for(int var14 = 0; var14 < var13; ++var14) {
                         Direction direction = var12[var14];
                         if (world.getBlockState(pos).is(TagRegistry.Blocks.CAN_LARGE_WRAPPIST_CRYSTAL_PLACE) && world.isStateAtPosition(pos.relative(direction), DripstoneUtils::isEmptyOrWaterOrLava)) {
-                            world.setBlock(pos, BlockRegistry.SMOOTH_END_STONE.get().defaultBlockState(), 2);
+                            world.setBlock(pos, BlockRegistry.SMOOTH_END_STONE.value().defaultBlockState(), 2);
                             flag = true;
                         }
                     }

@@ -1,15 +1,14 @@
 package net.yeoxuhang.geode_plus.server.registry;
 
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.BootstapContext;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.core.Holder;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.placement.*;
-import net.yeoxuhang.geode_plus.GeodePlus;
 
 import java.util.List;
 
@@ -20,20 +19,23 @@ public class PlacedFeatureRegistry {
     public static final ResourceKey<PlacedFeature> QUARTZ_CRYSTAL_SPIKE = createKey("quartz_crystal_spike");
     public static final ResourceKey<PlacedFeature> QUARTZ_CRYSTAL_SPIKE_FLOOR = createKey("quartz_crystal_spike_floor");
     public static final ResourceKey<PlacedFeature> GLOWSTONE_CRYSTAL_SPIKE = createKey("glowstone_crystal_spike");
-    public static final ResourceKey<PlacedFeature> GLOWSTONE_CRYSTAL_SPIKE_FLOOR = createKey("glowstone_crystal_spike_floor");
+    public static final ResourceKey<PlacedFeature> GLOWSTONE_CRYSTAL_SPIKE_FLOOR = createKey(
+            "glowstone_crystal_spike_floor");
     public static final ResourceKey<PlacedFeature> ECHO_CRYSTAL_SPIKE = createKey("echo_crystal_spike");
     public static final ResourceKey<PlacedFeature> ECHO_CRYSTAL_SPIKE_FLOOR = createKey("echo_crystal_spike_floor");
     public static final ResourceKey<PlacedFeature> PRISMARINE_CRYSTAL_SPIKE = createKey("prismarine_crystal_spike");
     public static final ResourceKey<PlacedFeature> WRAPPIST_CRYSTAL_SPIKE = createKey("wrappist_crystal_spike");
     public static final ResourceKey<PlacedFeature> ANCIENT_DEBRIS_GEODE = createKey("ancient_debris_geode");
     public static final ResourceKey<PlacedFeature> BASALT_ANCIENT_DEBRIS_GEODE = createKey("basalt_ancient_debris_geode");
-    public static final ResourceKey<PlacedFeature> BLACKSTONE_ANCIENT_DEBRIS_GEODE = createKey("blackstone_ancient_debris_geode");
+    public static final ResourceKey<PlacedFeature> BLACKSTONE_ANCIENT_DEBRIS_GEODE = createKey(
+            "blackstone_ancient_debris_geode");
     public static final ResourceKey<PlacedFeature> GLOWSTONE_GEODE = createKey("glowstone_geode");
     public static final ResourceKey<PlacedFeature> BASALT_GLOWSTONE_GEODE = createKey("basalt_glowstone_geode");
     public static final ResourceKey<PlacedFeature> BLACKSTONE_GLOWSTONE_GEODE = createKey("blackstone_glowstone_geode");
     public static final ResourceKey<PlacedFeature> GOLD_NUGGET_GEODE = createKey("gold_nugget_geode");
     public static final ResourceKey<PlacedFeature> BASALT_GOLD_NUGGET_GEODE = createKey("basalt_gold_nugget_geode");
-    public static final ResourceKey<PlacedFeature> BLACKSTONE_GOLD_NUGGET_GEODE = createKey("blackstone_gold_nugget_geode");
+    public static final ResourceKey<PlacedFeature> BLACKSTONE_GOLD_NUGGET_GEODE = createKey(
+            "blackstone_gold_nugget_geode");
 
     public static final ResourceKey<PlacedFeature> QUARTZ_GEODE = createKey("quartz_geode");
     public static final ResourceKey<PlacedFeature> BASALT_QUARTZ_GEODE = createKey("basalt_quartz_geode");
@@ -58,7 +60,7 @@ public class PlacedFeatureRegistry {
     public static final ResourceKey<PlacedFeature> CELESTITE_GEODE = createKey("celestite_geode");
     public static final ResourceKey<PlacedFeature> PINK_TOPAZ_GEODE = createKey("pink_topaz_geode");
 
-    public static void bootstrap(BootstapContext<PlacedFeature> context) {
+    public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> holderGetter = context.lookup(Registries.CONFIGURED_FEATURE);
 
         Holder.Reference<ConfiguredFeature<?, ?>> holder = holderGetter.getOrThrow(ConfiguredFeatureRegistry.PRISMARINE_GEODE);
@@ -110,69 +112,327 @@ public class PlacedFeatureRegistry {
         Holder.Reference<ConfiguredFeature<?, ?>> holder36 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.CELESTITE_GEODE);
         Holder.Reference<ConfiguredFeature<?, ?>> holder37 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.PINK_TOPAZ_GEODE);
 
-        register(context, PRISMARINE_GEODE, holder, rarityPrismarineGeode(), inSquarePlacement(), placementPrismarineModifier(), biomeFilter());
-        register(context, WRAPPIST_GEODE, holder2, rarityEndWrappistGeode(), inSquarePlacement(), placementEndModifier(), biomeFilter());
-        register(context, ECHO_GEODE, holder3, rarityEchoGeode(), inSquarePlacement(), placementDeepDarkModifier(), biomeFilter());
+        register(context,
+                PRISMARINE_GEODE,
+                holder,
+                rarityPrismarineGeode(),
+                inSquarePlacement(),
+                placementPrismarineModifier(),
+                biomeFilter());
+        register(context,
+                WRAPPIST_GEODE,
+                holder2,
+                rarityEndWrappistGeode(),
+                inSquarePlacement(),
+                placementEndModifier(),
+                biomeFilter());
+        register(context,
+                ECHO_GEODE,
+                holder3,
+                rarityEchoGeode(),
+                inSquarePlacement(),
+                placementDeepDarkModifier(),
+                biomeFilter());
 
-        register(context, DIAMOND_GEODE, holder4, rarityRareOreGeode(), inSquarePlacement(), placementOreModifier(), biomeFilter());
-        register(context, DEEPSLATE_DIAMOND_GEODE, holder5, rarityRareOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
-        register(context, SCULK_DIAMOND_GEODE, holder6, rarityRareOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
+        register(context,
+                DIAMOND_GEODE,
+                holder4,
+                rarityRareOreGeode(),
+                inSquarePlacement(),
+                placementOreModifier(),
+                biomeFilter());
+        register(context,
+                DEEPSLATE_DIAMOND_GEODE,
+                holder5,
+                rarityRareOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
+        register(context,
+                SCULK_DIAMOND_GEODE,
+                holder6,
+                rarityRareOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
 
-        register(context, EMERALD_GEODE, holder7, rarityRareOreGeode(), inSquarePlacement(), placementOreModifier(), biomeFilter());
-        register(context, DEEPSLATE_EMERALD_GEODE, holder8, rarityRareOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
-        register(context, SCULK_EMERALD_GEODE, holder9, rarityRareOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
+        register(context,
+                EMERALD_GEODE,
+                holder7,
+                rarityRareOreGeode(),
+                inSquarePlacement(),
+                placementOreModifier(),
+                biomeFilter());
+        register(context,
+                DEEPSLATE_EMERALD_GEODE,
+                holder8,
+                rarityRareOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
+        register(context,
+                SCULK_EMERALD_GEODE,
+                holder9,
+                rarityRareOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
 
-        register(context, LAPIS_GEODE, holder10, rarityOreGeode(), inSquarePlacement(), placementOreModifier(), biomeFilter());
-        register(context, DEEPSLATE_LAPIS_GEODE, holder11, rarityOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
-        register(context, SCULK_LAPIS_GEODE, holder12, rarityOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
+        register(context,
+                LAPIS_GEODE,
+                holder10,
+                rarityOreGeode(),
+                inSquarePlacement(),
+                placementOreModifier(),
+                biomeFilter());
+        register(context,
+                DEEPSLATE_LAPIS_GEODE,
+                holder11,
+                rarityOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
+        register(context,
+                SCULK_LAPIS_GEODE,
+                holder12,
+                rarityOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
 
-        register(context, REDSTONE_GEODE, holder13, rarityOreGeode(), inSquarePlacement(), placementOreModifier(), biomeFilter());
-        register(context, DEEPSLATE_REDSTONE_GEODE, holder14, rarityOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
-        register(context, SCULK_REDSTONE_GEODE, holder15, rarityOreGeode(), inSquarePlacement(), placementDeepOreModifier(), biomeFilter());
+        register(context,
+                REDSTONE_GEODE,
+                holder13,
+                rarityOreGeode(),
+                inSquarePlacement(),
+                placementOreModifier(),
+                biomeFilter());
+        register(context,
+                DEEPSLATE_REDSTONE_GEODE,
+                holder14,
+                rarityOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
+        register(context,
+                SCULK_REDSTONE_GEODE,
+                holder15,
+                rarityOreGeode(),
+                inSquarePlacement(),
+                placementDeepOreModifier(),
+                biomeFilter());
 
-        register(context, ANCIENT_DEBRIS_GEODE, holder16, rarityNetherAncientDebrisGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BASALT_ANCIENT_DEBRIS_GEODE, holder17, rarityBasaltAncientDebrisGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BLACKSTONE_ANCIENT_DEBRIS_GEODE, holder18, rarityBlackstoneAncientDebrisGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
+        register(context,
+                ANCIENT_DEBRIS_GEODE,
+                holder16,
+                rarityNetherAncientDebrisGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BASALT_ANCIENT_DEBRIS_GEODE,
+                holder17,
+                rarityBasaltAncientDebrisGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BLACKSTONE_ANCIENT_DEBRIS_GEODE,
+                holder18,
+                rarityBlackstoneAncientDebrisGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
 
-        register(context, GOLD_NUGGET_GEODE, holder19, rarityNetherGoldNuggetGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BASALT_GOLD_NUGGET_GEODE, holder20, rarityBasaltGoldNuggetGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BLACKSTONE_GOLD_NUGGET_GEODE, holder21, rarityBlackstoneGoldNuggetGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
+        register(context,
+                GOLD_NUGGET_GEODE,
+                holder19,
+                rarityNetherGoldNuggetGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BASALT_GOLD_NUGGET_GEODE,
+                holder20,
+                rarityBasaltGoldNuggetGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BLACKSTONE_GOLD_NUGGET_GEODE,
+                holder21,
+                rarityBlackstoneGoldNuggetGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
 
-        register(context, GLOWSTONE_GEODE, holder22, rarityNetherGlowstoneGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BASALT_GLOWSTONE_GEODE, holder23, rarityBasaltGlowstoneGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BLACKSTONE_GLOWSTONE_GEODE, holder24, rarityBlackstoneGlowstoneGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
+        register(context,
+                GLOWSTONE_GEODE,
+                holder22,
+                rarityNetherGlowstoneGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BASALT_GLOWSTONE_GEODE,
+                holder23,
+                rarityBasaltGlowstoneGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BLACKSTONE_GLOWSTONE_GEODE,
+                holder24,
+                rarityBlackstoneGlowstoneGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
 
-        register(context, QUARTZ_GEODE, holder25, rarityNetherQuartzGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BASALT_QUARTZ_GEODE, holder26, rarityBasaltQuartzGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
-        register(context, BLACKSTONE_QUARTZ_GEODE, holder27, rarityBlackstoneQuartzGeode(), inSquarePlacement(), placementNetherModifier(), biomeFilter());
+        register(context,
+                QUARTZ_GEODE,
+                holder25,
+                rarityNetherQuartzGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BASALT_QUARTZ_GEODE,
+                holder26,
+                rarityBasaltQuartzGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
+        register(context,
+                BLACKSTONE_QUARTZ_GEODE,
+                holder27,
+                rarityBlackstoneQuartzGeode(),
+                inSquarePlacement(),
+                placementNetherModifier(),
+                biomeFilter());
 
-        register(context, QUARTZ_CRYSTAL_SPIKE, holder28, placementCrystal(), inSquarePlacement(), placementNetherCrystalModifier(), biomeFilter());
-        register(context, QUARTZ_CRYSTAL_SPIKE_FLOOR, holder29, placementCrystal(), inSquarePlacement(), placementNetherCrystalModifier(), biomeFilter());
-        register(context, GLOWSTONE_CRYSTAL_SPIKE, holder30, placementCrystal(), inSquarePlacement(), placementNetherCrystalModifier(), biomeFilter());
-        register(context, GLOWSTONE_CRYSTAL_SPIKE_FLOOR, holder31, placementCrystal(), inSquarePlacement(), placementNetherCrystalModifier(), biomeFilter());
-        register(context, ECHO_CRYSTAL_SPIKE, holder32, placementCrystal(), inSquarePlacement(), placementEchoCrystalModifier(), biomeFilter());
-        register(context, ECHO_CRYSTAL_SPIKE_FLOOR, holder33, placementCrystal(), inSquarePlacement(), placementEchoCrystalModifier(), biomeFilter());
-        register(context, WRAPPIST_CRYSTAL_SPIKE, holder34, placementEndCrystal(), inSquarePlacement(), placementEndModifier(), biomeFilter());
-        register(context, PRISMARINE_CRYSTAL_SPIKE, holder35, rarityBlackstoneQuartzGeode(), inSquarePlacement(), placementPrismarineModifier(), biomeFilter());
+        register(context,
+                QUARTZ_CRYSTAL_SPIKE,
+                holder28,
+                placementCrystal(),
+                inSquarePlacement(),
+                placementNetherCrystalModifier(),
+                biomeFilter());
+        register(context,
+                QUARTZ_CRYSTAL_SPIKE_FLOOR,
+                holder29,
+                placementCrystal(),
+                inSquarePlacement(),
+                placementNetherCrystalModifier(),
+                biomeFilter());
+        register(context,
+                GLOWSTONE_CRYSTAL_SPIKE,
+                holder30,
+                placementCrystal(),
+                inSquarePlacement(),
+                placementNetherCrystalModifier(),
+                biomeFilter());
+        register(context,
+                GLOWSTONE_CRYSTAL_SPIKE_FLOOR,
+                holder31,
+                placementCrystal(),
+                inSquarePlacement(),
+                placementNetherCrystalModifier(),
+                biomeFilter());
+        register(context,
+                ECHO_CRYSTAL_SPIKE,
+                holder32,
+                placementCrystal(),
+                inSquarePlacement(),
+                placementEchoCrystalModifier(),
+                biomeFilter());
+        register(context,
+                ECHO_CRYSTAL_SPIKE_FLOOR,
+                holder33,
+                placementCrystal(),
+                inSquarePlacement(),
+                placementEchoCrystalModifier(),
+                biomeFilter());
+        register(context,
+                WRAPPIST_CRYSTAL_SPIKE,
+                holder34,
+                placementEndCrystal(),
+                inSquarePlacement(),
+                placementEndModifier(),
+                biomeFilter());
+        register(context,
+                PRISMARINE_CRYSTAL_SPIKE,
+                holder35,
+                rarityBlackstoneQuartzGeode(),
+                inSquarePlacement(),
+                placementPrismarineModifier(),
+                biomeFilter());
 
-        register(context, CELESTITE_GEODE, holder36, raritySwampGeode(), inSquarePlacement(), placementSwampModifier(), biomeFilter());
-        register(context, PINK_TOPAZ_GEODE, holder37, rarityCherryBlossomGeode(), inSquarePlacement(), placementCherryBlossomModifier(), biomeFilter());
+        register(context,
+                CELESTITE_GEODE,
+                holder36,
+                raritySwampGeode(),
+                inSquarePlacement(),
+                placementSwampModifier(),
+                biomeFilter());
+        register(context,
+                PINK_TOPAZ_GEODE,
+                holder37,
+                rarityCherryBlossomGeode(),
+                inSquarePlacement(),
+                placementCherryBlossomModifier(),
+                biomeFilter());
     }
+
     //Netherrack
-    private static RarityFilter rarityNetherAncientDebrisGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityNetherGlowstoneGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityNetherGoldNuggetGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityNetherQuartzGeode(){return RarityFilter.onAverageOnceEvery(32);}
+    private static RarityFilter rarityNetherAncientDebrisGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityNetherGlowstoneGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityNetherGoldNuggetGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityNetherQuartzGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
     //Basalt
-    private static RarityFilter rarityBasaltAncientDebrisGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityBasaltGlowstoneGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityBasaltGoldNuggetGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityBasaltQuartzGeode(){return RarityFilter.onAverageOnceEvery(32);}
+    private static RarityFilter rarityBasaltAncientDebrisGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityBasaltGlowstoneGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityBasaltGoldNuggetGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityBasaltQuartzGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
     //Blackstone
-    private static RarityFilter rarityBlackstoneAncientDebrisGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityBlackstoneGlowstoneGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityBlackstoneGoldNuggetGeode(){return RarityFilter.onAverageOnceEvery(32);}
-    private static RarityFilter rarityBlackstoneQuartzGeode(){return RarityFilter.onAverageOnceEvery(32);}
+    private static RarityFilter rarityBlackstoneAncientDebrisGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityBlackstoneGlowstoneGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityBlackstoneGoldNuggetGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
+
+    private static RarityFilter rarityBlackstoneQuartzGeode() {
+        return RarityFilter.onAverageOnceEvery(32);
+    }
 
     private static CountPlacement placementCrystal() {
         return CountPlacement.of(5);
@@ -181,9 +441,11 @@ public class PlacedFeatureRegistry {
     private static CountPlacement placementEndCrystal() {
         return CountPlacement.of(1);
     }
+
     private static RarityFilter rarityEndWrappistGeode() {
         return RarityFilter.onAverageOnceEvery(48);
     }
+
     private static RarityFilter rarityEchoGeode() {
         return RarityFilter.onAverageOnceEvery(16);
     }
@@ -199,12 +461,15 @@ public class PlacedFeatureRegistry {
     private static RarityFilter rarityRareOreGeode() {
         return RarityFilter.onAverageOnceEvery(72);
     }
+
     private static RarityFilter raritySwampGeode() {
         return RarityFilter.onAverageOnceEvery(48);
     }
+
     private static RarityFilter rarityCherryBlossomGeode() {
         return RarityFilter.onAverageOnceEvery(48);
     }
+
     private static InSquarePlacement inSquarePlacement() {
         return InSquarePlacement.spread();
     }
@@ -212,9 +477,11 @@ public class PlacedFeatureRegistry {
     private static PlacementModifier placementPrismarineModifier() {
         return HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30), VerticalAnchor.absolute(30));
     }
+
     private static PlacementModifier placementNetherModifier() {
         return HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(110));
     }
+
     private static PlacementModifier placementNetherCrystalModifier() {
         return PlacementUtils.RANGE_BOTTOM_TO_MAX_TERRAIN_HEIGHT;
     }
@@ -242,6 +509,7 @@ public class PlacedFeatureRegistry {
     private static PlacementModifier placementRareModifier() {
         return HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(30), VerticalAnchor.absolute(40));
     }
+
     private static PlacementModifier placementEndModifier() {
         return HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(32));
     }
@@ -259,16 +527,17 @@ public class PlacedFeatureRegistry {
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
-        return ResourceKey.create(Registries.PLACED_FEATURE, GeodePlus.createResource(name));
+        return ModRegistry.REGISTRY.makeResourceKey(Registries.PLACED_FEATURE, name);
     }
 
-    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
+    private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {
         context.register(key, new PlacedFeature(configuration, List.copyOf(modifiers)));
     }
 
-    private static void register(BootstapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
+    private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
         register(context, key, configuration, List.of(modifiers));
     }
 
-    public static void init() {}
+    public static void bootstrap() {
+    }
 }

@@ -6,7 +6,6 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.block.AmethystBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -15,6 +14,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.Vec3;
+import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
@@ -40,20 +40,26 @@ public class BuddingEchoBlock extends AmethystBlock {
             BlockState blockstate = p_220899_.getBlockState(blockpos);
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
-                block = BlockRegistry.SMALL_ECHO_BUD.get();
+                block = BlockRegistry.SMALL_ECHO_BUD.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 5);
-            } else if (blockstate.is(BlockRegistry.SMALL_ECHO_BUD.get()) && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
-                block = BlockRegistry.MEDIUM_ECHO_BUD.get();
+            } else if (blockstate.is(BlockRegistry.SMALL_ECHO_BUD.value())
+                    && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
+                block = BlockRegistry.MEDIUM_ECHO_BUD.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 10);
-            } else if (blockstate.is(BlockRegistry.MEDIUM_ECHO_BUD.get()) && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
-                block = BlockRegistry.LARGE_ECHO_BUD.get();
+            } else if (blockstate.is(BlockRegistry.MEDIUM_ECHO_BUD.value())
+                    && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
+                block = BlockRegistry.LARGE_ECHO_BUD.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 15);
-            } else if (blockstate.is(BlockRegistry.LARGE_ECHO_BUD.get()) && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
-                block = BlockRegistry.ECHO_CRYSTAL.get();
+            } else if (blockstate.is(BlockRegistry.LARGE_ECHO_BUD.value())
+                    && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
+                block = BlockRegistry.ECHO_CRYSTAL.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 20);
             }
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(EchoCrystalBlock.FACING, direction).setValue(EchoCrystalBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState()
+                        .setValue(EchoCrystalBlock.FACING, direction)
+                        .setValue(EchoCrystalBlock.WATERLOGGED,
+                                Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
         }
@@ -67,7 +73,7 @@ public class BuddingEchoBlock extends AmethystBlock {
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack)) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)) {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
@@ -76,8 +82,8 @@ public class BuddingEchoBlock extends AmethystBlock {
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
-        ItemStack budding = new ItemStack(BlockRegistry.BUDDING_ECHO.get());
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch){
+        ItemStack budding = new ItemStack(BlockRegistry.BUDDING_ECHO.value());
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch) {
             return Collections.singletonList(budding);
         }
         return super.getDrops(blockState, builder);

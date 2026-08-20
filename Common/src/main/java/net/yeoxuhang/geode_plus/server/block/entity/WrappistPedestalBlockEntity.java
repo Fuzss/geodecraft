@@ -2,6 +2,7 @@ package net.yeoxuhang.geode_plus.server.block.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -21,8 +22,9 @@ public class WrappistPedestalBlockEntity extends BaseContainerBlockEntity implem
     private NonNullList<ItemStack> stacks = NonNullList.withSize(1, ItemStack.EMPTY);
 
     public WrappistPedestalBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(BlockEntityRegistry.WRAPPIST_PEDESTAL.get(), pWorldPosition, pBlockState);
+        super(BlockEntityRegistry.WRAPPIST_PEDESTAL.value(), pWorldPosition, pBlockState);
     }
+
     @Override
     public int @NotNull [] getSlotsForFace(@NotNull Direction direction) {
         return new int[0];
@@ -55,7 +57,7 @@ public class WrappistPedestalBlockEntity extends BaseContainerBlockEntity implem
 
     @Override
     public @NotNull ItemStack getItem(int i) {
-        return stacks.get(i);
+        return this.stacks.get(i);
     }
 
     @Override
@@ -97,31 +99,33 @@ public class WrappistPedestalBlockEntity extends BaseContainerBlockEntity implem
         if (!itemStack.isEmpty() && itemStack.getCount() > this.getMaxStackSize()) {
             itemStack.setCount(this.getMaxStackSize());
         }
-        this.saveAdditional(this.getUpdateTag());
+
+//        this.saveAdditional(this.getUpdateTag());
     }
 
+    @Override
     public void clearContent() {
-        stacks.clear();
+        this.stacks.clear();
     }
 
 
     @Override
-    public void load(@NotNull CompoundTag compound) {
-        super.load(compound);
+    public void loadAdditional(@NotNull CompoundTag compound, HolderLookup.Provider registries) {
+        super.loadAdditional(compound, registries);
         this.stacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        ContainerHelper.loadAllItems(compound, this.stacks);
+        ContainerHelper.loadAllItems(compound, this.stacks, registries);
     }
 
     @Override
-    public void saveAdditional(@NotNull CompoundTag compound) {
-        super.saveAdditional(compound);
-        ContainerHelper.saveAllItems(compound, this.stacks);
+    public void saveAdditional(@NotNull CompoundTag compound, HolderLookup.Provider registries) {
+        super.saveAdditional(compound, registries);
+        ContainerHelper.saveAllItems(compound, this.stacks, registries);
     }
 
 
     @Override
     public @NotNull Component getDisplayName() {
-        return getDefaultName();
+        return this.getDefaultName();
     }
 
     @Override
@@ -130,20 +134,33 @@ public class WrappistPedestalBlockEntity extends BaseContainerBlockEntity implem
     }
 
     @Override
-    protected  AbstractContainerMenu createMenu(int i, @NotNull Inventory inventory) {
+    protected NonNullList<ItemStack> getItems() {
+        return this.stacks;
+    }
+
+    @Override
+    protected void setItems(NonNullList<ItemStack> items) {
+        this.stacks = items;
+    }
+
+    @Override
+    protected AbstractContainerMenu createMenu(int i, @NotNull Inventory inventory) {
         return null;
     }
 
-    public @NotNull CompoundTag getUpdateTag() {
+    @Override
+    public @NotNull CompoundTag getUpdateTag(HolderLookup.Provider registries) {
         CompoundTag tag = new CompoundTag();
-        this.saveAdditional(tag);
+        this.saveAdditional(tag, registries);
         return tag;
     }
 
+    @Override
     public boolean stillValid(Player player) {
         return this.worldPosition.distSqr(player.blockPosition()) <= 16.0;
     }
 
+    @Override
     public int getMaxStackSize() {
         return 64;
     }

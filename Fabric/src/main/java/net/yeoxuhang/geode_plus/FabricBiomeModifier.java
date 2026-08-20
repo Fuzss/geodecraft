@@ -16,7 +16,7 @@ import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
 public class FabricBiomeModifier {
 
     public void init() {
-        var modifications = BiomeModifications.create(GeodePlus.createResource("biome_modifications"));
+        var modifications = BiomeModifications.create(GeodePlus.id("biome_modifications"));
         modifications.add(ModificationPhase.ADDITIONS, biomeSelectionContext -> true, (biomeSelectionContext, builder) -> {
             Holder<Biome> biome = biomeSelectionContext.getBiomeRegistryEntry();
 

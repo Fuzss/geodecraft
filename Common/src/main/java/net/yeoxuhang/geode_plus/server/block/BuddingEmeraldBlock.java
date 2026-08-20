@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
+import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.config.ServerConfigs;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
@@ -38,13 +39,13 @@ public class BuddingEmeraldBlock extends AmethystBlock {
             BlockState blockstate = p_220899_.getBlockState(blockpos);
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
-                block = BlockRegistry.SMALL_EMERALD_BUD.get();
-            } else if (blockstate.is(BlockRegistry.SMALL_EMERALD_BUD.get()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
-                block = BlockRegistry.MEDIUM_EMERALD_BUD.get();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_EMERALD_BUD.get()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
-                block = BlockRegistry.LARGE_EMERALD_BUD.get();
-            } else if (blockstate.is(BlockRegistry.LARGE_EMERALD_BUD.get()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
-                block = BlockRegistry.EMERALD_CLUSTER.get();
+                block = BlockRegistry.SMALL_EMERALD_BUD.value();
+            } else if (blockstate.is(BlockRegistry.SMALL_EMERALD_BUD.value()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
+                block = BlockRegistry.MEDIUM_EMERALD_BUD.value();
+            } else if (blockstate.is(BlockRegistry.MEDIUM_EMERALD_BUD.value()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
+                block = BlockRegistry.LARGE_EMERALD_BUD.value();
+            } else if (blockstate.is(BlockRegistry.LARGE_EMERALD_BUD.value()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
+                block = BlockRegistry.EMERALD_CLUSTER.value();
             }
             if (block != null) {
                 BlockState blockstate1 = block.defaultBlockState().setValue(OresClusterBlock.FACING, direction).setValue(OresClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
@@ -57,7 +58,7 @@ public class BuddingEmeraldBlock extends AmethystBlock {
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack)) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack)) {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
@@ -70,16 +71,16 @@ public class BuddingEmeraldBlock extends AmethystBlock {
     @Override
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
-        ItemStack stone = new ItemStack(BlockRegistry.BUDDING_EMERALD.get());
-        ItemStack sculk = new ItemStack(BlockRegistry.BUDDING_SCULK_EMERALD.get());
-        ItemStack deepslate = new ItemStack(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.get());
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_EMERALD.get())){
+        ItemStack stone = new ItemStack(BlockRegistry.BUDDING_EMERALD.value());
+        ItemStack sculk = new ItemStack(BlockRegistry.BUDDING_SCULK_EMERALD.value());
+        ItemStack deepslate = new ItemStack(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value());
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_EMERALD.value())){
             return Collections.singletonList(stone);
         }
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_EMERALD.get())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_SCULK_EMERALD.value())){
             return Collections.singletonList(sculk);
         }
-        if (EnchantmentHelper.hasSilkTouch(pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.get())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfigs.BLOCKS.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value())){
             return Collections.singletonList(deepslate);
         }
         return super.getDrops(blockState, builder);

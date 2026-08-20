@@ -29,6 +29,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 import javax.annotation.Nullable;
@@ -151,19 +152,19 @@ public class RedstoneOresClusterBlock extends RedStoneOreBlock implements Simple
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.SMALL_REDSTONE_BUD.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.SMALL_REDSTONE_BUD.value())) {
             int i = 1;
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.MEDIUM_REDSTONE_BUD.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.MEDIUM_REDSTONE_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(2);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.LARGE_REDSTONE_BUD.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.LARGE_REDSTONE_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !EnchantmentHelper.hasSilkTouch(itemStack) && blockState.is(BlockRegistry.REDSTONE_CRYSTAL.get())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.REDSTONE_CRYSTAL.value())) {
             int i = 1 + serverLevel.random.nextInt(10);
             this.popExperience(serverLevel, blockPos, i);
         }

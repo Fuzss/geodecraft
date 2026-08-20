@@ -106,8 +106,8 @@ public class WrappistClusterBlock extends AmethystBlock implements SimpleWaterlo
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         int random = builder.getLevel().random.nextInt(20);
         if (random == 0){
-            ItemStack itemStack = new ItemStack(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE.get());
-            ItemStack itemStack2 = new ItemStack(ItemRegistry.WRAPPIST_SHARD.get());
+            ItemStack itemStack = new ItemStack(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE);
+            ItemStack itemStack2 = new ItemStack(ItemRegistry.WRAPPIST_SHARD);
             return List.of(itemStack, itemStack2, itemStack2, itemStack2, itemStack2);
         }
         return super.getDrops(blockState, builder);
