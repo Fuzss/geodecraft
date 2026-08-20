@@ -2,11 +2,18 @@ package net.yeoxuhang.geode_plus.server.registry;
 
 import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
 import net.minecraft.core.Holder;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.yeoxuhang.geode_plus.GeodePlus;
 
 public class ModRegistry {
+    public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
+            .add(Registries.CONFIGURED_FEATURE, ConfiguredFeatureRegistry::bootstrap)
+            .add(Registries.PLACED_FEATURE, PlacedFeatureRegistry::bootstrap)
+            .add(Registries.TRIM_MATERIAL, TrimMaterialsAndPatternsRegistry::createMaterials)
+            .add(Registries.TRIM_PATTERN, TrimMaterialsAndPatternsRegistry::createPatterns);
     static final RegistryManager REGISTRY = RegistryManager.from(GeodePlus.MOD_ID);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRY.registerCreativeModeTab(() -> new ItemStack(
                     ItemRegistry.WRAPPIST_SHARD),

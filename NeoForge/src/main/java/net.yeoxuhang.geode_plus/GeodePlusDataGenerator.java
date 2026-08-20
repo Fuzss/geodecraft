@@ -29,6 +29,6 @@ public class GeodePlusDataGenerator {
         generator.addProvider(true, new GeodePlusItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(true, new GeodePlusLangProvider(packOutput, "en_us", false));
         generator.addProvider(event.includeServer(), new GeodePlusRegistryProvider(packOutput, lookupProvider));
-        generator.addProvider(event.includeServer() ,new GeodePlusBiomeTagProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer() ,new GeodePlusBiomeTagProvider(lookupProvider, existingFileHelper));
     }
 }

@@ -30,7 +30,6 @@ public class GeodePlusItemModelProvider extends ItemModelProvider {
         itemModel(ItemRegistry.PINK_TOPAZ, GENERATED);
         itemModel(ItemRegistry.CELESTITE_SHARD, GENERATED);
         itemModel(ItemRegistry.WRAPPIST_SHARD, GENERATED);
-        //itemModel(GeodePlusItemsRegistry.WRAPPIST_GOAT_HORN, GOAT_HORN);
         singleLayerBlockModel(BlockRegistry.DIAMOND_CRYSTAL, GENERATED);
         singleLayerBlockModel(BlockRegistry.SMALL_DIAMOND_BUD, GENERATED);
         singleLayerBlockModel(BlockRegistry.MEDIUM_DIAMOND_BUD, GENERATED);
