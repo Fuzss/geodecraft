@@ -3,18 +3,18 @@
     {
       "type": "paletted_permutations",
       "textures": [
-        "geode_plus:trims/models/armor/wrap",
-        "geode_plus:trims/models/armor/wrap_leggings",
-        "geode_plus:trims/models/armor/celeste",
-        "geode_plus:trims/models/armor/celeste_leggings",
-        "geode_plus:trims/models/armor/heart",
-        "geode_plus:trims/models/armor/heart_leggings"
+        "geodecraft:trims/models/armor/wrap",
+        "geodecraft:trims/models/armor/wrap_leggings",
+        "geodecraft:trims/models/armor/celeste",
+        "geodecraft:trims/models/armor/celeste_leggings",
+        "geodecraft:trims/models/armor/heart",
+        "geodecraft:trims/models/armor/heart_leggings"
       ],
       "palette_key": "trims/color_palettes/trim_palette",
       "permutations": {
-        "wrappist": "geode_plus:trims/color_palettes/wrappist",
-        "celestite": "geode_plus:trims/color_palettes/celestite",
-        "pink_topaz": "geode_plus:trims/color_palettes/pink_topaz"
+        "wrappist": "geodecraft:trims/color_palettes/wrappist",
+        "celestite": "geodecraft:trims/color_palettes/celestite",
+        "pink_topaz": "geodecraft:trims/color_palettes/pink_topaz"
       }
     }
   ]

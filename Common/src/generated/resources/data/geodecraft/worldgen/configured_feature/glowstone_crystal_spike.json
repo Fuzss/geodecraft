@@ -2,7 +2,7 @@
   "type": "geodecraft:crystal_spike",
   "config": {
     "cluster_state": {
-      "Name": "geodecraft:nether_glowstone_cluster",
+      "Name": "geodecraft:glowstone_cluster",
       "Properties": {
         "facing": "up",
         "waterlogged": "false"
@@ -10,7 +10,7 @@
     },
     "crystal_direction": "ceiling",
     "crystal_state": {
-      "Name": "geodecraft:nether_glowstone_cluster_block"
+      "Name": "geodecraft:glowstone_cluster_block"
     },
     "xz_radius": {
       "type": "minecraft:uniform",

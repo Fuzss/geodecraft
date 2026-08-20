@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "crystals",
+  "ingredients": [
+    {
+      "item": "geodecraft:ancient_debris_cluster_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:netherite_scrap"
+  }
+}

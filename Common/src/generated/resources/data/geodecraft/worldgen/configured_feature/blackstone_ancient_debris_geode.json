@@ -23,28 +23,28 @@
       },
       "inner_placements": [
         {
-          "Name": "geodecraft:small_nether_ancient_debris_bud",
+          "Name": "geodecraft:small_ancient_debris_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:medium_nether_ancient_debris_bud",
+          "Name": "geodecraft:medium_ancient_debris_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:large_nether_ancient_debris_bud",
+          "Name": "geodecraft:large_ancient_debris_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:nether_ancient_debris_cluster",
+          "Name": "geodecraft:ancient_debris_cluster",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

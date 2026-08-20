@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "geodecraft:block/gold_nugget_cluster_block"
+    }
+  }
+}

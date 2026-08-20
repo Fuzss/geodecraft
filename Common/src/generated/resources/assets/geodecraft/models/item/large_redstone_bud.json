@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/large_amethyst_bud",
   "textures": {
-    "layer0": "geodecraft:item/large_redstone_bud"
+    "layer0": "geodecraft:block/large_redstone_bud"
   }
 }

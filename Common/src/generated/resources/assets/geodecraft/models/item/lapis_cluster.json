@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/amethyst_cluster",
   "textures": {
-    "layer0": "geodecraft:item/lapis_cluster"
+    "layer0": "geodecraft:block/lapis_cluster"
   }
 }

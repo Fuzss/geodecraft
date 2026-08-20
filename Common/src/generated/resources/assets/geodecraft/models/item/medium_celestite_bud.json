@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/medium_amethyst_bud",
   "textures": {
-    "layer0": "geodecraft:item/medium_celestite_bud"
+    "layer0": "geodecraft:block/medium_celestite_bud"
   }
 }

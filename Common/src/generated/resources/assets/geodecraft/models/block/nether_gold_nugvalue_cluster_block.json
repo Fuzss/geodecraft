@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "geodecraft:block/nether_gold_nugvalue_cluster_block"
-  }
-}

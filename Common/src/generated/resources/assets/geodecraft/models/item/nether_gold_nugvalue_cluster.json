@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/amethyst_cluster",
-  "textures": {
-    "layer0": "geodecraft:item/nether_gold_nugvalue_cluster"
-  }
-}

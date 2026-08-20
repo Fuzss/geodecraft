@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/amethyst_cluster",
   "textures": {
-    "layer0": "geodecraft:item/echo_crystal"
+    "layer0": "geodecraft:block/echo_crystal"
   }
 }

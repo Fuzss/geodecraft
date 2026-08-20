@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crystal_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geodecraft:gold_nugget_cluster_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "geodecraft:gold_nugget_cluster_block_to_gold_nugget"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crystal_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geodecraft:gold_nugget_cluster_block_to_gold_nugget"
+    ]
+  }
+}

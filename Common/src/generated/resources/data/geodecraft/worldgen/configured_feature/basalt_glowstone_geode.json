@@ -23,28 +23,28 @@
       },
       "inner_placements": [
         {
-          "Name": "geodecraft:small_nether_glowstone_bud",
+          "Name": "geodecraft:small_glowstone_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:medium_nether_glowstone_bud",
+          "Name": "geodecraft:medium_glowstone_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:large_nether_glowstone_bud",
+          "Name": "geodecraft:large_glowstone_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:nether_glowstone_cluster",
+          "Name": "geodecraft:glowstone_cluster",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

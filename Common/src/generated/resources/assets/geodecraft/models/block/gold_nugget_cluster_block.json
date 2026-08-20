@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "geodecraft:block/gold_nugget_cluster_block"
+  }
+}

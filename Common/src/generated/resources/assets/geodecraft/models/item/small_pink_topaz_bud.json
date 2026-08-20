@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/small_amethyst_bud",
   "textures": {
-    "layer0": "geodecraft:item/small_pink_topaz_bud"
+    "layer0": "geodecraft:block/small_pink_topaz_bud"
   }
 }
