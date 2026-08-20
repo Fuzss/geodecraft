@@ -1,6 +1,12 @@
 {
-  "type": "geodecraft:nether_crystal_spike",
+  "type": "geodecraft:crystal_spike",
   "config": {
+    "bloom_state": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:blackstone"
+      }
+    },
     "cluster_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -18,6 +24,7 @@
         "Name": "geodecraft:glowstone_cluster_block"
       }
     },
+    "placeable_on": "#minecraft:base_stone_nether",
     "xz_radius": {
       "type": "minecraft:uniform",
       "max_inclusive": 3,

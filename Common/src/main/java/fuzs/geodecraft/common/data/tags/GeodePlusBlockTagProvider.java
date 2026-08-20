@@ -237,12 +237,13 @@ public class GeodePlusBlockTagProvider extends AbstractTagProvider<Block> {
                         BlockRegistry.WRAPPIST_GLASS,
                         BlockRegistry.CELESTITE_GLASS,
                         BlockRegistry.PINK_TOPAZ_GLASS);
-        this.tag(TagRegistry.Blocks.CAN_LARGE_ECHO_CRYSTAL_PLACE).add(Blocks.SCULK, Blocks.STONE, Blocks.DEEPSLATE);
 
-        this.tag(TagRegistry.Blocks.CAN_LARGE_PRISMARINE_CRYSTAL_PLACE)
+        this.tag(TagRegistry.Blocks.NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON).addTag(BlockTags.BASE_STONE_NETHER);
+        this.tag(TagRegistry.Blocks.GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON).addTag(BlockTags.BASE_STONE_NETHER);
+        this.tag(TagRegistry.Blocks.ECHO_CRYSTAL_SPIKE_MAY_PLACE_ON).add(Blocks.SCULK, Blocks.STONE, Blocks.DEEPSLATE);
+        this.tag(TagRegistry.Blocks.PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON)
                 .add(Blocks.SAND, Blocks.STONE, Blocks.GRAVEL, Blocks.CLAY, Blocks.SANDSTONE);
-
-        this.tag(TagRegistry.Blocks.CAN_LARGE_WRAPPIST_CRYSTAL_PLACE).add(Blocks.END_STONE);
+        this.tag(TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON).add(Blocks.END_STONE);
 
         this.tag(TagRegistry.Blocks.WRAPPIST_PEDESTAL_CANNOT_PLACE_ON)
                 .add(Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR);
@@ -253,15 +254,5 @@ public class GeodePlusBlockTagProvider extends AbstractTagProvider<Block> {
         this.tag(TagRegistry.Blocks.GEODES_CANNOT_REPLACE)
                 .add(Blocks.BEDROCK, Blocks.SPAWNER, Blocks.CHEST, Blocks.END_PORTAL_FRAME, Blocks.REINFORCED_DEEPSLATE)
                 .addTag(BlockTags.STONE_BRICKS);
-
-        this.tag(TagRegistry.Blocks.NETHER_QUARTZ_CRYSTAL_SPIKE_BASE).add(BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK);
-
-        this.tag(TagRegistry.Blocks.GLOWSTONE_CRYSTAL_SPIKE_BASE).add(BlockRegistry.GLOWSTONE_CLUSTER_BLOCK);
-
-        this.tag(TagRegistry.Blocks.ECHO_SHARD_CRYSTAL_SPIKE_BASE).add(Blocks.SCULK);
-
-        this.tag(TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_BASE).add(BlockRegistry.WRAPPIST_BLOCK);
-
-        this.tag(TagRegistry.Blocks.PRISMARINE_CRYSTAL_SPIKE_BASE).add(BlockRegistry.PRISMARINE_CLUSTER_BLOCK);
     }
 }

@@ -3,29 +3,16 @@ package net.yeoxuhang.geode_plus.server.registry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
-import net.yeoxuhang.geode_plus.server.world.feature.*;
-import net.yeoxuhang.geode_plus.server.world.feature.config.GeodeCrystalSpikeConfig;
+import net.yeoxuhang.geode_plus.server.world.feature.CrystalSpikeFeature;
+import net.yeoxuhang.geode_plus.server.world.feature.GeodeFeature;
+import net.yeoxuhang.geode_plus.server.world.feature.OceanGeodeFeature;
+import net.yeoxuhang.geode_plus.server.world.feature.config.CrystalSpikeConfiguration;
 
 public class FeatureRegistry {
-    public static final Holder.Reference<CrystalSpikeFeature> NETHER_CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(
+    public static final Holder.Reference<CrystalSpikeFeature> CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(
             Registries.FEATURE,
-            "nether_crystal_spike",
-            () -> new CrystalSpikeFeature(GeodeCrystalSpikeConfig.CODEC));
-
-    public static final Holder.Reference<OceanCrystalSpikeFeature> OCEAN_CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(
-            Registries.FEATURE,
-            "ocean_crystal_spike",
-            () -> new OceanCrystalSpikeFeature(GeodeCrystalSpikeConfig.CODEC));
-
-    public static final Holder.Reference<EchoCrystalSpikeFeature> ECHO_CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(
-            Registries.FEATURE,
-            "echo_crystal_spike",
-            () -> new EchoCrystalSpikeFeature(GeodeCrystalSpikeConfig.CODEC));
-
-    public static final Holder.Reference<WrappistCrystalSpikeFeature> WRAPPIST_CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(
-            Registries.FEATURE,
-            "wrappist_crystal_spike",
-            () -> new WrappistCrystalSpikeFeature(GeodeCrystalSpikeConfig.CODEC));
+            "crystal_spike",
+            () -> new CrystalSpikeFeature(CrystalSpikeConfiguration.CODEC));
 
     public static final Holder.Reference<GeodeFeature> GEODE = ModRegistry.REGISTRY.register(Registries.FEATURE,
             "geode",

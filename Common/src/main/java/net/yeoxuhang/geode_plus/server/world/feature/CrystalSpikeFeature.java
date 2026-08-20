@@ -1,198 +1,193 @@
 package net.yeoxuhang.geode_plus.server.world.feature;
 
-import com.google.common.collect.Sets;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.DripstoneUtils;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
-import net.yeoxuhang.geode_plus.server.block.WrappistClusterBlock;
-import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
-import net.yeoxuhang.geode_plus.server.world.feature.config.GeodeCrystalSpikeConfig;
-import org.jetbrains.annotations.NotNull;
+import net.yeoxuhang.geode_plus.server.world.feature.config.CrystalSpikeConfiguration;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
-public class CrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
-    public CrystalSpikeFeature(Codec<GeodeCrystalSpikeConfig> codec) {
+public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
+    private static final Direction[] DIRECTIONS = Direction.values();
+    /**
+     * The horizontal directions a spike may lean towards, in radians: 30°, 150°, 210°, and 330°.
+     */
+    private static final float[] SPIKE_ANGLES = {0.5235988F, 2.617994F, 3.6651917F, 5.759587F};
+    /**
+     * How far a ceiling spike searches upwards for solid terrain to attach to.
+     */
+    private static final int CEILING_SEARCH_DISTANCE = 10;
+    /**
+     * Vertical extent of the terrain blooming around the spike base.
+     */
+    private static final int BLOOM_HEIGHT = 2;
+    /**
+     * Chance for an individual spike block to grow clusters, as a one in n chance.
+     */
+    private static final int CLUSTER_CHANCE = 6;
+
+    public CrystalSpikeFeature(Codec<CrystalSpikeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(@NotNull FeaturePlaceContext<GeodeCrystalSpikeConfig> context) {
-        WorldGenLevel world = context.level();
-        BlockPos blockPos = context.origin();
+    @Override
+    public boolean place(FeaturePlaceContext<CrystalSpikeConfiguration> context) {
+        WorldGenLevel level = context.level();
+        BlockPos origin = context.origin();
         RandomSource random = context.random();
-        GeodeCrystalSpikeConfig config = context.config();
-        HashSet<BlockPos> trigList = Sets.newHashSet();
-        HashSet<BlockPos> clusterPos = Sets.newHashSet();
-        boolean flag = false;
-        int radiusCheck = config.xzRadius().sample(random) + 1;
-        int randomChance = random.nextInt(4);
-        int stepHeight = radiusCheck + 14 + Mth.nextInt(random, 10, 14);
-        if (world.isStateAtPosition(blockPos.relative(config.crystalDirection().getDirection().getOpposite()),
-                DripstoneUtils::isEmptyOrWaterOrLava) && world.getBlockState(blockPos).is(BlockTags.BASE_STONE_NETHER)
-                && this.placeSpike(world,
-                blockPos,
-                radiusCheck,
-                stepHeight,
-                randomChance,
-                trigList,
-                config.crystalDirection().getDirection(),
-                random)) {
-            flag = this.placeCrystals(world, random, config, trigList, clusterPos, flag);
-        }
-
-        return flag;
-    }
-
-    private boolean placeCrystals(WorldGenLevel world, RandomSource random, GeodeCrystalSpikeConfig config, HashSet<BlockPos> trigList, HashSet<BlockPos> clusterPos, boolean flag) {
-        Iterator var7 = trigList.iterator();
-
-        BlockPos pos;
-        while (var7.hasNext()) {
-            pos = (BlockPos) var7.next();
-            if (world.isStateAtPosition(pos, DripstoneUtils::isEmptyOrWaterOrLava)) {
-                BlockState state = config.crystalState().getState(random, pos);
-                this.setBlock(world, pos, state);
-                clusterPos.add(pos);
-                flag = true;
-            }
-        }
-
-        var7 = clusterPos.iterator();
-
-        while (true) {
-            do {
-                if (!var7.hasNext()) {
-                    return flag;
-                }
-
-                pos = (BlockPos) var7.next();
-            } while (random.nextInt(6) != 0);
-
-            Direction[] var9 = Direction.values();
-            int var10 = var9.length;
-
-            for (int var11 = 0; var11 < var10; ++var11) {
-                Direction direction = var9[var11];
-                BlockPos relative = pos.relative(direction);
-                // TODO the tag must include glowstone as well
-                if (random.nextBoolean() && world.isStateAtPosition(relative, DripstoneUtils::isEmptyOrWater)
-                        && world.getBlockState(pos).is(TagRegistry.Blocks.NETHER_QUARTZ_CRYSTAL_SPIKE_BASE)) {
-                    BlockState state = config.clusterState()
-                            .getState(random, relative)
-                            .trySetValue(WrappistClusterBlock.FACING, direction)
-                            .trySetValue(WrappistClusterBlock.WATERLOGGED,
-                                    world.getFluidState(relative).getType() == Fluids.WATER);
-                    this.setBlock(world, relative, state);
-                }
-            }
+        CrystalSpikeConfiguration config = context.config();
+        Direction direction = config.crystalDirection().getDirection();
+        if (!level.isStateAtPosition(origin.relative(direction.getOpposite()), DripstoneUtils::isEmptyOrWaterOrLava)) {
+            return false;
+        } else if (!level.getBlockState(origin).is(config.placeableOn())) {
+            return false;
+        } else {
+            int radius = config.xzRadius().sample(random) + 1;
+            float angle = SPIKE_ANGLES[random.nextInt(SPIKE_ANGLES.length)];
+            int height = radius + 14 + Mth.nextInt(random, 10, 14);
+            Set<BlockPos> crystalPositions = new HashSet<>();
+            return this.placeSpike(level, config, random, origin, radius, height, angle, crystalPositions)
+                    && this.placeCrystals(level, config, random, crystalPositions);
         }
     }
 
-    public boolean placeSpike(LevelAccessor world, BlockPos blockPos, int startRadius, int height, int randomChance, HashSet<BlockPos> crystalPos, Direction direction, RandomSource random) {
-        boolean flag = false;
+    /**
+     * Collects the positions the spike is built from, and blooms the terrain it grows out of.
+     *
+     * @return whether at least one position is free for the spike to occupy
+     */
+    private boolean placeSpike(WorldGenLevel level, CrystalSpikeConfiguration config, RandomSource random, BlockPos origin, int startRadius, int height, float angle, Set<BlockPos> crystalPositions) {
+        Direction direction = config.crystalDirection().getDirection();
+        // a ceiling spike is built downwards, so all offsets are mirrored
+        int sign = direction == Direction.UP ? -1 : 1;
+        boolean placed = false;
 
-        for (int y = 0; y < height; ++y) {
+        for (int y = 0; y < height; y++) {
+            // the spike tapers off, once nothing is left there is no point in going any higher
             int radius = startRadius - y / 2;
+            if (radius < 0) {
+                break;
+            }
 
-            for (int x = -radius; x <= radius; ++x) {
-                for (int z = -radius; z <= radius; ++z) {
-                    BlockPos pos = new BlockPos(blockPos.getX() + x, blockPos.getY(), blockPos.getZ() + z);
-                    if (x * x + z * z <= radius * radius) {
-                        if (direction == Direction.DOWN) {
-                            //return this.placeSpike(world, blockPos.below(), startRadius / 2, height, randomChance, crystalPos, direction, random);
-                        } else if (direction == Direction.UP) {
-                            BlockPos.MutableBlockPos mut = pos.mutable();
-
-                            for (int i = 0; i < 10 && world.isStateAtPosition(mut.above(),
-                                    DripstoneUtils::isEmptyOrWaterOrLava); ++i) {
-                                mut.move(Direction.UP);
-                            }
-
-                            pos = mut.immutable();
-                            if (world.isStateAtPosition(pos.above(), DripstoneUtils::isEmptyOrWaterOrLava)) {
-                                return false;
-                            }
+            for (int x = -radius; x <= radius; x++) {
+                for (int z = -radius; z <= radius; z++) {
+                    if (x * x + z * z > radius * radius) {
+                        continue;
+                    }
+                    BlockPos pos = origin.offset(x, 0, z);
+                    if (direction == Direction.UP) {
+                        pos = findCeiling(level, pos);
+                        if (pos == null) {
+                            return false;
                         }
+                    }
 
-                        this.calciteBloom(world, pos.relative(direction), random, radius);
-                        float var10000;
-                        switch (randomChance) {
-                            case 0:
-                                var10000 = 2.617994F;
-                                break;
-                            case 1:
-                                var10000 = 5.759587F;
-                                break;
-                            case 2:
-                                var10000 = 0.5235988F;
-                                break;
-                            case 3:
-                                var10000 = 3.6651917F;
-                                break;
-                            default:
-                                throw new IllegalStateException("Unexpected value: " + randomChance);
-                        }
-
-                        float delta = var10000;
-                        float q = Mth.cos(delta) * (float) y;
-                        float k = Mth.sin(1.5707964F) * (float) y;
-                        float l = Mth.sin(delta) * (float) y;
-                        float xx = direction == Direction.UP ? -q : q;
-                        float yy = direction == Direction.UP ? -k : k;
-                        float zz = direction == Direction.UP ? -l : l;
-                        BlockPos trigPos = pos.offset((int) xx, (int) yy, (int) zz);
-                        if (world.isStateAtPosition(trigPos, DripstoneUtils::isEmptyOrWaterOrLava)) {
-                            crystalPos.add(trigPos);
-                            flag = true;
-                        } else {
-                            crystalPos.remove(trigPos);
-                        }
+                    this.bloomTerrain(level, config, random, pos.relative(direction), radius);
+                    BlockPos crystalPos = pos.offset(sign * (int) (Mth.cos(angle) * y),
+                            sign * y,
+                            sign * (int) (Mth.sin(angle) * y));
+                    if (level.isStateAtPosition(crystalPos, DripstoneUtils::isEmptyOrWaterOrLava)) {
+                        crystalPositions.add(crystalPos);
+                        placed = true;
+                    } else {
+                        crystalPositions.remove(crystalPos);
                     }
                 }
             }
         }
 
-        return flag;
+        return placed;
     }
 
-    private boolean calciteBloom(LevelAccessor world, BlockPos blockPos, RandomSource random, int crystalRadius) {
+    /**
+     * @return the position whose block above is solid, or <code>null</code> when there is no ceiling in range
+     */
+    @Nullable
+    private static BlockPos findCeiling(LevelAccessor level, BlockPos pos) {
+        BlockPos.MutableBlockPos mutablePos = pos.mutable();
+
+        for (int i = 0; i < CEILING_SEARCH_DISTANCE && level.isStateAtPosition(mutablePos.above(),
+                DripstoneUtils::isEmptyOrWaterOrLava); i++) {
+            mutablePos.move(Direction.UP);
+        }
+
+        return level.isStateAtPosition(mutablePos.above(), DripstoneUtils::isEmptyOrWaterOrLava) ? null :
+                mutablePos.immutable();
+    }
+
+    /**
+     * Converts exposed terrain around the spike base into the configured bloom block.
+     */
+    private void bloomTerrain(WorldGenLevel level, CrystalSpikeConfiguration config, RandomSource random, BlockPos origin, int crystalRadius) {
         int radius = crystalRadius / 4;
-        int height = ConstantInt.of(2).sample(random);
-        boolean flag = false;
 
-        for (int x = -radius; x <= radius; ++x) {
-            for (int z = -radius; z <= radius; ++z) {
-                for (int y = -height; y <= height; ++y) {
-                    BlockPos pos = new BlockPos(blockPos.getX() + x, blockPos.getY() + y, blockPos.getZ() + z);
-                    Direction[] var12 = Direction.values();
-                    int var13 = var12.length;
+        for (int x = -radius; x <= radius; x++) {
+            for (int z = -radius; z <= radius; z++) {
+                for (int y = -BLOOM_HEIGHT; y <= BLOOM_HEIGHT; y++) {
+                    BlockPos pos = origin.offset(x, y, z);
+                    if (!level.getBlockState(pos).is(config.placeableOn())) {
+                        continue;
+                    }
 
-                    for (int var14 = 0; var14 < var13; ++var14) {
-                        Direction direction = var12[var14];
-                        if (world.getBlockState(pos).is(BlockTags.BASE_STONE_NETHER)
-                                && world.isStateAtPosition(pos.relative(direction),
-                                DripstoneUtils::isEmptyOrWaterOrLava)) {
-                            world.setBlock(pos, Blocks.BLACKSTONE.defaultBlockState(), 2);
-                            flag = true;
+                    for (Direction direction : DIRECTIONS) {
+                        if (level.isStateAtPosition(pos.relative(direction), DripstoneUtils::isEmptyOrWaterOrLava)) {
+                            level.setBlock(pos, config.bloomState().getState(random, pos), Block.UPDATE_CLIENTS);
+                            break;
                         }
                     }
                 }
             }
         }
+    }
 
-        return flag;
+    /**
+     * Fills the collected positions with the spike block, then grows clusters on some of them.
+     *
+     * @return whether any part of the spike was placed
+     */
+    private boolean placeCrystals(WorldGenLevel level, CrystalSpikeConfiguration config, RandomSource random, Set<BlockPos> crystalPositions) {
+        List<BlockPos> spikePositions = new ArrayList<>();
+
+        for (BlockPos pos : crystalPositions) {
+            if (level.isStateAtPosition(pos, DripstoneUtils::isEmptyOrWaterOrLava)) {
+                this.setBlock(level, pos, config.crystalState().getState(random, pos));
+                spikePositions.add(pos);
+            }
+        }
+
+        for (BlockPos pos : spikePositions) {
+            if (random.nextInt(CLUSTER_CHANCE) != 0) {
+                continue;
+            }
+
+            for (Direction direction : DIRECTIONS) {
+                BlockPos clusterPos = pos.relative(direction);
+                if (random.nextBoolean() && level.isStateAtPosition(clusterPos, DripstoneUtils::isEmptyOrWater)) {
+                    BlockState blockState = config.clusterState()
+                            .getState(random, clusterPos)
+                            .trySetValue(BlockStateProperties.FACING, direction)
+                            .trySetValue(BlockStateProperties.WATERLOGGED,
+                                    level.getFluidState(clusterPos).getType() == Fluids.WATER);
+                    this.setBlock(level, clusterPos, blockState);
+                }
+            }
+        }
+
+        return !spikePositions.isEmpty();
     }
 }

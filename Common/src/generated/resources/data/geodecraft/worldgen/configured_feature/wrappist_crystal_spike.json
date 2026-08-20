@@ -1,6 +1,12 @@
 {
-  "type": "geodecraft:wrappist_crystal_spike",
+  "type": "geodecraft:crystal_spike",
   "config": {
+    "bloom_state": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "geodecraft:smooth_end_stone"
+      }
+    },
     "cluster_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -18,6 +24,7 @@
         "Name": "geodecraft:wrappist_block"
       }
     },
+    "placeable_on": "#geodecraft:can_large_wrappist_crystal_place",
     "xz_radius": {
       "type": "minecraft:uniform",
       "max_inclusive": 3,

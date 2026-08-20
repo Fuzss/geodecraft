@@ -3,7 +3,9 @@ package net.yeoxuhang.geode_plus.server.registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.GeodeBlockSettings;
 import net.minecraft.world.level.levelgen.GeodeCrackSettings;
@@ -12,9 +14,8 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
-import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.yeoxuhang.geode_plus.server.world.feature.config.GeodeCrystalSpikeConfig;
+import net.yeoxuhang.geode_plus.server.world.feature.config.CrystalSpikeConfiguration;
 
 import java.util.List;
 
@@ -84,62 +85,62 @@ public class ConfiguredFeatureRegistry {
     public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_TOPAZ_GEODE = registerKey("pink_topaz_geode");
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
-        register(context,
+        registerCrystalSpike(context,
                 NETHER_QUARTZ_CRYSTAL_SPIKE,
-                FeatureRegistry.NETHER_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(NETHER_QUARTZ_CRYSTAL_BLOCK.value()),
-                        BlockStateProvider.simple(NETHER_QUARTZ_CRYSTAL.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.CEILING));
-        register(context,
+                NETHER_QUARTZ_CRYSTAL_BLOCK.value(),
+                NETHER_QUARTZ_CRYSTAL.value(),
+                Blocks.BLACKSTONE,
+                TagRegistry.Blocks.NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.CEILING);
+        registerCrystalSpike(context,
                 NETHER_QUARTZ_CRYSTAL_SPIKE_FLOOR,
-                FeatureRegistry.NETHER_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(NETHER_QUARTZ_CRYSTAL_BLOCK.value()),
-                        BlockStateProvider.simple(NETHER_QUARTZ_CRYSTAL.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.FLOOR));
-        register(context,
+                NETHER_QUARTZ_CRYSTAL_BLOCK.value(),
+                NETHER_QUARTZ_CRYSTAL.value(),
+                Blocks.BLACKSTONE,
+                TagRegistry.Blocks.NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.FLOOR);
+        registerCrystalSpike(context,
                 GLOWSTONE_CRYSTAL_SPIKE,
-                FeatureRegistry.NETHER_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(GLOWSTONE_CLUSTER_BLOCK.value()),
-                        BlockStateProvider.simple(GLOWSTONE_CLUSTER.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.CEILING));
-        register(context,
+                GLOWSTONE_CLUSTER_BLOCK.value(),
+                GLOWSTONE_CLUSTER.value(),
+                Blocks.BLACKSTONE,
+                TagRegistry.Blocks.GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.CEILING);
+        registerCrystalSpike(context,
                 GLOWSTONE_CRYSTAL_SPIKE_FLOOR,
-                FeatureRegistry.NETHER_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(GLOWSTONE_CLUSTER_BLOCK.value()),
-                        BlockStateProvider.simple(GLOWSTONE_CLUSTER.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.FLOOR));
-        register(context,
+                GLOWSTONE_CLUSTER_BLOCK.value(),
+                GLOWSTONE_CLUSTER.value(),
+                Blocks.BLACKSTONE,
+                TagRegistry.Blocks.GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.FLOOR);
+        registerCrystalSpike(context,
                 ECHO_CRYSTAL_SPIKE,
-                FeatureRegistry.ECHO_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(Blocks.SCULK),
-                        BlockStateProvider.simple(ECHO_CRYSTAL.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.CEILING));
-        register(context,
+                Blocks.SCULK,
+                ECHO_CRYSTAL.value(),
+                Blocks.SCULK,
+                TagRegistry.Blocks.ECHO_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.CEILING);
+        registerCrystalSpike(context,
                 ECHO_CRYSTAL_SPIKE_FLOOR,
-                FeatureRegistry.ECHO_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(Blocks.SCULK),
-                        BlockStateProvider.simple(ECHO_CRYSTAL.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.FLOOR));
-        register(context,
+                Blocks.SCULK,
+                ECHO_CRYSTAL.value(),
+                Blocks.SCULK,
+                TagRegistry.Blocks.ECHO_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.FLOOR);
+        registerCrystalSpike(context,
                 WRAPPIST_CRYSTAL_SPIKE,
-                FeatureRegistry.WRAPPIST_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(WRAPPIST_BLOCK.value()),
-                        BlockStateProvider.simple(WRAPPIST_CLUSTER.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.FLOOR));
-        register(context,
+                WRAPPIST_BLOCK.value(),
+                WRAPPIST_CLUSTER.value(),
+                SMOOTH_END_STONE.value(),
+                TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.FLOOR);
+        registerCrystalSpike(context,
                 PRISMARINE_CRYSTAL_SPIKE,
-                FeatureRegistry.OCEAN_CRYSTAL_SPIKE.value(),
-                new GeodeCrystalSpikeConfig(BlockStateProvider.simple(PRISMARINE_CLUSTER_BLOCK.value()),
-                        BlockStateProvider.simple(PRISMARINE_CLUSTER.value()),
-                        UniformInt.of(1, 3),
-                        CaveSurface.FLOOR));
+                PRISMARINE_CLUSTER_BLOCK.value(),
+                PRISMARINE_CLUSTER.value(),
+                Blocks.PRISMARINE,
+                TagRegistry.Blocks.PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                CaveSurface.FLOOR);
         register(context,
                 ANCIENT_DEBRIS_GEODE,
                 FeatureRegistry.GEODE.value(),
@@ -903,6 +904,18 @@ public class ConfiguredFeatureRegistry {
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
+    }
+
+    private static void registerCrystalSpike(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block crystalBlock, Block clusterBlock, Block bloomBlock, TagKey<Block> placeableOn, CaveSurface crystalDirection) {
+        register(context,
+                key,
+                FeatureRegistry.CRYSTAL_SPIKE.value(),
+                new CrystalSpikeConfiguration(simple(crystalBlock),
+                        simple(clusterBlock),
+                        simple(bloomBlock),
+                        placeableOn,
+                        UniformInt.of(1, 3),
+                        crystalDirection));
     }
 
     public static void bootstrap() {

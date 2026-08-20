@@ -57,22 +57,17 @@ public class TagRegistry {
         public static final TagKey<Block> WRAPPIST_PEDESTAL_CANNOT_PLACE_ON = blockTag(
                 "wrappist_pedestal_cannot_place_on");
 
-        public static final TagKey<Block> CAN_LARGE_ECHO_CRYSTAL_PLACE = blockTag("can_large_echo_crystal_place");
-
-        public static final TagKey<Block> CAN_LARGE_WRAPPIST_CRYSTAL_PLACE = blockTag("can_large_wrappist_crystal_place");
-
-        public static final TagKey<Block> CAN_LARGE_PRISMARINE_CRYSTAL_PLACE = blockTag(
-                "can_large_prismarine_crystal_place");
+        public static final TagKey<Block> NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag("nether_quartz_crystal_spike_may_place_on");
+        public static final TagKey<Block> GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag("glowstone_crystal_spike_may_place_on");
+        public static final TagKey<Block> ECHO_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag("echo_crystal_spike_may_place_on");
+        public static final TagKey<Block> WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
+                "wrappist_crystal_spike_may_place_on");
+        public static final TagKey<Block> PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
+                "prismarine_crystal_spike_may_place_on");
 
         public static final TagKey<Block> GEODE_INVALID_BLOCKS = blockTag("geode_invalid_blocks");
 
         public static final TagKey<Block> GEODES_CANNOT_REPLACE = blockTag("geodes_cannot_replace");
-
-        public static final TagKey<Block> NETHER_QUARTZ_CRYSTAL_SPIKE_BASE = blockTag("nether_quartz_crystal_spike_base");
-        public static final TagKey<Block> GLOWSTONE_CRYSTAL_SPIKE_BASE = blockTag("glowstone_crystal_spike_base");
-        public static final TagKey<Block> ECHO_SHARD_CRYSTAL_SPIKE_BASE = blockTag("echo_shard_crystal_spike_base");
-        public static final TagKey<Block> WRAPPIST_CRYSTAL_SPIKE_BASE = blockTag("wrappist_crystal_spike_base");
-        public static final TagKey<Block> PRISMARINE_CRYSTAL_SPIKE_BASE = blockTag("prismarine_crystal_spike_base");
 
         private static TagKey<Block> blockTag(String name) {
             return TAGS.registerBlockTag(name);

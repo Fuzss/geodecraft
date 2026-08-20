@@ -1,6 +1,12 @@
 {
-  "type": "geodecraft:ocean_crystal_spike",
+  "type": "geodecraft:crystal_spike",
   "config": {
+    "bloom_state": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:prismarine"
+      }
+    },
     "cluster_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -18,6 +24,7 @@
         "Name": "geodecraft:prismarine_cluster_block"
       }
     },
+    "placeable_on": "#geodecraft:can_large_prismarine_crystal_place",
     "xz_radius": {
       "type": "minecraft:uniform",
       "max_inclusive": 3,
