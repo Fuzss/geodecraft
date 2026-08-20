@@ -8,8 +8,8 @@ import fuzs.puzzleslib.api.event.v1.server.RegisterPotionBrewingMixesCallback;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potions;
 import fuzs.geodecraft.common.handler.BiomeModificationsHandler;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
-import net.yeoxuhang.geode_plus.server.registry.ModRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
+import fuzs.geodecraft.common.init.ModRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

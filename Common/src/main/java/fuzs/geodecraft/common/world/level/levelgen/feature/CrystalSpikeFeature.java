@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus.server.world.feature;
+package fuzs.geodecraft.common.world.level.levelgen.feature;
 
 import com.mojang.serialization.Codec;
 import net.minecraft.core.BlockPos;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.levelgen.feature.DripstoneUtils;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
-import net.yeoxuhang.geode_plus.server.world.feature.config.CrystalSpikeConfiguration;
+import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CrystalSpikeConfiguration;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;

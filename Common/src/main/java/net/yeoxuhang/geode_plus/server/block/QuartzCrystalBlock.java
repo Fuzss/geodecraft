@@ -20,7 +20,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yeoxuhang.geode_plus.GeodePlus;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
 
 import org.jetbrains.annotations.Nullable;
 

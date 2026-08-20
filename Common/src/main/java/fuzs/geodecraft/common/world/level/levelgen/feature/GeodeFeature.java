@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus.server.world.feature;
+package fuzs.geodecraft.common.world.level.levelgen.feature;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
@@ -21,7 +21,7 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.FluidState;
-import net.yeoxuhang.geode_plus.server.world.feature.config.CustomGeodeConfiguration;
+import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CustomGeodeConfiguration;
 
 import java.util.List;
 import java.util.function.Predicate;

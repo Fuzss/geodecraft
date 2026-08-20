@@ -19,7 +19,7 @@ import net.minecraft.world.phys.Vec3;
 
 import net.yeoxuhang.geode_plus.GeodePlus;
 import fuzs.geodecraft.common.config.CommonConfig;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
 
 import org.jetbrains.annotations.Nullable;
 import java.util.Collections;

@@ -9,7 +9,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -27,8 +26,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yeoxuhang.geode_plus.server.block.entity.WrappistPedestalBlockEntity;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
-import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.TagRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

@@ -3,13 +3,13 @@ package fuzs.geodecraft.common.data.client;
 import fuzs.geodecraft.common.Geodecraft;
 import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
-import net.yeoxuhang.geode_plus.server.registry.ModRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
+import fuzs.geodecraft.common.init.ModRegistry;
 
-public class GeodePlusLangProvider extends AbstractLanguageProvider {
+public class ModLanguageProvider extends AbstractLanguageProvider {
 
-    public GeodePlusLangProvider(DataProviderContext context) {
+    public ModLanguageProvider(DataProviderContext context) {
         super(context);
     }
 

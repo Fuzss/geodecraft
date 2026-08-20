@@ -10,16 +10,16 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
 
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class GeodePlusRecipeProvider extends AbstractRecipeProvider {
+public class ModRecipeProvider extends AbstractRecipeProvider {
 
-    public GeodePlusRecipeProvider(DataProviderContext context) {
+    public ModRecipeProvider(DataProviderContext context) {
         super(context);
     }
 

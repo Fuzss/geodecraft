@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus.server.registry;
+package fuzs.geodecraft.common.init;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.Item;
@@ -7,13 +7,13 @@ import net.minecraft.world.item.SmithingTemplateItem;
 public class ItemRegistry {
     public static final Holder.Reference<Item> WRAP_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRY.registerItem(
             "wrap_armor_trim_smithing_template",
-            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimMaterialsAndPatternsRegistry.WRAP));
+            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.WRAP));
     public static final Holder.Reference<Item> CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRY.registerItem(
             "celeste_armor_trim_smithing_template",
-            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimMaterialsAndPatternsRegistry.CELESTE));
+            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.CELESTE));
     public static final Holder.Reference<Item> HEART_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRY.registerItem(
             "heart_armor_trim_smithing_template",
-            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimMaterialsAndPatternsRegistry.HEART));
+            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.HEART));
 
     public static final Holder.Reference<Item> PINK_TOPAZ = ModRegistry.REGISTRY.registerItem("pink_topaz");
     public static final Holder.Reference<Item> CELESTITE_SHARD = ModRegistry.REGISTRY.registerItem("celestite_shard");

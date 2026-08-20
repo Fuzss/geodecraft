@@ -7,8 +7,8 @@ import fuzs.puzzleslib.api.client.core.v1.context.RenderTypesContext;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
 import fuzs.geodecraft.common.client.renderer.blockentity.WrappistPedestalRenderer;
-import net.yeoxuhang.geode_plus.server.registry.BlockEntityRegistry;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
+import fuzs.geodecraft.common.init.BlockEntityRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
 
 public class GeodecraftClient implements ClientModConstructor {
     @Override

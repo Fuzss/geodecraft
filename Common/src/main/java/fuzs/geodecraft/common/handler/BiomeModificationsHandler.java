@@ -7,8 +7,8 @@ import fuzs.puzzleslib.api.biome.v1.BiomeLoadingPhase;
 import fuzs.puzzleslib.api.biome.v1.BiomeModificationContext;
 import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.yeoxuhang.geode_plus.server.registry.PlacedFeatureRegistry;
-import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
+import fuzs.geodecraft.common.init.PlacedFeatureRegistry;
+import fuzs.geodecraft.common.init.TagRegistry;
 
 public class BiomeModificationsHandler {
 

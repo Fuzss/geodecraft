@@ -1,13 +1,13 @@
-package net.yeoxuhang.geode_plus.server.registry;
+package fuzs.geodecraft.common.init;
 
+import fuzs.geodecraft.common.Geodecraft;
 import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
-import net.yeoxuhang.geode_plus.GeodePlus;
 
 public class TagRegistry {
-    static final TagFactory TAGS = TagFactory.make(GeodePlus.MOD_ID);
+    static final TagFactory TAGS = TagFactory.make(Geodecraft.MOD_ID);
 
     public static class Biomes {
         //Geodes

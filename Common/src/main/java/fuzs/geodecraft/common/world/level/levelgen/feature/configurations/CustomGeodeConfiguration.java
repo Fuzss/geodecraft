@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus.server.world.feature.config;
+package fuzs.geodecraft.common.world.level.levelgen.feature.configurations;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;

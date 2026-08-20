@@ -9,10 +9,10 @@ import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.*;
 import net.minecraft.world.level.block.Block;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
 
-public class GeodePlusItemModelProvider extends AbstractModelProvider {
+public class ModModelProvider extends AbstractModelProvider {
     public static final ModelTemplate PEDESTAL_TEMPLATE = ModelTemplateHelper.createBlockModelTemplate(Geodecraft.id(
             "template_pedestal"), TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.SIDE);
     public static final TexturedModel.Provider PEDESTAL_PROVIDER = TexturedModel.createDefault(TextureMapping::cubeBottomTop,
@@ -26,7 +26,7 @@ public class GeodePlusItemModelProvider extends AbstractModelProvider {
     public static final ModelTemplate AMETHYST_CLUSTER_INVENTORY = ModelTemplates.createItem("amethyst_cluster",
             TextureSlot.LAYER0);
 
-    public GeodePlusItemModelProvider(DataProviderContext context) {
+    public ModModelProvider(DataProviderContext context) {
         super(context);
     }
 

@@ -7,11 +7,11 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
-import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
+import fuzs.geodecraft.common.init.TagRegistry;
 
-public class GeodePlusBiomeTagProvider extends AbstractTagProvider<Biome> {
+public class BiomeTagsProvider extends AbstractTagProvider<Biome> {
 
-    public GeodePlusBiomeTagProvider(DataProviderContext context) {
+    public BiomeTagsProvider(DataProviderContext context) {
         super(Registries.BIOME, context);
     }
 

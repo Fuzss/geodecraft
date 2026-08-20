@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus.server.registry;
+package fuzs.geodecraft.common.init;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -17,8 +17,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import net.yeoxuhang.geode_plus.server.world.feature.config.CrystalSpikeConfiguration;
-import net.yeoxuhang.geode_plus.server.world.feature.config.CustomGeodeConfiguration;
+import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CrystalSpikeConfiguration;
+import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CustomGeodeConfiguration;
 
 import java.util.List;
 

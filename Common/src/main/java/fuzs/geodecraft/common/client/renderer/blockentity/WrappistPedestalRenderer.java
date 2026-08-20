@@ -23,14 +23,13 @@ import net.minecraft.client.resources.model.Material;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.Level;
-import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.block.entity.WrappistPedestalBlockEntity;
 
 public class WrappistPedestalRenderer<T extends WrappistPedestalBlockEntity> implements BlockEntityRenderer<T> {
     static final ModelLayerFactory FACTORY = ModelLayerFactory.from(Geodecraft.MOD_ID);
     public static final ModelLayerLocation WRAPPIST_PEDESTAL = FACTORY.registerModelLayer("wrappist_pedestal");
     public static final Material MATERIAL = new Material(TextureAtlas.LOCATION_BLOCKS,
-            GeodePlus.id("entity/wrappist_pedestal/wrappist_pedestal_crystals"));
+            Geodecraft.id("entity/wrappist_pedestal/wrappist_pedestal_crystals"));
 
     private final ItemRenderer itemRenderer;
     private final ModelPart crystals;

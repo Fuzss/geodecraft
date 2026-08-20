@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus.server.registry;
+package fuzs.geodecraft.common.init;
 
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.entity.BlockEntityType;

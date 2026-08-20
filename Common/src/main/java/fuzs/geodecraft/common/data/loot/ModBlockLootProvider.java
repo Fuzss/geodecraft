@@ -15,12 +15,12 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
 
-public class GeodePlusBlockLootTableProvider extends AbstractLootProvider.Blocks {
+public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
 
-    public GeodePlusBlockLootTableProvider(DataProviderContext context) {
+    public ModBlockLootProvider(DataProviderContext context) {
         super(context);
     }
 

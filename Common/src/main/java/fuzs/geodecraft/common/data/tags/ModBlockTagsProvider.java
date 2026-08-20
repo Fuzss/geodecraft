@@ -7,12 +7,12 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
-import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.TagRegistry;
 
-public class GeodePlusBlockTagProvider extends AbstractTagProvider<Block> {
+public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
 
-    public GeodePlusBlockTagProvider(DataProviderContext context) {
+    public ModBlockTagsProvider(DataProviderContext context) {
         super(Registries.BLOCK, context);
     }
 

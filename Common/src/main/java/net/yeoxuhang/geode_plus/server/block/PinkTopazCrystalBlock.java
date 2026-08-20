@@ -19,7 +19,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
 
 import org.jetbrains.annotations.Nullable;
 import java.util.List;

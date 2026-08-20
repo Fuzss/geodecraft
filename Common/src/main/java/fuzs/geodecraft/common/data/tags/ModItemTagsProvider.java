@@ -6,11 +6,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
 
-public class GeodePlusItemTagProvider extends AbstractTagProvider<Item> {
+public class ModItemTagsProvider extends AbstractTagProvider<Item> {
 
-    public GeodePlusItemTagProvider(DataProviderContext context) {
+    public ModItemTagsProvider(DataProviderContext context) {
         super(Registries.ITEM, context);
     }
 

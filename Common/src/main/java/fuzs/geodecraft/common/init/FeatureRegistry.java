@@ -1,11 +1,11 @@
-package net.yeoxuhang.geode_plus.server.registry;
+package fuzs.geodecraft.common.init;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.yeoxuhang.geode_plus.server.world.feature.CrystalSpikeFeature;
-import net.yeoxuhang.geode_plus.server.world.feature.GeodeFeature;
-import net.yeoxuhang.geode_plus.server.world.feature.config.CrystalSpikeConfiguration;
-import net.yeoxuhang.geode_plus.server.world.feature.config.CustomGeodeConfiguration;
+import fuzs.geodecraft.common.world.level.levelgen.feature.CrystalSpikeFeature;
+import fuzs.geodecraft.common.world.level.levelgen.feature.GeodeFeature;
+import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CrystalSpikeConfiguration;
+import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CustomGeodeConfiguration;
 
 public class FeatureRegistry {
     public static final Holder.Reference<CrystalSpikeFeature> CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(Registries.FEATURE,

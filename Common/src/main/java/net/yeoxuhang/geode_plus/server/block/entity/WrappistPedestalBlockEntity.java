@@ -14,7 +14,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.yeoxuhang.geode_plus.server.registry.BlockEntityRegistry;
+import fuzs.geodecraft.common.init.BlockEntityRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -108,7 +108,6 @@ public class WrappistPedestalBlockEntity extends BaseContainerBlockEntity implem
         this.stacks.clear();
     }
 
-
     @Override
     public void loadAdditional(@NotNull CompoundTag compound, HolderLookup.Provider registries) {
         super.loadAdditional(compound, registries);
@@ -121,7 +120,6 @@ public class WrappistPedestalBlockEntity extends BaseContainerBlockEntity implem
         super.saveAdditional(compound, registries);
         ContainerHelper.saveAllItems(compound, this.stacks, registries);
     }
-
 
     @Override
     public @NotNull Component getDisplayName() {
