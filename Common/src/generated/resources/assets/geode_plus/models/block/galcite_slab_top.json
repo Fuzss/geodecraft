@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "bottom": "geode_plus:block/galcite",
-    "side": "geode_plus:block/galcite",
-    "top": "geode_plus:block/galcite"
-  }
-}
