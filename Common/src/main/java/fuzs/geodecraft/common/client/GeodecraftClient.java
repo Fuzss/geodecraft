@@ -1,77 +1,98 @@
 package fuzs.geodecraft.common.client;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Axis;
 import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
 import fuzs.puzzleslib.api.client.core.v1.context.BlockEntityRenderersContext;
-import fuzs.puzzleslib.api.client.core.v1.context.BuiltinModelItemRendererContext;
 import fuzs.puzzleslib.api.client.core.v1.context.LayerDefinitionsContext;
 import fuzs.puzzleslib.api.client.core.v1.context.RenderTypesContext;
-import fuzs.puzzleslib.api.client.init.v1.ReloadingBuiltInItemRenderer;
-import fuzs.puzzleslib.api.core.v1.ContentRegistrationFlags;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.server.packs.resources.ResourceManager;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
-import net.yeoxuhang.geode_plus.client.GeodePlusClient;
-import net.yeoxuhang.geode_plus.client.model.WrappistPedestalBlockEntityModel;
-import net.yeoxuhang.geode_plus.client.render.WrappistPedestalBlockEntityRenderer;
+import fuzs.geodecraft.common.client.renderer.blockentity.WrappistPedestalRenderer;
 import net.yeoxuhang.geode_plus.server.registry.BlockEntityRegistry;
-import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
+import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
 public class GeodecraftClient implements ClientModConstructor {
     @Override
     public void onRegisterBlockEntityRenderers(BlockEntityRenderersContext context) {
         context.registerBlockEntityRenderer(BlockEntityRegistry.WRAPPIST_PEDESTAL.value(),
-                WrappistPedestalBlockEntityRenderer::new);
+                WrappistPedestalRenderer::new);
     }
 
     @Override
     public void onRegisterLayerDefinitions(LayerDefinitionsContext context) {
-        context.registerLayerDefinition(GeodePlusClient.WRAPPIST_PEDESTAL,
-                WrappistPedestalBlockEntityModel::createBodyLayer);
+        context.registerLayerDefinition(WrappistPedestalRenderer.WRAPPIST_PEDESTAL, WrappistPedestalRenderer::createBodyLayer);
     }
 
     @Override
     public void onRegisterBlockRenderTypes(RenderTypesContext<Block> context) {
-        GeodePlusClient.renderTypes(map -> map.forEach(context::registerRenderType));
-    }
+        context.registerRenderType(BlockRegistry.PINK_TOPAZ_CRYSTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(), RenderType.cutout());
 
-    @Override
-    public void onRegisterBuiltinModelItemRenderers(BuiltinModelItemRendererContext context) {
-        context.registerItemRenderer(ItemRegistry.WRAPPIST_PEDESTAL.value(), new ReloadingBuiltInItemRenderer() {
-            private WrappistPedestalBlockEntityModel model;
+        context.registerRenderType(BlockRegistry.CELESTITE_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_CELESTITE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_CELESTITE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_CELESTITE_BUD.value(), RenderType.cutout());
 
-            @Override
-            public void renderByItem(ItemStack itemStack, ItemDisplayContext itemDisplayContext, PoseStack poseStack, MultiBufferSource bufferSource, int lightCoords, int packedOverlay) {
-                poseStack.pushPose();
-                float scale = 16.0F / 14.0F;
-                poseStack.scale(scale, scale, scale);
-                poseStack.translate(0.8F, 1.0F, 0.0F);
-                poseStack.mulPose(Axis.XP.rotationDegrees(-180.0F));
-                VertexConsumer vertexConsumer = ItemRenderer.getFoilBufferDirect(bufferSource,
-                        this.model.renderType(WrappistPedestalBlockEntityRenderer.TEXTURE_LOCATION),
-                        false,
-                        itemStack.hasFoil());
-                this.model.renderToBuffer(poseStack, vertexConsumer, lightCoords, packedOverlay);
-                poseStack.popPose();
-            }
+        context.registerRenderType(BlockRegistry.LAPIS_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_LAPIS_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_LAPIS_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_LAPIS_BUD.value(), RenderType.cutout());
 
-            @Override
-            public void onResourceManagerReload(ResourceManager resourceManager) {
-                this.model = new WrappistPedestalBlockEntityModel(Minecraft.getInstance()
-                        .getEntityModels()
-                        .bakeLayer(GeodePlusClient.WRAPPIST_PEDESTAL));
-            }
-        });
-    }
+        context.registerRenderType(BlockRegistry.REDSTONE_CRYSTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_REDSTONE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_REDSTONE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_REDSTONE_BUD.value(), RenderType.cutout());
 
-    @Override
-    public ContentRegistrationFlags[] getContentRegistrationFlags() {
-        return new ContentRegistrationFlags[]{ContentRegistrationFlags.DYNAMIC_RENDERERS};
+        context.registerRenderType(BlockRegistry.EMERALD_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_EMERALD_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_EMERALD_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_EMERALD_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.DIAMOND_CRYSTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_DIAMOND_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_DIAMOND_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_DIAMOND_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.NETHER_QUARTZ_CRYSTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.GOLD_NUGGET_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.GLOWSTONE_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_GLOWSTONE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_GLOWSTONE_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.ECHO_CRYSTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_ECHO_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_ECHO_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_ECHO_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.WRAPPIST_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_WRAPPIST_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_WRAPPIST_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_WRAPPIST_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.PRISMARINE_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_PRISMARINE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_PRISMARINE_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_PRISMARINE_BUD.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.WRAPPIST_GLASS.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.CELESTITE_GLASS.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.PINK_TOPAZ_GLASS.value(), RenderType.cutout());
+
+        context.registerRenderType(BlockRegistry.WRAPPIST_PEDESTAL.value(), RenderType.cutout());
     }
 }

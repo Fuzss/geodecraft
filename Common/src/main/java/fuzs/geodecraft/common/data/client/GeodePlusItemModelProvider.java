@@ -13,8 +13,10 @@ import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
 
 public class GeodePlusItemModelProvider extends AbstractModelProvider {
-    public static final ModelTemplate PEDESTAL_INVENTORY = ModelTemplateHelper.createItemModelTemplate(Geodecraft.id(
-            "template_pedestal"), TextureSlot.PARTICLE);
+    public static final ModelTemplate PEDESTAL_TEMPLATE = ModelTemplateHelper.createBlockModelTemplate(Geodecraft.id(
+            "template_pedestal"), TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.SIDE);
+    public static final TexturedModel.Provider PEDESTAL_PROVIDER = TexturedModel.createDefault(TextureMapping::cubeBottomTop,
+            PEDESTAL_TEMPLATE);
     public static final ModelTemplate SMALL_AMETHYST_BUD_INVENTORY = ModelTemplates.createItem("small_amethyst_bud",
             TextureSlot.LAYER0);
     public static final ModelTemplate MEDIUM_AMETHYST_BUD_INVENTORY = ModelTemplates.createItem("medium_amethyst_bud",
@@ -30,7 +32,7 @@ public class GeodePlusItemModelProvider extends AbstractModelProvider {
 
     @Override
     public void addBlockModels(BlockModelGenerators generator) {
-        this.createPedestal(BlockRegistry.WRAPPIST_PEDESTAL.value(), BlockRegistry.WRAPPIST_BLOCK.value(), generator);
+        generator.createTrivialBlock(BlockRegistry.WRAPPIST_PEDESTAL.value(), PEDESTAL_PROVIDER);
 
         generator.createTrivialCube(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.DIAMOND_CRYSTAL_BLOCK.value());
@@ -185,16 +187,6 @@ public class GeodePlusItemModelProvider extends AbstractModelProvider {
         generator.createAmethystCluster(block);
         template.create(ModelLocationHelper.getItemModel(block.asItem()),
                 TextureMapping.layer0(ModelLocationHelper.getBlockTexture(block)),
-                generator.modelOutput);
-    }
-
-    public final void createPedestal(Block block, Block particleBlock, BlockModelGenerators generator) {
-        generator.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block,
-                ModelTemplates.PARTICLE_ONLY.create(block,
-                        TextureMapping.particle(particleBlock),
-                        generator.modelOutput)));
-        PEDESTAL_INVENTORY.create(ModelLocationUtils.getModelLocation(block.asItem()),
-                TextureMapping.particle(particleBlock),
                 generator.modelOutput);
     }
 

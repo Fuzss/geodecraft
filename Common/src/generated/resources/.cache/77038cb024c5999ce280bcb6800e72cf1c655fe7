@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-20T18:03:59.188918	Model Definitions
+// 1.21.1	2026-08-20T19:07:03.872059	Model Definitions
 a5b94eed1777b5a842490924caeae7137327bd85 assets/geodecraft/blockstates/ancient_debris_cluster.json
 d16b05c24713075bb52cee545c93b984816c07c1 assets/geodecraft/blockstates/ancient_debris_cluster_block.json
 ab5bb3e1cf3040dcd3347fe6fc73bfd6cc7b8548 assets/geodecraft/blockstates/budding_ancient_debris.json
@@ -222,7 +222,7 @@ c9f4a843074def0054664152f8c97c304d28f634 assets/geodecraft/models/block/smooth_e
 69d5f94f4fca4a8dee38612d14fe9d95019c0522 assets/geodecraft/models/block/wrappist_block.json
 ee4bfee1fd902ccac4af175f58b1b6b12565a994 assets/geodecraft/models/block/wrappist_cluster.json
 513d685f94f7789af70d20226e129ed45ca19030 assets/geodecraft/models/block/wrappist_glass.json
-dfbea1d43e37377647500cb64a45eb856b9c6913 assets/geodecraft/models/block/wrappist_pedestal.json
+318fe79a67d00cca2461ddd284a058ad9d134eb3 assets/geodecraft/models/block/wrappist_pedestal.json
 e090bd3c3b7977654f576adb6f256c3b2372cea4 assets/geodecraft/models/item/ancient_debris_cluster.json
 6ba6eecb84d94467738ab488c924fa3576696da7 assets/geodecraft/models/item/ancient_debris_cluster_block.json
 968684ba8a9c6d8844628f2deeca0f87e066ebd7 assets/geodecraft/models/item/budding_ancient_debris.json
@@ -333,5 +333,5 @@ e551232c265446348955204611824143d7df7bc3 assets/geodecraft/models/item/smooth_en
 7ab3cbb2f71d02cabfe266964671efe3260c5e3b assets/geodecraft/models/item/wrappist_block.json
 13e52ac3dcc1a17d7d1fe4af4e7d0f4d2ced8e45 assets/geodecraft/models/item/wrappist_cluster.json
 f06aa4e5174c3d77c30e7f9a71442e90cf8e6536 assets/geodecraft/models/item/wrappist_glass.json
-b96da598f86ac421278a1dfde4b87b8fef538b97 assets/geodecraft/models/item/wrappist_pedestal.json
+160e2c25aa623c9c5648bcafde2fb827852a05c9 assets/geodecraft/models/item/wrappist_pedestal.json
 2ea7003eef89b5d0d646db6fab2348993cd7efb7 assets/geodecraft/models/item/wrappist_shard.json
