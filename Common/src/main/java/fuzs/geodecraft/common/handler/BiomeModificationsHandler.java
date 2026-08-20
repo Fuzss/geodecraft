@@ -10,7 +10,7 @@ import net.minecraft.world.level.levelgen.GenerationStep;
 import net.yeoxuhang.geode_plus.server.registry.PlacedFeatureRegistry;
 import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
 
-public class BiomeModifications {
+public class BiomeModificationsHandler {
 
     public static void init(BiomeModificationsContext registrar) {
         if (Geodecraft.CONFIG.get(CommonConfig.class).prismarineGeodes) {

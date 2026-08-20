@@ -1,4 +1,10 @@
 {
+  "remove": [
+    {
+      "id": "alexscaves:abyssal_chasm",
+      "required": false
+    }
+  ],
   "values": [
     "#minecraft:is_overworld"
   ]

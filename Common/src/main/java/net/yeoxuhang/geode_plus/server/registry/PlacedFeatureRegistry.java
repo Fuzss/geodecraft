@@ -100,8 +100,8 @@ public class PlacedFeatureRegistry {
         Holder.Reference<ConfiguredFeature<?, ?>> holder26 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.BASALT_QUARTZ_GEODE);
         Holder.Reference<ConfiguredFeature<?, ?>> holder27 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.BLACKSTONE_QUARTZ_GEODE);
 
-        Holder.Reference<ConfiguredFeature<?, ?>> holder28 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.CRYSTAL_SPIKE);
-        Holder.Reference<ConfiguredFeature<?, ?>> holder29 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.CRYSTAL_SPIKE_FLOOR);
+        Holder.Reference<ConfiguredFeature<?, ?>> holder28 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.NETHER_QUARTZ_CRYSTAL_SPIKE);
+        Holder.Reference<ConfiguredFeature<?, ?>> holder29 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.NETHER_QUARTZ_CRYSTAL_SPIKE_FLOOR);
         Holder.Reference<ConfiguredFeature<?, ?>> holder30 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.GLOWSTONE_CRYSTAL_SPIKE);
         Holder.Reference<ConfiguredFeature<?, ?>> holder31 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.GLOWSTONE_CRYSTAL_SPIKE_FLOOR);
         Holder.Reference<ConfiguredFeature<?, ?>> holder32 = holderGetter.getOrThrow(ConfiguredFeatureRegistry.ECHO_CRYSTAL_SPIKE);

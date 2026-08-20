@@ -7,8 +7,9 @@ import net.yeoxuhang.geode_plus.server.world.feature.*;
 import net.yeoxuhang.geode_plus.server.world.feature.config.GeodeCrystalSpikeConfig;
 
 public class FeatureRegistry {
-    public static final Holder.Reference<CrystalSpikeFeature> CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(Registries.FEATURE,
-            "crystal_spike",
+    public static final Holder.Reference<CrystalSpikeFeature> NETHER_CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(
+            Registries.FEATURE,
+            "nether_crystal_spike",
             () -> new CrystalSpikeFeature(GeodeCrystalSpikeConfig.CODEC));
 
     public static final Holder.Reference<OceanCrystalSpikeFeature> OCEAN_CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(

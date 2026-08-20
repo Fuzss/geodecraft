@@ -68,6 +68,12 @@ public class TagRegistry {
 
         public static final TagKey<Block> GEODES_CANNOT_REPLACE = blockTag("geodes_cannot_replace");
 
+        public static final TagKey<Block> NETHER_QUARTZ_CRYSTAL_SPIKE_BASE = blockTag("nether_quartz_crystal_spike_base");
+        public static final TagKey<Block> GLOWSTONE_CRYSTAL_SPIKE_BASE = blockTag("glowstone_crystal_spike_base");
+        public static final TagKey<Block> ECHO_SHARD_CRYSTAL_SPIKE_BASE = blockTag("echo_shard_crystal_spike_base");
+        public static final TagKey<Block> WRAPPIST_CRYSTAL_SPIKE_BASE = blockTag("wrappist_crystal_spike_base");
+        public static final TagKey<Block> PRISMARINE_CRYSTAL_SPIKE_BASE = blockTag("prismarine_crystal_spike_base");
+
         private static TagKey<Block> blockTag(String name) {
             return TAGS.registerBlockTag(name);
         }

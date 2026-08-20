@@ -1,16 +1,22 @@
 {
-  "type": "geodecraft:crystal_spike",
+  "type": "geodecraft:nether_crystal_spike",
   "config": {
     "cluster_state": {
-      "Name": "geodecraft:glowstone_cluster",
-      "Properties": {
-        "facing": "up",
-        "waterlogged": "false"
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "geodecraft:glowstone_cluster",
+        "Properties": {
+          "facing": "up",
+          "waterlogged": "false"
+        }
       }
     },
     "crystal_direction": "floor",
     "crystal_state": {
-      "Name": "geodecraft:glowstone_cluster_block"
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "geodecraft:glowstone_cluster_block"
+      }
     },
     "xz_radius": {
       "type": "minecraft:uniform",

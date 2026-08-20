@@ -1,10 +1,10 @@
 {
-  "type": "geodecraft:ocean_crystal_spike",
+  "type": "geodecraft:nether_crystal_spike",
   "config": {
     "cluster_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "geodecraft:prismarine_cluster",
+        "Name": "geodecraft:nether_quartz_crystal",
         "Properties": {
           "facing": "up",
           "waterlogged": "false"
@@ -15,7 +15,7 @@
     "crystal_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "geodecraft:prismarine_cluster_block"
+        "Name": "geodecraft:nether_quartz_crystal_block"
       }
     },
     "xz_radius": {

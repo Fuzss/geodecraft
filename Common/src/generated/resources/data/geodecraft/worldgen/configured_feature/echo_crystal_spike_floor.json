@@ -2,15 +2,21 @@
   "type": "geodecraft:echo_crystal_spike",
   "config": {
     "cluster_state": {
-      "Name": "geodecraft:echo_crystal",
-      "Properties": {
-        "facing": "up",
-        "waterlogged": "false"
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "geodecraft:echo_crystal",
+        "Properties": {
+          "facing": "up",
+          "waterlogged": "false"
+        }
       }
     },
     "crystal_direction": "floor",
     "crystal_state": {
-      "Name": "minecraft:sculk"
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:sculk"
+      }
     },
     "xz_radius": {
       "type": "minecraft:uniform",

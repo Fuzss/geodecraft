@@ -10,6 +10,7 @@ import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.DripstoneUtils;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -36,10 +37,19 @@ public class OceanCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
         HashSet<BlockPos> trigList = Sets.newHashSet();
         HashSet<BlockPos> clusterPos = Sets.newHashSet();
         boolean flag = false;
-        int radiusCheck = config.xzRadius.sample(random) + 1;
+        int radiusCheck = config.xzRadius().sample(random) + 1;
         int randomChance = random.nextInt(4);
         int stepHeight = radiusCheck + 14 + Mth.nextInt(random, 10, 14);
-        if (world.isStateAtPosition(blockPos.relative(config.crystal_direction.getDirection().getOpposite()), DripstoneUtils::isEmptyOrWaterOrLava) && world.getBlockState(blockPos).is(TagRegistry.Blocks.CAN_LARGE_PRISMARINE_CRYSTAL_PLACE) && this.placeSpike(world, blockPos, radiusCheck, stepHeight, randomChance, trigList, config.crystal_direction.getDirection(), random)) {
+        if (world.isStateAtPosition(blockPos.relative(config.crystalDirection().getDirection().getOpposite()),
+                DripstoneUtils::isEmptyOrWaterOrLava) && world.getBlockState(blockPos)
+                .is(TagRegistry.Blocks.CAN_LARGE_PRISMARINE_CRYSTAL_PLACE) && this.placeSpike(world,
+                blockPos,
+                radiusCheck,
+                stepHeight,
+                randomChance,
+                trigList,
+                config.crystalDirection().getDirection(),
+                random)) {
             flag = this.placeCrystals(world, random, config, trigList, clusterPos, flag);
         }
 
@@ -50,10 +60,11 @@ public class OceanCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
         Iterator var7 = trigList.iterator();
 
         BlockPos pos;
-        while(var7.hasNext()) {
-            pos = (BlockPos)var7.next();
+        while (var7.hasNext()) {
+            pos = (BlockPos) var7.next();
             if (world.isStateAtPosition(pos, DripstoneUtils::isEmptyOrWaterOrLava)) {
-                this.setBlock(world, pos, config.crystal_state);
+                BlockState state = config.crystalState().getState(random, pos);
+                this.setBlock(world, pos, state);
                 clusterPos.add(pos);
                 flag = true;
             }
@@ -61,23 +72,29 @@ public class OceanCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
 
         var7 = clusterPos.iterator();
 
-        while(true) {
+        while (true) {
             do {
                 if (!var7.hasNext()) {
                     return flag;
                 }
 
-                pos = (BlockPos)var7.next();
-            } while(random.nextInt(6) != 0);
+                pos = (BlockPos) var7.next();
+            } while (random.nextInt(6) != 0);
 
             Direction[] var9 = Direction.values();
             int var10 = var9.length;
 
-            for(int var11 = 0; var11 < var10; ++var11) {
+            for (int var11 = 0; var11 < var10; ++var11) {
                 Direction direction = var9[var11];
                 BlockPos relative = pos.relative(direction);
-                if (random.nextBoolean() && world.isStateAtPosition(relative, DripstoneUtils::isEmptyOrWater) && world.getBlockState(pos).equals(config.crystal_state)) {
-                    this.setBlock(world, relative, config.cluster_state.setValue(WrappistClusterBlock.FACING, direction).setValue(WrappistClusterBlock.WATERLOGGED, world.getFluidState(relative).getType() == Fluids.WATER));
+                if (random.nextBoolean() && world.isStateAtPosition(relative, DripstoneUtils::isEmptyOrWater)
+                        && world.getBlockState(pos).is(TagRegistry.Blocks.PRISMARINE_CRYSTAL_SPIKE_BASE)) {
+                    BlockState state = config.clusterState()
+                            .getState(random, relative)
+                            .trySetValue(WrappistClusterBlock.FACING, direction)
+                            .trySetValue(WrappistClusterBlock.WATERLOGGED,
+                                    world.getFluidState(relative).getType() == Fluids.WATER);
+                    this.setBlock(world, relative, state);
                 }
             }
         }
@@ -86,11 +103,11 @@ public class OceanCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
     public boolean placeSpike(LevelAccessor world, BlockPos blockPos, int startRadius, int height, int randomChance, HashSet<BlockPos> crystalPos, Direction direction, RandomSource random) {
         boolean flag = false;
 
-        for(int y = 0; y < height; ++y) {
+        for (int y = 0; y < height; ++y) {
             int radius = startRadius - y / 2;
 
-            for(int x = -radius; x <= radius; ++x) {
-                for(int z = -radius; z <= radius; ++z) {
+            for (int x = -radius; x <= radius; ++x) {
+                for (int z = -radius; z <= radius; ++z) {
                     BlockPos pos = new BlockPos(blockPos.getX() + x, blockPos.getY(), blockPos.getZ() + z);
                     if (x * x + z * z <= radius * radius) {
                         if (direction == Direction.DOWN) {
@@ -98,7 +115,8 @@ public class OceanCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
                         } else if (direction == Direction.UP) {
                             BlockPos.MutableBlockPos mut = pos.mutable();
 
-                            for(int i = 0; i < 10 && world.isStateAtPosition(mut.above(), DripstoneUtils::isEmptyOrWaterOrLava); ++i) {
+                            for (int i = 0; i < 10 && world.isStateAtPosition(mut.above(),
+                                    DripstoneUtils::isEmptyOrWaterOrLava); ++i) {
                                 mut.move(Direction.UP);
                             }
 
@@ -128,13 +146,13 @@ public class OceanCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
                         }
 
                         float delta = var10000;
-                        float q = Mth.cos(delta) * (float)y;
-                        float k = Mth.sin(1.5707964F) * (float)y;
-                        float l = Mth.sin(delta) * (float)y;
+                        float q = Mth.cos(delta) * (float) y;
+                        float k = Mth.sin(1.5707964F) * (float) y;
+                        float l = Mth.sin(delta) * (float) y;
                         float xx = direction == Direction.UP ? -q : q;
                         float yy = direction == Direction.UP ? -k : k;
                         float zz = direction == Direction.UP ? -l : l;
-                        BlockPos trigPos = pos.offset((int)xx, (int)yy, (int)zz);
+                        BlockPos trigPos = pos.offset((int) xx, (int) yy, (int) zz);
                         if (world.isStateAtPosition(trigPos, DripstoneUtils::isEmptyOrWaterOrLava)) {
                             crystalPos.add(trigPos);
                             flag = true;
@@ -154,16 +172,18 @@ public class OceanCrystalSpikeFeature extends Feature<GeodeCrystalSpikeConfig> {
         int height = ConstantInt.of(2).sample(random);
         boolean flag = false;
 
-        for(int x = -radius; x <= radius; ++x) {
-            for(int z = -radius; z <= radius; ++z) {
-                for(int y = -height; y <= height; ++y) {
+        for (int x = -radius; x <= radius; ++x) {
+            for (int z = -radius; z <= radius; ++z) {
+                for (int y = -height; y <= height; ++y) {
                     BlockPos pos = new BlockPos(blockPos.getX() + x, blockPos.getY() + y, blockPos.getZ() + z);
                     Direction[] var12 = Direction.values();
                     int var13 = var12.length;
 
-                    for(int var14 = 0; var14 < var13; ++var14) {
+                    for (int var14 = 0; var14 < var13; ++var14) {
                         Direction direction = var12[var14];
-                        if (world.getBlockState(pos).is(TagRegistry.Blocks.CAN_LARGE_PRISMARINE_CRYSTAL_PLACE) && world.isStateAtPosition(pos.relative(direction), DripstoneUtils::isEmptyOrWaterOrLava)) {
+                        if (world.getBlockState(pos).is(TagRegistry.Blocks.CAN_LARGE_PRISMARINE_CRYSTAL_PLACE)
+                                && world.isStateAtPosition(pos.relative(direction),
+                                DripstoneUtils::isEmptyOrWaterOrLava)) {
                             world.setBlock(pos, Blocks.PRISMARINE.defaultBlockState(), 2);
                             flag = true;
                         }

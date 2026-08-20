@@ -7,7 +7,7 @@ import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
 import fuzs.puzzleslib.api.event.v1.server.RegisterPotionBrewingMixesCallback;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.alchemy.Potions;
-import fuzs.geodecraft.common.handler.BiomeModifications;
+import fuzs.geodecraft.common.handler.BiomeModificationsHandler;
 import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
 import net.yeoxuhang.geode_plus.server.registry.ModRegistry;
 import org.slf4j.Logger;
@@ -36,7 +36,7 @@ public class Geodecraft implements ModConstructor {
 
     @Override
     public void onRegisterBiomeModifications(BiomeModificationsContext context) {
-        BiomeModifications.init(context);
+        BiomeModificationsHandler.init(context);
     }
 
     public static ResourceLocation id(String path) {

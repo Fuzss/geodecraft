@@ -1,16 +1,15 @@
-// 1.21.1	2026-08-20T15:39:40.343422	Tags for minecraft:worldgen/biome mod id vanilla
-2cf5053fc9375ab64a16e22cfcabdb08f5efd538 data/geodecraft/tags/worldgen/biome/blacklist_biomes.json
+// 1.21.1	2026-08-20T21:57:33.468618	Tags for minecraft:worldgen/biome mod id vanilla
 04ac0a28392a7ff31602fa82ebe378e64220b060 data/geodecraft/tags/worldgen/biome/has_basalt_ancient_debris_geode.json
 04ac0a28392a7ff31602fa82ebe378e64220b060 data/geodecraft/tags/worldgen/biome/has_basalt_glowstone_geode.json
 04ac0a28392a7ff31602fa82ebe378e64220b060 data/geodecraft/tags/worldgen/biome/has_basalt_gold_nugget_geode.json
 04ac0a28392a7ff31602fa82ebe378e64220b060 data/geodecraft/tags/worldgen/biome/has_basalt_quartz_geode.json
 3e00d0ecf4c9744bbf1b1c80ff5270a55488fc87 data/geodecraft/tags/worldgen/biome/has_celestite_geode.json
-b020f6cdcd2d955793278b2f89a178a1d31e599a data/geodecraft/tags/worldgen/biome/has_diamond_geode.json
+3be48826bbd31580fa2a12efcb39e460fadb1a33 data/geodecraft/tags/worldgen/biome/has_diamond_geode.json
 34074864e7807df7b6c9f2e2c46aad6c81a6a2ec data/geodecraft/tags/worldgen/biome/has_echo_crystal.json
 34074864e7807df7b6c9f2e2c46aad6c81a6a2ec data/geodecraft/tags/worldgen/biome/has_echo_geode.json
 dba74becb77ca28a612e57b564076517380f9820 data/geodecraft/tags/worldgen/biome/has_emerald_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_glowstone_crystal.json
-b020f6cdcd2d955793278b2f89a178a1d31e599a data/geodecraft/tags/worldgen/biome/has_lapis_geode.json
+3be48826bbd31580fa2a12efcb39e460fadb1a33 data/geodecraft/tags/worldgen/biome/has_lapis_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_nether_ancient_debris_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_nether_glowstone_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_nether_gold_nugget_geode.json
@@ -19,6 +18,6 @@ a18b42d48e473c1416af02fa30d2722fbc057e77 data/geodecraft/tags/worldgen/biome/has
 ec7bbb0c9b5fc5378f8716f54862806404f04360 data/geodecraft/tags/worldgen/biome/has_prismarine_crystal.json
 ec7bbb0c9b5fc5378f8716f54862806404f04360 data/geodecraft/tags/worldgen/biome/has_prismarine_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_quartz_crystal.json
-b020f6cdcd2d955793278b2f89a178a1d31e599a data/geodecraft/tags/worldgen/biome/has_redstone_geode.json
+3be48826bbd31580fa2a12efcb39e460fadb1a33 data/geodecraft/tags/worldgen/biome/has_redstone_geode.json
 91b0eb2c9a1bca9eaa7aeb065cf6566cc9ef4ef6 data/geodecraft/tags/worldgen/biome/has_warppist_crystal.json
 91b0eb2c9a1bca9eaa7aeb065cf6566cc9ef4ef6 data/geodecraft/tags/worldgen/biome/has_wrappist_geode.json
