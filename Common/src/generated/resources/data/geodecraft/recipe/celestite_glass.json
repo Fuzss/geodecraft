@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "crystal_glass",
+  "key": {
+    "#": {
+      "item": "minecraft:glass"
+    },
+    "X": {
+      "item": "geodecraft:celestite_shard"
+    }
+  },
+  "pattern": [
+    "###",
+    "#X#",
+    "###"
+  ],
+  "result": {
+    "count": 8,
+    "id": "geodecraft:celestite_glass"
+  }
+}

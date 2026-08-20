@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:diamond"
+    },
+    "C": {
+      "item": "geodecraft:pink_topaz_block"
+    },
+    "S": {
+      "item": "geodecraft:heart_armor_trim_smithing_template"
+    }
+  },
+  "pattern": [
+    "#S#",
+    "#C#",
+    "###"
+  ],
+  "result": {
+    "count": 2,
+    "id": "geodecraft:heart_armor_trim_smithing_template"
+  }
+}

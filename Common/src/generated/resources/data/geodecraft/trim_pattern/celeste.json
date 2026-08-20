@@ -1,0 +1,8 @@
+{
+  "asset_id": "geodecraft:celeste",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.geodecraft.celeste"
+  },
+  "template_item": "geodecraft:celeste_armor_trim_smithing_template"
+}

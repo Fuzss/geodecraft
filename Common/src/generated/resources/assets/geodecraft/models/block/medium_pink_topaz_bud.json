@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "geodecraft:block/medium_pink_topaz_bud"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "geodecraft:block/smooth_end_stone_slab"
+    },
+    "type=double": {
+      "model": "geodecraft:block/smooth_end_stone"
+    },
+    "type=top": {
+      "model": "geodecraft:block/smooth_end_stone_slab_top"
+    }
+  }
+}

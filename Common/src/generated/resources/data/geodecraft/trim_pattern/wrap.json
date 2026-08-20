@@ -1,0 +1,8 @@
+{
+  "asset_id": "geodecraft:wrap",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.geodecraft.wrap"
+  },
+  "template_item": "geodecraft:wrap_armor_trim_smithing_template"
+}

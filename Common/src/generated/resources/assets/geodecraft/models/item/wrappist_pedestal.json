@@ -1,0 +1,6 @@
+{
+  "parent": "geodecraft:item/template_pedestal",
+  "textures": {
+    "particle": "geodecraft:block/wrappist_pedestal"
+  }
+}

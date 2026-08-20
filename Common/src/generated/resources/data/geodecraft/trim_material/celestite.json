@@ -1,0 +1,9 @@
+{
+  "asset_name": "celestite",
+  "description": {
+    "color": "#B2D3F7",
+    "translate": "trim_material.geodecraft.celestite"
+  },
+  "ingredient": "geodecraft:celestite_shard",
+  "item_model_index": 0.8
+}

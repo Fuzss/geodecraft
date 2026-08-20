@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "geodecraft:block/medium_celestite_bud"
+  }
+}

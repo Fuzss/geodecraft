@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "geodecraft:block/galcite_slab"
+    },
+    "type=double": {
+      "model": "geodecraft:block/galcite"
+    },
+    "type=top": {
+      "model": "geodecraft:block/galcite_slab_top"
+    }
+  }
+}

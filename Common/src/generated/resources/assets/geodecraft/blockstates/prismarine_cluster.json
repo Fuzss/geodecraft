@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "geodecraft:block/prismarine_cluster",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "geodecraft:block/prismarine_cluster",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "geodecraft:block/prismarine_cluster",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "geodecraft:block/prismarine_cluster",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "geodecraft:block/prismarine_cluster"
+    },
+    "facing=west": {
+      "model": "geodecraft:block/prismarine_cluster",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

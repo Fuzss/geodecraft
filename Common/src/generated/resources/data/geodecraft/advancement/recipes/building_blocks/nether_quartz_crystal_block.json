@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_nether_quartz_crystal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "geodecraft:nether_quartz_crystal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "geodecraft:nether_quartz_crystal_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_nether_quartz_crystal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "geodecraft:nether_quartz_crystal_block"
+    ]
+  }
+}

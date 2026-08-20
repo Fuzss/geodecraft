@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "crystals",
+  "ingredients": [
+    {
+      "item": "geodecraft:echo_crystal_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:echo_shard"
+  }
+}

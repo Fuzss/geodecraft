@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "geodecraft:block/echo_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "geodecraft:block/echo_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "geodecraft:block/echo_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "geodecraft:block/echo_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "geodecraft:block/echo_crystal"
+    },
+    "facing=west": {
+      "model": "geodecraft:block/echo_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

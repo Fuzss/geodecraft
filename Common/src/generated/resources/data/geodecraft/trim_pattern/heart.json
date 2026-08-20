@@ -1,0 +1,8 @@
+{
+  "asset_id": "geodecraft:heart",
+  "decal": false,
+  "description": {
+    "translate": "trim_pattern.geodecraft.heart"
+  },
+  "template_item": "geodecraft:heart_armor_trim_smithing_template"
+}

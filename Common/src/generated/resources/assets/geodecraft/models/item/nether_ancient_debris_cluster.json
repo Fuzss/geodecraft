@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/amethyst_cluster",
+  "textures": {
+    "layer0": "geodecraft:item/nether_ancient_debris_cluster"
+  }
+}

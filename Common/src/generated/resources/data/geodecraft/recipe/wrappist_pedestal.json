@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "minecraft:end_stone_bricks"
+    },
+    "O": {
+      "item": "minecraft:prismarine_shard"
+    },
+    "W": {
+      "item": "geodecraft:wrappist_shard"
+    }
+  },
+  "pattern": [
+    "W W",
+    "O#O"
+  ],
+  "result": {
+    "count": 1,
+    "id": "geodecraft:wrappist_pedestal"
+  }
+}
