@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus;
+package fuzs.geodecraft.common.data.tags;
 
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.api.data.v2.tags.AbstractTagProvider;
@@ -252,7 +252,7 @@ public class GeodePlusBlockTagProvider extends AbstractTagProvider<Block> {
                 .add(Blocks.BEDROCK, Blocks.ICE, Blocks.BLUE_ICE, Blocks.PACKED_ICE, Blocks.LAVA);
         this.tag(TagRegistry.Blocks.GEODES_CANNOT_REPLACE)
                 .add(Blocks.BEDROCK, Blocks.SPAWNER, Blocks.CHEST, Blocks.END_PORTAL_FRAME, Blocks.REINFORCED_DEEPSLATE)
-                .addTags(BlockTags.STONE_BRICKS);
+                .addTag(BlockTags.STONE_BRICKS);
     }
 }
 

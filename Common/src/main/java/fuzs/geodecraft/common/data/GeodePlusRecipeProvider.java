@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus;
+package fuzs.geodecraft.common.data;
 
 import fuzs.geodecraft.common.Geodecraft;
 import fuzs.puzzleslib.api.data.v2.AbstractRecipeProvider;

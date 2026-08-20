@@ -1,4 +1,4 @@
-package net.yeoxuhang.geode_plus;
+package fuzs.geodecraft.common.data.tags;
 
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.api.data.v2.tags.AbstractTagProvider;
