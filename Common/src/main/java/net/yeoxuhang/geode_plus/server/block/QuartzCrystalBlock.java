@@ -5,7 +5,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
@@ -70,19 +69,19 @@ public class QuartzCrystalBlock extends AmethystBlock implements SimpleWaterlogg
     @Override
     public void spawnAfterBreak(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, ItemStack itemStack, boolean bl) {
         super.spawnAfterBreak(blockState, serverLevel, blockPos, itemStack, bl);
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.SMALL_QUARTZ_BUD.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value())) {
             int i = 1;
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.MEDIUM_QUARTZ_BUD.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(2);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.LARGE_QUARTZ_BUD.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value())) {
             int i = 1 + serverLevel.random.nextInt(5);
             this.popExperience(serverLevel, blockPos, i);
         }
-        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.QUARTZ_CRYSTAL.value())) {
+        if (bl && !GeodePlus.hasSilkTouch(serverLevel, itemStack) && blockState.is(BlockRegistry.NETHER_QUARTZ_CRYSTAL.value())) {
             int i = 1 + serverLevel.random.nextInt(10);
             this.popExperience(serverLevel, blockPos, i);
         }

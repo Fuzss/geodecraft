@@ -48,10 +48,10 @@ public class GeodePlusClient {
         map.put(BlockRegistry.MEDIUM_DIAMOND_BUD.value(), RenderType.cutout());
         map.put(BlockRegistry.SMALL_DIAMOND_BUD.value(), RenderType.cutout());
 
-        map.put(BlockRegistry.QUARTZ_CRYSTAL.value(), RenderType.cutout());
-        map.put(BlockRegistry.LARGE_QUARTZ_BUD.value(), RenderType.cutout());
-        map.put(BlockRegistry.MEDIUM_QUARTZ_BUD.value(), RenderType.cutout());
-        map.put(BlockRegistry.SMALL_QUARTZ_BUD.value(), RenderType.cutout());
+        map.put(BlockRegistry.NETHER_QUARTZ_CRYSTAL.value(), RenderType.cutout());
+        map.put(BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
+        map.put(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
+        map.put(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
 
         map.put(BlockRegistry.GOLD_NUGGET_CLUSTER.value(), RenderType.cutout());
         map.put(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(), RenderType.cutout());

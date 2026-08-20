@@ -2,6 +2,7 @@ package fuzs.geodecraft.common.data.client;
 
 import fuzs.geodecraft.common.Geodecraft;
 import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
+import fuzs.puzzleslib.api.client.data.v2.models.ModelLocationHelper;
 import fuzs.puzzleslib.api.client.data.v2.models.ModelTemplateHelper;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import net.minecraft.data.models.BlockModelGenerators;
@@ -29,7 +30,7 @@ public class GeodePlusItemModelProvider extends AbstractModelProvider {
 
     @Override
     public void addBlockModels(BlockModelGenerators generator) {
-        this.createPedestal(BlockRegistry.WRAPPIST_PEDESTAL.value(), generator);
+        this.createPedestal(BlockRegistry.WRAPPIST_PEDESTAL.value(), BlockRegistry.WRAPPIST_BLOCK.value(), generator);
 
         generator.createTrivialCube(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.DIAMOND_CRYSTAL_BLOCK.value());
@@ -52,10 +53,10 @@ public class GeodePlusItemModelProvider extends AbstractModelProvider {
         generator.createTrivialCube(BlockRegistry.BUDDING_GLOWSTONE.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_ECHO.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_BLACKSTONE_QUARTZ.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_QUARTZ.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value());
-        generator.createTrivialCube(BlockRegistry.QUARTZ_CRYSTAL_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.GOLD_NUGGET_CLUSTER_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.GLOWSTONE_CLUSTER_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.PRISMARINE_CLUSTER_BLOCK.value());
@@ -88,76 +89,112 @@ public class GeodePlusItemModelProvider extends AbstractModelProvider {
         generator.createTrivialCube(BlockRegistry.CELESTITE_GLASS.value());
         generator.createTrivialCube(BlockRegistry.PINK_TOPAZ_GLASS.value());
 
-        generator.createAmethystCluster(BlockRegistry.ECHO_CRYSTAL.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_ECHO_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_ECHO_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_ECHO_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_ECHO_BUD.value(),
+                BlockRegistry.MEDIUM_ECHO_BUD.value(),
+                BlockRegistry.LARGE_ECHO_BUD.value(),
+                BlockRegistry.ECHO_CRYSTAL.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.QUARTZ_CRYSTAL.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_QUARTZ_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_QUARTZ_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_QUARTZ_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value(),
+                BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value(),
+                BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value(),
+                BlockRegistry.NETHER_QUARTZ_CRYSTAL.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.GOLD_NUGGET_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(),
+                BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(),
+                BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(),
+                BlockRegistry.GOLD_NUGGET_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.WRAPPIST_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_WRAPPIST_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_WRAPPIST_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_WRAPPIST_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_WRAPPIST_BUD.value(),
+                BlockRegistry.MEDIUM_WRAPPIST_BUD.value(),
+                BlockRegistry.LARGE_WRAPPIST_BUD.value(),
+                BlockRegistry.WRAPPIST_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.GLOWSTONE_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_GLOWSTONE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_GLOWSTONE_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_GLOWSTONE_BUD.value(),
+                BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(),
+                BlockRegistry.LARGE_GLOWSTONE_BUD.value(),
+                BlockRegistry.GLOWSTONE_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(),
+                BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(),
+                BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(),
+                BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.LAPIS_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_LAPIS_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_LAPIS_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_LAPIS_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_LAPIS_BUD.value(),
+                BlockRegistry.MEDIUM_LAPIS_BUD.value(),
+                BlockRegistry.LARGE_LAPIS_BUD.value(),
+                BlockRegistry.LAPIS_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.REDSTONE_CRYSTAL.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_REDSTONE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_REDSTONE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_REDSTONE_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_REDSTONE_BUD.value(),
+                BlockRegistry.MEDIUM_REDSTONE_BUD.value(),
+                BlockRegistry.LARGE_REDSTONE_BUD.value(),
+                BlockRegistry.REDSTONE_CRYSTAL.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.EMERALD_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_EMERALD_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_EMERALD_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_EMERALD_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_EMERALD_BUD.value(),
+                BlockRegistry.MEDIUM_EMERALD_BUD.value(),
+                BlockRegistry.LARGE_EMERALD_BUD.value(),
+                BlockRegistry.EMERALD_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.DIAMOND_CRYSTAL.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_DIAMOND_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_DIAMOND_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_DIAMOND_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_DIAMOND_BUD.value(),
+                BlockRegistry.MEDIUM_DIAMOND_BUD.value(),
+                BlockRegistry.LARGE_DIAMOND_BUD.value(),
+                BlockRegistry.DIAMOND_CRYSTAL.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.PRISMARINE_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_PRISMARINE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_PRISMARINE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_PRISMARINE_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_PRISMARINE_BUD.value(),
+                BlockRegistry.MEDIUM_PRISMARINE_BUD.value(),
+                BlockRegistry.LARGE_PRISMARINE_BUD.value(),
+                BlockRegistry.PRISMARINE_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.CELESTITE_CLUSTER.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_CELESTITE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_CELESTITE_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_CELESTITE_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_CELESTITE_BUD.value(),
+                BlockRegistry.MEDIUM_CELESTITE_BUD.value(),
+                BlockRegistry.LARGE_CELESTITE_BUD.value(),
+                BlockRegistry.CELESTITE_CLUSTER.value(),
+                generator);
 
-        generator.createAmethystCluster(BlockRegistry.PINK_TOPAZ_CRYSTAL.value());
-        generator.createAmethystCluster(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value());
-        generator.createAmethystCluster(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value());
+        this.createAmethystClusters(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(),
+                BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(),
+                BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(),
+                BlockRegistry.PINK_TOPAZ_CRYSTAL.value(),
+                generator);
     }
 
-    public final void createPedestal(Block block, BlockModelGenerators generator) {
-        generator.createTrivialBlock(block, TexturedModel.PARTICLE_ONLY);
+    /**
+     * @see BlockModelGenerators#createAmethystClusters()
+     */
+    public final void createAmethystClusters(Block smallBudBlock, Block mediumBudBlock, Block largeBudBlock, Block clusterBlock, BlockModelGenerators generator) {
+        this.createAmethystCluster(smallBudBlock, SMALL_AMETHYST_BUD_INVENTORY, generator);
+        this.createAmethystCluster(mediumBudBlock, MEDIUM_AMETHYST_BUD_INVENTORY, generator);
+        this.createAmethystCluster(largeBudBlock, LARGE_AMETHYST_BUD_INVENTORY, generator);
+        this.createAmethystCluster(clusterBlock, AMETHYST_CLUSTER_INVENTORY, generator);
+    }
+
+    /**
+     * @see BlockModelGenerators#createSimpleFlatItemModel(Block)
+     */
+    public final void createAmethystCluster(Block block, ModelTemplate template, BlockModelGenerators generator) {
+        generator.createAmethystCluster(block);
+        template.create(ModelLocationHelper.getItemModel(block.asItem()),
+                TextureMapping.layer0(ModelLocationHelper.getBlockTexture(block)),
+                generator.modelOutput);
+    }
+
+    public final void createPedestal(Block block, Block particleBlock, BlockModelGenerators generator) {
+        generator.blockStateOutput.accept(BlockModelGenerators.createSimpleBlock(block,
+                ModelTemplates.PARTICLE_ONLY.create(block,
+                        TextureMapping.particle(particleBlock),
+                        generator.modelOutput)));
         PEDESTAL_INVENTORY.create(ModelLocationUtils.getModelLocation(block.asItem()),
-                TextureMapping.particle(block),
+                TextureMapping.particle(particleBlock),
                 generator.modelOutput);
     }
 
@@ -170,70 +207,5 @@ public class GeodePlusItemModelProvider extends AbstractModelProvider {
         generator.generateFlatItem(ItemRegistry.PINK_TOPAZ.value(), ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ItemRegistry.CELESTITE_SHARD.value(), ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ItemRegistry.WRAPPIST_SHARD.value(), ModelTemplates.FLAT_ITEM);
-
-        generator.generateFlatItem(ItemRegistry.DIAMOND_CRYSTAL.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_DIAMOND_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_DIAMOND_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_DIAMOND_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.EMERALD_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_EMERALD_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_EMERALD_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_EMERALD_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.LAPIS_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_LAPIS_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_LAPIS_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_LAPIS_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.REDSTONE_CRYSTAL.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_REDSTONE_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_REDSTONE_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_REDSTONE_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.ECHO_CRYSTAL.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_ECHO_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_ECHO_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_ECHO_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.GLOWSTONE_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_GLOWSTONE_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_GLOWSTONE_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_GLOWSTONE_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.ANCIENT_DEBRIS_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.GOLD_NUGGET_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_GOLD_NUGGET_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_GOLD_NUGGET_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_GOLD_NUGGET_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.WRAPPIST_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_WRAPPIST_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_WRAPPIST_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_WRAPPIST_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.QUARTZ_CRYSTAL.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_QUARTZ_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_QUARTZ_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_QUARTZ_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.PRISMARINE_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_PRISMARINE_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_PRISMARINE_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_PRISMARINE_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.CELESTITE_CLUSTER.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_CELESTITE_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_CELESTITE_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_CELESTITE_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
-
-        generator.generateFlatItem(ItemRegistry.PINK_TOPAZ_CRYSTAL.value(), AMETHYST_CLUSTER_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.SMALL_PINK_TOPAZ_BUD.value(), SMALL_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.MEDIUM_PINK_TOPAZ_BUD.value(), MEDIUM_AMETHYST_BUD_INVENTORY);
-        generator.generateFlatItem(ItemRegistry.LARGE_PINK_TOPAZ_BUD.value(), LARGE_AMETHYST_BUD_INVENTORY);
     }
 }

@@ -38,13 +38,13 @@ public class BuddingNetherQuartzBlock extends AmethystBlock {
             BlockState blockstate = p_220899_.getBlockState(blockpos);
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
-                block = BlockRegistry.SMALL_QUARTZ_BUD.value();
-            } else if (blockstate.is(BlockRegistry.SMALL_QUARTZ_BUD.value()) && blockstate.getValue(QuartzCrystalBlock.FACING) == direction) {
-                block = BlockRegistry.MEDIUM_QUARTZ_BUD.value();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_QUARTZ_BUD.value()) && blockstate.getValue(QuartzCrystalBlock.FACING) == direction) {
-                block = BlockRegistry.LARGE_QUARTZ_BUD.value();
-            } else if (blockstate.is(BlockRegistry.LARGE_QUARTZ_BUD.value()) && blockstate.getValue(QuartzCrystalBlock.FACING) == direction) {
-                block = BlockRegistry.QUARTZ_CRYSTAL.value();
+                block = BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value();
+            } else if (blockstate.is(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value()) && blockstate.getValue(QuartzCrystalBlock.FACING) == direction) {
+                block = BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value();
+            } else if (blockstate.is(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value()) && blockstate.getValue(QuartzCrystalBlock.FACING) == direction) {
+                block = BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value();
+            } else if (blockstate.is(BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value()) && blockstate.getValue(QuartzCrystalBlock.FACING) == direction) {
+                block = BlockRegistry.NETHER_QUARTZ_CRYSTAL.value();
             }
             if (block != null) {
                 BlockState blockstate1 = block.defaultBlockState().setValue(QuartzCrystalBlock.FACING, direction).setValue(QuartzCrystalBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
@@ -71,15 +71,15 @@ public class BuddingNetherQuartzBlock extends AmethystBlock {
     public List<ItemStack> getDrops(BlockState blockState, LootParams.Builder builder) {
         ItemStack pickaxe = builder.getLevel().players().get(0).getMainHandItem();
         ItemStack nether = new ItemStack(BlockRegistry.BUDDING_NETHER_QUARTZ.value());
-        ItemStack basalt = new ItemStack(BlockRegistry.BUDDING_BASALT_QUARTZ.value());
-        ItemStack blackstone = new ItemStack(BlockRegistry.BUDDING_BLACKSTONE_QUARTZ.value());
+        ItemStack basalt = new ItemStack(BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ.value());
+        ItemStack blackstone = new ItemStack(BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ.value());
         if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_NETHER_QUARTZ.value())){
             return Collections.singletonList(nether);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BASALT_QUARTZ.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ.value())){
             return Collections.singletonList(basalt);
         }
-        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BLACKSTONE_QUARTZ.value())){
+        if (GeodePlus.hasSilkTouch(builder, pickaxe) && ServerConfig.Blocks.allowSilkTouch && blockState.is(BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ.value())){
             return Collections.singletonList(blackstone);
         }
         return super.getDrops(blockState, builder);

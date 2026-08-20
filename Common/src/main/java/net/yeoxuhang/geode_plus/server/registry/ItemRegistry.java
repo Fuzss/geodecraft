@@ -113,17 +113,17 @@ public class ItemRegistry {
     public static final Holder.Reference<Item> SMALL_DIAMOND_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.SMALL_DIAMOND_BUD);
 
     public static final Holder.Reference<Item> QUARTZ_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlockItem(
-            BlockRegistry.QUARTZ_CRYSTAL_BLOCK);
+            BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK);
     public static final Holder.Reference<Item> BUDDING_NETHER_QUARTZ = ModRegistry.REGISTRY.registerBlockItem(
             BlockRegistry.BUDDING_NETHER_QUARTZ);
     public static final Holder.Reference<Item> BUDDING_BASALT_QUARTZ = ModRegistry.REGISTRY.registerBlockItem(
-            BlockRegistry.BUDDING_BASALT_QUARTZ);
+            BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ);
     public static final Holder.Reference<Item> BUDDING_BLACKSTONE_QUARTZ = ModRegistry.REGISTRY.registerBlockItem(
-            BlockRegistry.BUDDING_BLACKSTONE_QUARTZ);
-    public static final Holder.Reference<Item> QUARTZ_CRYSTAL = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.QUARTZ_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_QUARTZ_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.LARGE_QUARTZ_BUD);
-    public static final Holder.Reference<Item> MEDIUM_QUARTZ_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.MEDIUM_QUARTZ_BUD);
-    public static final Holder.Reference<Item> SMALL_QUARTZ_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.SMALL_QUARTZ_BUD);
+            BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ);
+    public static final Holder.Reference<Item> QUARTZ_CRYSTAL = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.NETHER_QUARTZ_CRYSTAL);
+    public static final Holder.Reference<Item> LARGE_QUARTZ_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.LARGE_NETHER_QUARTZ_BUD);
+    public static final Holder.Reference<Item> MEDIUM_QUARTZ_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD);
+    public static final Holder.Reference<Item> SMALL_QUARTZ_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.SMALL_NETHER_QUARTZ_BUD);
 
     public static final Holder.Reference<Item> GOLD_NUGGET_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlockItem(
             BlockRegistry.GOLD_NUGGET_CLUSTER_BLOCK);

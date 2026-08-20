@@ -38,7 +38,7 @@ public class GeodePlusBlockLootTableProvider extends AbstractLootProvider.Blocks
         this.dropSelf(BlockRegistry.GALCITE.value());
         this.dropSelf(BlockRegistry.WRAPPIST_BLOCK.value());
         this.dropSelf(BlockRegistry.WRAPPIST_PEDESTAL.value());
-        this.dropSelf(BlockRegistry.QUARTZ_CRYSTAL_BLOCK.value());
+        this.dropSelf(BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK.value());
         this.dropSelf(BlockRegistry.GOLD_NUGGET_CLUSTER_BLOCK.value());
         this.dropSelf(BlockRegistry.GLOWSTONE_CLUSTER_BLOCK.value());
         this.dropSelf(BlockRegistry.PRISMARINE_CLUSTER_BLOCK.value());
@@ -69,7 +69,7 @@ public class GeodePlusBlockLootTableProvider extends AbstractLootProvider.Blocks
                                 .otherwise(this.applyExplosionDecay(arg,
                                         LootItem.lootTableItem(Items.GOLD_NUGGET)
                                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))));
-        this.add(BlockRegistry.QUARTZ_CRYSTAL.value(),
+        this.add(BlockRegistry.NETHER_QUARTZ_CRYSTAL.value(),
                 (arg) -> this.createSilkTouchDispatchTable(arg,
                         LootItem.lootTableItem(Items.QUARTZ)
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F)))
@@ -181,7 +181,7 @@ public class GeodePlusBlockLootTableProvider extends AbstractLootProvider.Blocks
                                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F)))))));
 
 
-        this.dropWhenSilkTouch(BlockRegistry.LARGE_QUARTZ_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_ECHO_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_WRAPPIST_BUD.value());
@@ -195,7 +195,7 @@ public class GeodePlusBlockLootTableProvider extends AbstractLootProvider.Blocks
         this.dropWhenSilkTouch(BlockRegistry.LARGE_CELESTITE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value());
 
-        this.dropWhenSilkTouch(BlockRegistry.MEDIUM_QUARTZ_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_ECHO_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_WRAPPIST_BUD.value());
@@ -209,7 +209,7 @@ public class GeodePlusBlockLootTableProvider extends AbstractLootProvider.Blocks
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_CELESTITE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value());
 
-        this.dropWhenSilkTouch(BlockRegistry.SMALL_QUARTZ_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_ECHO_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_WRAPPIST_BUD.value());
@@ -223,8 +223,8 @@ public class GeodePlusBlockLootTableProvider extends AbstractLootProvider.Blocks
         this.dropWhenSilkTouch(BlockRegistry.SMALL_CELESTITE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value());
 
-        this.add(BlockRegistry.BUDDING_BASALT_QUARTZ.value(), noDrop());
-        this.add(BlockRegistry.BUDDING_BLACKSTONE_QUARTZ.value(), noDrop());
+        this.add(BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ.value(), noDrop());
+        this.add(BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ.value(), noDrop());
         this.add(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value(), noDrop());
         this.add(BlockRegistry.BUDDING_ECHO.value(), noDrop());
         this.add(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value(), noDrop());
