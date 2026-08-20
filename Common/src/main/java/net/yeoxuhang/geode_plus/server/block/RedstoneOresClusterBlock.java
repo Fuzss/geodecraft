@@ -32,7 +32,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class RedstoneOresClusterBlock extends RedStoneOreBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

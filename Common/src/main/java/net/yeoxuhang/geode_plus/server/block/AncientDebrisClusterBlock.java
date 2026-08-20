@@ -17,8 +17,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.material.PushReaction;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class AncientDebrisClusterBlock extends AmethystBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -42,6 +41,7 @@ public class AncientDebrisClusterBlock extends AmethystBlock implements SimpleWa
         this.westAabb = Block.box((16 - box), i, i, 16.0D, (16 - i), (16 - i));
     }
 
+    @Override
     public VoxelShape getShape(BlockState blockState, BlockGetter p_152022_, BlockPos p_152023_, CollisionContext p_152024_) {
         Direction direction = blockState.getValue(FACING);
         switch(direction) {
@@ -61,12 +61,14 @@ public class AncientDebrisClusterBlock extends AmethystBlock implements SimpleWa
         }
     }
 
+    @Override
     public boolean canSurvive(BlockState p_152026_, LevelReader p_152027_, BlockPos p_152028_) {
         Direction direction = p_152026_.getValue(FACING);
         BlockPos blockpos = p_152028_.relative(direction.getOpposite());
         return p_152027_.getBlockState(blockpos).isFaceSturdy(p_152027_, blockpos, direction);
     }
 
+    @Override
     public BlockState updateShape(BlockState p_152036_, Direction p_152037_, BlockState p_152038_, LevelAccessor p_152039_, BlockPos p_152040_, BlockPos p_152041_) {
         if (p_152036_.getValue(WATERLOGGED)) {
             p_152039_.scheduleTick(p_152040_, Fluids.WATER, Fluids.WATER.getTickDelay(p_152039_));
@@ -75,6 +77,7 @@ public class AncientDebrisClusterBlock extends AmethystBlock implements SimpleWa
         return p_152037_ == p_152036_.getValue(FACING).getOpposite() && !p_152036_.canSurvive(p_152039_, p_152040_) ? Blocks.AIR.defaultBlockState() : super.updateShape(p_152036_, p_152037_, p_152038_, p_152039_, p_152040_, p_152041_);
     }
 
+    @Override
     @Nullable
     public BlockState getStateForPlacement(BlockPlaceContext p_152019_) {
         LevelAccessor levelaccessor = p_152019_.getLevel();
@@ -82,18 +85,22 @@ public class AncientDebrisClusterBlock extends AmethystBlock implements SimpleWa
         return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(levelaccessor.getFluidState(blockpos).getType() == Fluids.WATER)).setValue(FACING, p_152019_.getClickedFace());
     }
 
+    @Override
     public BlockState rotate(BlockState p_152033_, Rotation p_152034_) {
         return p_152033_.setValue(FACING, p_152034_.rotate(p_152033_.getValue(FACING)));
     }
 
+    @Override
     public BlockState mirror(BlockState p_152030_, Mirror p_152031_) {
         return p_152030_.rotate(p_152031_.getRotation(p_152030_.getValue(FACING)));
     }
 
+    @Override
     public FluidState getFluidState(BlockState p_152045_) {
         return p_152045_.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(p_152045_);
     }
 
+    @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_152043_) {
         p_152043_.add(WATERLOGGED, FACING);
     }

@@ -21,7 +21,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yeoxuhang.geode_plus.server.registry.ItemRegistry;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class PinkTopazCrystalBlock extends AmethystBlock implements SimpleWaterloggedBlock {

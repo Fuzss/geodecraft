@@ -20,7 +20,7 @@ import net.yeoxuhang.geode_plus.GeodePlus;
 import net.yeoxuhang.geode_plus.config.ServerConfig;
 import net.yeoxuhang.geode_plus.server.registry.BlockRegistry;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import java.util.Collections;
 import java.util.List;
 

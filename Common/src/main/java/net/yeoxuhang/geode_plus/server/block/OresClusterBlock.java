@@ -22,7 +22,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.yeoxuhang.geode_plus.GeodePlus;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class OresClusterBlock extends AmethystBlock implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
