@@ -24,19 +24,16 @@ public class TrimMaterialsAndPatternsRegistry {
     public static final ResourceKey<TrimPattern> CELESTE = createTrimPattern("celeste");
     public static final ResourceKey<TrimPattern> HEART = createTrimPattern("heart");
 
-    public static void createMaterials(BootstrapContext<TrimMaterial> context) {
-        createMaterial(context, WRAPPIST, ItemRegistry.WRAPPIST_SHARD.value(), Style.EMPTY.withColor(6201294), 0.9F);
-        createMaterial(context, CELESTITE, ItemRegistry.CELESTITE_SHARD.value(), Style.EMPTY.withColor(11719671), 0.8F);
-        createMaterial(context, PINK_TOPAZ, ItemRegistry.PINK_TOPAZ.value(), Style.EMPTY.withColor(16496615), 0.1F);
-
-
+    public static void bootstrapMaterials(BootstrapContext<TrimMaterial> context) {
+        createMaterial(context, WRAPPIST, ItemRegistry.WRAPPIST_SHARD.value(), Style.EMPTY.withColor(0X5E9FCE), 0.9F);
+        createMaterial(context, CELESTITE, ItemRegistry.CELESTITE_SHARD.value(), Style.EMPTY.withColor(0XB2D3F7), 0.8F);
+        createMaterial(context, PINK_TOPAZ, ItemRegistry.PINK_TOPAZ.value(), Style.EMPTY.withColor(0XFBB7E7), 0.1F);
     }
 
-    public static void createPatterns(BootstrapContext<TrimPattern> context) {
+    public static void bootstrapPatterns(BootstrapContext<TrimPattern> context) {
         createPattern(context, ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE.value(), WRAP);
         createPattern(context, ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE.value(), CELESTE);
         createPattern(context, ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value(), HEART);
-
     }
 
     private static void createMaterial(BootstrapContext<TrimMaterial> context, ResourceKey<TrimMaterial> resourceKey, Item item, Style style, float f) {
@@ -67,9 +64,5 @@ public class TrimMaterialsAndPatternsRegistry {
 
     private static ResourceKey<TrimPattern> createTrimPattern(String string) {
         return ResourceKey.create(Registries.TRIM_PATTERN, GeodePlus.id(string));
-    }
-
-    public static void bootstrap() {
-        // NO-OP
     }
 }

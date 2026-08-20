@@ -24,7 +24,7 @@
         "Name": "minecraft:sculk"
       }
     },
-    "placeable_on": "#geodecraft:can_large_echo_crystal_place",
+    "placeable_on": "#geodecraft:echo_crystal_spike_may_place_on",
     "xz_radius": {
       "type": "minecraft:uniform",
       "max_inclusive": 3,

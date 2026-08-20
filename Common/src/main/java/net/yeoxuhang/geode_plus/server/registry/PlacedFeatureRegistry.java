@@ -537,7 +537,4 @@ public class PlacedFeatureRegistry {
     private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, PlacementModifier... modifiers) {
         register(context, key, configuration, List.of(modifiers));
     }
-
-    public static void bootstrap() {
-    }
 }

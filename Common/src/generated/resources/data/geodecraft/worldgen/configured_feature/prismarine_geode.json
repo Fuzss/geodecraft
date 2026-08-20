@@ -1,5 +1,5 @@
 {
-  "type": "geodecraft:ocean_geode",
+  "type": "geodecraft:geode",
   "config": {
     "blocks": {
       "alternate_inner_layer_provider": {
@@ -72,6 +72,12 @@
       "base_crack_size": 2.0,
       "crack_point_offset": 2,
       "generate_crack_chance": 0.95
+    },
+    "crack_state": {
+      "Name": "minecraft:water",
+      "Properties": {
+        "level": "0"
+      }
     },
     "distribution_points": {
       "type": "minecraft:uniform",

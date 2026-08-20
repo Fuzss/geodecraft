@@ -24,7 +24,7 @@
         "Name": "geodecraft:glowstone_cluster_block"
       }
     },
-    "placeable_on": "#minecraft:base_stone_nether",
+    "placeable_on": "#geodecraft:glowstone_crystal_spike_may_place_on",
     "xz_radius": {
       "type": "minecraft:uniform",
       "max_inclusive": 3,

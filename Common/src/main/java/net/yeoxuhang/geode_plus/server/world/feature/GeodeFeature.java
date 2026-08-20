@@ -6,195 +6,171 @@ import com.mojang.serialization.Codec;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Vec3i;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BuddingAmethystBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.levelgen.*;
+import net.minecraft.world.level.levelgen.GeodeBlockSettings;
+import net.minecraft.world.level.levelgen.GeodeCrackSettings;
+import net.minecraft.world.level.levelgen.GeodeLayerSettings;
+import net.minecraft.world.level.levelgen.LegacyRandomSource;
+import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
 import net.minecraft.world.level.material.FluidState;
-import net.yeoxuhang.geode_plus.server.registry.TagRegistry;
+import net.yeoxuhang.geode_plus.server.world.feature.config.CustomGeodeConfiguration;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
-public class GeodeFeature extends Feature<GeodeConfiguration> {
+/**
+ * A copy of {@link net.minecraft.world.level.levelgen.feature.GeodeFeature} that opens cracks using
+ * {@link CustomGeodeConfiguration#crackState} instead of always using air, allowing for flooded geodes.
+ */
+public class GeodeFeature extends Feature<CustomGeodeConfiguration> {
     private static final Direction[] DIRECTIONS = Direction.values();
+    /**
+     * Heights relative to the geode origin at which crack points are placed.
+     */
+    private static final int[] CRACK_HEIGHTS = {7, 5, 1};
 
-    public GeodeFeature(Codec<GeodeConfiguration> codec) {
+    public GeodeFeature(Codec<CustomGeodeConfiguration> codec) {
         super(codec);
     }
 
-    public boolean place(FeaturePlaceContext<GeodeConfiguration> featurePlaceContext) {
-        GeodeConfiguration geodeConfiguration = featurePlaceContext.config();
-        RandomSource randomSource = featurePlaceContext.random();
-        BlockPos blockPos = featurePlaceContext.origin();
-        WorldGenLevel worldGenLevel = featurePlaceContext.level();
-        int i = geodeConfiguration.minGenOffset;
-        int j = geodeConfiguration.maxGenOffset;
-        List<Pair<BlockPos, Integer>> list = Lists.newLinkedList();
-        int k = geodeConfiguration.distributionPoints.sample(randomSource);
-        WorldgenRandom worldgenRandom = new WorldgenRandom(new LegacyRandomSource(worldGenLevel.getSeed()));
-        NormalNoise normalNoise = NormalNoise.create(worldgenRandom, -4, 1.0);
-        List<BlockPos> list2 = Lists.newLinkedList();
-        double d = (double)k / (double)geodeConfiguration.outerWallDistance.getMaxValue();
-        GeodeLayerSettings geodeLayerSettings = geodeConfiguration.geodeLayerSettings;
-        GeodeBlockSettings geodeBlockSettings = geodeConfiguration.geodeBlockSettings;
-        GeodeCrackSettings geodeCrackSettings = geodeConfiguration.geodeCrackSettings;
-        double e = 1.0 / Math.sqrt(geodeLayerSettings.filling);
-        double f = 1.0 / Math.sqrt(geodeLayerSettings.innerLayer + d);
-        double g = 1.0 / Math.sqrt(geodeLayerSettings.middleLayer + d);
-        double h = 1.0 / Math.sqrt(geodeLayerSettings.outerLayer + d);
-        double l = 1.0 / Math.sqrt(geodeCrackSettings.baseCrackSize + randomSource.nextDouble() / 2.0 + (k > 3 ? d : 0.0));
-        boolean bl = (double)randomSource.nextFloat() < geodeCrackSettings.generateCrackChance;
-        int m = 0;
+    @Override
+    public boolean place(FeaturePlaceContext<CustomGeodeConfiguration> context) {
+        CustomGeodeConfiguration config = context.config();
+        RandomSource random = context.random();
+        BlockPos origin = context.origin();
+        WorldGenLevel level = context.level();
+        GeodeBlockSettings blockSettings = config.geodeBlockSettings;
+        GeodeLayerSettings layerSettings = config.geodeLayerSettings;
+        GeodeCrackSettings crackSettings = config.geodeCrackSettings;
+        NormalNoise noise = NormalNoise.create(new WorldgenRandom(new LegacyRandomSource(level.getSeed())), -4, 1.0);
 
-        int n;
-        int o;
-        BlockPos blockPos2;
-        BlockState blockState;
-        for(n = 0; n < k; ++n) {
-            o = geodeConfiguration.outerWallDistance.sample(randomSource);
-            int p = geodeConfiguration.outerWallDistance.sample(randomSource);
-            int q = geodeConfiguration.outerWallDistance.sample(randomSource);
-            blockPos2 = blockPos.offset(o, p, q);
-            blockState = worldGenLevel.getBlockState(blockPos2);
-            if (blockState.isAir() || blockState.is(TagRegistry.Blocks.GEODE_INVALID_BLOCKS)) {
-                ++m;
-                if (m > geodeConfiguration.invalidBlocksThreshold) {
+        int distributionPointCount = config.distributionPoints.sample(random);
+        double distributionRatio = (double) distributionPointCount / config.outerWallDistance.getMaxValue();
+        double fillingThreshold = 1.0 / Math.sqrt(layerSettings.filling);
+        double innerLayerThreshold = 1.0 / Math.sqrt(layerSettings.innerLayer + distributionRatio);
+        double middleLayerThreshold = 1.0 / Math.sqrt(layerSettings.middleLayer + distributionRatio);
+        double outerLayerThreshold = 1.0 / Math.sqrt(layerSettings.outerLayer + distributionRatio);
+        double crackThreshold = 1.0 / Math.sqrt(
+                crackSettings.baseCrackSize + random.nextDouble() / 2.0 + (distributionPointCount > 3 ?
+                        distributionRatio : 0.0));
+        boolean generateCrack = random.nextFloat() < crackSettings.generateCrackChance;
+
+        List<Pair<BlockPos, Integer>> distributionPoints = Lists.newLinkedList();
+        int invalidBlocks = 0;
+
+        for (int i = 0; i < distributionPointCount; i++) {
+            BlockPos pos = origin.offset(config.outerWallDistance.sample(random),
+                    config.outerWallDistance.sample(random),
+                    config.outerWallDistance.sample(random));
+            BlockState blockState = level.getBlockState(pos);
+            if (blockState.isAir() || blockState.is(blockSettings.invalidBlocks)) {
+                if (++invalidBlocks > config.invalidBlocksThreshold) {
                     return false;
                 }
             }
 
-            list.add(Pair.of(blockPos2, geodeConfiguration.pointOffset.sample(randomSource)));
+            distributionPoints.add(Pair.of(pos, config.pointOffset.sample(random)));
         }
 
-        if (bl) {
-            n = randomSource.nextInt(4);
-            o = k * 2 + 1;
-            if (n == 0) {
-                list2.add(blockPos.offset(o, 7, 0));
-                list2.add(blockPos.offset(o, 5, 0));
-                list2.add(blockPos.offset(o, 1, 0));
-            } else if (n == 1) {
-                list2.add(blockPos.offset(0, 7, o));
-                list2.add(blockPos.offset(0, 5, o));
-                list2.add(blockPos.offset(0, 1, o));
-            } else if (n == 2) {
-                list2.add(blockPos.offset(o, 7, o));
-                list2.add(blockPos.offset(o, 5, o));
-                list2.add(blockPos.offset(o, 1, o));
-            } else {
-                list2.add(blockPos.offset(0, 7, 0));
-                list2.add(blockPos.offset(0, 5, 0));
-                list2.add(blockPos.offset(0, 1, 0));
+        List<BlockPos> crackPoints = Lists.newLinkedList();
+        if (generateCrack) {
+            // the crack runs up one of the four horizontal corners of the geode
+            int corner = random.nextInt(4);
+            int crackOffset = distributionPointCount * 2 + 1;
+            int crackX = corner == 0 || corner == 2 ? crackOffset : 0;
+            int crackZ = corner == 1 || corner == 2 ? crackOffset : 0;
+
+            for (int crackY : CRACK_HEIGHTS) {
+                crackPoints.add(origin.offset(crackX, crackY, crackZ));
             }
         }
 
-        List<BlockPos> list3 = Lists.newArrayList();
-        Predicate<BlockState> predicate = isReplaceable(geodeConfiguration.geodeBlockSettings.cannotReplace);
-        Iterator var48 = BlockPos.betweenClosed(blockPos.offset(i, i, i), blockPos.offset(j, j, j)).iterator();
+        List<BlockPos> potentialPlacements = Lists.newArrayList();
+        Predicate<BlockState> replaceable = isReplaceable(blockSettings.cannotReplace);
+        Iterable<BlockPos> positions = BlockPos.betweenClosed(origin.offset(config.minGenOffset,
+                config.minGenOffset,
+                config.minGenOffset), origin.offset(config.maxGenOffset, config.maxGenOffset, config.maxGenOffset));
 
-        while(true) {
-            while(true) {
-                double s;
-                double t;
-                BlockPos blockPos3;
-                do {
-                    if (!var48.hasNext()) {
-                        List<BlockState> list4 = geodeBlockSettings.innerPlacements;
-                        Iterator var51 = list3.iterator();
+        for (BlockPos pos : positions) {
+            double noiseValue = noise.getValue(pos.getX(), pos.getY(), pos.getZ()) * config.noiseMultiplier;
+            double distance = 0.0;
+            double crackDistance = 0.0;
 
-                        while(true) {
-                            while(var51.hasNext()) {
-                                blockPos2 = (BlockPos)var51.next();
-                                blockState = Util.getRandom(list4, randomSource);
-                                Direction[] var53 = DIRECTIONS;
-                                int var37 = var53.length;
+            for (Pair<BlockPos, Integer> distributionPoint : distributionPoints) {
+                distance += Mth.invSqrt(pos.distSqr(distributionPoint.getFirst()) + distributionPoint.getSecond())
+                        + noiseValue;
+            }
 
-                                for(int var54 = 0; var54 < var37; ++var54) {
-                                    Direction direction2 = var53[var54];
-                                    if (blockState.hasProperty(BlockStateProperties.FACING)) {
-                                        blockState = blockState.setValue(BlockStateProperties.FACING, direction2);
-                                    }
+            for (BlockPos crackPoint : crackPoints) {
+                crackDistance += Mth.invSqrt(pos.distSqr(crackPoint) + crackSettings.crackPointOffset) + noiseValue;
+            }
 
-                                    BlockPos blockPos6 = blockPos2.relative(direction2);
-                                    BlockState blockState2 = worldGenLevel.getBlockState(blockPos6);
-                                    if (blockState.hasProperty(BlockStateProperties.WATERLOGGED)) {
-                                        blockState = blockState.setValue(BlockStateProperties.WATERLOGGED, blockState2.getFluidState().isSource());
-                                    }
+            if (distance < outerLayerThreshold) continue;
 
-                                    if (canClusterGrowAtState(blockState2)) {
-                                        this.safeSetBlock(worldGenLevel, blockPos6, blockState, predicate);
-                                        break;
-                                    }
-                                }
-                            }
+            if (generateCrack && crackDistance >= crackThreshold && distance < fillingThreshold) {
+                this.safeSetBlock(level, pos, config.crackState, replaceable);
 
-                            return true;
-                        }
+                for (Direction direction : DIRECTIONS) {
+                    BlockPos relativePos = pos.relative(direction);
+                    FluidState fluidState = level.getFluidState(relativePos);
+                    if (!fluidState.isEmpty()) {
+                        level.scheduleTick(relativePos, fluidState.getType(), 0);
                     }
+                }
+            } else if (distance >= fillingThreshold) {
+                this.safeSetBlock(level, pos, blockSettings.fillingProvider.getState(random, pos), replaceable);
+            } else if (distance >= innerLayerThreshold) {
+                boolean useAlternateLayer = random.nextFloat() < config.useAlternateLayer0Chance;
+                if (useAlternateLayer) {
+                    this.safeSetBlock(level,
+                            pos,
+                            blockSettings.alternateInnerLayerProvider.getState(random, pos),
+                            replaceable);
+                } else {
+                    this.safeSetBlock(level, pos, blockSettings.innerLayerProvider.getState(random, pos), replaceable);
+                }
 
-                    blockPos3 = (BlockPos)var48.next();
-                    double r = normalNoise.getValue(blockPos3.getX(), blockPos3.getY(), blockPos3.getZ()) * geodeConfiguration.noiseMultiplier;
-                    s = 0.0;
-                    t = 0.0;
+                if ((!config.placementsRequireLayer0Alternate || useAlternateLayer)
+                        && random.nextFloat() < config.usePotentialPlacementsChance) {
+                    potentialPlacements.add(pos.immutable());
+                }
+            } else if (distance >= middleLayerThreshold) {
+                this.safeSetBlock(level, pos, blockSettings.middleLayerProvider.getState(random, pos), replaceable);
+            } else {
+                this.safeSetBlock(level, pos, blockSettings.outerLayerProvider.getState(random, pos), replaceable);
+            }
+        }
 
-                    Iterator var40;
-                    Pair pair;
-                    for(var40 = list.iterator(); var40.hasNext(); s += Mth.fastInvSqrt(blockPos3.distSqr((Vec3i)pair.getFirst()) + (double)(Integer)pair.getSecond()) + r) {
-                        pair = (Pair)var40.next();
-                    }
+        for (BlockPos pos : potentialPlacements) {
+            BlockState blockState = Util.getRandom(blockSettings.innerPlacements, random);
 
-                    BlockPos blockPos4;
-                    for(var40 = list2.iterator(); var40.hasNext(); t += Mth.fastInvSqrt(blockPos3.distSqr(blockPos4) + (double)geodeCrackSettings.crackPointOffset) + r) {
-                        blockPos4 = (BlockPos)var40.next();
-                    }
-                } while(s < h);
+            for (Direction direction : DIRECTIONS) {
+                if (blockState.hasProperty(BlockStateProperties.FACING)) {
+                    blockState = blockState.setValue(BlockStateProperties.FACING, direction);
+                }
 
-                if (bl && t >= l && s < e) {
-                    this.safeSetBlock(worldGenLevel, blockPos3, Blocks.AIR.defaultBlockState(), predicate);
-                    Direction[] var56 = DIRECTIONS;
-                    int var59 = var56.length;
+                BlockPos relativePos = pos.relative(direction);
+                BlockState relativeState = level.getBlockState(relativePos);
+                if (blockState.hasProperty(BlockStateProperties.WATERLOGGED)) {
+                    blockState = blockState.setValue(BlockStateProperties.WATERLOGGED,
+                            relativeState.getFluidState().isSource());
+                }
 
-                    for(int var42 = 0; var42 < var59; ++var42) {
-                        Direction direction = var56[var42];
-                        BlockPos blockPos5 = blockPos3.relative(direction);
-                        FluidState fluidState = worldGenLevel.getFluidState(blockPos5);
-                        if (!fluidState.isEmpty()) {
-                            worldGenLevel.scheduleTick(blockPos5, fluidState.getType(), 0);
-                        }
-                    }
-                } else if (s >= e) {
-                    this.safeSetBlock(worldGenLevel, blockPos3, geodeBlockSettings.fillingProvider.getState(randomSource, blockPos3), predicate);
-                } else if (s >= f) {
-                    boolean bl2 = (double)randomSource.nextFloat() < geodeConfiguration.useAlternateLayer0Chance;
-                    if (bl2) {
-                        this.safeSetBlock(worldGenLevel, blockPos3, geodeBlockSettings.alternateInnerLayerProvider.getState(randomSource, blockPos3), predicate);
-                    } else {
-                        this.safeSetBlock(worldGenLevel, blockPos3, geodeBlockSettings.innerLayerProvider.getState(randomSource, blockPos3), predicate);
-                    }
-
-                    if ((!geodeConfiguration.placementsRequireLayer0Alternate || bl2) && (double)randomSource.nextFloat() < geodeConfiguration.usePotentialPlacementsChance) {
-                        list3.add(blockPos3.immutable());
-                    }
-                } else if (s >= g) {
-                    this.safeSetBlock(worldGenLevel, blockPos3, geodeBlockSettings.middleLayerProvider.getState(randomSource, blockPos3), predicate);
-                } else if (s >= h) {
-                    this.safeSetBlock(worldGenLevel, blockPos3, geodeBlockSettings.outerLayerProvider.getState(randomSource, blockPos3), predicate);
+                if (BuddingAmethystBlock.canClusterGrowAtState(relativeState)) {
+                    this.safeSetBlock(level, relativePos, blockState, replaceable);
+                    break;
                 }
             }
         }
-    }
 
-    public static boolean canClusterGrowAtState(BlockState blockState) {
-        return blockState.isAir() || blockState.is(Blocks.WATER) && blockState.getFluidState().getAmount() == 8;
+        return true;
     }
 }

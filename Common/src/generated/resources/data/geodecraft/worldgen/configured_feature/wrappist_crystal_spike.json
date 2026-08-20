@@ -24,7 +24,7 @@
         "Name": "geodecraft:wrappist_block"
       }
     },
-    "placeable_on": "#geodecraft:can_large_wrappist_crystal_place",
+    "placeable_on": "#geodecraft:wrappist_crystal_spike_may_place_on",
     "xz_radius": {
       "type": "minecraft:uniform",
       "max_inclusive": 3,
