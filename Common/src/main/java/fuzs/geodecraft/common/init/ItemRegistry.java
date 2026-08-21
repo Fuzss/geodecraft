@@ -65,16 +65,16 @@ public class ItemRegistry {
             BlockRegistry.SMALL_PRISMARINE_BUD);
 
     public static final Holder.Reference<Item> LAPIS_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlockItem(
-            BlockRegistry.LAPIS_CLUSTER_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_LAPIS = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.BUDDING_LAPIS);
+            BlockRegistry.LAPIS_LAZULI_CLUSTER_BLOCK);
+    public static final Holder.Reference<Item> BUDDING_LAPIS = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.BUDDING_LAPIS_LAZULI);
     public static final Holder.Reference<Item> BUDDING_DEEPSLATE_LAPIS = ModRegistry.REGISTRY.registerBlockItem(
-            BlockRegistry.BUDDING_DEEPSLATE_LAPIS);
+            BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI);
     public static final Holder.Reference<Item> BUDDING_SCULK_LAPIS = ModRegistry.REGISTRY.registerBlockItem(
-            BlockRegistry.BUDDING_SCULK_LAPIS);
-    public static final Holder.Reference<Item> LAPIS_CLUSTER = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.LAPIS_CLUSTER);
-    public static final Holder.Reference<Item> LARGE_LAPIS_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.LARGE_LAPIS_BUD);
-    public static final Holder.Reference<Item> MEDIUM_LAPIS_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.MEDIUM_LAPIS_BUD);
-    public static final Holder.Reference<Item> SMALL_LAPIS_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.SMALL_LAPIS_BUD);
+            BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI);
+    public static final Holder.Reference<Item> LAPIS_CLUSTER = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.LAPIS_LAZULI_CLUSTER);
+    public static final Holder.Reference<Item> LARGE_LAPIS_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.LARGE_LAPIS_LAZULI_BUD);
+    public static final Holder.Reference<Item> MEDIUM_LAPIS_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD);
+    public static final Holder.Reference<Item> SMALL_LAPIS_BUD = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.SMALL_LAPIS_LAZULI_BUD);
 
     public static final Holder.Reference<Item> REDSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlockItem(
             BlockRegistry.REDSTONE_CRYSTAL_BLOCK);

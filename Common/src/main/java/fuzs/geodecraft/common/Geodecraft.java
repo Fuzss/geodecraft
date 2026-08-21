@@ -1,15 +1,17 @@
 package fuzs.geodecraft.common;
 
 import fuzs.geodecraft.common.config.CommonConfig;
+import fuzs.geodecraft.common.handler.BiomeModificationsHandler;
+import fuzs.geodecraft.common.init.ItemRegistry;
+import fuzs.geodecraft.common.init.ModRegistry;
+import fuzs.geodecraft.common.init.PotionRegistry;
 import fuzs.puzzleslib.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
 import fuzs.puzzleslib.api.event.v1.server.RegisterPotionBrewingMixesCallback;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
-import fuzs.geodecraft.common.handler.BiomeModificationsHandler;
-import fuzs.geodecraft.common.init.ItemRegistry;
-import fuzs.geodecraft.common.init.ModRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,9 +30,11 @@ public class Geodecraft implements ModConstructor {
 
     private static void registerEventHandlers() {
         RegisterPotionBrewingMixesCallback.EVENT.register((RegisterPotionBrewingMixesCallback.Builder builder) -> {
-            builder.registerPotionRecipe(Potions.WATER, ItemRegistry.WRAPPIST_SHARD.value(), Potions.SLOW_FALLING);
-            builder.registerPotionRecipe(Potions.WATER, ItemRegistry.CELESTITE_SHARD.value(), Potions.STRONG_HEALING);
-            builder.registerPotionRecipe(Potions.WATER, ItemRegistry.PINK_TOPAZ.value(), Potions.LUCK);
+            builder.registerStartPotionRecipe(ItemRegistry.CELESTITE_SHARD.value(), Potions.STRENGTH);
+            builder.registerStartPotionRecipe(ItemRegistry.PINK_TOPAZ.value(), Potions.LUCK);
+            builder.registerStartPotionRecipe(ItemRegistry.WRAPPIST_SHARD.value(), PotionRegistry.HASTE);
+            builder.registerPotionRecipe(PotionRegistry.HASTE, Items.REDSTONE, PotionRegistry.LONG_HASTE);
+            builder.registerPotionRecipe(PotionRegistry.HASTE, Items.GLOWSTONE_DUST, PotionRegistry.STRONG_HASTE);
         });
     }
 

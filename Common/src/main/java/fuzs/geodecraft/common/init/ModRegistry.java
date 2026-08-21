@@ -153,6 +153,7 @@ public class ModRegistry {
         BlockRegistry.bootstrap();
         ItemRegistry.bootstrap();
         BlockEntityRegistry.bootstrap();
+        PotionRegistry.bootstrap();
         FeatureRegistry.bootstrap();
     }
 }

@@ -1,11 +1,11 @@
 package fuzs.geodecraft.common.data.client;
 
 import fuzs.geodecraft.common.Geodecraft;
-import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.geodecraft.common.init.BlockRegistry;
 import fuzs.geodecraft.common.init.ItemRegistry;
 import fuzs.geodecraft.common.init.ModRegistry;
+import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
+import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 
 public class ModLanguageProvider extends AbstractLanguageProvider {
 
@@ -38,14 +38,14 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.MEDIUM_PRISMARINE_BUD.value(), "Medium Prismarine Bud");
         builder.add(BlockRegistry.SMALL_PRISMARINE_BUD.value(), "Small Prismarine Bud");
 
-        builder.add(BlockRegistry.BUDDING_LAPIS.value(), "Budding Lapis");
-        builder.add(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value(), "Budding Deepslate Lapis");
-        builder.add(BlockRegistry.BUDDING_SCULK_LAPIS.value(), "Budding Sculk Lapis");
-        builder.add(BlockRegistry.LAPIS_CLUSTER_BLOCK.value(), "Lapis Cluster Block");
-        builder.add(BlockRegistry.LAPIS_CLUSTER.value(), "Lapis Cluster");
-        builder.add(BlockRegistry.LARGE_LAPIS_BUD.value(), "Large Lapis Bud");
-        builder.add(BlockRegistry.MEDIUM_LAPIS_BUD.value(), "Medium Lapis Bud");
-        builder.add(BlockRegistry.SMALL_LAPIS_BUD.value(), "Small Lapis Bud");
+        builder.add(BlockRegistry.BUDDING_LAPIS_LAZULI.value(), "Budding Lapis Lazuli");
+        builder.add(BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value(), "Budding Deepslate Lapis Lazuli");
+        builder.add(BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value(), "Budding Sculk Lapis Lazuli");
+        builder.add(BlockRegistry.LAPIS_LAZULI_CLUSTER_BLOCK.value(), "Lapis Lazuli Cluster Block");
+        builder.add(BlockRegistry.LAPIS_LAZULI_CLUSTER.value(), "Lapis Lazuli Cluster");
+        builder.add(BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(), "Large Lapis Lazuli Bud");
+        builder.add(BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(), "Medium Lapis Lazuli Bud");
+        builder.add(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(), "Small Lapis Lazuli Bud");
 
         builder.add(BlockRegistry.BUDDING_REDSTONE.value(), "Budding Redstone");
         builder.add(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value(), "Budding Deepslate Redstone");

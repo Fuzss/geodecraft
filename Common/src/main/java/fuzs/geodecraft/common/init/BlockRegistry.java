@@ -1,19 +1,18 @@
 package fuzs.geodecraft.common.init;
 
-import fuzs.geodecraft.common.world.level.block.DropExperienceClusterBlock;
-import fuzs.geodecraft.common.world.level.block.RedstoneOreClusterBlock;
+import fuzs.geodecraft.common.world.level.block.*;
 import net.minecraft.core.Holder;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import net.yeoxuhang.geode_plus.server.block.*;
+import net.yeoxuhang.geode_plus.server.block.WrappistPedestalBlock;
 
 public class BlockRegistry {
     public static final Holder.Reference<Block> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRY.registerBlock(
             "budding_pink_topaz",
-            BuddingPinkTopazBlock::new,
+            BuddingGrantEffectBlock::pinkTopaz,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_PINK)
                     .randomTicks()
@@ -52,7 +51,7 @@ public class BlockRegistry {
 
     public static final Holder.Reference<Block> BUDDING_CELESTITE = ModRegistry.REGISTRY.registerBlock(
             "budding_celestite",
-            BuddingCelestiteBlock::new,
+            BuddingGrantEffectBlock::celestite,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_CYAN)
                     .randomTicks()
@@ -87,16 +86,6 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(3, 4, properties),
             () -> BlockBehaviour.Properties.ofFullCopy(CELESTITE_CLUSTER.value()));
 
-    public static final Holder.Reference<Block> BUDDING_PRISMARINE = ModRegistry.REGISTRY.registerBlock(
-            "budding_prismarine",
-            BuddingPrismarineBlock::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_CYAN)
-                    .randomTicks()
-                    .strength(3.0F)
-                    .sound(SoundType.AMETHYST)
-                    .requiresCorrectToolForDrops());
-
     public static final Holder.Reference<Block> PRISMARINE_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
             "prismarine_cluster_block",
             Block::new,
@@ -129,40 +118,18 @@ public class BlockRegistry {
             },
             () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CLUSTER.value()));
 
-    public static final Holder.Reference<Block> BUDDING_LAPIS = ModRegistry.REGISTRY.registerBlock("budding_lapis",
-            BuddingLapisBlock::new,
+    public static final Holder.Reference<Block> BUDDING_PRISMARINE = ModRegistry.REGISTRY.registerBlock(
+            "budding_prismarine",
+            BuddingBlock::prismarine,
             () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.STONE)
+                    .mapColor(MapColor.COLOR_CYAN)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.STONE)
+                    .sound(SoundType.AMETHYST)
                     .requiresCorrectToolForDrops());
 
-    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_LAPIS = ModRegistry.REGISTRY.registerBlock(
-            "budding_deepslate_lapis",
-            BuddingLapisBlock::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.DEEPSLATE)
-                    .randomTicks()
-                    .strength(5.0F)
-                    .sound(SoundType.DEEPSLATE)
-                    .requiresCorrectToolForDrops());
-
-    public static final Holder.Reference<Block> BUDDING_SCULK_LAPIS = ModRegistry.REGISTRY.registerBlock(
-            "budding_sculk_lapis",
-            BuddingLapisBlock::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BLACK)
-                    .randomTicks()
-                    .strength(3.0F)
-                    .sound(SoundType.SCULK)
-                    .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> LAPIS_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "lapis_cluster_block",
-            Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(4.0F).sound(SoundType.STONE));
-
-    public static final Holder.Reference<Block> LAPIS_CLUSTER = ModRegistry.REGISTRY.registerBlock("lapis_cluster",
+    public static final Holder.Reference<Block> LAPIS_LAZULI_CLUSTER = ModRegistry.REGISTRY.registerBlock(
+            "lapis_lazuli_cluster",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(2, 5),
                     properties),
             () -> BlockBehaviour.Properties.of()
@@ -173,51 +140,55 @@ public class BlockRegistry {
                     .sound(SoundType.AMETHYST)
                     .strength(3.0F)
                     .lightLevel((BlockState state) -> 8));
-    public static final Holder.Reference<Block> LARGE_LAPIS_BUD = ModRegistry.REGISTRY.registerBlock("large_lapis_bud",
+    public static final Holder.Reference<Block> LARGE_LAPIS_LAZULI_BUD = ModRegistry.REGISTRY.registerBlock(
+            "large_lapis_lazuli_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.large(UniformInt.of(1, 4), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CLUSTER.value())
                     .sound(SoundType.AMETHYST)
                     .lightLevel((BlockState state) -> 2));
-    public static final Holder.Reference<Block> MEDIUM_LAPIS_BUD = ModRegistry.REGISTRY.registerBlock("medium_lapis_bud",
+    public static final Holder.Reference<Block> MEDIUM_LAPIS_LAZULI_BUD = ModRegistry.REGISTRY.registerBlock(
+            "medium_lapis_lazuli_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.medium(UniformInt.of(0, 3),
                     properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CLUSTER.value())
                     .sound(SoundType.AMETHYST)
                     .lightLevel((BlockState state) -> 1));
-    public static final Holder.Reference<Block> SMALL_LAPIS_BUD = ModRegistry.REGISTRY.registerBlock("small_lapis_bud",
+    public static final Holder.Reference<Block> SMALL_LAPIS_LAZULI_BUD = ModRegistry.REGISTRY.registerBlock(
+            "small_lapis_lazuli_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 2), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_CLUSTER.value()).sound(SoundType.AMETHYST));
+            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CLUSTER.value()).sound(SoundType.AMETHYST));
 
-    public static final Holder.Reference<Block> BUDDING_REDSTONE = ModRegistry.REGISTRY.registerBlock("budding_redstone",
-            BuddingRedstoneBlock::new,
+    public static final Holder.Reference<Block> BUDDING_LAPIS_LAZULI = ModRegistry.REGISTRY.registerBlock(
+            "budding_lapis_lazuli",
+            BuddingDropExperienceBlock::lapisLazuli,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
                     .randomTicks()
                     .strength(3.0F)
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_REDSTONE = ModRegistry.REGISTRY.registerBlock(
-            "budding_deepslate_redstone",
-            BuddingRedstoneBlock::new,
+    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_LAPIS_LAZULI = ModRegistry.REGISTRY.registerBlock(
+            "budding_deepslate_lapis_lazuli",
+            BuddingDropExperienceBlock::lapisLazuli,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.DEEPSLATE)
                     .randomTicks()
                     .strength(5.0F)
                     .sound(SoundType.DEEPSLATE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_SCULK_REDSTONE = ModRegistry.REGISTRY.registerBlock(
-            "budding_sculk_redstone",
-            BuddingRedstoneBlock::new,
+    public static final Holder.Reference<Block> BUDDING_SCULK_LAPIS_LAZULI = ModRegistry.REGISTRY.registerBlock(
+            "budding_sculk_lapis_lazuli",
+            BuddingDropExperienceBlock::lapisLazuli,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
                     .sound(SoundType.SCULK)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> REDSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "redstone_crystal_block",
+    public static final Holder.Reference<Block> LAPIS_LAZULI_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "lapis_lazuli_cluster_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(4.0F).sound(SoundType.STONE));
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(4.0F).sound(SoundType.STONE));
 
     public static final Holder.Reference<Block> REDSTONE_CRYSTAL = ModRegistry.REGISTRY.registerBlock("redstone_crystal",
             (BlockBehaviour.Properties properties) -> new RedstoneOreClusterBlock(RedstoneOreClusterBlock.CLUSTER_HEIGHT,
@@ -258,36 +229,37 @@ public class BlockRegistry {
                     properties),
             () -> BlockBehaviour.Properties.ofFullCopy(REDSTONE_CRYSTAL.value()).sound(SoundType.AMETHYST));
 
-    public static final Holder.Reference<Block> BUDDING_EMERALD = ModRegistry.REGISTRY.registerBlock("budding_emerald",
-            BuddingEmeraldBlock::new,
+    public static final Holder.Reference<Block> BUDDING_REDSTONE = ModRegistry.REGISTRY.registerBlock("budding_redstone",
+            BuddingDropExperienceBlock::redstone,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
                     .randomTicks()
                     .strength(3.0F)
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_EMERALD = ModRegistry.REGISTRY.registerBlock(
-            "budding_deepslate_emerald",
-            BuddingEmeraldBlock::new,
+    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_REDSTONE = ModRegistry.REGISTRY.registerBlock(
+            "budding_deepslate_redstone",
+            BuddingDropExperienceBlock::redstone,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.DEEPSLATE)
                     .randomTicks()
                     .strength(5.0F)
                     .sound(SoundType.DEEPSLATE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_SCULK_EMERALD = ModRegistry.REGISTRY.registerBlock(
-            "budding_sculk_emerald",
-            BuddingEmeraldBlock::new,
+    public static final Holder.Reference<Block> BUDDING_SCULK_REDSTONE = ModRegistry.REGISTRY.registerBlock(
+            "budding_sculk_redstone",
+            BuddingDropExperienceBlock::redstone,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
                     .sound(SoundType.SCULK)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> EMERALD_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "emerald_cluster_block",
+    public static final Holder.Reference<Block> REDSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "redstone_crystal_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).strength(4.0F).sound(SoundType.STONE));
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(4.0F).sound(SoundType.STONE));
+
     public static final Holder.Reference<Block> EMERALD_CLUSTER = ModRegistry.REGISTRY.registerBlock("emerald_cluster",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(3, 7),
                     properties),
@@ -317,38 +289,37 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 4), properties),
             () -> BlockBehaviour.Properties.ofFullCopy(EMERALD_CLUSTER.value()).sound(SoundType.AMETHYST));
 
-    public static final Holder.Reference<Block> BUDDING_DIAMOND = ModRegistry.REGISTRY.registerBlock("budding_diamond",
-            BuddingDiamondBlock::new,
+    public static final Holder.Reference<Block> BUDDING_EMERALD = ModRegistry.REGISTRY.registerBlock("budding_emerald",
+            BuddingDropExperienceBlock::emerald,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.STONE)
                     .randomTicks()
                     .strength(3.0F)
                     .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops());
-
-    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_DIAMOND = ModRegistry.REGISTRY.registerBlock(
-            "budding_deepslate_diamond",
-            BuddingDiamondBlock::new,
+    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_EMERALD = ModRegistry.REGISTRY.registerBlock(
+            "budding_deepslate_emerald",
+            BuddingDropExperienceBlock::emerald,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.DEEPSLATE)
                     .randomTicks()
                     .strength(5.0F)
                     .sound(SoundType.DEEPSLATE)
                     .requiresCorrectToolForDrops());
-
-    public static final Holder.Reference<Block> BUDDING_SCULK_DIAMOND = ModRegistry.REGISTRY.registerBlock(
-            "budding_sculk_diamond",
-            BuddingDiamondBlock::new,
+    public static final Holder.Reference<Block> BUDDING_SCULK_EMERALD = ModRegistry.REGISTRY.registerBlock(
+            "budding_sculk_emerald",
+            BuddingDropExperienceBlock::emerald,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
                     .sound(SoundType.SCULK)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> DIAMOND_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "diamond_crystal_block",
+    public static final Holder.Reference<Block> EMERALD_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "emerald_cluster_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).strength(4.0F).sound(SoundType.STONE));
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).strength(4.0F).sound(SoundType.STONE));
+
     public static final Holder.Reference<Block> DIAMOND_CRYSTAL = ModRegistry.REGISTRY.registerBlock("diamond_crystal",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(3, 7),
                     properties),
@@ -378,37 +349,38 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 4), properties),
             () -> BlockBehaviour.Properties.ofFullCopy(DIAMOND_CRYSTAL.value()).sound(SoundType.AMETHYST));
 
-    public static final Holder.Reference<Block> BUDDING_NETHER_QUARTZ = ModRegistry.REGISTRY.registerBlock(
-            "budding_nether_quartz",
-            BuddingNetherQuartzBlock::new,
+    public static final Holder.Reference<Block> BUDDING_DIAMOND = ModRegistry.REGISTRY.registerBlock("budding_diamond",
+            BuddingDropExperienceBlock::diamond,
             () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.NETHER)
+                    .mapColor(MapColor.STONE)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.NETHER_ORE)
+                    .sound(SoundType.STONE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_BASALT_NETHER_QUARTZ = ModRegistry.REGISTRY.registerBlock(
-            "budding_basalt_nether_quartz",
-            BuddingNetherQuartzBlock::new,
+
+    public static final Holder.Reference<Block> BUDDING_DEEPSLATE_DIAMOND = ModRegistry.REGISTRY.registerBlock(
+            "budding_deepslate_diamond",
+            BuddingDropExperienceBlock::diamond,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.DEEPSLATE)
+                    .randomTicks()
+                    .strength(5.0F)
+                    .sound(SoundType.DEEPSLATE)
+                    .requiresCorrectToolForDrops());
+
+    public static final Holder.Reference<Block> BUDDING_SCULK_DIAMOND = ModRegistry.REGISTRY.registerBlock(
+            "budding_sculk_diamond",
+            BuddingDropExperienceBlock::diamond,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.BASALT)
+                    .sound(SoundType.SCULK)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_NETHER_QUARTZ = ModRegistry.REGISTRY.registerBlock(
-            "budding_blackstone_nether_quartz",
-            BuddingNetherQuartzBlock::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BLACK)
-                    .randomTicks()
-                    .strength(3.0F)
-                    .sound(SoundType.NETHER_ORE)
-                    .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> NETHER_QUARTZ_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "nether_quartz_crystal_block",
+    public static final Holder.Reference<Block> DIAMOND_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "diamond_crystal_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(3.0F).sound(SoundType.STONE));
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.DIAMOND).strength(4.0F).sound(SoundType.STONE));
 
     public static final Holder.Reference<Block> NETHER_QUARTZ_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
             "nether_quartz_crystal",
@@ -440,37 +412,37 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 2), properties),
             () -> BlockBehaviour.Properties.ofFullCopy(NETHER_QUARTZ_CRYSTAL.value()).sound(SoundType.NETHER_ORE));
 
-    public static final Holder.Reference<Block> BUDDING_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
-            "budding_gold_nugget",
-            BuddingNetherGoldBlock::new,
+    public static final Holder.Reference<Block> BUDDING_NETHER_QUARTZ = ModRegistry.REGISTRY.registerBlock(
+            "budding_nether_quartz",
+            BuddingDropExperienceBlock::netherQuartz,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.NETHER)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.NETHER_GOLD_ORE)
+                    .sound(SoundType.NETHER_ORE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_BASALT_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
-            "budding_basalt_gold_nugget",
-            BuddingNetherGoldBlock::new,
+    public static final Holder.Reference<Block> BUDDING_BASALT_NETHER_QUARTZ = ModRegistry.REGISTRY.registerBlock(
+            "budding_basalt_nether_quartz",
+            BuddingDropExperienceBlock::netherQuartz,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.NETHER_GOLD_ORE)
+                    .sound(SoundType.BASALT)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
-            "budding_blackstone_gold_nugget",
-            BuddingNetherGoldBlock::new,
+    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_NETHER_QUARTZ = ModRegistry.REGISTRY.registerBlock(
+            "budding_blackstone_nether_quartz",
+            BuddingDropExperienceBlock::netherQuartz,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.NETHER_GOLD_ORE)
+                    .sound(SoundType.NETHER_ORE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> GOLD_NUGGET_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "gold_nugget_cluster_block",
+    public static final Holder.Reference<Block> NETHER_QUARTZ_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "nether_quartz_crystal_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(4.0F).sound(SoundType.STONE));
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(3.0F).sound(SoundType.STONE));
 
     public static final Holder.Reference<Block> GOLD_NUGGET_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "gold_nugget_cluster",
@@ -502,44 +474,37 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 1), properties),
             () -> BlockBehaviour.Properties.ofFullCopy(GOLD_NUGGET_CLUSTER.value()).sound(SoundType.NETHER_GOLD_ORE));
 
-    public static final Holder.Reference<Block> BUDDING_GLOWSTONE = ModRegistry.REGISTRY.registerBlock(
-            "budding_glowstone",
-            BuddingGlowstoneBlock::new,
+    public static final Holder.Reference<Block> BUDDING_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
+            "budding_gold_nugget",
+            BuddingDropExperienceBlock::goldNugget,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.NETHER)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.GLASS)
-                    .requiresCorrectToolForDrops()
-                    .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> BUDDING_BASALT_GLOWSTONE = ModRegistry.REGISTRY.registerBlock(
-            "budding_basalt_glowstone",
-            BuddingGlowstoneBlock::new,
+                    .sound(SoundType.NETHER_GOLD_ORE)
+                    .requiresCorrectToolForDrops());
+    public static final Holder.Reference<Block> BUDDING_BASALT_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
+            "budding_basalt_gold_nugget",
+            BuddingDropExperienceBlock::goldNugget,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.GLASS)
-                    .requiresCorrectToolForDrops()
-                    .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_GLOWSTONE = ModRegistry.REGISTRY.registerBlock(
-            "budding_blackstone_glowstone",
-            BuddingGlowstoneBlock::new,
+                    .sound(SoundType.NETHER_GOLD_ORE)
+                    .requiresCorrectToolForDrops());
+    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
+            "budding_blackstone_gold_nugget",
+            BuddingDropExperienceBlock::goldNugget,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
                     .strength(3.0F)
-                    .sound(SoundType.GLASS)
-                    .requiresCorrectToolForDrops()
-                    .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> GLOWSTONE_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "glowstone_cluster_block",
+                    .sound(SoundType.NETHER_GOLD_ORE)
+                    .requiresCorrectToolForDrops());
+    public static final Holder.Reference<Block> GOLD_NUGGET_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "gold_nugget_cluster_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.SAND)
-                    .strength(4.0F)
-                    .sound(SoundType.GLASS)
-                    .lightLevel((BlockState state) -> 15));
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(4.0F).sound(SoundType.STONE));
 
     public static final Holder.Reference<Block> GLOWSTONE_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "glowstone_cluster",
@@ -570,41 +535,44 @@ public class BlockRegistry {
             },
             () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CLUSTER.value()).lightLevel((BlockState state) -> 9));
 
-    public static final Holder.Reference<Block> BUDDING_ANCIENT_DEBRIS = ModRegistry.REGISTRY.registerBlock(
-            "budding_ancient_debris",
-            BuddingAncientDebrisBlock::new,
+    public static final Holder.Reference<Block> BUDDING_GLOWSTONE = ModRegistry.REGISTRY.registerBlock(
+            "budding_glowstone",
+            BuddingBlock::glowstone,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.NETHER)
                     .randomTicks()
-                    .strength(10.0F)
-                    .sound(SoundType.ANCIENT_DEBRIS)
+                    .strength(3.0F)
+                    .sound(SoundType.GLASS)
                     .requiresCorrectToolForDrops()
                     .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> BUDDING_BASALT_ANCIENT_DEBRIS = ModRegistry.REGISTRY.registerBlock(
-            "budding_basalt_ancient_debris",
-            BuddingAncientDebrisBlock::new,
+    public static final Holder.Reference<Block> BUDDING_BASALT_GLOWSTONE = ModRegistry.REGISTRY.registerBlock(
+            "budding_basalt_glowstone",
+            BuddingBlock::glowstone,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
-                    .strength(10.0F)
-                    .sound(SoundType.ANCIENT_DEBRIS)
+                    .strength(3.0F)
+                    .sound(SoundType.GLASS)
                     .requiresCorrectToolForDrops()
                     .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_ANCIENT_DEBRIS = ModRegistry.REGISTRY.registerBlock(
-            "budding_blackstone_ancient_debris",
-            BuddingAncientDebrisBlock::new,
+    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_GLOWSTONE = ModRegistry.REGISTRY.registerBlock(
+            "budding_blackstone_glowstone",
+            BuddingBlock::glowstone,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
                     .randomTicks()
-                    .strength(10.0F)
-                    .sound(SoundType.ANCIENT_DEBRIS)
+                    .strength(3.0F)
+                    .sound(SoundType.GLASS)
                     .requiresCorrectToolForDrops()
                     .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> ANCIENT_DEBRIS_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "ancient_debris_cluster_block",
+    public static final Holder.Reference<Block> GLOWSTONE_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "glowstone_cluster_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(4.0F).sound(SoundType.STONE));
-
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.SAND)
+                    .strength(4.0F)
+                    .sound(SoundType.GLASS)
+                    .lightLevel((BlockState state) -> 15));
 
     public static final Holder.Reference<Block> ANCIENT_DEBRIS_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "ancient_debris_cluster",
@@ -635,6 +603,41 @@ public class BlockRegistry {
             () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CLUSTER.value())
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .lightLevel((BlockState state) -> 2));
+
+    public static final Holder.Reference<Block> BUDDING_ANCIENT_DEBRIS = ModRegistry.REGISTRY.registerBlock(
+            "budding_ancient_debris",
+            BuddingBlock::ancientDebris,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.NETHER)
+                    .randomTicks()
+                    .strength(10.0F)
+                    .sound(SoundType.ANCIENT_DEBRIS)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel((BlockState state) -> 10));
+    public static final Holder.Reference<Block> BUDDING_BASALT_ANCIENT_DEBRIS = ModRegistry.REGISTRY.registerBlock(
+            "budding_basalt_ancient_debris",
+            BuddingBlock::ancientDebris,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .randomTicks()
+                    .strength(10.0F)
+                    .sound(SoundType.ANCIENT_DEBRIS)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel((BlockState state) -> 10));
+    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_ANCIENT_DEBRIS = ModRegistry.REGISTRY.registerBlock(
+            "budding_blackstone_ancient_debris",
+            BuddingBlock::ancientDebris,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .randomTicks()
+                    .strength(10.0F)
+                    .sound(SoundType.ANCIENT_DEBRIS)
+                    .requiresCorrectToolForDrops()
+                    .lightLevel((BlockState state) -> 10));
+    public static final Holder.Reference<Block> ANCIENT_DEBRIS_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "ancient_debris_cluster_block",
+            Block::new,
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(4.0F).sound(SoundType.STONE));
 
     public static final Holder.Reference<Block> SMOOTH_END_STONE = ModRegistry.REGISTRY.registerBlock("smooth_end_stone",
             Block::new,
@@ -680,7 +683,7 @@ public class BlockRegistry {
                     .sound(SoundType.AMETHYST));
 
     public static final Holder.Reference<Block> BUDDING_WRAPPIST = ModRegistry.REGISTRY.registerBlock("budding_wrappist",
-            BuddingWrappistBlock::new,
+            BuddingGrantEffectBlock::wrappist,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_LIGHT_BLUE)
                     .randomTicks()
@@ -716,22 +719,6 @@ public class BlockRegistry {
                     .sound(SoundType.SMALL_AMETHYST_BUD)
                     .lightLevel((BlockState state) -> 2));
 
-    public static final Holder.Reference<Block> ECHO_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "echo_crystal_block",
-            Block::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BLACK)
-                    .strength(5.0F)
-                    .sound(SoundType.SCULK_CATALYST));
-    public static final Holder.Reference<Block> BUDDING_ECHO = ModRegistry.REGISTRY.registerBlock("budding_echo",
-            BuddingEchoBlock::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BLACK)
-                    .randomTicks()
-                    .strength(5.0F)
-                    .sound(SoundType.SCULK)
-                    .requiresCorrectToolForDrops());
-
     public static final Holder.Reference<Block> ECHO_CRYSTAL = ModRegistry.REGISTRY.registerBlock("echo_crystal",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(3, 7),
                     properties),
@@ -757,6 +744,22 @@ public class BlockRegistry {
     public static final Holder.Reference<Block> SMALL_ECHO_BUD = ModRegistry.REGISTRY.registerBlock("small_echo_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 4), properties),
             () -> BlockBehaviour.Properties.ofFullCopy(ECHO_CRYSTAL.value()).sound(SoundType.SCULK_CATALYST));
+
+    public static final Holder.Reference<Block> BUDDING_ECHO = ModRegistry.REGISTRY.registerBlock("budding_echo",
+            BuddingEchoCrystalBlock::echoCrystal,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .randomTicks()
+                    .strength(5.0F)
+                    .sound(SoundType.SCULK)
+                    .requiresCorrectToolForDrops());
+    public static final Holder.Reference<Block> ECHO_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "echo_crystal_block",
+            Block::new,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_BLACK)
+                    .strength(5.0F)
+                    .sound(SoundType.SCULK_CATALYST));
 
     public static final Holder.Reference<Block> WRAPPIST_PEDESTAL = ModRegistry.REGISTRY.registerBlock(
             "wrappist_pedestal",

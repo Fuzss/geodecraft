@@ -34,10 +34,10 @@ public class GeodecraftClient implements ClientModConstructor {
         context.registerRenderType(BlockRegistry.MEDIUM_CELESTITE_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_CELESTITE_BUD.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.LAPIS_CLUSTER.value(), RenderType.cutout());
-        context.registerRenderType(BlockRegistry.LARGE_LAPIS_BUD.value(), RenderType.cutout());
-        context.registerRenderType(BlockRegistry.MEDIUM_LAPIS_BUD.value(), RenderType.cutout());
-        context.registerRenderType(BlockRegistry.SMALL_LAPIS_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LAPIS_LAZULI_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(), RenderType.cutout());
 
         context.registerRenderType(BlockRegistry.REDSTONE_CRYSTAL.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.LARGE_REDSTONE_BUD.value(), RenderType.cutout());

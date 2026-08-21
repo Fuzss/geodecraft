@@ -37,7 +37,7 @@ public class ModModelProvider extends AbstractModelProvider {
         generator.createTrivialCube(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.DIAMOND_CRYSTAL_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.EMERALD_CLUSTER_BLOCK.value());
-        generator.createTrivialCube(BlockRegistry.LAPIS_CLUSTER_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.LAPIS_LAZULI_CLUSTER_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.REDSTONE_CRYSTAL_BLOCK.value());
 
         generator.family(BlockRegistry.SMOOTH_END_STONE.value())
@@ -68,15 +68,15 @@ public class ModModelProvider extends AbstractModelProvider {
         generator.createTrivialCube(BlockRegistry.BUDDING_ANCIENT_DEBRIS.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_ANCIENT_DEBRIS.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_LAPIS.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_LAPIS_LAZULI.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_REDSTONE.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_EMERALD.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_DIAMOND.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_DEEPSLATE_DIAMOND.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_SCULK_LAPIS.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_SCULK_REDSTONE.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_SCULK_EMERALD.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_SCULK_DIAMOND.value());
@@ -127,10 +127,10 @@ public class ModModelProvider extends AbstractModelProvider {
                 BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value(),
                 generator);
 
-        this.createAmethystClusters(BlockRegistry.SMALL_LAPIS_BUD.value(),
-                BlockRegistry.MEDIUM_LAPIS_BUD.value(),
-                BlockRegistry.LARGE_LAPIS_BUD.value(),
-                BlockRegistry.LAPIS_CLUSTER.value(),
+        this.createAmethystClusters(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
+                BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
+                BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
+                BlockRegistry.LAPIS_LAZULI_CLUSTER.value(),
                 generator);
 
         this.createAmethystClusters(BlockRegistry.SMALL_REDSTONE_BUD.value(),

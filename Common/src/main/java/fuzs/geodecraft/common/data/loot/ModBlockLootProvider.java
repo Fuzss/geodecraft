@@ -38,7 +38,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropSelf(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
         this.dropSelf(BlockRegistry.DIAMOND_CRYSTAL_BLOCK.value());
         this.dropSelf(BlockRegistry.EMERALD_CLUSTER_BLOCK.value());
-        this.dropSelf(BlockRegistry.LAPIS_CLUSTER_BLOCK.value());
+        this.dropSelf(BlockRegistry.LAPIS_LAZULI_CLUSTER_BLOCK.value());
         this.dropSelf(BlockRegistry.REDSTONE_CRYSTAL_BLOCK.value());
         this.dropSelf(BlockRegistry.CELESTITE_BLOCK.value());
         this.dropSelf(BlockRegistry.PINK_TOPAZ_BLOCK.value());
@@ -75,7 +75,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.add(BlockRegistry.GLOWSTONE_CLUSTER.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.GLOWSTONE_DUST, 3.0F, 2.0F, context);
         });
-        this.add(BlockRegistry.LAPIS_CLUSTER.value(), (Block block) -> {
+        this.add(BlockRegistry.LAPIS_LAZULI_CLUSTER.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.LAPIS_LAZULI, 3.0F, 1.0F, context);
         });
         this.add(BlockRegistry.REDSTONE_CRYSTAL.value(), (Block block) -> {
@@ -105,7 +105,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropWhenSilkTouch(BlockRegistry.LARGE_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_WRAPPIST_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value());
-        this.dropWhenSilkTouch(BlockRegistry.LARGE_LAPIS_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_REDSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_EMERALD_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_DIAMOND_BUD.value());
@@ -119,7 +119,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_WRAPPIST_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value());
-        this.dropWhenSilkTouch(BlockRegistry.MEDIUM_LAPIS_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_REDSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_EMERALD_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_DIAMOND_BUD.value());
@@ -133,7 +133,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropWhenSilkTouch(BlockRegistry.SMALL_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_WRAPPIST_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value());
-        this.dropWhenSilkTouch(BlockRegistry.SMALL_LAPIS_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_REDSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_EMERALD_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_DIAMOND_BUD.value());
@@ -153,15 +153,15 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropNothing(BlockRegistry.BUDDING_GOLD_NUGGET.value());
         this.dropNothing(BlockRegistry.BUDDING_BASALT_GOLD_NUGGET.value());
         this.dropNothing(BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value());
-        this.dropNothing(BlockRegistry.BUDDING_LAPIS.value());
+        this.dropNothing(BlockRegistry.BUDDING_LAPIS_LAZULI.value());
         this.dropNothing(BlockRegistry.BUDDING_REDSTONE.value());
         this.dropNothing(BlockRegistry.BUDDING_EMERALD.value());
         this.dropNothing(BlockRegistry.BUDDING_DIAMOND.value());
-        this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value());
+        this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value());
         this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value());
         this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value());
         this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_DIAMOND.value());
-        this.dropNothing(BlockRegistry.BUDDING_SCULK_LAPIS.value());
+        this.dropNothing(BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value());
         this.dropNothing(BlockRegistry.BUDDING_SCULK_REDSTONE.value());
         this.dropNothing(BlockRegistry.BUDDING_SCULK_EMERALD.value());
         this.dropNothing(BlockRegistry.BUDDING_SCULK_DIAMOND.value());

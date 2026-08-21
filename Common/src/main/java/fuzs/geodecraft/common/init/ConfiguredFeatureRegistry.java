@@ -317,28 +317,28 @@ public class ConfiguredFeatureRegistry {
                         BlockRegistry.EMERALD_CLUSTER.value()));
         registerGeode(context,
                 LAPIS_GEODE,
-                BlockRegistry.BUDDING_LAPIS.value(),
+                BlockRegistry.BUDDING_LAPIS_LAZULI.value(),
                 Blocks.STONE,
-                List.of(BlockRegistry.SMALL_LAPIS_BUD.value(),
-                        BlockRegistry.MEDIUM_LAPIS_BUD.value(),
-                        BlockRegistry.LARGE_LAPIS_BUD.value(),
-                        BlockRegistry.LAPIS_CLUSTER.value()));
+                List.of(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.LAPIS_LAZULI_CLUSTER.value()));
         registerGeode(context,
                 DEEPSLATE_LAPIS_GEODE,
-                BlockRegistry.BUDDING_DEEPSLATE_LAPIS.value(),
+                BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value(),
                 Blocks.DEEPSLATE,
-                List.of(BlockRegistry.SMALL_LAPIS_BUD.value(),
-                        BlockRegistry.MEDIUM_LAPIS_BUD.value(),
-                        BlockRegistry.LARGE_LAPIS_BUD.value(),
-                        BlockRegistry.LAPIS_CLUSTER.value()));
+                List.of(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.LAPIS_LAZULI_CLUSTER.value()));
         registerGeode(context,
                 SCULK_LAPIS_GEODE,
-                BlockRegistry.BUDDING_SCULK_LAPIS.value(),
+                BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value(),
                 Blocks.SCULK,
-                List.of(BlockRegistry.SMALL_LAPIS_BUD.value(),
-                        BlockRegistry.MEDIUM_LAPIS_BUD.value(),
-                        BlockRegistry.LARGE_LAPIS_BUD.value(),
-                        BlockRegistry.LAPIS_CLUSTER.value()));
+                List.of(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
+                        BlockRegistry.LAPIS_LAZULI_CLUSTER.value()));
         registerGeode(context,
                 REDSTONE_GEODE,
                 BlockRegistry.BUDDING_REDSTONE.value(),
