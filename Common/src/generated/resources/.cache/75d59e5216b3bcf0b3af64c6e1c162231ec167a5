@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-20T21:57:33.468618	Tags for minecraft:worldgen/biome mod id vanilla
+// 1.21.1	2026-08-21T14:19:13.428237	Tags for minecraft:worldgen/biome mod id vanilla
 04ac0a28392a7ff31602fa82ebe378e64220b060 data/geodecraft/tags/worldgen/biome/has_basalt_ancient_debris_geode.json
 04ac0a28392a7ff31602fa82ebe378e64220b060 data/geodecraft/tags/worldgen/biome/has_basalt_glowstone_geode.json
 04ac0a28392a7ff31602fa82ebe378e64220b060 data/geodecraft/tags/worldgen/biome/has_basalt_gold_nugget_geode.json
@@ -9,7 +9,7 @@
 34074864e7807df7b6c9f2e2c46aad6c81a6a2ec data/geodecraft/tags/worldgen/biome/has_echo_geode.json
 dba74becb77ca28a612e57b564076517380f9820 data/geodecraft/tags/worldgen/biome/has_emerald_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_glowstone_crystal.json
-3be48826bbd31580fa2a12efcb39e460fadb1a33 data/geodecraft/tags/worldgen/biome/has_lapis_geode.json
+3be48826bbd31580fa2a12efcb39e460fadb1a33 data/geodecraft/tags/worldgen/biome/has_lapis_lazuli_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_nether_ancient_debris_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_nether_glowstone_geode.json
 cf692980e7b8c83321d8489ae0d76db7effbaa4a data/geodecraft/tags/worldgen/biome/has_nether_gold_nugget_geode.json

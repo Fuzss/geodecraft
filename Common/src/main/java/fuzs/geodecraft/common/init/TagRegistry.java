@@ -12,7 +12,7 @@ public class TagRegistry {
     public static class Biomes {
         //Geodes
         public static final TagKey<Biome> HAS_PRISMARINE_GEODE = biomeTag("has_prismarine_geode");
-        public static final TagKey<Biome> HAS_LAPIS_GEODE = biomeTag("has_lapis_geode");
+        public static final TagKey<Biome> HAS_LAPIS_LAZULI_GEODE = biomeTag("has_lapis_lazuli_geode");
         public static final TagKey<Biome> HAS_REDSTONE_GEODE = biomeTag("has_redstone_geode");
         public static final TagKey<Biome> HAS_EMERALD_GEODE = biomeTag("has_emerald_geode");
         public static final TagKey<Biome> HAS_DIAMOND_GEODE = biomeTag("has_diamond_geode");
@@ -57,17 +57,24 @@ public class TagRegistry {
         public static final TagKey<Block> WRAPPIST_PEDESTAL_CANNOT_PLACE_ON = blockTag(
                 "wrappist_pedestal_cannot_place_on");
 
-        public static final TagKey<Block> NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag("nether_quartz_crystal_spike_may_place_on");
-        public static final TagKey<Block> GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag("glowstone_crystal_spike_may_place_on");
+        public static final TagKey<Block> NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
+                "nether_quartz_crystal_spike_may_place_on");
+        public static final TagKey<Block> GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
+                "glowstone_crystal_spike_may_place_on");
         public static final TagKey<Block> ECHO_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag("echo_crystal_spike_may_place_on");
         public static final TagKey<Block> WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
                 "wrappist_crystal_spike_may_place_on");
         public static final TagKey<Block> PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
                 "prismarine_crystal_spike_may_place_on");
 
-        public static final TagKey<Block> GEODE_INVALID_BLOCKS = blockTag("geode_invalid_blocks");
-
+        /**
+         * @see net.minecraft.tags.BlockTags#FEATURES_CANNOT_REPLACE
+         */
         public static final TagKey<Block> GEODES_CANNOT_REPLACE = blockTag("geodes_cannot_replace");
+        /**
+         * @see net.minecraft.tags.BlockTags#GEODE_INVALID_BLOCKS
+         */
+        public static final TagKey<Block> SUBMERGED_GEODE_INVALID_BLOCKS = blockTag("submerged_geode_invalid_blocks");
 
         private static TagKey<Block> blockTag(String name) {
             return TAGS.registerBlockTag(name);

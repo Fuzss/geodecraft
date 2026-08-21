@@ -21,7 +21,7 @@ public class ModBiomeTagsProvider extends AbstractTagProvider<Biome> {
         this.tag(TagRegistry.Biomes.HAS_CELESTITE_GEODE).add(Biomes.SWAMP, Biomes.MANGROVE_SWAMP);
         this.tag(TagRegistry.Biomes.HAS_PINK_TOPAZ_GEODE).add(Biomes.CHERRY_GROVE);
         this.tag(TagRegistry.Biomes.HAS_PRISMARINE_GEODE).addTag(BiomeTags.IS_DEEP_OCEAN);
-        this.tag(TagRegistry.Biomes.HAS_LAPIS_GEODE)
+        this.tag(TagRegistry.Biomes.HAS_LAPIS_LAZULI_GEODE)
                 .addTag(BiomeTags.IS_OVERWORLD)
                 .removeOptional("alexscaves:abyssal_chasm");
         this.tag(TagRegistry.Biomes.HAS_REDSTONE_GEODE)

@@ -1,13 +1,14 @@
 package fuzs.geodecraft.common.init;
 
+import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CrystalSpikeConfiguration;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GeodeBlockSettings;
 import net.minecraft.world.level.levelgen.GeodeCrackSettings;
 import net.minecraft.world.level.levelgen.GeodeLayerSettings;
@@ -17,8 +18,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfigur
 import net.minecraft.world.level.levelgen.feature.configurations.GeodeConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
-import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CrystalSpikeConfiguration;
-import fuzs.geodecraft.common.world.level.levelgen.feature.configurations.CustomGeodeConfiguration;
 
 import java.util.List;
 
@@ -257,7 +256,6 @@ public class ConfiguredFeatureRegistry {
                         BlockRegistry.WRAPPIST_CLUSTER.value()));
         registerGeode(context,
                 PRISMARINE_GEODE,
-                Blocks.WATER.defaultBlockState(),
                 Blocks.WATER,
                 BlockRegistry.BUDDING_PRISMARINE.value(),
                 Blocks.PRISMARINE,
@@ -368,7 +366,7 @@ public class ConfiguredFeatureRegistry {
                 BlockRegistry.BUDDING_CELESTITE.value(),
                 BlockRegistry.CELESTITE_BLOCK.value(),
                 Blocks.CALCITE,
-                Blocks.MUD,
+                Blocks.SMOOTH_BASALT,
                 List.of(BlockRegistry.SMALL_CELESTITE_BUD.value(),
                         BlockRegistry.MEDIUM_CELESTITE_BUD.value(),
                         BlockRegistry.LARGE_CELESTITE_BUD.value(),
@@ -378,7 +376,7 @@ public class ConfiguredFeatureRegistry {
                 BlockRegistry.BUDDING_PINK_TOPAZ.value(),
                 BlockRegistry.PINK_TOPAZ_BLOCK.value(),
                 Blocks.CALCITE,
-                Blocks.TUFF,
+                Blocks.SMOOTH_BASALT,
                 List.of(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(),
                         BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(),
                         BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(),
@@ -412,7 +410,6 @@ public class ConfiguredFeatureRegistry {
     private static void registerGeode(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block buddingBlock, Block innerLayerBlock, Block middleLayerBlock, Block outerLayerBlock, List<Block> innerPlacements) {
         registerGeode(context,
                 key,
-                Blocks.AIR.defaultBlockState(),
                 Blocks.AIR,
                 buddingBlock,
                 innerLayerBlock,
@@ -421,30 +418,29 @@ public class ConfiguredFeatureRegistry {
                 innerPlacements);
     }
 
-    private static void registerGeode(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, BlockState crackState, Block fillingBlock, Block buddingBlock, Block innerLayerBlock, Block middleLayerBlock, Block outerLayerBlock, List<Block> innerPlacements) {
+    private static void registerGeode(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block fillingBlock, Block buddingBlock, Block innerLayerBlock, Block middleLayerBlock, Block outerLayerBlock, List<Block> innerPlacements) {
         register(context,
                 key,
-                FeatureRegistry.GEODE.value(),
-                new CustomGeodeConfiguration(new GeodeConfiguration(new GeodeBlockSettings(BlockStateProvider.simple(
-                        fillingBlock),
+                Feature.GEODE,
+                new GeodeConfiguration(new GeodeBlockSettings(BlockStateProvider.simple(fillingBlock),
                         BlockStateProvider.simple(innerLayerBlock),
                         BlockStateProvider.simple(buddingBlock),
                         BlockStateProvider.simple(middleLayerBlock),
                         BlockStateProvider.simple(outerLayerBlock),
                         innerPlacements.stream().map(Block::defaultBlockState).toList(),
-                        TagRegistry.Blocks.GEODES_CANNOT_REPLACE,
-                        TagRegistry.Blocks.GEODE_INVALID_BLOCKS),
-                        new GeodeLayerSettings(1.7D, 2.2D, 3.2D, 4.2D),
-                        new GeodeCrackSettings(0.95D, 2.0D, 2),
-                        0.35D,
-                        0.083D,
+                        BlockTags.FEATURES_CANNOT_REPLACE,
+                        BlockTags.GEODE_INVALID_BLOCKS),
+                        new GeodeLayerSettings(1.7, 2.2, 3.2, 4.2),
+                        new GeodeCrackSettings(0.95, 2.0, 2),
+                        0.35,
+                        0.083,
                         true,
                         UniformInt.of(4, 6),
                         UniformInt.of(3, 4),
                         UniformInt.of(1, 2),
                         -16,
                         16,
-                        0.05D,
-                        1), crackState));
+                        0.05,
+                        1));
     }
 }

@@ -1,5 +1,7 @@
 package fuzs.geodecraft.common.data.tags;
 
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.TagRegistry;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.api.data.v2.tags.AbstractTagProvider;
 import net.minecraft.core.HolderLookup;
@@ -7,8 +9,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import fuzs.geodecraft.common.init.BlockRegistry;
-import fuzs.geodecraft.common.init.TagRegistry;
 
 public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
 
@@ -128,6 +128,7 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                         BlockRegistry.WRAPPIST_GLASS,
                         BlockRegistry.CELESTITE_GLASS,
                         BlockRegistry.PINK_TOPAZ_GLASS);
+
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(BlockRegistry.LAPIS_LAZULI_CLUSTER,
                         BlockRegistry.LARGE_LAPIS_LAZULI_BUD,
@@ -169,6 +170,7 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                         BlockRegistry.LARGE_PRISMARINE_BUD,
                         BlockRegistry.MEDIUM_PRISMARINE_BUD,
                         BlockRegistry.SMALL_PRISMARINE_BUD);
+
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlockRegistry.REDSTONE_CRYSTAL,
                         BlockRegistry.LARGE_REDSTONE_BUD,
@@ -206,6 +208,7 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                         BlockRegistry.BUDDING_GOLD_NUGGET,
                         BlockRegistry.BUDDING_BASALT_GOLD_NUGGET,
                         BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET);
+
         this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(BlockRegistry.WRAPPIST_BLOCK,
                         BlockRegistry.BUDDING_WRAPPIST,
@@ -245,14 +248,6 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                 .add(Blocks.SAND, Blocks.STONE, Blocks.GRAVEL, Blocks.CLAY, Blocks.SANDSTONE);
         this.tag(TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON).add(Blocks.END_STONE);
 
-        this.tag(TagRegistry.Blocks.WRAPPIST_PEDESTAL_CANNOT_PLACE_ON)
-                .add(Blocks.AIR, Blocks.CAVE_AIR, Blocks.VOID_AIR);
-
         this.tag(BlockTags.WALLS).add(BlockRegistry.SMOOTH_END_STONE_WALL, BlockRegistry.GALCITE_WALL);
-        this.tag(TagRegistry.Blocks.GEODE_INVALID_BLOCKS)
-                .add(Blocks.BEDROCK, Blocks.ICE, Blocks.BLUE_ICE, Blocks.PACKED_ICE, Blocks.LAVA);
-        this.tag(TagRegistry.Blocks.GEODES_CANNOT_REPLACE)
-                .add(Blocks.BEDROCK, Blocks.SPAWNER, Blocks.CHEST, Blocks.END_PORTAL_FRAME, Blocks.REINFORCED_DEEPSLATE)
-                .addTag(BlockTags.STONE_BRICKS);
     }
 }

@@ -1,12 +1,9 @@
-// 1.21.1	2026-08-21T13:35:50.13929	Tags for minecraft:block mod id vanilla
+// 1.21.1	2026-08-21T14:32:26.896439	Tags for minecraft:block mod id vanilla
 44d5393159047af27759102362fcdfc46c2a9bc6 data/geodecraft/tags/block/echo_crystal_spike_may_place_on.json
-d7bdc21ee8fdfa00a9c842029b68fbe69f9e08a5 data/geodecraft/tags/block/geode_invalid_blocks.json
-f6c93b09571261d0346d0e62d5d5729c5e0954dd data/geodecraft/tags/block/geodes_cannot_replace.json
 e0b8d9ce991f72b36151da1ae049cda119046548 data/geodecraft/tags/block/glowstone_crystal_spike_may_place_on.json
 e0b8d9ce991f72b36151da1ae049cda119046548 data/geodecraft/tags/block/nether_quartz_crystal_spike_may_place_on.json
 903ee453365faf0775d18fc9b6d583050624b617 data/geodecraft/tags/block/prismarine_crystal_spike_may_place_on.json
 9994f212884e8264af96eaba34aa7e89696d8994 data/geodecraft/tags/block/wrappist_crystal_spike_may_place_on.json
-fadeb0d2eef6a573b6769f913014f6e46b1f7935 data/geodecraft/tags/block/wrappist_pedestal_cannot_place_on.json
 4a666429d5e312febd8a0d66ddd93395143c6360 data/minecraft/tags/block/mineable/pickaxe.json
 fc5d3006eb74be1ad5331da7cec4fa10f4d73fc1 data/minecraft/tags/block/needs_diamond_tool.json
 33dd9469a105dda8cdeba2e3d0638e00271fb861 data/minecraft/tags/block/needs_iron_tool.json

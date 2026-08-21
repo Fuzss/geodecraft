@@ -97,7 +97,7 @@ public class BiomeModificationsHandler {
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).lapisGeodes) {
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_GEODE),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_LAZULI_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
@@ -105,7 +105,7 @@ public class BiomeModificationsHandler {
                     });
 
             registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_GEODE),
+                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_LAZULI_GEODE),
                     (BiomeModificationContext context) -> {
                         context.generationSettings()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
