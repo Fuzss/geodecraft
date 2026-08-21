@@ -7,8 +7,10 @@ import fuzs.geodecraft.common.init.ModRegistry;
 import fuzs.geodecraft.common.init.PotionRegistry;
 import fuzs.puzzleslib.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
+import fuzs.puzzleslib.api.core.v1.context.PackRepositorySourcesContext;
 import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
 import fuzs.puzzleslib.api.event.v1.server.RegisterPotionBrewingMixesCallback;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
@@ -21,6 +23,7 @@ public class Geodecraft implements ModConstructor {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
     public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID).common(CommonConfig.class);
+    public static final ResourceLocation SILK_TOUCH_BUDDING_BLOCKS_ID = id("silk_touch_budding_blocks");
 
     @Override
     public void onConstructMod() {
@@ -41,6 +44,13 @@ public class Geodecraft implements ModConstructor {
     @Override
     public void onRegisterBiomeModifications(BiomeModificationsContext context) {
         BiomeModificationsHandler.init(context);
+    }
+
+    @Override
+    public void onAddDataPackFinders(PackRepositorySourcesContext context) {
+        context.registerBuiltInPack(SILK_TOUCH_BUDDING_BLOCKS_ID,
+                Component.literal("Silk Touch Budding Blocks"),
+                false);
     }
 
     public static ResourceLocation id(String path) {

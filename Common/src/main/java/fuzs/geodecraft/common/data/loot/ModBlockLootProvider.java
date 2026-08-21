@@ -6,7 +6,9 @@ import fuzs.puzzleslib.api.data.v2.AbstractLootProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.api.item.v2.EnchantingHelper;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -19,6 +21,9 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+
+import java.util.function.Consumer;
+import java.util.stream.Stream;
 
 public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
 
@@ -142,35 +147,39 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropWhenSilkTouch(BlockRegistry.SMALL_CELESTITE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value());
 
-        this.dropNothing(BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ.value());
-        this.dropNothing(BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ.value());
-        this.dropNothing(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value());
-        this.dropNothing(BlockRegistry.BUDDING_ECHO.value());
-        this.dropNothing(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value());
-        this.dropNothing(BlockRegistry.BUDDING_GLOWSTONE.value());
-        this.dropNothing(BlockRegistry.BUDDING_NETHER_QUARTZ.value());
-        this.dropNothing(BlockRegistry.BUDDING_WRAPPIST.value());
-        this.dropNothing(BlockRegistry.BUDDING_GOLD_NUGGET.value());
-        this.dropNothing(BlockRegistry.BUDDING_BASALT_GOLD_NUGGET.value());
-        this.dropNothing(BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value());
-        this.dropNothing(BlockRegistry.BUDDING_LAPIS_LAZULI.value());
-        this.dropNothing(BlockRegistry.BUDDING_REDSTONE.value());
-        this.dropNothing(BlockRegistry.BUDDING_EMERALD.value());
-        this.dropNothing(BlockRegistry.BUDDING_DIAMOND.value());
-        this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value());
-        this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value());
-        this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value());
-        this.dropNothing(BlockRegistry.BUDDING_DEEPSLATE_DIAMOND.value());
-        this.dropNothing(BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value());
-        this.dropNothing(BlockRegistry.BUDDING_SCULK_REDSTONE.value());
-        this.dropNothing(BlockRegistry.BUDDING_SCULK_EMERALD.value());
-        this.dropNothing(BlockRegistry.BUDDING_SCULK_DIAMOND.value());
-        this.dropNothing(BlockRegistry.BUDDING_ANCIENT_DEBRIS.value());
-        this.dropNothing(BlockRegistry.BUDDING_BASALT_ANCIENT_DEBRIS.value());
-        this.dropNothing(BlockRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS.value());
-        this.dropNothing(BlockRegistry.BUDDING_PRISMARINE.value());
-        this.dropNothing(BlockRegistry.BUDDING_CELESTITE.value());
-        this.dropNothing(BlockRegistry.BUDDING_PINK_TOPAZ.value());
+        this.addBuddingBlocks(this::dropNothing);
+    }
+
+    public void addBuddingBlocks(Consumer<Block> dropBlock) {
+        dropBlock.accept(BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_ECHO.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_GLOWSTONE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_NETHER_QUARTZ.value());
+        dropBlock.accept(BlockRegistry.BUDDING_WRAPPIST.value());
+        dropBlock.accept(BlockRegistry.BUDDING_GOLD_NUGGET.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BASALT_GOLD_NUGGET.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value());
+        dropBlock.accept(BlockRegistry.BUDDING_LAPIS_LAZULI.value());
+        dropBlock.accept(BlockRegistry.BUDDING_REDSTONE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_EMERALD.value());
+        dropBlock.accept(BlockRegistry.BUDDING_DIAMOND.value());
+        dropBlock.accept(BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value());
+        dropBlock.accept(BlockRegistry.BUDDING_DEEPSLATE_REDSTONE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value());
+        dropBlock.accept(BlockRegistry.BUDDING_DEEPSLATE_DIAMOND.value());
+        dropBlock.accept(BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value());
+        dropBlock.accept(BlockRegistry.BUDDING_SCULK_REDSTONE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_SCULK_EMERALD.value());
+        dropBlock.accept(BlockRegistry.BUDDING_SCULK_DIAMOND.value());
+        dropBlock.accept(BlockRegistry.BUDDING_ANCIENT_DEBRIS.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BASALT_ANCIENT_DEBRIS.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS.value());
+        dropBlock.accept(BlockRegistry.BUDDING_PRISMARINE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_CELESTITE.value());
+        dropBlock.accept(BlockRegistry.BUDDING_PINK_TOPAZ.value());
     }
 
     public final LootTable.Builder createClusterDrops(Block block, ItemLike droppedItem, float dropCountWithPickaxe, float dropCountWithoutPickaxe, HolderLookup.Provider context) {
@@ -183,5 +192,34 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
                                 LootItem.lootTableItem(droppedItem)
                                         .apply(SetItemCountFunction.setCount(ConstantValue.exactly(
                                                 dropCountWithoutPickaxe))))));
+    }
+
+    public static class SilkTouchBuddingBlocks extends ModBlockLootProvider {
+
+        public SilkTouchBuddingBlocks(DataProviderContext context) {
+            super(context);
+        }
+
+        @Override
+        public void addLootTables() {
+            this.addBuddingBlocks(this::dropWhenSilkTouch);
+        }
+
+        @Override
+        public void addBuddingBlocks(Consumer<Block> dropBlock) {
+            dropBlock.accept(Blocks.BUDDING_AMETHYST);
+            super.addBuddingBlocks(dropBlock);
+        }
+
+        @Override
+        public boolean skipValidationFor(ResourceKey<LootTable> resourceKey) {
+            return true;
+        }
+
+        @Override
+        protected Stream<Holder.Reference<Block>> getRegistryEntries() {
+            return Stream.concat(Stream.of(Blocks.BUDDING_AMETHYST).map(Block::builtInRegistryHolder),
+                    super.getRegistryEntries());
+        }
     }
 }

@@ -10,21 +10,6 @@ import net.minecraft.world.level.material.MapColor;
 import net.yeoxuhang.geode_plus.server.block.WrappistPedestalBlock;
 
 public class BlockRegistry {
-    public static final Holder.Reference<Block> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRY.registerBlock(
-            "budding_pink_topaz",
-            BuddingGrantEffectBlock::pinkTopaz,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_PINK)
-                    .randomTicks()
-                    .strength(3.0F)
-                    .sound(SoundType.AMETHYST)
-                    .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> PINK_TOPAZ_BLOCK = ModRegistry.REGISTRY.registerBlock("pink_topaz_block",
-            Block::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_PINK)
-                    .strength(4.0F)
-                    .sound(SoundType.AMETHYST));
     public static final Holder.Reference<Block> PINK_TOPAZ_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
             "pink_topaz_crystal",
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(7, 3, properties),
@@ -49,19 +34,22 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(3, 4, properties),
             () -> BlockBehaviour.Properties.ofFullCopy(PINK_TOPAZ_CRYSTAL.value()));
 
-    public static final Holder.Reference<Block> BUDDING_CELESTITE = ModRegistry.REGISTRY.registerBlock(
-            "budding_celestite",
-            BuddingGrantEffectBlock::celestite,
+    public static final Holder.Reference<Block> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRY.registerBlock(
+            "budding_pink_topaz",
+            BuddingGrantEffectBlock::pinkTopaz,
             () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_CYAN)
+                    .mapColor(MapColor.COLOR_PINK)
                     .randomTicks()
                     .strength(3.0F)
                     .sound(SoundType.AMETHYST)
                     .requiresCorrectToolForDrops());
-
-    public static final Holder.Reference<Block> CELESTITE_BLOCK = ModRegistry.REGISTRY.registerBlock("celestite_block",
+    public static final Holder.Reference<Block> PINK_TOPAZ_BLOCK = ModRegistry.REGISTRY.registerBlock("pink_topaz_block",
             Block::new,
-            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(4.0F).sound(SoundType.STONE));
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_PINK)
+                    .strength(4.0F)
+                    .sound(SoundType.AMETHYST));
+
     public static final Holder.Reference<Block> CELESTITE_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "celestite_cluster",
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(7, 3, properties),
@@ -85,6 +73,20 @@ public class BlockRegistry {
             "small_celestite_bud",
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(3, 4, properties),
             () -> BlockBehaviour.Properties.ofFullCopy(CELESTITE_CLUSTER.value()));
+
+    public static final Holder.Reference<Block> BUDDING_CELESTITE = ModRegistry.REGISTRY.registerBlock(
+            "budding_celestite",
+            BuddingGrantEffectBlock::celestite,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_CYAN)
+                    .randomTicks()
+                    .strength(3.0F)
+                    .sound(SoundType.AMETHYST)
+                    .requiresCorrectToolForDrops());
+
+    public static final Holder.Reference<Block> CELESTITE_BLOCK = ModRegistry.REGISTRY.registerBlock("celestite_block",
+            Block::new,
+            () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(4.0F).sound(SoundType.STONE));
 
     public static final Holder.Reference<Block> PRISMARINE_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
             "prismarine_cluster_block",
@@ -675,21 +677,6 @@ public class BlockRegistry {
             WallBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(GALCITE.value()));
 
-    public static final Holder.Reference<Block> WRAPPIST_BLOCK = ModRegistry.REGISTRY.registerBlock("wrappist_block",
-            Block::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
-                    .strength(5.0F)
-                    .sound(SoundType.AMETHYST));
-
-    public static final Holder.Reference<Block> BUDDING_WRAPPIST = ModRegistry.REGISTRY.registerBlock("budding_wrappist",
-            BuddingGrantEffectBlock::wrappist,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
-                    .randomTicks()
-                    .strength(5.0F)
-                    .sound(SoundType.AMETHYST)
-                    .requiresCorrectToolForDrops());
     public static final Holder.Reference<Block> WRAPPIST_CLUSTER = ModRegistry.REGISTRY.registerBlock("wrappist_cluster",
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(7, 3, properties),
             () -> BlockBehaviour.Properties.of()
@@ -718,6 +705,21 @@ public class BlockRegistry {
             () -> BlockBehaviour.Properties.ofFullCopy(WRAPPIST_CLUSTER.value())
                     .sound(SoundType.SMALL_AMETHYST_BUD)
                     .lightLevel((BlockState state) -> 2));
+
+    public static final Holder.Reference<Block> BUDDING_WRAPPIST = ModRegistry.REGISTRY.registerBlock("budding_wrappist",
+            BuddingGrantEffectBlock::wrappist,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                    .randomTicks()
+                    .strength(5.0F)
+                    .sound(SoundType.AMETHYST)
+                    .requiresCorrectToolForDrops());
+    public static final Holder.Reference<Block> WRAPPIST_BLOCK = ModRegistry.REGISTRY.registerBlock("wrappist_block",
+            Block::new,
+            () -> BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                    .strength(5.0F)
+                    .sound(SoundType.AMETHYST));
 
     public static final Holder.Reference<Block> ECHO_CRYSTAL = ModRegistry.REGISTRY.registerBlock("echo_crystal",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(3, 7),

@@ -64,9 +64,4 @@ public class CommonConfig implements ConfigCore {
     @Config(category = {THE_END_CATEGORY, CRYSTALS_CATEGORY},
             description = "Generate wrappist crystal structures in the outer islands throughout the End.")
     public boolean wrappistCrystals = true;
-
-    @Deprecated
-    public static class Blocks {
-        public static boolean allowSilkTouch = false;
-    }
 }
