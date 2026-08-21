@@ -1,14 +1,14 @@
 package fuzs.geodecraft.common.init;
 
+import fuzs.geodecraft.common.world.level.block.entity.PedestalBlockEntity;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.yeoxuhang.geode_plus.server.block.entity.WrappistPedestalBlockEntity;
 
 public class BlockEntityRegistry {
-    public static final Holder.Reference<BlockEntityType<WrappistPedestalBlockEntity>> WRAPPIST_PEDESTAL = ModRegistry.REGISTRY.registerBlockEntityType(
-            "wrappist_pedestal",
-            WrappistPedestalBlockEntity::new,
-            BlockRegistry.WRAPPIST_PEDESTAL);
+    public static final Holder.Reference<BlockEntityType<PedestalBlockEntity>> PEDESTAL = ModRegistry.REGISTRY.registerBlockEntityType(
+            "pedestal",
+            PedestalBlockEntity::new,
+            BlockRegistry.PEDESTAL);
 
     public static void bootstrap() {
         // NO-OP

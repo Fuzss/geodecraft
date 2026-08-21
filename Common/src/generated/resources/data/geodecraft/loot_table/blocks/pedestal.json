@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "geodecraft:wrappist_pedestal"
+          "name": "geodecraft:pedestal"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "geodecraft:blocks/wrappist_pedestal"
+  "random_sequence": "geodecraft:blocks/pedestal"
 }

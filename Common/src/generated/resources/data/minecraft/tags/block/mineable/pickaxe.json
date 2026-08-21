@@ -80,6 +80,7 @@
     "geodecraft:medium_wrappist_bud",
     "geodecraft:nether_quartz_crystal",
     "geodecraft:nether_quartz_crystal_block",
+    "geodecraft:pedestal",
     "geodecraft:pink_topaz_block",
     "geodecraft:pink_topaz_crystal",
     "geodecraft:pink_topaz_glass",
@@ -106,7 +107,6 @@
     "geodecraft:smooth_end_stone_wall",
     "geodecraft:wrappist_block",
     "geodecraft:wrappist_cluster",
-    "geodecraft:wrappist_glass",
-    "geodecraft:wrappist_pedestal"
+    "geodecraft:wrappist_glass"
   ]
 }

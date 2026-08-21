@@ -6,20 +6,20 @@ import fuzs.puzzleslib.api.client.core.v1.context.LayerDefinitionsContext;
 import fuzs.puzzleslib.api.client.core.v1.context.RenderTypesContext;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.Block;
-import fuzs.geodecraft.common.client.renderer.blockentity.WrappistPedestalRenderer;
+import fuzs.geodecraft.common.client.renderer.blockentity.PedestalRenderer;
 import fuzs.geodecraft.common.init.BlockEntityRegistry;
 import fuzs.geodecraft.common.init.BlockRegistry;
 
 public class GeodecraftClient implements ClientModConstructor {
     @Override
     public void onRegisterBlockEntityRenderers(BlockEntityRenderersContext context) {
-        context.registerBlockEntityRenderer(BlockEntityRegistry.WRAPPIST_PEDESTAL.value(),
-                WrappistPedestalRenderer::new);
+        context.registerBlockEntityRenderer(BlockEntityRegistry.PEDESTAL.value(),
+                PedestalRenderer::new);
     }
 
     @Override
     public void onRegisterLayerDefinitions(LayerDefinitionsContext context) {
-        context.registerLayerDefinition(WrappistPedestalRenderer.WRAPPIST_PEDESTAL, WrappistPedestalRenderer::createBodyLayer);
+        context.registerLayerDefinition(PedestalRenderer.PEDESTAL, PedestalRenderer::createBodyLayer);
     }
 
     @Override
@@ -93,6 +93,6 @@ public class GeodecraftClient implements ClientModConstructor {
         context.registerRenderType(BlockRegistry.CELESTITE_GLASS.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.PINK_TOPAZ_GLASS.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.WRAPPIST_PEDESTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.PEDESTAL.value(), RenderType.cutout());
     }
 }

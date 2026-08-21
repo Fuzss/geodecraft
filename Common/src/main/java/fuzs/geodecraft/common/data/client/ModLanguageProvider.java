@@ -134,7 +134,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.MEDIUM_ECHO_BUD.value(), "Medium Echo Bud");
         builder.add(BlockRegistry.SMALL_ECHO_BUD.value(), "Small Echo Bud");
 
-        builder.add(BlockRegistry.WRAPPIST_PEDESTAL.value(), "Wrappist Pedestal");
+        builder.add(BlockRegistry.PEDESTAL.value(), "Pedestal");
         builder.add(BlockRegistry.WRAPPIST_GLASS.value(), "Wrappist Glass");
         builder.add(BlockRegistry.CELESTITE_GLASS.value(), "Celestite Glass");
         builder.add(BlockRegistry.PINK_TOPAZ_GLASS.value(), "Pink Topaz Glass");

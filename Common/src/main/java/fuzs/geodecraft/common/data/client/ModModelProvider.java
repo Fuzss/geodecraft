@@ -32,7 +32,7 @@ public class ModModelProvider extends AbstractModelProvider {
 
     @Override
     public void addBlockModels(BlockModelGenerators generator) {
-        generator.createTrivialBlock(BlockRegistry.WRAPPIST_PEDESTAL.value(), PEDESTAL_PROVIDER);
+        generator.createTrivialBlock(BlockRegistry.PEDESTAL.value(), PEDESTAL_PROVIDER);
 
         generator.createTrivialCube(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.DIAMOND_CRYSTAL_BLOCK.value());

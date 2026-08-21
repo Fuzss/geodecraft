@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.MapColor;
-import net.yeoxuhang.geode_plus.server.block.WrappistPedestalBlock;
+import fuzs.geodecraft.common.world.level.block.PedestalBlock;
 
 public class BlockRegistry {
     public static final Holder.Reference<Block> PINK_TOPAZ_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
@@ -763,9 +763,9 @@ public class BlockRegistry {
                     .strength(5.0F)
                     .sound(SoundType.SCULK_CATALYST));
 
-    public static final Holder.Reference<Block> WRAPPIST_PEDESTAL = ModRegistry.REGISTRY.registerBlock(
-            "wrappist_pedestal",
-            WrappistPedestalBlock::new,
+    public static final Holder.Reference<Block> PEDESTAL = ModRegistry.REGISTRY.registerBlock(
+            "pedestal",
+            PedestalBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(WRAPPIST_BLOCK.value())
                     .explosionResistance(100.0F)
                     .randomTicks()

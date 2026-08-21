@@ -1,8 +1,0 @@
-{
-  "parent": "geodecraft:block/template_pedestal",
-  "textures": {
-    "bottom": "geodecraft:block/wrappist_pedestal_bottom",
-    "side": "geodecraft:block/wrappist_pedestal_side",
-    "top": "geodecraft:block/wrappist_pedestal_top"
-  }
-}

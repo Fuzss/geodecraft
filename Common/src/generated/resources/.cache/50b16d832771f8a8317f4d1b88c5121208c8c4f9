@@ -1,11 +1,11 @@
-// 1.21.1	2026-08-21T14:32:26.896439	Tags for minecraft:block mod id vanilla
+// 1.21.1	2026-08-21T16:59:12.263197	Tags for minecraft:block mod id vanilla
 44d5393159047af27759102362fcdfc46c2a9bc6 data/geodecraft/tags/block/echo_crystal_spike_may_place_on.json
 e0b8d9ce991f72b36151da1ae049cda119046548 data/geodecraft/tags/block/glowstone_crystal_spike_may_place_on.json
 e0b8d9ce991f72b36151da1ae049cda119046548 data/geodecraft/tags/block/nether_quartz_crystal_spike_may_place_on.json
 903ee453365faf0775d18fc9b6d583050624b617 data/geodecraft/tags/block/prismarine_crystal_spike_may_place_on.json
 9994f212884e8264af96eaba34aa7e89696d8994 data/geodecraft/tags/block/wrappist_crystal_spike_may_place_on.json
-4a666429d5e312febd8a0d66ddd93395143c6360 data/minecraft/tags/block/mineable/pickaxe.json
-fc5d3006eb74be1ad5331da7cec4fa10f4d73fc1 data/minecraft/tags/block/needs_diamond_tool.json
+f50ff9d8f4dc1fc43a22104a92e832a988c66b9c data/minecraft/tags/block/mineable/pickaxe.json
+fe43e3460d1053154a9afdde3b3f156e02d2a18c data/minecraft/tags/block/needs_diamond_tool.json
 33dd9469a105dda8cdeba2e3d0638e00271fb861 data/minecraft/tags/block/needs_iron_tool.json
 e2bac8791e17f6cd90d57df7a575eaedf95361cb data/minecraft/tags/block/needs_stone_tool.json
 20c4ee1a65752a64f6cf63487dba1d1b4927221a data/minecraft/tags/block/walls.json

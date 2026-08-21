@@ -24,7 +24,7 @@ public class ItemRegistry {
     public static final Holder.Reference<Item> CELESTITE_GLASS = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.CELESTITE_GLASS);
     public static final Holder.Reference<Item> PINK_TOPAZ_GLASS = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.PINK_TOPAZ_GLASS);
 
-    public static final Holder.Reference<Item> WRAPPIST_PEDESTAL = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.WRAPPIST_PEDESTAL);
+    public static final Holder.Reference<Item> WRAPPIST_PEDESTAL = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.PEDESTAL);
     public static final Holder.Reference<Item> WRAPPIST_BLOCK = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.WRAPPIST_BLOCK);
     public static final Holder.Reference<Item> BUDDING_WRAPPIST = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.BUDDING_WRAPPIST);
     public static final Holder.Reference<Item> WRAPPIST_CLUSTER = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.WRAPPIST_CLUSTER);

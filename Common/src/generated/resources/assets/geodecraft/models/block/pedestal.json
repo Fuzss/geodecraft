@@ -1,0 +1,8 @@
+{
+  "parent": "geodecraft:block/template_pedestal",
+  "textures": {
+    "bottom": "geodecraft:block/pedestal_bottom",
+    "side": "geodecraft:block/pedestal_side",
+    "top": "geodecraft:block/pedestal_top"
+  }
+}

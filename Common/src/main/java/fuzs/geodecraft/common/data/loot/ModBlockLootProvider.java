@@ -35,7 +35,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
     public void addLootTables() {
         HolderLookup.Provider context = this.registries();
 
-        this.dropSelf(BlockRegistry.WRAPPIST_PEDESTAL.value());
+        this.dropSelf(BlockRegistry.PEDESTAL.value());
         this.dropSelf(BlockRegistry.WRAPPIST_GLASS.value());
         this.dropSelf(BlockRegistry.CELESTITE_GLASS.value());
         this.dropSelf(BlockRegistry.PINK_TOPAZ_GLASS.value());

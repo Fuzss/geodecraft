@@ -19,6 +19,7 @@
     "geodecraft:medium_celestite_bud",
     "geodecraft:medium_pink_topaz_bud",
     "geodecraft:medium_wrappist_bud",
+    "geodecraft:pedestal",
     "geodecraft:pink_topaz_block",
     "geodecraft:pink_topaz_crystal",
     "geodecraft:pink_topaz_glass",
@@ -27,7 +28,6 @@
     "geodecraft:small_pink_topaz_bud",
     "geodecraft:wrappist_block",
     "geodecraft:wrappist_cluster",
-    "geodecraft:wrappist_glass",
-    "geodecraft:wrappist_pedestal"
+    "geodecraft:wrappist_glass"
   ]
 }

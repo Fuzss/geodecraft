@@ -2,7 +2,7 @@ package fuzs.geodecraft.common.data.client;
 
 import fuzs.puzzleslib.api.client.data.v2.AbstractAtlasProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
-import fuzs.geodecraft.common.client.renderer.blockentity.WrappistPedestalRenderer;
+import fuzs.geodecraft.common.client.renderer.blockentity.PedestalRenderer;
 
 public class ModAtlasProvider extends AbstractAtlasProvider {
 
@@ -12,6 +12,6 @@ public class ModAtlasProvider extends AbstractAtlasProvider {
 
     @Override
     public void addAtlases() {
-        this.addMaterial(WrappistPedestalRenderer.MATERIAL);
+        this.addMaterial(PedestalRenderer.MATERIAL);
     }
 }

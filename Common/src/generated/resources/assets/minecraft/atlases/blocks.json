@@ -2,7 +2,7 @@
   "sources": [
     {
       "type": "minecraft:single",
-      "resource": "geodecraft:entity/wrappist_pedestal/wrappist_pedestal_crystals"
+      "resource": "geodecraft:entity/pedestal/pedestal_crystals"
     }
   ]
 }
