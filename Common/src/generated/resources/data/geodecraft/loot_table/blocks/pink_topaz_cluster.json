@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "geodecraft:pink_topaz_crystal"
+              "name": "geodecraft:pink_topaz_cluster"
             },
             {
               "type": "minecraft:alternatives",
@@ -77,5 +77,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "geodecraft:blocks/pink_topaz_crystal"
+  "random_sequence": "geodecraft:blocks/pink_topaz_cluster"
 }

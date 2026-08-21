@@ -166,7 +166,7 @@ public class ModModelProvider extends AbstractModelProvider {
         this.createAmethystClusters(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(),
                 BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(),
                 BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(),
-                BlockRegistry.PINK_TOPAZ_CRYSTAL.value(),
+                BlockRegistry.PINK_TOPAZ_CLUSTER.value(),
                 generator);
     }
 

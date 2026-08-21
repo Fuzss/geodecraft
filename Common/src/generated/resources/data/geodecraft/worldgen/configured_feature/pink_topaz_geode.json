@@ -44,7 +44,7 @@
           }
         },
         {
-          "Name": "geodecraft:pink_topaz_crystal",
+          "Name": "geodecraft:pink_topaz_cluster",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

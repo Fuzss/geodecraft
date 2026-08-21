@@ -45,7 +45,7 @@ public class ItemRegistry {
 
     public static final Holder.Reference<Item> PINK_TOPAZ_BLOCK = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.PINK_TOPAZ_BLOCK);
     public static final Holder.Reference<Item> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.BUDDING_PINK_TOPAZ);
-    public static final Holder.Reference<Item> PINK_TOPAZ_CRYSTAL = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.PINK_TOPAZ_CRYSTAL);
+    public static final Holder.Reference<Item> PINK_TOPAZ_CRYSTAL = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.PINK_TOPAZ_CLUSTER);
     public static final Holder.Reference<Item> LARGE_PINK_TOPAZ_BUD = ModRegistry.REGISTRY.registerBlockItem(
             BlockRegistry.LARGE_PINK_TOPAZ_BUD);
     public static final Holder.Reference<Item> MEDIUM_PINK_TOPAZ_BUD = ModRegistry.REGISTRY.registerBlockItem(

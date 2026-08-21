@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-21T16:59:12.261571	Block Loot Tables
+// 1.21.1	2026-08-21T23:18:42.901728	Block Loot Tables
 e780b979be69b34458acf4efe43d91415818796f data/geodecraft/loot_table/blocks/ancient_debris_cluster.json
 ceb75f052940ff0973ae013136334992624a9886 data/geodecraft/loot_table/blocks/ancient_debris_cluster_block.json
 f6a3627212736fdfefc76b527cc1c7d19f2d0644 data/geodecraft/loot_table/blocks/budding_ancient_debris.json
@@ -79,7 +79,7 @@ bebd309e9b9940ccc4eca7e19aae6b395058167c data/geodecraft/loot_table/blocks/nethe
 6ba416e46ee6ded2a8889a94ed11ba66bdee2af2 data/geodecraft/loot_table/blocks/nether_quartz_crystal_block.json
 14c27ebd61fc2468a5920b8ecb3e5307cdf313ce data/geodecraft/loot_table/blocks/pedestal.json
 d4637ff90f85501e0d8b1a4d2c19c7e44af3e32a data/geodecraft/loot_table/blocks/pink_topaz_block.json
-25b8bbfca68f37866f294c23f9050c90519104f0 data/geodecraft/loot_table/blocks/pink_topaz_crystal.json
+2d4e0892bab9df28f8c3443b20b99604f9dc15b9 data/geodecraft/loot_table/blocks/pink_topaz_cluster.json
 51d49b2f371b5a218cd6811075524abaf246bf79 data/geodecraft/loot_table/blocks/pink_topaz_glass.json
 cbfaf7b95c3c3f43de8499fcc738f1fefcb9d3f6 data/geodecraft/loot_table/blocks/prismarine_cluster.json
 f0e3871253697f1860421103b726739cd6172193 data/geodecraft/loot_table/blocks/prismarine_cluster_block.json

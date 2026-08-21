@@ -380,7 +380,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(),
                         BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(),
                         BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(),
-                        BlockRegistry.PINK_TOPAZ_CRYSTAL.value()));
+                        BlockRegistry.PINK_TOPAZ_CLUSTER.value()));
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

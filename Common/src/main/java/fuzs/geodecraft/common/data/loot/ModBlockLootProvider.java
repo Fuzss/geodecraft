@@ -101,7 +101,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.add(BlockRegistry.CELESTITE_CLUSTER.value(), (Block block) -> {
             return this.createClusterDrops(block, ItemRegistry.CELESTITE_SHARD.value(), 4.0F, 2.0F, context);
         });
-        this.add(BlockRegistry.PINK_TOPAZ_CRYSTAL.value(), (Block block) -> {
+        this.add(BlockRegistry.PINK_TOPAZ_CLUSTER.value(), (Block block) -> {
             return this.createClusterDrops(block, ItemRegistry.PINK_TOPAZ.value(), 4.0F, 2.0F, context);
         });
 

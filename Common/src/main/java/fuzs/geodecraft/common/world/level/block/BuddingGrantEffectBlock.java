@@ -37,7 +37,7 @@ public class BuddingGrantEffectBlock extends BuddingBlock {
         return new BuddingGrantEffectBlock(BlockRegistry.SMALL_PINK_TOPAZ_BUD,
                 BlockRegistry.MEDIUM_PINK_TOPAZ_BUD,
                 BlockRegistry.LARGE_PINK_TOPAZ_BUD,
-                BlockRegistry.PINK_TOPAZ_CRYSTAL,
+                BlockRegistry.PINK_TOPAZ_CLUSTER,
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 MobEffects.LUCK,
                 properties);

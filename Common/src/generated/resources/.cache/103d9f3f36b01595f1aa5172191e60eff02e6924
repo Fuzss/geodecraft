@@ -1,4 +1,4 @@
-// 1.21.1	2026-08-21T22:27:10.164191	Registries
+// 1.21.1	2026-08-21T23:18:42.905461	Registries
 19a1129f8d7144b119f085ee191c5fcf88fc5b9b data/geodecraft/trim_material/celestite.json
 f043d1aa4b3be0961375ee4a13d9b2900b2e8d9f data/geodecraft/trim_material/pink_topaz.json
 6cb5e21831afba494b9c31552b705a05de83704b data/geodecraft/trim_material/wrappist.json
@@ -31,7 +31,7 @@ e3858bb1ec285105df2f083eddec0aa175729115 data/geodecraft/worldgen/configured_fea
 86cdff692ac345d943162504165241581fe1bcf6 data/geodecraft/worldgen/configured_feature/lapis_geode.json
 a01f967adcd8653eef411d98f1286272652e0463 data/geodecraft/worldgen/configured_feature/nether_quartz_crystal_spike.json
 d8b0d378806d3f4be4bb3d0082e6735810cad962 data/geodecraft/worldgen/configured_feature/nether_quartz_crystal_spike_floor.json
-414da3036df6e7f64b161560a2917cbd45831f64 data/geodecraft/worldgen/configured_feature/pink_topaz_geode.json
+79285b3ed420e66a57672c2cc00de42dbe40d491 data/geodecraft/worldgen/configured_feature/pink_topaz_geode.json
 a9e3d3a43f83f87dbda4a690d232e79c19f50874 data/geodecraft/worldgen/configured_feature/prismarine_crystal_spike.json
 93a2562b11548ddeb13769b6e46697596bacf39f data/geodecraft/worldgen/configured_feature/prismarine_geode.json
 03ed4bd9832b2302cd558bd3ee37e18827b1f226 data/geodecraft/worldgen/configured_feature/quartz_geode.json

@@ -17,7 +17,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
 
         builder.add(BlockRegistry.BUDDING_PINK_TOPAZ.value(), "Budding Pink Topaz");
         builder.add(BlockRegistry.PINK_TOPAZ_BLOCK.value(), "Pink Topaz Block");
-        builder.add(BlockRegistry.PINK_TOPAZ_CRYSTAL.value(), "Pink Topaz Crystal");
+        builder.add(BlockRegistry.PINK_TOPAZ_CLUSTER.value(), "Pink Topaz Crystal");
         builder.add(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(), "Large Pink Topaz Bud");
         builder.add(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(), "Medium Pink Topaz Bud");
         builder.add(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(), "Small Pink Topaz Bud");

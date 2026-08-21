@@ -24,7 +24,7 @@ public class GeodecraftClient implements ClientModConstructor {
 
     @Override
     public void onRegisterBlockRenderTypes(RenderTypesContext<Block> context) {
-        context.registerRenderType(BlockRegistry.PINK_TOPAZ_CRYSTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.PINK_TOPAZ_CLUSTER.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(), RenderType.cutout());
