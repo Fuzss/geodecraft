@@ -24,7 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
 public class PedestalBlockEntity extends BlockEntity implements ListBackedContainer, WorldlyContainer, TickingBlockEntity {
-    private static final int[] SLOTS = new int[0];
+    private static final int[] SLOTS = new int[]{0};
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
     private int time;
@@ -91,7 +91,7 @@ public class PedestalBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    public int[] getSlotsForFace(Direction side) {
+    public int[] getSlotsForFace(Direction direction) {
         return SLOTS;
     }
 
@@ -101,7 +101,7 @@ public class PedestalBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    public boolean canTakeItemThroughFace(int index, ItemStack stack, Direction direction) {
+    public boolean canTakeItemThroughFace(int index, ItemStack itemStack, Direction direction) {
         return direction == Direction.DOWN;
     }
 

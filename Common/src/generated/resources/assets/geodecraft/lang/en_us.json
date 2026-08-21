@@ -117,6 +117,5 @@
   "trim_material.geodecraft.wrappist": "Wrappist Material",
   "trim_pattern.geodecraft.celeste": "Celeste Armor Trim",
   "trim_pattern.geodecraft.heart": "Heart Armor Trim",
-  "trim_pattern.geodecraft.wrap": "Wrap Armor Trim",
-  "wrappist_pedestal.geodecraft.not_enought_xp": "§l§cRequired 30 Levels"
+  "trim_pattern.geodecraft.wrap": "Wrap Armor Trim"
 }

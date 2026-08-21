@@ -1,9 +1,7 @@
 package fuzs.geodecraft.common.data.client;
 
 import fuzs.geodecraft.common.Geodecraft;
-import fuzs.geodecraft.common.init.BlockRegistry;
-import fuzs.geodecraft.common.init.ItemRegistry;
-import fuzs.geodecraft.common.init.ModRegistry;
+import fuzs.geodecraft.common.init.*;
 import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 
@@ -146,14 +144,12 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(ItemRegistry.CELESTITE_SHARD.value(), "Celestite Shard");
         builder.add(ItemRegistry.WRAPPIST_SHARD.value(), "Wrappist Shard");
 
-        builder.add("trim_pattern.geodecraft.wrap", "Wrap Armor Trim");
-        builder.add("trim_pattern.geodecraft.celeste", "Celeste Armor Trim");
-        builder.add("trim_pattern.geodecraft.heart", "Heart Armor Trim");
+        builder.add(TrimPatternRegistry.WRAP, "Wrap Armor Trim");
+        builder.add(TrimPatternRegistry.CELESTE, "Celeste Armor Trim");
+        builder.add(TrimPatternRegistry.HEART, "Heart Armor Trim");
 
-        builder.add("trim_material.geodecraft.wrappist", "Wrappist Material");
-        builder.add("trim_material.geodecraft.celestite", "Celestite Material");
-        builder.add("trim_material.geodecraft.pink_topaz", "Pink Topaz Material");
-
-        builder.add("wrappist_pedestal.geodecraft.not_enought_xp", "§l§cRequired 30 Levels");
+        builder.add(TrimMaterialRegistry.WRAPPIST, "Wrappist Material");
+        builder.add(TrimMaterialRegistry.CELESTITE, "Celestite Material");
+        builder.add(TrimMaterialRegistry.PINK_TOPAZ, "Pink Topaz Material");
     }
 }
