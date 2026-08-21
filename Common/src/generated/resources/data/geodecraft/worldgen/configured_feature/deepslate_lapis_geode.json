@@ -5,7 +5,7 @@
       "alternate_inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "geodecraft:budding_deepslate_lapis"
+          "Name": "geodecraft:budding_deepslate_lapis_lazuli"
         }
       },
       "cannot_replace": "#geodecraft:geodes_cannot_replace",
@@ -26,28 +26,28 @@
       },
       "inner_placements": [
         {
-          "Name": "geodecraft:small_lapis_bud",
+          "Name": "geodecraft:small_lapis_lazuli_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:medium_lapis_bud",
+          "Name": "geodecraft:medium_lapis_lazuli_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:large_lapis_bud",
+          "Name": "geodecraft:large_lapis_lazuli_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:lapis_cluster",
+          "Name": "geodecraft:lapis_lazuli_cluster",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
