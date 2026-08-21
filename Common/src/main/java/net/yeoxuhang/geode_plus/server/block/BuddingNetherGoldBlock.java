@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -39,15 +40,19 @@ public class BuddingNetherGoldBlock extends AmethystBlock {
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
                 block = BlockRegistry.SMALL_GOLD_NUGGET_BUD.value();
-            } else if (blockstate.is(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value()) && blockstate.getValue(NetherGoldClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value()) && blockstate.getValue(
+                    AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value()) && blockstate.getValue(NetherGoldClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value()) && blockstate.getValue(
+                    AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_GOLD_NUGGET_BUD.value();
-            } else if (blockstate.is(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value()) && blockstate.getValue(NetherGoldClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value()) && blockstate.getValue(
+                    AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.GOLD_NUGGET_CLUSTER.value();
             }
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(NetherGoldClusterBlock.FACING, direction).setValue(NetherGoldClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction).setValue(
+                        AmethystClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
 

@@ -1,5 +1,6 @@
 package net.yeoxuhang.geode_plus.server.block;
 
+import fuzs.geodecraft.common.world.level.block.DropExperienceClusterBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -38,15 +39,19 @@ public class BuddingRedstoneBlock extends RedStoneOreBlock {
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
                 block = BlockRegistry.SMALL_REDSTONE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.SMALL_REDSTONE_BUD.value()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.SMALL_REDSTONE_BUD.value()) && blockstate.getValue(
+                    DropExperienceClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_REDSTONE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_REDSTONE_BUD.value()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.MEDIUM_REDSTONE_BUD.value()) && blockstate.getValue(
+                    DropExperienceClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_REDSTONE_BUD.value();
-            } else if (blockstate.is(BlockRegistry.LARGE_REDSTONE_BUD.value()) && blockstate.getValue(OresClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.LARGE_REDSTONE_BUD.value()) && blockstate.getValue(
+                    DropExperienceClusterBlock.FACING) == direction) {
                 block = BlockRegistry.REDSTONE_CRYSTAL.value();
             }
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(OresClusterBlock.FACING, direction).setValue(OresClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState().setValue(DropExperienceClusterBlock.FACING, direction).setValue(
+                        DropExperienceClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
 

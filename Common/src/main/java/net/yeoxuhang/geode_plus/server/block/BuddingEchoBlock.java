@@ -7,6 +7,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.monster.warden.Warden;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -42,22 +43,22 @@ public class BuddingEchoBlock extends AmethystBlock {
                 block = BlockRegistry.SMALL_ECHO_BUD.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 5);
             } else if (blockstate.is(BlockRegistry.SMALL_ECHO_BUD.value())
-                    && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_ECHO_BUD.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 10);
             } else if (blockstate.is(BlockRegistry.MEDIUM_ECHO_BUD.value())
-                    && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_ECHO_BUD.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 15);
             } else if (blockstate.is(BlockRegistry.LARGE_ECHO_BUD.value())
-                    && blockstate.getValue(EchoCrystalBlock.FACING) == direction) {
+                    && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.ECHO_CRYSTAL.value();
                 Warden.applyDarknessAround(p_220899_, Vec3.atCenterOf(p_220900_), null, 20);
             }
             if (block != null) {
                 BlockState blockstate1 = block.defaultBlockState()
-                        .setValue(EchoCrystalBlock.FACING, direction)
-                        .setValue(EchoCrystalBlock.WATERLOGGED,
+                        .setValue(AmethystClusterBlock.FACING, direction)
+                        .setValue(AmethystClusterBlock.WATERLOGGED,
                                 Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }

@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.AmethystClusterBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -39,15 +40,16 @@ public class BuddingLapisBlock extends AmethystBlock {
             Block block = null;
             if (canClusterGrowAtState(blockstate)) {
                 block = BlockRegistry.SMALL_LAPIS_BUD.value();
-            } else if (blockstate.is(BlockRegistry.SMALL_LAPIS_BUD.value()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.SMALL_LAPIS_BUD.value()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.MEDIUM_LAPIS_BUD.value();
-            } else if (blockstate.is(BlockRegistry.MEDIUM_LAPIS_BUD.value()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.MEDIUM_LAPIS_BUD.value()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LARGE_LAPIS_BUD.value();
-            } else if (blockstate.is(BlockRegistry.LARGE_LAPIS_BUD.value()) && blockstate.getValue(RedstoneOresClusterBlock.FACING) == direction) {
+            } else if (blockstate.is(BlockRegistry.LARGE_LAPIS_BUD.value()) && blockstate.getValue(AmethystClusterBlock.FACING) == direction) {
                 block = BlockRegistry.LAPIS_CLUSTER.value();
             }
             if (block != null) {
-                BlockState blockstate1 = block.defaultBlockState().setValue(RedstoneOresClusterBlock.FACING, direction).setValue(RedstoneOresClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
+                BlockState blockstate1 = block.defaultBlockState().setValue(AmethystClusterBlock.FACING, direction).setValue(
+                        AmethystClusterBlock.WATERLOGGED, Boolean.valueOf(blockstate.getFluidState().getType() == Fluids.WATER));
                 p_220899_.setBlockAndUpdate(blockpos, blockstate1);
             }
 

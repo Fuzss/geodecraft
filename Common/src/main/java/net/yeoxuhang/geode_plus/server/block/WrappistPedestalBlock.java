@@ -56,6 +56,7 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
     }
 
     public boolean mayPlaceOn(BlockState groundState) {
+        // TODO this is pointless, it should be placeable anywhere. Maybe like candles, so placement must be on a block, but it can remain when floating.
         return !groundState.is(BlockRegistry.WRAPPIST_PEDESTAL.value())
                 || !groundState.is(TagRegistry.Blocks.WRAPPIST_PEDESTAL_CANNOT_PLACE_ON);
     }
@@ -69,6 +70,7 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        // TODO remove golden apple behavior and just turn this into a display block
         if (level.getBlockEntity(pos) instanceof WrappistPedestalBlockEntity blockEntity) {
             int count = blockEntity.getItem(0).getCount();
             if ((!player.isShiftKeyDown() && heldItem.getItem() != this.asItem())) {
@@ -156,6 +158,7 @@ public class WrappistPedestalBlock extends BaseEntityBlock {
             Containers.dropContents(worldIn, pos, (WrappistPedestalBlockEntity) tileentity);
             worldIn.updateNeighbourForOutputSignal(pos, this);
         }
+
         super.onRemove(state, worldIn, pos, newState, isMoving);
     }
 
