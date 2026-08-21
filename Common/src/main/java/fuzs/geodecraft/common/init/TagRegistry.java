@@ -54,9 +54,6 @@ public class TagRegistry {
     }
 
     public static class Blocks {
-        public static final TagKey<Block> WRAPPIST_PEDESTAL_CANNOT_PLACE_ON = blockTag(
-                "wrappist_pedestal_cannot_place_on");
-
         public static final TagKey<Block> NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
                 "nether_quartz_crystal_spike_may_place_on");
         public static final TagKey<Block> GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
@@ -66,15 +63,6 @@ public class TagRegistry {
                 "wrappist_crystal_spike_may_place_on");
         public static final TagKey<Block> PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON = blockTag(
                 "prismarine_crystal_spike_may_place_on");
-
-        /**
-         * @see net.minecraft.tags.BlockTags#FEATURES_CANNOT_REPLACE
-         */
-        public static final TagKey<Block> GEODES_CANNOT_REPLACE = blockTag("geodes_cannot_replace");
-        /**
-         * @see net.minecraft.tags.BlockTags#GEODE_INVALID_BLOCKS
-         */
-        public static final TagKey<Block> SUBMERGED_GEODE_INVALID_BLOCKS = blockTag("submerged_geode_invalid_blocks");
 
         private static TagKey<Block> blockTag(String name) {
             return TAGS.registerBlockTag(name);
