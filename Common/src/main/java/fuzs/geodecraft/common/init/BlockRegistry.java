@@ -487,6 +487,20 @@ public class BlockRegistry {
             Block::new,
             () -> clusterBlockProperties(MapColor.COLOR_BROWN));
 
+    public static final Holder.Reference<Block> SMOOTH_END_STONE = ModRegistry.REGISTRIES.registerBlock(
+            "smooth_end_stone",
+            Block::new,
+            () -> BlockBehaviour.Properties.ofLegacyCopy(Blocks.END_STONE));
+    public static final Holder.Reference<Block> SMOOTH_END_STONE_STAIRS = ModRegistry.REGISTRIES.registerBlock(
+            "smooth_end_stone_stairs",
+            (BlockBehaviour.Properties properties) -> new StairBlock(SMOOTH_END_STONE.value().defaultBlockState(),
+                    properties),
+            () -> BlockBehaviour.Properties.ofLegacyCopy(SMOOTH_END_STONE.value()));
+    public static final Holder.Reference<Block> SMOOTH_END_STONE_SLAB = ModRegistry.REGISTRIES.registerBlock(
+            "smooth_end_stone_slab",
+            SlabBlock::new,
+            () -> BlockBehaviour.Properties.ofLegacyCopy(SMOOTH_END_STONE.value()));
+
     public static final Holder.Reference<Block> CELESTITE_GLASS = ModRegistry.REGISTRIES.registerBlock("celestite_glass",
             TransparentBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS)
@@ -503,20 +517,6 @@ public class BlockRegistry {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS)
                     .mapColor(MapColor.COLOR_LIGHT_BLUE)
                     .lightLevel((BlockState state) -> 15));
-
-    public static final Holder.Reference<Block> SMOOTH_END_STONE = ModRegistry.REGISTRIES.registerBlock(
-            "smooth_end_stone",
-            Block::new,
-            () -> BlockBehaviour.Properties.ofLegacyCopy(Blocks.END_STONE));
-    public static final Holder.Reference<Block> SMOOTH_END_STONE_STAIRS = ModRegistry.REGISTRIES.registerBlock(
-            "smooth_end_stone_stairs",
-            (BlockBehaviour.Properties properties) -> new StairBlock(SMOOTH_END_STONE.value().defaultBlockState(),
-                    properties),
-            () -> BlockBehaviour.Properties.ofLegacyCopy(SMOOTH_END_STONE.value()));
-    public static final Holder.Reference<Block> SMOOTH_END_STONE_SLAB = ModRegistry.REGISTRIES.registerBlock(
-            "smooth_end_stone_slab",
-            SlabBlock::new,
-            () -> BlockBehaviour.Properties.ofLegacyCopy(SMOOTH_END_STONE.value()));
 
     public static final Holder.Reference<Block> PEDESTAL = ModRegistry.REGISTRIES.registerBlock("pedestal",
             PedestalBlock::new,

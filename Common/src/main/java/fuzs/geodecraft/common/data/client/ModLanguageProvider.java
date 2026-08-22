@@ -145,5 +145,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(TrimMaterialRegistry.WRAPPIST, "Wrappist Material");
         builder.add(TrimMaterialRegistry.CELESTITE, "Celestite Material");
         builder.add(TrimMaterialRegistry.PINK_TOPAZ, "Pink Topaz Material");
+
+        builder.addPotion(PotionRegistry.HASTE, "Haste");
     }
 }

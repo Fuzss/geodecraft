@@ -5,64 +5,93 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SmithingTemplateItem;
 
 public class ItemRegistry {
-    // TODO make these be found in dungeons in the biome rather than dropping from clusters randomly
-    public static final Holder.Reference<Item> WRAP_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRIES.registerItem(
-            "wrap_armor_trim_smithing_template",
-            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.WRAP));
-    public static final Holder.Reference<Item> CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRIES.registerItem(
-            "celeste_armor_trim_smithing_template",
-            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.CELESTE));
-    public static final Holder.Reference<Item> HEART_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRIES.registerItem(
-            "heart_armor_trim_smithing_template",
-            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.HEART));
-
-    public static final Holder.Reference<Item> PINK_TOPAZ_SHARD = ModRegistry.REGISTRIES.registerItem("pink_topaz_shard");
-    public static final Holder.Reference<Item> CELESTITE_SHARD = ModRegistry.REGISTRIES.registerItem("celestite_shard");
-    public static final Holder.Reference<Item> WRAPPIST_SHARD = ModRegistry.REGISTRIES.registerItem("wrappist_shard");
-
-    public static final Holder.Reference<Item> WRAPPIST_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_GLASS);
-    public static final Holder.Reference<Item> CELESTITE_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.CELESTITE_GLASS);
-    public static final Holder.Reference<Item> PINK_TOPAZ_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PINK_TOPAZ_GLASS);
-
-    public static final Holder.Reference<Item> WRAPPIST_PEDESTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PEDESTAL);
-    public static final Holder.Reference<Item> WRAPPIST_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_WRAPPIST = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_WRAPPIST);
-    public static final Holder.Reference<Item> WRAPPIST_CLUSTER = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_CLUSTER);
-    public static final Holder.Reference<Item> LARGE_WRAPPIST_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.LARGE_WRAPPIST_BUD);
-    public static final Holder.Reference<Item> MEDIUM_WRAPPIST_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_WRAPPIST_BUD);
-    public static final Holder.Reference<Item> SMALL_WRAPPIST_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.SMALL_WRAPPIST_BUD);
-
     public static final Holder.Reference<Item> CELESTITE_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.CELESTITE_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_CELESTITE = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_CELESTITE);
-    public static final Holder.Reference<Item> CELESTITE_CLUSTER = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.CELESTITE_CLUSTER);
-    public static final Holder.Reference<Item> LARGE_CELESTITE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_CELESTITE_BUD);
-    public static final Holder.Reference<Item> MEDIUM_CELESTITE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_CELESTITE_BUD);
+    public static final Holder.Reference<Item> BUDDING_CELESTITE = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_CELESTITE);
     public static final Holder.Reference<Item> SMALL_CELESTITE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.SMALL_CELESTITE_BUD);
+    public static final Holder.Reference<Item> MEDIUM_CELESTITE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_CELESTITE_BUD);
+    public static final Holder.Reference<Item> LARGE_CELESTITE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_CELESTITE_BUD);
+    public static final Holder.Reference<Item> CELESTITE_CLUSTER = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.CELESTITE_CLUSTER);
+    public static final Holder.Reference<Item> CELESTITE_SHARD = ModRegistry.REGISTRIES.registerItem("celestite_shard");
 
     public static final Holder.Reference<Item> PINK_TOPAZ_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PINK_TOPAZ_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_PINK_TOPAZ);
-    public static final Holder.Reference<Item> PINK_TOPAZ_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PINK_TOPAZ_CLUSTER);
-    public static final Holder.Reference<Item> LARGE_PINK_TOPAZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_PINK_TOPAZ_BUD);
-    public static final Holder.Reference<Item> MEDIUM_PINK_TOPAZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_PINK_TOPAZ_BUD);
+    public static final Holder.Reference<Item> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_PINK_TOPAZ);
     public static final Holder.Reference<Item> SMALL_PINK_TOPAZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.SMALL_PINK_TOPAZ_BUD);
+    public static final Holder.Reference<Item> MEDIUM_PINK_TOPAZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_PINK_TOPAZ_BUD);
+    public static final Holder.Reference<Item> LARGE_PINK_TOPAZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_PINK_TOPAZ_BUD);
+    public static final Holder.Reference<Item> PINK_TOPAZ_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.PINK_TOPAZ_CLUSTER);
+    public static final Holder.Reference<Item> PINK_TOPAZ_SHARD = ModRegistry.REGISTRIES.registerItem("pink_topaz_shard");
+
+    public static final Holder.Reference<Item> WRAPPIST_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_BLOCK);
+    public static final Holder.Reference<Item> BUDDING_WRAPPIST = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_WRAPPIST);
+    public static final Holder.Reference<Item> SMALL_WRAPPIST_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.SMALL_WRAPPIST_BUD);
+    public static final Holder.Reference<Item> MEDIUM_WRAPPIST_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_WRAPPIST_BUD);
+    public static final Holder.Reference<Item> LARGE_WRAPPIST_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_WRAPPIST_BUD);
+    public static final Holder.Reference<Item> WRAPPIST_CLUSTER = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_CLUSTER);
+    public static final Holder.Reference<Item> WRAPPIST_SHARD = ModRegistry.REGISTRIES.registerItem("wrappist_shard");
 
     public static final Holder.Reference<Item> PRISMARINE_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.PRISMARINE_CRYSTAL_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_PRISMARINE = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_PRISMARINE);
-    public static final Holder.Reference<Item> PRISMARINE_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PRISMARINE_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_PRISMARINE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_PRISMARINE_BUD);
-    public static final Holder.Reference<Item> MEDIUM_PRISMARINE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_PRISMARINE_BUD);
+    public static final Holder.Reference<Item> BUDDING_PRISMARINE = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_PRISMARINE);
     public static final Holder.Reference<Item> SMALL_PRISMARINE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.SMALL_PRISMARINE_BUD);
+    public static final Holder.Reference<Item> MEDIUM_PRISMARINE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_PRISMARINE_BUD);
+    public static final Holder.Reference<Item> LARGE_PRISMARINE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_PRISMARINE_BUD);
+    public static final Holder.Reference<Item> PRISMARINE_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.PRISMARINE_CRYSTAL);
+
+    public static final Holder.Reference<Item> ECHO_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.ECHO_CRYSTAL_BLOCK);
+    public static final Holder.Reference<Item> BUDDING_ECHO = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_ECHO);
+    public static final Holder.Reference<Item> SMALL_ECHO_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.SMALL_ECHO_BUD);
+    public static final Holder.Reference<Item> MEDIUM_ECHO_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.MEDIUM_ECHO_BUD);
+    public static final Holder.Reference<Item> LARGE_ECHO_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.LARGE_ECHO_BUD);
+    public static final Holder.Reference<Item> ECHO_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.ECHO_CRYSTAL);
+
+    public static final Holder.Reference<Item> REDSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.REDSTONE_CRYSTAL_BLOCK);
+    public static final Holder.Reference<Item> BUDDING_REDSTONE = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_REDSTONE);
+    public static final Holder.Reference<Item> BUDDING_DEEPSLATE_REDSTONE = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_DEEPSLATE_REDSTONE);
+    public static final Holder.Reference<Item> BUDDING_SCULK_REDSTONE = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_SCULK_REDSTONE);
+    public static final Holder.Reference<Item> SMALL_REDSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.SMALL_REDSTONE_BUD);
+    public static final Holder.Reference<Item> MEDIUM_REDSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_REDSTONE_BUD);
+    public static final Holder.Reference<Item> LARGE_REDSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_REDSTONE_BUD);
+    public static final Holder.Reference<Item> REDSTONE_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.REDSTONE_CRYSTAL);
+
+    public static final Holder.Reference<Item> EMERALD_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.EMERALD_CRYSTAL_BLOCK);
+    public static final Holder.Reference<Item> BUDDING_EMERALD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_EMERALD);
+    public static final Holder.Reference<Item> BUDDING_DEEPSLATE_EMERALD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_DEEPSLATE_EMERALD);
+    public static final Holder.Reference<Item> BUDDING_SCULK_EMERALD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_SCULK_EMERALD);
+    public static final Holder.Reference<Item> SMALL_EMERALD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.SMALL_EMERALD_BUD);
+    public static final Holder.Reference<Item> MEDIUM_EMERALD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_EMERALD_BUD);
+    public static final Holder.Reference<Item> LARGE_EMERALD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_EMERALD_BUD);
+    public static final Holder.Reference<Item> EMERALD_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.EMERALD_CRYSTAL);
 
     public static final Holder.Reference<Item> LAPIS_LAZULI_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.LAPIS_LAZULI_CRYSTAL_BLOCK);
@@ -72,39 +101,14 @@ public class ItemRegistry {
             BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI);
     public static final Holder.Reference<Item> BUDDING_SCULK_LAPIS_LAZULI = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI);
-    public static final Holder.Reference<Item> LAPIS_LAZULI_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LAPIS_LAZULI_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_LAPIS_LAZULI_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_LAPIS_LAZULI_BUD);
-    public static final Holder.Reference<Item> MEDIUM_LAPIS_LAZULI_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD);
     public static final Holder.Reference<Item> SMALL_LAPIS_LAZULI_BUD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.SMALL_LAPIS_LAZULI_BUD);
-
-    public static final Holder.Reference<Item> REDSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.REDSTONE_CRYSTAL_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_REDSTONE = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_REDSTONE);
-    public static final Holder.Reference<Item> BUDDING_DEEPSLATE_REDSTONE = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_DEEPSLATE_REDSTONE);
-    public static final Holder.Reference<Item> BUDDING_SCULK_REDSTONE = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_SCULK_REDSTONE);
-    public static final Holder.Reference<Item> REDSTONE_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.REDSTONE_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_REDSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.LARGE_REDSTONE_BUD);
-    public static final Holder.Reference<Item> MEDIUM_REDSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_REDSTONE_BUD);
-    public static final Holder.Reference<Item> SMALL_REDSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.SMALL_REDSTONE_BUD);
-
-    public static final Holder.Reference<Item> EMERALD_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.EMERALD_CRYSTAL_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_EMERALD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_EMERALD);
-    public static final Holder.Reference<Item> BUDDING_DEEPSLATE_EMERALD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_DEEPSLATE_EMERALD);
-    public static final Holder.Reference<Item> BUDDING_SCULK_EMERALD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_SCULK_EMERALD);
-    public static final Holder.Reference<Item> EMERALD_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.EMERALD_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_EMERALD_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.LARGE_EMERALD_BUD);
-    public static final Holder.Reference<Item> MEDIUM_EMERALD_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.MEDIUM_EMERALD_BUD);
-    public static final Holder.Reference<Item> SMALL_EMERALD_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.SMALL_EMERALD_BUD);
+    public static final Holder.Reference<Item> MEDIUM_LAPIS_LAZULI_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD);
+    public static final Holder.Reference<Item> LARGE_LAPIS_LAZULI_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_LAPIS_LAZULI_BUD);
+    public static final Holder.Reference<Item> LAPIS_LAZULI_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LAPIS_LAZULI_CRYSTAL);
 
     public static final Holder.Reference<Item> DIAMOND_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.DIAMOND_CRYSTAL_BLOCK);
@@ -113,27 +117,30 @@ public class ItemRegistry {
             BlockRegistry.BUDDING_DEEPSLATE_DIAMOND);
     public static final Holder.Reference<Item> BUDDING_SCULK_DIAMOND = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.BUDDING_SCULK_DIAMOND);
+    public static final Holder.Reference<Item> SMALL_DIAMOND_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.SMALL_DIAMOND_BUD);
+    public static final Holder.Reference<Item> MEDIUM_DIAMOND_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_DIAMOND_BUD);
+    public static final Holder.Reference<Item> LARGE_DIAMOND_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_DIAMOND_BUD);
     public static final Holder.Reference<Item> DIAMOND_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.DIAMOND_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_DIAMOND_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.LARGE_DIAMOND_BUD);
-    public static final Holder.Reference<Item> MEDIUM_DIAMOND_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.MEDIUM_DIAMOND_BUD);
-    public static final Holder.Reference<Item> SMALL_DIAMOND_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.SMALL_DIAMOND_BUD);
 
-    public static final Holder.Reference<Item> NETHER_QUARTZ_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_NETHER_QUARTZ = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_NETHER_QUARTZ);
-    public static final Holder.Reference<Item> BUDDING_BASALT_NETHER_QUARTZ = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ);
-    public static final Holder.Reference<Item> BUDDING_BLACKSTONE_NETHER_QUARTZ = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ);
-    public static final Holder.Reference<Item> NETHER_QUARTZ_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.NETHER_QUARTZ_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_NETHER_QUARTZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_NETHER_QUARTZ_BUD);
-    public static final Holder.Reference<Item> MEDIUM_NETHER_QUARTZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD);
-    public static final Holder.Reference<Item> SMALL_NETHER_QUARTZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.SMALL_NETHER_QUARTZ_BUD);
+    public static final Holder.Reference<Item> GLOWSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.GLOWSTONE_CRYSTAL_BLOCK);
+    public static final Holder.Reference<Item> BUDDING_GLOWSTONE = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_GLOWSTONE);
+    public static final Holder.Reference<Item> BUDDING_BASALT_GLOWSTONE = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_BASALT_GLOWSTONE);
+    public static final Holder.Reference<Item> BUDDING_BLACKSTONE_GLOWSTONE = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE);
+    public static final Holder.Reference<Item> SMALL_GLOWSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.SMALL_GLOWSTONE_BUD);
+    public static final Holder.Reference<Item> MEDIUM_GLOWSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_GLOWSTONE_BUD);
+    public static final Holder.Reference<Item> LARGE_GLOWSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_GLOWSTONE_BUD);
+    public static final Holder.Reference<Item> GLOWSTONE_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.GLOWSTONE_CRYSTAL);
 
     public static final Holder.Reference<Item> NETHER_GOLD_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.NETHER_GOLD_CRYSTAL_BLOCK);
@@ -143,29 +150,31 @@ public class ItemRegistry {
             BlockRegistry.BUDDING_BASALT_NETHER_GOLD);
     public static final Holder.Reference<Item> BUDDING_BLACKSTONE_NETHER_GOLD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.BUDDING_BLACKSTONE_NETHER_GOLD);
-    public static final Holder.Reference<Item> NETHER_GOLD_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.NETHER_GOLD_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_NETHER_GOLD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_NETHER_GOLD_BUD);
-    public static final Holder.Reference<Item> MEDIUM_NETHER_GOLD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_NETHER_GOLD_BUD);
     public static final Holder.Reference<Item> SMALL_NETHER_GOLD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.SMALL_NETHER_GOLD_BUD);
+    public static final Holder.Reference<Item> MEDIUM_NETHER_GOLD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_NETHER_GOLD_BUD);
+    public static final Holder.Reference<Item> LARGE_NETHER_GOLD_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_NETHER_GOLD_BUD);
+    public static final Holder.Reference<Item> NETHER_GOLD_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.NETHER_GOLD_CRYSTAL);
 
-    public static final Holder.Reference<Item> GLOWSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.GLOWSTONE_CRYSTAL_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_GLOWSTONE = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_GLOWSTONE);
-    public static final Holder.Reference<Item> BUDDING_BASALT_GLOWSTONE = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_BASALT_GLOWSTONE);
-    public static final Holder.Reference<Item> BUDDING_BLACKSTONE_GLOWSTONE = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE);
-    public static final Holder.Reference<Item> GLOWSTONE_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.GLOWSTONE_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_GLOWSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_GLOWSTONE_BUD);
-    public static final Holder.Reference<Item> MEDIUM_GLOWSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_GLOWSTONE_BUD);
-    public static final Holder.Reference<Item> SMALL_GLOWSTONE_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.SMALL_GLOWSTONE_BUD);
+    public static final Holder.Reference<Item> NETHER_QUARTZ_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK);
+    public static final Holder.Reference<Item> BUDDING_NETHER_QUARTZ = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_NETHER_QUARTZ);
+    public static final Holder.Reference<Item> BUDDING_BASALT_NETHER_QUARTZ = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ);
+    public static final Holder.Reference<Item> BUDDING_BLACKSTONE_NETHER_QUARTZ = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ);
+    public static final Holder.Reference<Item> SMALL_NETHER_QUARTZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.SMALL_NETHER_QUARTZ_BUD);
+    public static final Holder.Reference<Item> MEDIUM_NETHER_QUARTZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD);
+    public static final Holder.Reference<Item> LARGE_NETHER_QUARTZ_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_NETHER_QUARTZ_BUD);
+    public static final Holder.Reference<Item> NETHER_QUARTZ_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.NETHER_QUARTZ_CRYSTAL);
 
     public static final Holder.Reference<Item> ANCIENT_DEBRIS_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.ANCIENT_DEBRIS_CRYSTAL_BLOCK);
@@ -175,14 +184,14 @@ public class ItemRegistry {
             BlockRegistry.BUDDING_BASALT_ANCIENT_DEBRIS);
     public static final Holder.Reference<Item> BUDDING_BLACKSTONE_ANCIENT_DEBRIS = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS);
-    public static final Holder.Reference<Item> ANCIENT_DEBRIS_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.ANCIENT_DEBRIS_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD);
-    public static final Holder.Reference<Item> MEDIUM_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD);
     public static final Holder.Reference<Item> SMALL_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD);
+    public static final Holder.Reference<Item> MEDIUM_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD);
+    public static final Holder.Reference<Item> LARGE_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD);
+    public static final Holder.Reference<Item> ANCIENT_DEBRIS_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.ANCIENT_DEBRIS_CRYSTAL);
 
     public static final Holder.Reference<Item> SMOOTH_END_STONE = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.SMOOTH_END_STONE);
     public static final Holder.Reference<Item> SMOOTH_END_STONE_STAIRS = ModRegistry.REGISTRIES.registerBlockItem(
@@ -190,12 +199,23 @@ public class ItemRegistry {
     public static final Holder.Reference<Item> SMOOTH_END_STONE_SLAB = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.SMOOTH_END_STONE_SLAB);
 
-    public static final Holder.Reference<Item> ECHO_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.ECHO_CRYSTAL_BLOCK);
-    public static final Holder.Reference<Item> BUDDING_ECHO = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_ECHO);
-    public static final Holder.Reference<Item> ECHO_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.ECHO_CRYSTAL);
-    public static final Holder.Reference<Item> LARGE_ECHO_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.LARGE_ECHO_BUD);
-    public static final Holder.Reference<Item> MEDIUM_ECHO_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.MEDIUM_ECHO_BUD);
-    public static final Holder.Reference<Item> SMALL_ECHO_BUD = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.SMALL_ECHO_BUD);
+    public static final Holder.Reference<Item> WRAPPIST_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_GLASS);
+    public static final Holder.Reference<Item> CELESTITE_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.CELESTITE_GLASS);
+    public static final Holder.Reference<Item> PINK_TOPAZ_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PINK_TOPAZ_GLASS);
+
+    // TODO make these be found in dungeons in the biome rather than dropping from clusters randomly
+    public static final Holder.Reference<Item> CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRIES.registerItem(
+            "celeste_armor_trim_smithing_template",
+            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.CELESTE));
+    public static final Holder.Reference<Item> HEART_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRIES.registerItem(
+            "heart_armor_trim_smithing_template",
+            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.HEART));
+    public static final Holder.Reference<Item> WRAP_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRIES.registerItem(
+            "wrap_armor_trim_smithing_template",
+            () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.WRAP));
+
+    public static final Holder.Reference<Item> WRAPPIST_PEDESTAL = ModRegistry.REGISTRIES.registerBlockItem(
+            BlockRegistry.PEDESTAL);
 
     public static void bootstrap() {
         // NO-OP
