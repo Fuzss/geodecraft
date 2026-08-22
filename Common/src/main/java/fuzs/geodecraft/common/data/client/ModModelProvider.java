@@ -1,6 +1,8 @@
 package fuzs.geodecraft.common.data.client;
 
 import fuzs.geodecraft.common.Geodecraft;
+import fuzs.geodecraft.common.init.BlockRegistry;
+import fuzs.geodecraft.common.init.ItemRegistry;
 import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
 import fuzs.puzzleslib.api.client.data.v2.models.ModelLocationHelper;
 import fuzs.puzzleslib.api.client.data.v2.models.ModelTemplateHelper;
@@ -9,8 +11,6 @@ import net.minecraft.data.models.BlockModelGenerators;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.data.models.model.*;
 import net.minecraft.world.level.block.Block;
-import fuzs.geodecraft.common.init.BlockRegistry;
-import fuzs.geodecraft.common.init.ItemRegistry;
 
 public class ModModelProvider extends AbstractModelProvider {
     public static final ModelTemplate PEDESTAL_TEMPLATE = ModelTemplateHelper.createBlockModelTemplate(Geodecraft.id(
@@ -42,12 +42,7 @@ public class ModModelProvider extends AbstractModelProvider {
 
         generator.family(BlockRegistry.SMOOTH_END_STONE.value())
                 .stairs(BlockRegistry.SMOOTH_END_STONE_STAIRS.value())
-                .slab(BlockRegistry.SMOOTH_END_STONE_SLAB.value())
-                .wall(BlockRegistry.SMOOTH_END_STONE_WALL.value());
-        generator.family(BlockRegistry.GALCITE.value())
-                .stairs(BlockRegistry.GALCITE_STAIRS.value())
-                .slab(BlockRegistry.GALCITE_SLAB.value())
-                .wall(BlockRegistry.GALCITE_WALL.value());
+                .slab(BlockRegistry.SMOOTH_END_STONE_SLAB.value());
 
         generator.createTrivialCube(BlockRegistry.WRAPPIST_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_WRAPPIST.value());

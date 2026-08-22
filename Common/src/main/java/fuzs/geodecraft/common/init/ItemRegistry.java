@@ -180,13 +180,6 @@ public class ItemRegistry {
             BlockRegistry.SMOOTH_END_STONE_STAIRS);
     public static final Holder.Reference<Item> SMOOTH_END_STONE_SLAB = ModRegistry.REGISTRY.registerBlockItem(
             BlockRegistry.SMOOTH_END_STONE_SLAB);
-    public static final Holder.Reference<Item> SMOOTH_END_STONE_WALL = ModRegistry.REGISTRY.registerBlockItem(
-            BlockRegistry.SMOOTH_END_STONE_WALL);
-
-    public static final Holder.Reference<Item> GALCITE = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.GALCITE);
-    public static final Holder.Reference<Item> GALCITE_STAIRS = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.GALCITE_STAIRS);
-    public static final Holder.Reference<Item> GALCITE_SLAB = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.GALCITE_SLAB);
-    public static final Holder.Reference<Item> GALCITE_WALL = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.GALCITE_WALL);
 
     public static final Holder.Reference<Item> ECHO_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.ECHO_CRYSTAL_BLOCK);
     public static final Holder.Reference<Item> BUDDING_ECHO = ModRegistry.REGISTRY.registerBlockItem(BlockRegistry.BUDDING_ECHO);

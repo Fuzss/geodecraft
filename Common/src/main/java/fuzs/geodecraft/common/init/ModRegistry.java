@@ -134,12 +134,6 @@ public class ModRegistry {
                 output.accept(ItemRegistry.SMOOTH_END_STONE.value());
                 output.accept(ItemRegistry.SMOOTH_END_STONE_STAIRS.value());
                 output.accept(ItemRegistry.SMOOTH_END_STONE_SLAB.value());
-                output.accept(ItemRegistry.SMOOTH_END_STONE_WALL.value());
-
-                output.accept(ItemRegistry.GALCITE.value());
-                output.accept(ItemRegistry.GALCITE_STAIRS.value());
-                output.accept(ItemRegistry.GALCITE_SLAB.value());
-                output.accept(ItemRegistry.GALCITE_WALL.value());
 
                 output.accept(ItemRegistry.ECHO_CRYSTAL_BLOCK.value());
                 output.accept(ItemRegistry.BUDDING_ECHO.value());

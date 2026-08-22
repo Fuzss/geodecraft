@@ -248,7 +248,7 @@ public class ConfiguredFeatureRegistry {
                 WRAPPIST_GEODE,
                 BlockRegistry.BUDDING_WRAPPIST.value(),
                 BlockRegistry.WRAPPIST_BLOCK.value(),
-                BlockRegistry.GALCITE.value(),
+                Blocks.TUFF,
                 BlockRegistry.SMOOTH_END_STONE.value(),
                 List.of(BlockRegistry.SMALL_WRAPPIST_BUD.value(),
                         BlockRegistry.MEDIUM_WRAPPIST_BUD.value(),

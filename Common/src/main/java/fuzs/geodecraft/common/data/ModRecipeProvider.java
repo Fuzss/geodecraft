@@ -1,6 +1,7 @@
 package fuzs.geodecraft.common.data;
 
 import fuzs.geodecraft.common.Geodecraft;
+import fuzs.geodecraft.common.init.ItemRegistry;
 import fuzs.puzzleslib.api.data.v2.AbstractRecipeProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import net.minecraft.data.recipes.*;
@@ -10,7 +11,6 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import fuzs.geodecraft.common.init.ItemRegistry;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -27,7 +27,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
     public void addRecipes(RecipeOutput output) {
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.GUNPOWDER, 4)
                 .requires(ItemRegistry.CELESTITE_SHARD.value())
-                .unlockedBy("has_celestite", has(ItemRegistry.CELESTITE_SHARD.value()))
+                .unlockedBy(getHasName(ItemRegistry.CELESTITE_SHARD.value()), has(ItemRegistry.CELESTITE_SHARD.value()))
                 .save(output);
         crystalGlassFromGlassAndCrystal(output,
                 ItemRegistry.WRAPPIST_GLASS.value(),
@@ -107,24 +107,12 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 RecipeCategory.BUILDING_BLOCKS,
                 ItemRegistry.QUARTZ_CRYSTAL_BLOCK.value(),
                 ItemRegistry.QUARTZ_CRYSTAL.value());
-        wall(output,
-                RecipeCategory.BUILDING_BLOCKS,
-                ItemRegistry.SMOOTH_END_STONE_WALL.value(),
-                ItemRegistry.SMOOTH_END_STONE.value());
         slabBuilder(RecipeCategory.BUILDING_BLOCKS,
                 ItemRegistry.SMOOTH_END_STONE_SLAB.value(),
-                Ingredient.of(ItemRegistry.SMOOTH_END_STONE.value())).unlockedBy("has_smooth_end_stone",
+                Ingredient.of(ItemRegistry.SMOOTH_END_STONE.value())).unlockedBy(getHasName(ItemRegistry.SMOOTH_END_STONE.value()),
                 has(ItemRegistry.SMOOTH_END_STONE.value())).save(output);
         stairBuilder(ItemRegistry.SMOOTH_END_STONE_STAIRS.value(),
-                Ingredient.of(ItemRegistry.SMOOTH_END_STONE.value())).unlockedBy("has_smooth_end_stone",
-                has(ItemRegistry.SMOOTH_END_STONE.value())).save(output);
-        wall(output, RecipeCategory.BUILDING_BLOCKS, ItemRegistry.GALCITE_WALL.value(), ItemRegistry.GALCITE.value());
-        slabBuilder(RecipeCategory.BUILDING_BLOCKS,
-                ItemRegistry.GALCITE_SLAB.value(),
-                Ingredient.of(ItemRegistry.GALCITE.value())).unlockedBy("has_galcite",
-                has(ItemRegistry.GALCITE.value())).save(output);
-        stairBuilder(ItemRegistry.GALCITE_STAIRS.value(), Ingredient.of(ItemRegistry.GALCITE.value())).unlockedBy(
-                "has_galcite",
+                Ingredient.of(ItemRegistry.SMOOTH_END_STONE.value())).unlockedBy(getHasName(ItemRegistry.SMOOTH_END_STONE.value()),
                 has(ItemRegistry.SMOOTH_END_STONE.value())).save(output);
 
         stonecutterResultFromBase(output,
@@ -136,36 +124,19 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 ItemRegistry.SMOOTH_END_STONE_SLAB.value(),
                 ItemRegistry.SMOOTH_END_STONE.value(),
                 2);
-        stonecutterResultFromBase(output,
-                RecipeCategory.BUILDING_BLOCKS,
-                ItemRegistry.SMOOTH_END_STONE_WALL.value(),
-                ItemRegistry.SMOOTH_END_STONE.value());
-        stonecutterResultFromBase(output,
-                RecipeCategory.BUILDING_BLOCKS,
-                ItemRegistry.GALCITE_STAIRS.value(),
-                ItemRegistry.GALCITE.value());
-        stonecutterResultFromBase(output,
-                RecipeCategory.BUILDING_BLOCKS,
-                ItemRegistry.GALCITE_SLAB.value(),
-                ItemRegistry.GALCITE.value(),
-                2);
-        stonecutterResultFromBase(output,
-                RecipeCategory.BUILDING_BLOCKS,
-                ItemRegistry.GALCITE_WALL.value(),
-                ItemRegistry.GALCITE.value());
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(Blocks.END_STONE),
                 RecipeCategory.BUILDING_BLOCKS,
                 ItemRegistry.SMOOTH_END_STONE.value().asItem().asItem(),
                 0.1F,
-                200).unlockedBy("has_end_stone", has(Blocks.END_STONE)).save(output);
+                200).unlockedBy(getHasName(Blocks.END_STONE), has(Blocks.END_STONE)).save(output);
         ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.WRAPPIST_PEDESTAL.value())
                 .define('#', Blocks.END_STONE_BRICKS)
                 .define('O', Items.PRISMARINE_SHARD)
                 .define('W', ItemRegistry.WRAPPIST_SHARD.value())
                 .pattern("W W")
                 .pattern("O#O")
-                .unlockedBy("has_wrappist_shard", has(ItemRegistry.WRAPPIST_SHARD.value()))
+                .unlockedBy(getHasName(ItemRegistry.WRAPPIST_SHARD.value()), has(ItemRegistry.WRAPPIST_SHARD.value()))
                 .save(output);
 
         copySmithingTemplate(output,
@@ -178,28 +149,28 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value(),
                 ItemRegistry.PINK_TOPAZ_BLOCK.value());
 
-        smithingTrims().forEach((arg, arg2) -> {
-            trimSmithing(output, arg, arg2);
+        smithingTrims().forEach((Item ingredient, ResourceLocation id) -> {
+            trimSmithing(output, ingredient, id);
         });
     }
 
-    protected static void crystalsFromCrystalsBlocks(RecipeOutput consumer, ItemLike arg, ItemLike arg2, int i) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, arg, i)
-                .requires(arg2)
+    protected static void crystalsFromCrystalsBlocks(RecipeOutput consumer, ItemLike result, ItemLike material, int resultCount) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result, resultCount)
+                .requires(material)
                 .group("crystals")
-                .unlockedBy("has_crystal_block", has(arg2))
-                .save(consumer, getItemName(arg2) + "_to_" + getItemName(arg));
+                .unlockedBy(getHasName(material), has(material))
+                .save(consumer, getItemName(material) + "_to_" + getItemName(result));
     }
 
-    protected static void crystalGlassFromGlassAndCrystal(RecipeOutput consumer, ItemLike arg, ItemLike arg2) {
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, arg, 8)
+    protected static void crystalGlassFromGlassAndCrystal(RecipeOutput consumer, ItemLike result, ItemLike material) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, result, 8)
                 .define('#', Blocks.GLASS)
-                .define('X', arg2)
+                .define('X', material)
                 .pattern("###")
                 .pattern("#X#")
                 .pattern("###")
                 .group("crystal_glass")
-                .unlockedBy("has_for_glass_crystal", has(Blocks.GLASS))
+                .unlockedBy(getHasName(Blocks.GLASS), has(Blocks.GLASS))
                 .save(consumer);
     }
 
@@ -207,7 +178,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
         return Stream.of(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE.value(),
                         ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE.value(),
                         ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value())
-                .collect(Collectors.toMap(Function.identity(), (item) -> {
+                .collect(Collectors.toMap(Function.identity(), (Item item) -> {
                     return Geodecraft.id(getItemName(item) + "_smithing_trim");
                 }));
     }

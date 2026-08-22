@@ -118,12 +118,6 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.SMOOTH_END_STONE.value(), "Smooth End Stone");
         builder.add(BlockRegistry.SMOOTH_END_STONE_STAIRS.value(), "Smooth End Stone Stairs");
         builder.add(BlockRegistry.SMOOTH_END_STONE_SLAB.value(), "Smooth End Stone Slab");
-        builder.add(BlockRegistry.SMOOTH_END_STONE_WALL.value(), "Smooth End Stone Wall");
-
-        builder.add(BlockRegistry.GALCITE.value(), "Galcite");
-        builder.add(BlockRegistry.GALCITE_STAIRS.value(), "Galcite Stairs");
-        builder.add(BlockRegistry.GALCITE_SLAB.value(), "Galcite Slab");
-        builder.add(BlockRegistry.GALCITE_WALL.value(), "Galcite Wall");
 
         builder.add(BlockRegistry.ECHO_CRYSTAL_BLOCK.value(), "Echo Crystal Block");
         builder.add(BlockRegistry.BUDDING_ECHO.value(), "Budding Echo");

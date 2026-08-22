@@ -18,6 +18,7 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
 
     @Override
     public void addTags(HolderLookup.Provider context) {
+        // TODO revise the tool requirements
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlockRegistry.BUDDING_GOLD_NUGGET,
                         BlockRegistry.BUDDING_BASALT_GOLD_NUGGET,
@@ -75,11 +76,6 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                         BlockRegistry.SMOOTH_END_STONE,
                         BlockRegistry.SMOOTH_END_STONE_SLAB,
                         BlockRegistry.SMOOTH_END_STONE_STAIRS,
-                        BlockRegistry.SMOOTH_END_STONE_WALL,
-                        BlockRegistry.GALCITE,
-                        BlockRegistry.GALCITE_SLAB,
-                        BlockRegistry.GALCITE_STAIRS,
-                        BlockRegistry.GALCITE_WALL,
                         BlockRegistry.WRAPPIST_BLOCK,
                         BlockRegistry.BUDDING_WRAPPIST,
                         BlockRegistry.WRAPPIST_CLUSTER,
@@ -136,7 +132,6 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                         BlockRegistry.SMALL_LAPIS_LAZULI_BUD,
                         BlockRegistry.BUDDING_LAPIS_LAZULI,
                         BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI,
-
                         BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI,
 
                         BlockRegistry.BUDDING_NETHER_QUARTZ,
@@ -156,14 +151,6 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
                         BlockRegistry.LARGE_GLOWSTONE_BUD,
                         BlockRegistry.MEDIUM_GLOWSTONE_BUD,
                         BlockRegistry.SMALL_GLOWSTONE_BUD,
-                        BlockRegistry.SMOOTH_END_STONE,
-                        BlockRegistry.SMOOTH_END_STONE_SLAB,
-                        BlockRegistry.SMOOTH_END_STONE_STAIRS,
-                        BlockRegistry.SMOOTH_END_STONE_WALL,
-                        BlockRegistry.GALCITE,
-                        BlockRegistry.GALCITE_SLAB,
-                        BlockRegistry.GALCITE_STAIRS,
-                        BlockRegistry.GALCITE_WALL,
 
                         BlockRegistry.BUDDING_PRISMARINE,
                         BlockRegistry.PRISMARINE_CLUSTER,
@@ -247,7 +234,5 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
         this.tag(TagRegistry.Blocks.PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON)
                 .add(Blocks.SAND, Blocks.STONE, Blocks.GRAVEL, Blocks.CLAY, Blocks.SANDSTONE);
         this.tag(TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON).add(Blocks.END_STONE);
-
-        this.tag(BlockTags.WALLS).add(BlockRegistry.SMOOTH_END_STONE_WALL, BlockRegistry.GALCITE_WALL);
     }
 }

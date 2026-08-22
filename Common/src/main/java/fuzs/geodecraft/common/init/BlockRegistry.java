@@ -693,29 +693,6 @@ public class BlockRegistry {
             "smooth_end_stone_slab",
             SlabBlock::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(4.0F).sound(SoundType.BASALT));
-    public static final Holder.Reference<Block> SMOOTH_END_STONE_WALL = ModRegistry.REGISTRY.registerBlock(
-            "smooth_end_stone_wall",
-            WallBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(SMOOTH_END_STONE.value()));
-
-    public static final Holder.Reference<Block> GALCITE = ModRegistry.REGISTRY.registerBlock("galcite",
-            Block::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BLACK)
-                    .strength(5.0F, 1200)
-                    .sound(SoundType.CALCITE));
-    public static final Holder.Reference<Block> GALCITE_STAIRS = ModRegistry.REGISTRY.registerBlock("galcite_stairs",
-            (BlockBehaviour.Properties properties) -> new StairBlock(GALCITE.value().defaultBlockState(), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(GALCITE.value()));
-    public static final Holder.Reference<Block> GALCITE_SLAB = ModRegistry.REGISTRY.registerBlock("galcite_slab",
-            SlabBlock::new,
-            () -> BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.COLOR_BLACK)
-                    .strength(4.0F)
-                    .sound(SoundType.CALCITE));
-    public static final Holder.Reference<Block> GALCITE_WALL = ModRegistry.REGISTRY.registerBlock("galcite_wall",
-            WallBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(GALCITE.value()));
 
     public static final Holder.Reference<Block> ECHO_CRYSTAL = ModRegistry.REGISTRY.registerBlock("echo_crystal",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(3, 7),

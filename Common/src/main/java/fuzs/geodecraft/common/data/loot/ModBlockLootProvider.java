@@ -57,13 +57,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.add(BlockRegistry.SMOOTH_END_STONE.value(),
                 (Block block) -> this.createSingleItemTableWithSilkTouch(block, Blocks.END_STONE));
         this.dropSelf(BlockRegistry.SMOOTH_END_STONE_STAIRS.value());
-        this.dropSelf(BlockRegistry.SMOOTH_END_STONE_WALL.value());
         this.add(BlockRegistry.SMOOTH_END_STONE_SLAB.value(), this::createSlabItemTable);
-
-        this.dropSelf(BlockRegistry.GALCITE.value());
-        this.dropSelf(BlockRegistry.GALCITE_STAIRS.value());
-        this.dropSelf(BlockRegistry.GALCITE_WALL.value());
-        this.add(BlockRegistry.GALCITE_SLAB.value(), this::createSlabItemTable);
 
         this.add(BlockRegistry.ECHO_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.ECHO_SHARD, 4.0F, 2.0F, context);
