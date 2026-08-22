@@ -37,8 +37,8 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.SMALL_WRAPPIST_BUD.value(), "Small Wrappist Bud");
 
         builder.add(BlockRegistry.BUDDING_PRISMARINE.value(), "Budding Prismarine");
-        builder.add(BlockRegistry.PRISMARINE_CLUSTER_BLOCK.value(), "Prismarine Cluster Block");
-        builder.add(BlockRegistry.PRISMARINE_CLUSTER.value(), "Prismarine Cluster");
+        builder.add(BlockRegistry.PRISMARINE_CRYSTAL_BLOCK.value(), "Prismarine Crystal Block");
+        builder.add(BlockRegistry.PRISMARINE_CRYSTAL.value(), "Prismarine Crystal");
         builder.add(BlockRegistry.LARGE_PRISMARINE_BUD.value(), "Large Prismarine Bud");
         builder.add(BlockRegistry.MEDIUM_PRISMARINE_BUD.value(), "Medium Prismarine Bud");
         builder.add(BlockRegistry.SMALL_PRISMARINE_BUD.value(), "Small Prismarine Bud");
@@ -46,8 +46,8 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.BUDDING_LAPIS_LAZULI.value(), "Budding Lapis Lazuli");
         builder.add(BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value(), "Budding Deepslate Lapis Lazuli");
         builder.add(BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value(), "Budding Sculk Lapis Lazuli");
-        builder.add(BlockRegistry.LAPIS_LAZULI_CLUSTER_BLOCK.value(), "Lapis Lazuli Cluster Block");
-        builder.add(BlockRegistry.LAPIS_LAZULI_CLUSTER.value(), "Lapis Lazuli Cluster");
+        builder.add(BlockRegistry.LAPIS_LAZULI_CRYSTAL_BLOCK.value(), "Lapis Lazuli Crystal Block");
+        builder.add(BlockRegistry.LAPIS_LAZULI_CRYSTAL.value(), "Lapis Lazuli Crystal");
         builder.add(BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(), "Large Lapis Lazuli Bud");
         builder.add(BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(), "Medium Lapis Lazuli Bud");
         builder.add(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(), "Small Lapis Lazuli Bud");
@@ -64,8 +64,8 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.BUDDING_EMERALD.value(), "Budding Emerald");
         builder.add(BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value(), "Budding Deepslate Emerald");
         builder.add(BlockRegistry.BUDDING_SCULK_EMERALD.value(), "Budding Sculk Emerald");
-        builder.add(BlockRegistry.EMERALD_CLUSTER_BLOCK.value(), "Emerald Cluster Block");
-        builder.add(BlockRegistry.EMERALD_CLUSTER.value(), "Emerald Cluster");
+        builder.add(BlockRegistry.EMERALD_CRYSTAL_BLOCK.value(), "Emerald Crystal Block");
+        builder.add(BlockRegistry.EMERALD_CRYSTAL.value(), "Emerald Crystal");
         builder.add(BlockRegistry.LARGE_EMERALD_BUD.value(), "Large Emerald Bud");
         builder.add(BlockRegistry.MEDIUM_EMERALD_BUD.value(), "Medium Emerald Bud");
         builder.add(BlockRegistry.SMALL_EMERALD_BUD.value(), "Small Emerald Bud");
@@ -88,20 +88,20 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value(), "Medium Nether Quartz Bud");
         builder.add(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value(), "Small Nether Quartz Bud");
 
-        builder.add(BlockRegistry.BUDDING_GOLD_NUGGET.value(), "Budding Gold Nugget");
-        builder.add(BlockRegistry.BUDDING_BASALT_GOLD_NUGGET.value(), "Budding Basalt Gold Nugget");
-        builder.add(BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value(), "Budding Blackstone Gold Nugget");
-        builder.add(BlockRegistry.GOLD_NUGGET_CLUSTER_BLOCK.value(), "Gold Nugget Cluster Block");
-        builder.add(BlockRegistry.GOLD_NUGGET_CLUSTER.value(), "Gold Nugget Cluster");
-        builder.add(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(), "Large Gold Nugget Bud");
-        builder.add(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(), "Medium Gold Nugget Bud");
-        builder.add(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(), "Small Gold Nugget Bud");
+        builder.add(BlockRegistry.BUDDING_NETHER_GOLD.value(), "Budding Nether Gold");
+        builder.add(BlockRegistry.BUDDING_BASALT_NETHER_GOLD.value(), "Budding Basalt Nether Gold");
+        builder.add(BlockRegistry.BUDDING_BLACKSTONE_NETHER_GOLD.value(), "Budding Blackstone Nether Gold");
+        builder.add(BlockRegistry.NETHER_GOLD_CRYSTAL_BLOCK.value(), "Nether Gold Crystal Block");
+        builder.add(BlockRegistry.NETHER_GOLD_CRYSTAL.value(), "Nether Gold Crystal");
+        builder.add(BlockRegistry.LARGE_NETHER_GOLD_BUD.value(), "Large Nether Gold Bud");
+        builder.add(BlockRegistry.MEDIUM_NETHER_GOLD_BUD.value(), "Medium Nether Gold Bud");
+        builder.add(BlockRegistry.SMALL_NETHER_GOLD_BUD.value(), "Small Nether Gold Bud");
 
         builder.add(BlockRegistry.BUDDING_GLOWSTONE.value(), "Budding Glowstone");
         builder.add(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value(), "Budding Basalt Glowstone");
         builder.add(BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value(), "Budding Blackstone Glowstone");
-        builder.add(BlockRegistry.GLOWSTONE_CLUSTER_BLOCK.value(), "Glowstone Cluster Block");
-        builder.add(BlockRegistry.GLOWSTONE_CLUSTER.value(), "Glowstone Cluster");
+        builder.add(BlockRegistry.GLOWSTONE_CRYSTAL_BLOCK.value(), "Glowstone Crystal Block");
+        builder.add(BlockRegistry.GLOWSTONE_CRYSTAL.value(), "Glowstone Crystal");
         builder.add(BlockRegistry.LARGE_GLOWSTONE_BUD.value(), "Large Glowstone Bud");
         builder.add(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(), "Medium Glowstone Bud");
         builder.add(BlockRegistry.SMALL_GLOWSTONE_BUD.value(), "Small Glowstone Bud");
@@ -109,8 +109,8 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.BUDDING_ANCIENT_DEBRIS.value(), "Budding Ancient Debris");
         builder.add(BlockRegistry.BUDDING_BASALT_ANCIENT_DEBRIS.value(), "Budding Basalt Ancient Debris");
         builder.add(BlockRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS.value(), "Budding Blackstone Ancient Debris");
-        builder.add(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value(), "Ancient Debris Cluster Block");
-        builder.add(BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value(), "Ancient Debris Cluster");
+        builder.add(BlockRegistry.ANCIENT_DEBRIS_CRYSTAL_BLOCK.value(), "Ancient Debris Crystal Block");
+        builder.add(BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value(), "Ancient Debris Crystal");
         builder.add(BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(), "Large Ancient Debris Bud");
         builder.add(BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(), "Medium Ancient Debris Bud");
         builder.add(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(), "Small Ancient Debris Bud");
@@ -134,7 +134,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE.value(), "Wrap Armor Trim Smithing Template");
         builder.add(ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE.value(), "Celeste Armor Trim Smithing Template");
         builder.add(ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value(), "Heart Armor Trim Smithing Template");
-        builder.add(ItemRegistry.PINK_TOPAZ.value(), "Pink Topaz");
+        builder.add(ItemRegistry.PINK_TOPAZ_SHARD.value(), "Pink Topaz Shard");
         builder.add(ItemRegistry.CELESTITE_SHARD.value(), "Celestite Shard");
         builder.add(ItemRegistry.WRAPPIST_SHARD.value(), "Wrappist Shard");
 

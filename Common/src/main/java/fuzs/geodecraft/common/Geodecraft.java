@@ -34,7 +34,7 @@ public class Geodecraft implements ModConstructor {
     private static void registerEventHandlers() {
         RegisterPotionBrewingMixesCallback.EVENT.register((RegisterPotionBrewingMixesCallback.Builder builder) -> {
             builder.registerStartPotionRecipe(ItemRegistry.CELESTITE_SHARD.value(), Potions.STRENGTH);
-            builder.registerStartPotionRecipe(ItemRegistry.PINK_TOPAZ.value(), Potions.LUCK);
+            builder.registerStartPotionRecipe(ItemRegistry.PINK_TOPAZ_SHARD.value(), Potions.LUCK);
             builder.registerStartPotionRecipe(ItemRegistry.WRAPPIST_SHARD.value(), PotionRegistry.HASTE);
             builder.registerPotionRecipe(PotionRegistry.HASTE, Items.REDSTONE, PotionRegistry.LONG_HASTE);
             builder.registerPotionRecipe(PotionRegistry.HASTE, Items.GLOWSTONE_DUST, PotionRegistry.STRONG_HASTE);

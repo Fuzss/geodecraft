@@ -23,7 +23,7 @@ public class ModRegistry {
                 output.accept(ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value());
                 output.accept(ItemRegistry.WRAPPIST_SHARD.value());
                 output.accept(ItemRegistry.CELESTITE_SHARD.value());
-                output.accept(ItemRegistry.PINK_TOPAZ.value());
+                output.accept(ItemRegistry.PINK_TOPAZ_SHARD.value());
 
                 output.accept(ItemRegistry.WRAPPIST_GLASS.value());
                 output.accept(ItemRegistry.CELESTITE_GLASS.value());
@@ -52,21 +52,21 @@ public class ModRegistry {
                 output.accept(ItemRegistry.MEDIUM_PINK_TOPAZ_BUD.value());
                 output.accept(ItemRegistry.SMALL_PINK_TOPAZ_BUD.value());
 
-                output.accept(ItemRegistry.PRISMARINE_CLUSTER_BLOCK.value());
+                output.accept(ItemRegistry.PRISMARINE_CRYSTAL_BLOCK.value());
                 output.accept(ItemRegistry.BUDDING_PRISMARINE.value());
-                output.accept(ItemRegistry.PRISMARINE_CLUSTER.value());
+                output.accept(ItemRegistry.PRISMARINE_CRYSTAL.value());
                 output.accept(ItemRegistry.LARGE_PRISMARINE_BUD.value());
                 output.accept(ItemRegistry.MEDIUM_PRISMARINE_BUD.value());
                 output.accept(ItemRegistry.SMALL_PRISMARINE_BUD.value());
 
-                output.accept(ItemRegistry.LAPIS_CLUSTER_BLOCK.value());
-                output.accept(ItemRegistry.BUDDING_LAPIS.value());
-                output.accept(ItemRegistry.BUDDING_DEEPSLATE_LAPIS.value());
-                output.accept(ItemRegistry.BUDDING_SCULK_LAPIS.value());
-                output.accept(ItemRegistry.LAPIS_CLUSTER.value());
-                output.accept(ItemRegistry.LARGE_LAPIS_BUD.value());
-                output.accept(ItemRegistry.MEDIUM_LAPIS_BUD.value());
-                output.accept(ItemRegistry.SMALL_LAPIS_BUD.value());
+                output.accept(ItemRegistry.LAPIS_LAZULI_CRYSTAL_BLOCK.value());
+                output.accept(ItemRegistry.BUDDING_LAPIS_LAZULI.value());
+                output.accept(ItemRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value());
+                output.accept(ItemRegistry.BUDDING_SCULK_LAPIS_LAZULI.value());
+                output.accept(ItemRegistry.LAPIS_LAZULI_CRYSTAL.value());
+                output.accept(ItemRegistry.LARGE_LAPIS_LAZULI_BUD.value());
+                output.accept(ItemRegistry.MEDIUM_LAPIS_LAZULI_BUD.value());
+                output.accept(ItemRegistry.SMALL_LAPIS_LAZULI_BUD.value());
 
                 output.accept(ItemRegistry.REDSTONE_CRYSTAL_BLOCK.value());
                 output.accept(ItemRegistry.BUDDING_REDSTONE.value());
@@ -77,11 +77,11 @@ public class ModRegistry {
                 output.accept(ItemRegistry.MEDIUM_REDSTONE_BUD.value());
                 output.accept(ItemRegistry.SMALL_REDSTONE_BUD.value());
 
-                output.accept(ItemRegistry.EMERALD_CLUSTER_BLOCK.value());
+                output.accept(ItemRegistry.EMERALD_CRYSTAL_BLOCK.value());
                 output.accept(ItemRegistry.BUDDING_EMERALD.value());
                 output.accept(ItemRegistry.BUDDING_DEEPSLATE_EMERALD.value());
                 output.accept(ItemRegistry.BUDDING_SCULK_EMERALD.value());
-                output.accept(ItemRegistry.EMERALD_CLUSTER.value());
+                output.accept(ItemRegistry.EMERALD_CRYSTAL.value());
                 output.accept(ItemRegistry.LARGE_EMERALD_BUD.value());
                 output.accept(ItemRegistry.MEDIUM_EMERALD_BUD.value());
                 output.accept(ItemRegistry.SMALL_EMERALD_BUD.value());
@@ -95,38 +95,38 @@ public class ModRegistry {
                 output.accept(ItemRegistry.MEDIUM_DIAMOND_BUD.value());
                 output.accept(ItemRegistry.SMALL_DIAMOND_BUD.value());
 
-                output.accept(ItemRegistry.QUARTZ_CRYSTAL_BLOCK.value());
+                output.accept(ItemRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK.value());
                 output.accept(ItemRegistry.BUDDING_NETHER_QUARTZ.value());
-                output.accept(ItemRegistry.BUDDING_BASALT_QUARTZ.value());
-                output.accept(ItemRegistry.BUDDING_BLACKSTONE_QUARTZ.value());
-                output.accept(ItemRegistry.QUARTZ_CRYSTAL.value());
-                output.accept(ItemRegistry.LARGE_QUARTZ_BUD.value());
-                output.accept(ItemRegistry.MEDIUM_QUARTZ_BUD.value());
-                output.accept(ItemRegistry.SMALL_QUARTZ_BUD.value());
+                output.accept(ItemRegistry.BUDDING_BASALT_NETHER_QUARTZ.value());
+                output.accept(ItemRegistry.BUDDING_BLACKSTONE_NETHER_QUARTZ.value());
+                output.accept(ItemRegistry.NETHER_QUARTZ_CRYSTAL.value());
+                output.accept(ItemRegistry.LARGE_NETHER_QUARTZ_BUD.value());
+                output.accept(ItemRegistry.MEDIUM_NETHER_QUARTZ_BUD.value());
+                output.accept(ItemRegistry.SMALL_NETHER_QUARTZ_BUD.value());
 
-                output.accept(ItemRegistry.GOLD_NUGGET_CLUSTER_BLOCK.value());
-                output.accept(ItemRegistry.BUDDING_GOLD_NUGGET.value());
-                output.accept(ItemRegistry.BUDDING_BASALT_GOLD_NUGGET.value());
-                output.accept(ItemRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value());
-                output.accept(ItemRegistry.GOLD_NUGGET_CLUSTER.value());
-                output.accept(ItemRegistry.LARGE_GOLD_NUGGET_BUD.value());
-                output.accept(ItemRegistry.MEDIUM_GOLD_NUGGET_BUD.value());
-                output.accept(ItemRegistry.SMALL_GOLD_NUGGET_BUD.value());
+                output.accept(ItemRegistry.NETHER_GOLD_CRYSTAL_BLOCK.value());
+                output.accept(ItemRegistry.BUDDING_NETHER_GOLD.value());
+                output.accept(ItemRegistry.BUDDING_BASALT_NETHER_GOLD.value());
+                output.accept(ItemRegistry.BUDDING_BLACKSTONE_NETHER_GOLD.value());
+                output.accept(ItemRegistry.NETHER_GOLD_CRYSTAL.value());
+                output.accept(ItemRegistry.LARGE_NETHER_GOLD_BUD.value());
+                output.accept(ItemRegistry.MEDIUM_NETHER_GOLD_BUD.value());
+                output.accept(ItemRegistry.SMALL_NETHER_GOLD_BUD.value());
 
-                output.accept(ItemRegistry.GLOWSTONE_CLUSTER_BLOCK.value());
+                output.accept(ItemRegistry.GLOWSTONE_CRYSTAL_BLOCK.value());
                 output.accept(ItemRegistry.BUDDING_GLOWSTONE.value());
                 output.accept(ItemRegistry.BUDDING_BASALT_GLOWSTONE.value());
                 output.accept(ItemRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value());
-                output.accept(ItemRegistry.GLOWSTONE_CLUSTER.value());
+                output.accept(ItemRegistry.GLOWSTONE_CRYSTAL.value());
                 output.accept(ItemRegistry.LARGE_GLOWSTONE_BUD.value());
                 output.accept(ItemRegistry.MEDIUM_GLOWSTONE_BUD.value());
                 output.accept(ItemRegistry.SMALL_GLOWSTONE_BUD.value());
 
-                output.accept(ItemRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
+                output.accept(ItemRegistry.ANCIENT_DEBRIS_CRYSTAL_BLOCK.value());
                 output.accept(ItemRegistry.BUDDING_ANCIENT_DEBRIS.value());
                 output.accept(ItemRegistry.BUDDING_BASALT_ANCIENT_DEBRIS.value());
                 output.accept(ItemRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS.value());
-                output.accept(ItemRegistry.ANCIENT_DEBRIS_CLUSTER.value());
+                output.accept(ItemRegistry.ANCIENT_DEBRIS_CRYSTAL.value());
                 output.accept(ItemRegistry.LARGE_ANCIENT_DEBRIS_BUD.value());
                 output.accept(ItemRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value());
                 output.accept(ItemRegistry.SMALL_ANCIENT_DEBRIS_BUD.value());

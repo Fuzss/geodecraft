@@ -104,12 +104,12 @@ public class BlockRegistry {
             Block::new,
             () -> clusterBlockProperties(MapColor.COLOR_LIGHT_BLUE));
 
-    public static final Holder.Reference<Block> PRISMARINE_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "prismarine_cluster_block",
+    public static final Holder.Reference<Block> PRISMARINE_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "prismarine_crystal_block",
             Block::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_CYAN).strength(4.0F).sound(SoundType.STONE));
-    public static final Holder.Reference<Block> PRISMARINE_CLUSTER = ModRegistry.REGISTRY.registerBlock(
-            "prismarine_cluster",
+    public static final Holder.Reference<Block> PRISMARINE_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
+            "prismarine_crystal",
             (BlockBehaviour.Properties properties) -> {
                 return new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
                         DropExperienceClusterBlock.CLUSTER_OFFSET,
@@ -126,7 +126,7 @@ public class BlockRegistry {
                         DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
                         properties);
             },
-            () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CLUSTER.value()).lightLevel((BlockState state) -> 2));
+            () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CRYSTAL.value()).lightLevel((BlockState state) -> 2));
     public static final Holder.Reference<Block> MEDIUM_PRISMARINE_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_prismarine_bud",
             (BlockBehaviour.Properties properties) -> {
@@ -134,7 +134,7 @@ public class BlockRegistry {
                         DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
                         properties);
             },
-            () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CLUSTER.value()).lightLevel((BlockState state) -> 1));
+            () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CRYSTAL.value()).lightLevel((BlockState state) -> 1));
     public static final Holder.Reference<Block> SMALL_PRISMARINE_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_prismarine_bud",
             (BlockBehaviour.Properties properties) -> {
@@ -142,7 +142,7 @@ public class BlockRegistry {
                         DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
                         properties);
             },
-            () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CLUSTER.value()));
+            () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CRYSTAL.value()));
 
     public static final Holder.Reference<Block> BUDDING_PRISMARINE = ModRegistry.REGISTRY.registerBlock(
             "budding_prismarine",
@@ -154,8 +154,8 @@ public class BlockRegistry {
                     .sound(SoundType.AMETHYST)
                     .requiresCorrectToolForDrops());
 
-    public static final Holder.Reference<Block> LAPIS_LAZULI_CLUSTER = ModRegistry.REGISTRY.registerBlock(
-            "lapis_lazuli_cluster",
+    public static final Holder.Reference<Block> LAPIS_LAZULI_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
+            "lapis_lazuli_crystal",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(2, 5),
                     properties),
             () -> BlockBehaviour.Properties.of()
@@ -169,20 +169,20 @@ public class BlockRegistry {
     public static final Holder.Reference<Block> LARGE_LAPIS_LAZULI_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_lapis_lazuli_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.large(UniformInt.of(1, 4), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CRYSTAL.value())
                     .sound(SoundType.AMETHYST)
                     .lightLevel((BlockState state) -> 2));
     public static final Holder.Reference<Block> MEDIUM_LAPIS_LAZULI_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_lapis_lazuli_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.medium(UniformInt.of(0, 3),
                     properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CRYSTAL.value())
                     .sound(SoundType.AMETHYST)
                     .lightLevel((BlockState state) -> 1));
     public static final Holder.Reference<Block> SMALL_LAPIS_LAZULI_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_lapis_lazuli_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 2), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CLUSTER.value()).sound(SoundType.AMETHYST));
+            () -> BlockBehaviour.Properties.ofFullCopy(LAPIS_LAZULI_CRYSTAL.value()).sound(SoundType.AMETHYST));
 
     public static final Holder.Reference<Block> BUDDING_LAPIS_LAZULI = ModRegistry.REGISTRY.registerBlock(
             "budding_lapis_lazuli",
@@ -211,8 +211,8 @@ public class BlockRegistry {
                     .strength(3.0F)
                     .sound(SoundType.SCULK)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> LAPIS_LAZULI_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "lapis_lazuli_cluster_block",
+    public static final Holder.Reference<Block> LAPIS_LAZULI_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "lapis_lazuli_crystal_block",
             Block::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).strength(4.0F).sound(SoundType.STONE));
 
@@ -286,7 +286,7 @@ public class BlockRegistry {
             Block::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED).strength(4.0F).sound(SoundType.STONE));
 
-    public static final Holder.Reference<Block> EMERALD_CLUSTER = ModRegistry.REGISTRY.registerBlock("emerald_cluster",
+    public static final Holder.Reference<Block> EMERALD_CRYSTAL = ModRegistry.REGISTRY.registerBlock("emerald_crystal",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(3, 7),
                     properties),
             () -> BlockBehaviour.Properties.of()
@@ -300,20 +300,20 @@ public class BlockRegistry {
     public static final Holder.Reference<Block> LARGE_EMERALD_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_emerald_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.large(UniformInt.of(2, 6), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(EMERALD_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(EMERALD_CRYSTAL.value())
                     .sound(SoundType.AMETHYST)
                     .lightLevel((BlockState state) -> 2));
     public static final Holder.Reference<Block> MEDIUM_EMERALD_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_emerald_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.medium(UniformInt.of(1, 5),
                     properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(EMERALD_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(EMERALD_CRYSTAL.value())
                     .sound(SoundType.AMETHYST)
                     .lightLevel((BlockState state) -> 1));
     public static final Holder.Reference<Block> SMALL_EMERALD_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_emerald_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 4), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(EMERALD_CLUSTER.value()).sound(SoundType.AMETHYST));
+            () -> BlockBehaviour.Properties.ofFullCopy(EMERALD_CRYSTAL.value()).sound(SoundType.AMETHYST));
 
     public static final Holder.Reference<Block> BUDDING_EMERALD = ModRegistry.REGISTRY.registerBlock("budding_emerald",
             BuddingDropExperienceBlock::emerald,
@@ -341,8 +341,8 @@ public class BlockRegistry {
                     .strength(3.0F)
                     .sound(SoundType.SCULK)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> EMERALD_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "emerald_cluster_block",
+    public static final Holder.Reference<Block> EMERALD_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "emerald_crystal_block",
             Block::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.EMERALD).strength(4.0F).sound(SoundType.STONE));
 
@@ -470,8 +470,8 @@ public class BlockRegistry {
             Block::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).strength(3.0F).sound(SoundType.STONE));
 
-    public static final Holder.Reference<Block> GOLD_NUGGET_CLUSTER = ModRegistry.REGISTRY.registerBlock(
-            "gold_nugget_cluster",
+    public static final Holder.Reference<Block> NETHER_GOLD_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
+            "nether_gold_crystal",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.cluster(UniformInt.of(0, 1),
                     properties),
             () -> BlockBehaviour.Properties.of()
@@ -482,26 +482,26 @@ public class BlockRegistry {
                     .sound(SoundType.NETHER_GOLD_ORE)
                     .strength(3.0F)
                     .lightLevel((BlockState state) -> 8));
-    public static final Holder.Reference<Block> LARGE_GOLD_NUGGET_BUD = ModRegistry.REGISTRY.registerBlock(
-            "large_gold_nugget_bud",
+    public static final Holder.Reference<Block> LARGE_NETHER_GOLD_BUD = ModRegistry.REGISTRY.registerBlock(
+            "large_nether_gold_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.large(UniformInt.of(0, 1), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(GOLD_NUGGET_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(NETHER_GOLD_CRYSTAL.value())
                     .sound(SoundType.NETHER_GOLD_ORE)
                     .lightLevel((BlockState state) -> 2));
-    public static final Holder.Reference<Block> MEDIUM_GOLD_NUGGET_BUD = ModRegistry.REGISTRY.registerBlock(
-            "medium_gold_nugget_bud",
+    public static final Holder.Reference<Block> MEDIUM_NETHER_GOLD_BUD = ModRegistry.REGISTRY.registerBlock(
+            "medium_nether_gold_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.medium(UniformInt.of(0, 1),
                     properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(GOLD_NUGGET_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(NETHER_GOLD_CRYSTAL.value())
                     .sound(SoundType.NETHER_GOLD_ORE)
                     .lightLevel((BlockState state) -> 1));
-    public static final Holder.Reference<Block> SMALL_GOLD_NUGGET_BUD = ModRegistry.REGISTRY.registerBlock(
-            "small_gold_nugget_bud",
+    public static final Holder.Reference<Block> SMALL_NETHER_GOLD_BUD = ModRegistry.REGISTRY.registerBlock(
+            "small_nether_gold_bud",
             (BlockBehaviour.Properties properties) -> DropExperienceClusterBlock.small(UniformInt.of(0, 1), properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(GOLD_NUGGET_CLUSTER.value()).sound(SoundType.NETHER_GOLD_ORE));
+            () -> BlockBehaviour.Properties.ofFullCopy(NETHER_GOLD_CRYSTAL.value()).sound(SoundType.NETHER_GOLD_ORE));
 
-    public static final Holder.Reference<Block> BUDDING_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
-            "budding_gold_nugget",
+    public static final Holder.Reference<Block> BUDDING_NETHER_GOLD = ModRegistry.REGISTRY.registerBlock(
+            "budding_nether_gold",
             BuddingDropExperienceBlock::goldNugget,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.NETHER)
@@ -509,8 +509,8 @@ public class BlockRegistry {
                     .strength(3.0F)
                     .sound(SoundType.NETHER_GOLD_ORE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_BASALT_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
-            "budding_basalt_gold_nugget",
+    public static final Holder.Reference<Block> BUDDING_BASALT_NETHER_GOLD = ModRegistry.REGISTRY.registerBlock(
+            "budding_basalt_nether_gold",
             BuddingDropExperienceBlock::goldNugget,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
@@ -518,8 +518,8 @@ public class BlockRegistry {
                     .strength(3.0F)
                     .sound(SoundType.NETHER_GOLD_ORE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_GOLD_NUGGET = ModRegistry.REGISTRY.registerBlock(
-            "budding_blackstone_gold_nugget",
+    public static final Holder.Reference<Block> BUDDING_BLACKSTONE_NETHER_GOLD = ModRegistry.REGISTRY.registerBlock(
+            "budding_blackstone_nether_gold",
             BuddingDropExperienceBlock::goldNugget,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BLACK)
@@ -527,13 +527,13 @@ public class BlockRegistry {
                     .strength(3.0F)
                     .sound(SoundType.NETHER_GOLD_ORE)
                     .requiresCorrectToolForDrops());
-    public static final Holder.Reference<Block> GOLD_NUGGET_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "gold_nugget_cluster_block",
+    public static final Holder.Reference<Block> NETHER_GOLD_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "nether_gold_crystal_block",
             Block::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(4.0F).sound(SoundType.STONE));
 
-    public static final Holder.Reference<Block> GLOWSTONE_CLUSTER = ModRegistry.REGISTRY.registerBlock(
-            "glowstone_cluster",
+    public static final Holder.Reference<Block> GLOWSTONE_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
+            "glowstone_crystal",
             (BlockBehaviour.Properties properties) -> {
                 return new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
                         DropExperienceClusterBlock.CLUSTER_OFFSET,
@@ -551,7 +551,7 @@ public class BlockRegistry {
                         DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
                         properties);
             },
-            () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CLUSTER.value()).lightLevel((BlockState state) -> 13));
+            () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CRYSTAL.value()).lightLevel((BlockState state) -> 13));
     public static final Holder.Reference<Block> MEDIUM_GLOWSTONE_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_glowstone_bud",
             (BlockBehaviour.Properties properties) -> {
@@ -559,7 +559,7 @@ public class BlockRegistry {
                         DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
                         properties);
             },
-            () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CLUSTER.value()).lightLevel((BlockState state) -> 11));
+            () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CRYSTAL.value()).lightLevel((BlockState state) -> 11));
     public static final Holder.Reference<Block> SMALL_GLOWSTONE_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_glowstone_bud",
             (BlockBehaviour.Properties properties) -> {
@@ -567,7 +567,7 @@ public class BlockRegistry {
                         DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
                         properties);
             },
-            () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CLUSTER.value()).lightLevel((BlockState state) -> 9));
+            () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CRYSTAL.value()).lightLevel((BlockState state) -> 9));
 
     public static final Holder.Reference<Block> BUDDING_GLOWSTONE = ModRegistry.REGISTRY.registerBlock(
             "budding_glowstone",
@@ -599,8 +599,8 @@ public class BlockRegistry {
                     .sound(SoundType.GLASS)
                     .requiresCorrectToolForDrops()
                     .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> GLOWSTONE_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "glowstone_cluster_block",
+    public static final Holder.Reference<Block> GLOWSTONE_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "glowstone_crystal_block",
             Block::new,
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.SAND)
@@ -608,8 +608,8 @@ public class BlockRegistry {
                     .sound(SoundType.GLASS)
                     .lightLevel((BlockState state) -> 15));
 
-    public static final Holder.Reference<Block> ANCIENT_DEBRIS_CLUSTER = ModRegistry.REGISTRY.registerBlock(
-            "ancient_debris_cluster",
+    public static final Holder.Reference<Block> ANCIENT_DEBRIS_CRYSTAL = ModRegistry.REGISTRY.registerBlock(
+            "ancient_debris_crystal",
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
                     DropExperienceClusterBlock.CLUSTER_OFFSET,
                     properties),
@@ -626,7 +626,7 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.LARGE_CLUSTER_HEIGHT,
                     DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
                     properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CRYSTAL.value())
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .lightLevel((BlockState state) -> 5));
     public static final Holder.Reference<Block> MEDIUM_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRY.registerBlock(
@@ -634,7 +634,7 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.MEDIUM_CLUSTER_HEIGHT,
                     DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
                     properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CRYSTAL.value())
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .lightLevel((BlockState state) -> 3));
     public static final Holder.Reference<Block> SMALL_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRY.registerBlock(
@@ -642,7 +642,7 @@ public class BlockRegistry {
             (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.SMALL_CLUSTER_HEIGHT,
                     DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
                     properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CLUSTER.value())
+            () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CRYSTAL.value())
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .lightLevel((BlockState state) -> 2));
 
@@ -676,8 +676,8 @@ public class BlockRegistry {
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .requiresCorrectToolForDrops()
                     .lightLevel((BlockState state) -> 10));
-    public static final Holder.Reference<Block> ANCIENT_DEBRIS_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
-            "ancient_debris_cluster_block",
+    public static final Holder.Reference<Block> ANCIENT_DEBRIS_CRYSTAL_BLOCK = ModRegistry.REGISTRY.registerBlock(
+            "ancient_debris_crystal_block",
             Block::new,
             () -> BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BROWN).strength(4.0F).sound(SoundType.STONE));
 
@@ -744,17 +744,21 @@ public class BlockRegistry {
                     .noOcclusion()
                     .lightLevel((BlockState state) -> 8));
 
-    public static final Holder.Reference<Block> WRAPPIST_GLASS = ModRegistry.REGISTRY.registerBlock("wrappist_glass",
-            TransparentBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS)
-                    .explosionResistance(100.0F)
-                    .mapColor(MapColor.COLOR_LIGHT_BLUE));
     public static final Holder.Reference<Block> CELESTITE_GLASS = ModRegistry.REGISTRY.registerBlock("celestite_glass",
             TransparentBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).mapColor(MapColor.COLOR_CYAN));
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS)
+                    .mapColor(MapColor.COLOR_CYAN)
+                    .lightLevel((BlockState state) -> 15));
     public static final Holder.Reference<Block> PINK_TOPAZ_GLASS = ModRegistry.REGISTRY.registerBlock("pink_topaz_glass",
             TransparentBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS).mapColor(MapColor.COLOR_PINK));
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS)
+                    .mapColor(MapColor.COLOR_PINK)
+                    .lightLevel((BlockState state) -> 15));
+    public static final Holder.Reference<Block> WRAPPIST_GLASS = ModRegistry.REGISTRY.registerBlock("wrappist_glass",
+            TransparentBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.TINTED_GLASS)
+                    .mapColor(MapColor.COLOR_LIGHT_BLUE)
+                    .lightLevel((BlockState state) -> 15));
 
     public static void bootstrap() {
         // NO-OP

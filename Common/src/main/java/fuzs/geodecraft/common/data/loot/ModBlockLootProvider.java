@@ -40,18 +40,18 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropSelf(BlockRegistry.CELESTITE_GLASS.value());
         this.dropSelf(BlockRegistry.PINK_TOPAZ_GLASS.value());
 
-        this.dropSelf(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
+        this.dropSelf(BlockRegistry.ANCIENT_DEBRIS_CRYSTAL_BLOCK.value());
         this.dropSelf(BlockRegistry.DIAMOND_CRYSTAL_BLOCK.value());
-        this.dropSelf(BlockRegistry.EMERALD_CLUSTER_BLOCK.value());
-        this.dropSelf(BlockRegistry.LAPIS_LAZULI_CLUSTER_BLOCK.value());
+        this.dropSelf(BlockRegistry.EMERALD_CRYSTAL_BLOCK.value());
+        this.dropSelf(BlockRegistry.LAPIS_LAZULI_CRYSTAL_BLOCK.value());
         this.dropSelf(BlockRegistry.REDSTONE_CRYSTAL_BLOCK.value());
         this.dropSelf(BlockRegistry.CELESTITE_BLOCK.value());
         this.dropSelf(BlockRegistry.PINK_TOPAZ_BLOCK.value());
         this.dropSelf(BlockRegistry.WRAPPIST_BLOCK.value());
         this.dropSelf(BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK.value());
-        this.dropSelf(BlockRegistry.GOLD_NUGGET_CLUSTER_BLOCK.value());
-        this.dropSelf(BlockRegistry.GLOWSTONE_CLUSTER_BLOCK.value());
-        this.dropSelf(BlockRegistry.PRISMARINE_CLUSTER_BLOCK.value());
+        this.dropSelf(BlockRegistry.NETHER_GOLD_CRYSTAL_BLOCK.value());
+        this.dropSelf(BlockRegistry.GLOWSTONE_CRYSTAL_BLOCK.value());
+        this.dropSelf(BlockRegistry.PRISMARINE_CRYSTAL_BLOCK.value());
         this.dropSelf(BlockRegistry.ECHO_CRYSTAL_BLOCK.value());
 
         this.add(BlockRegistry.SMOOTH_END_STONE.value(),
@@ -62,7 +62,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.add(BlockRegistry.ECHO_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.ECHO_SHARD, 4.0F, 2.0F, context);
         });
-        this.add(BlockRegistry.GOLD_NUGGET_CLUSTER.value(), (Block block) -> {
+        this.add(BlockRegistry.NETHER_GOLD_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.GOLD_NUGGET, 4.0F, 2.0F, context);
         });
         this.add(BlockRegistry.NETHER_QUARTZ_CRYSTAL.value(), (Block block) -> {
@@ -71,39 +71,39 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.add(BlockRegistry.WRAPPIST_CLUSTER.value(), (Block block) -> {
             return this.createClusterDrops(block, ItemRegistry.WRAPPIST_SHARD.value(), 2.0F, 1.0F, context);
         });
-        this.add(BlockRegistry.GLOWSTONE_CLUSTER.value(), (Block block) -> {
+        this.add(BlockRegistry.GLOWSTONE_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.GLOWSTONE_DUST, 3.0F, 2.0F, context);
         });
-        this.add(BlockRegistry.LAPIS_LAZULI_CLUSTER.value(), (Block block) -> {
+        this.add(BlockRegistry.LAPIS_LAZULI_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.LAPIS_LAZULI, 3.0F, 1.0F, context);
         });
         this.add(BlockRegistry.REDSTONE_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.REDSTONE, 6.0F, 3.0F, context);
         });
-        this.add(BlockRegistry.EMERALD_CLUSTER.value(), (Block block) -> {
+        this.add(BlockRegistry.EMERALD_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.EMERALD, 1.0F, 1.0F, context);
         });
         this.add(BlockRegistry.DIAMOND_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.DIAMOND, 2.0F, 1.0F, context);
         });
-        this.add(BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value(), (Block block) -> {
+        this.add(BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.NETHERITE_SCRAP, 2.0F, 1.0F, context);
         });
-        this.add(BlockRegistry.PRISMARINE_CLUSTER.value(), (Block block) -> {
+        this.add(BlockRegistry.PRISMARINE_CRYSTAL.value(), (Block block) -> {
             return this.createClusterDrops(block, Items.PRISMARINE_SHARD, 4.0F, 1.0F, context);
         });
         this.add(BlockRegistry.CELESTITE_CLUSTER.value(), (Block block) -> {
             return this.createClusterDrops(block, ItemRegistry.CELESTITE_SHARD.value(), 4.0F, 2.0F, context);
         });
         this.add(BlockRegistry.PINK_TOPAZ_CLUSTER.value(), (Block block) -> {
-            return this.createClusterDrops(block, ItemRegistry.PINK_TOPAZ.value(), 4.0F, 2.0F, context);
+            return this.createClusterDrops(block, ItemRegistry.PINK_TOPAZ_SHARD.value(), 4.0F, 2.0F, context);
         });
 
         this.dropWhenSilkTouch(BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_ECHO_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_WRAPPIST_BUD.value());
-        this.dropWhenSilkTouch(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.LARGE_NETHER_GOLD_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_REDSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.LARGE_EMERALD_BUD.value());
@@ -117,7 +117,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_ECHO_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_WRAPPIST_BUD.value());
-        this.dropWhenSilkTouch(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.MEDIUM_NETHER_GOLD_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_REDSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.MEDIUM_EMERALD_BUD.value());
@@ -131,7 +131,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.dropWhenSilkTouch(BlockRegistry.SMALL_ECHO_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_GLOWSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_WRAPPIST_BUD.value());
-        this.dropWhenSilkTouch(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value());
+        this.dropWhenSilkTouch(BlockRegistry.SMALL_NETHER_GOLD_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_REDSTONE_BUD.value());
         this.dropWhenSilkTouch(BlockRegistry.SMALL_EMERALD_BUD.value());
@@ -153,9 +153,9 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         dropBlock.accept(BlockRegistry.BUDDING_GLOWSTONE.value());
         dropBlock.accept(BlockRegistry.BUDDING_NETHER_QUARTZ.value());
         dropBlock.accept(BlockRegistry.BUDDING_WRAPPIST.value());
-        dropBlock.accept(BlockRegistry.BUDDING_GOLD_NUGGET.value());
-        dropBlock.accept(BlockRegistry.BUDDING_BASALT_GOLD_NUGGET.value());
-        dropBlock.accept(BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value());
+        dropBlock.accept(BlockRegistry.BUDDING_NETHER_GOLD.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BASALT_NETHER_GOLD.value());
+        dropBlock.accept(BlockRegistry.BUDDING_BLACKSTONE_NETHER_GOLD.value());
         dropBlock.accept(BlockRegistry.BUDDING_LAPIS_LAZULI.value());
         dropBlock.accept(BlockRegistry.BUDDING_REDSTONE.value());
         dropBlock.accept(BlockRegistry.BUDDING_EMERALD.value());

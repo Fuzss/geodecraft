@@ -32,7 +32,7 @@ public class TrimMaterialRegistry {
                 0.8F);
         AbstractDatapackRegistriesProvider.registerTrimMaterial(context,
                 PINK_TOPAZ,
-                ItemRegistry.PINK_TOPAZ.value(),
+                ItemRegistry.PINK_TOPAZ_SHARD.value(),
                 0XFBB7E7,
                 0.1F);
     }

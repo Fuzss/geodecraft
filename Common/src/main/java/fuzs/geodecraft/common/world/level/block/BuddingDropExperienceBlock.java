@@ -37,17 +37,17 @@ public class BuddingDropExperienceBlock extends BuddingBlock {
         return new BuddingDropExperienceBlock(BlockRegistry.SMALL_EMERALD_BUD,
                 BlockRegistry.MEDIUM_EMERALD_BUD,
                 BlockRegistry.LARGE_EMERALD_BUD,
-                BlockRegistry.EMERALD_CLUSTER,
+                BlockRegistry.EMERALD_CRYSTAL,
                 10,
                 UniformInt.of(3, 7),
                 properties);
     }
 
     public static Block goldNugget(Properties properties) {
-        return new BuddingDropExperienceBlock(BlockRegistry.SMALL_GOLD_NUGGET_BUD,
-                BlockRegistry.MEDIUM_GOLD_NUGGET_BUD,
-                BlockRegistry.LARGE_GOLD_NUGGET_BUD,
-                BlockRegistry.GOLD_NUGGET_CLUSTER,
+        return new BuddingDropExperienceBlock(BlockRegistry.SMALL_NETHER_GOLD_BUD,
+                BlockRegistry.MEDIUM_NETHER_GOLD_BUD,
+                BlockRegistry.LARGE_NETHER_GOLD_BUD,
+                BlockRegistry.NETHER_GOLD_CRYSTAL,
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 UniformInt.of(0, 1),
                 properties);
@@ -57,7 +57,7 @@ public class BuddingDropExperienceBlock extends BuddingBlock {
         return new BuddingDropExperienceBlock(BlockRegistry.SMALL_LAPIS_LAZULI_BUD,
                 BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD,
                 BlockRegistry.LARGE_LAPIS_LAZULI_BUD,
-                BlockRegistry.LAPIS_LAZULI_CLUSTER,
+                BlockRegistry.LAPIS_LAZULI_CRYSTAL,
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 UniformInt.of(2, 5),
                 properties);

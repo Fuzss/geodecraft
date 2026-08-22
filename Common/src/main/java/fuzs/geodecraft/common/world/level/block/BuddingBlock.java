@@ -38,7 +38,7 @@ public class BuddingBlock extends BuddingAmethystBlock {
         return new BuddingBlock(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD,
                 BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD,
                 BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD,
-                BlockRegistry.ANCIENT_DEBRIS_CLUSTER,
+                BlockRegistry.ANCIENT_DEBRIS_CRYSTAL,
                 20,
                 properties);
     }
@@ -47,7 +47,7 @@ public class BuddingBlock extends BuddingAmethystBlock {
         return new BuddingBlock(BlockRegistry.SMALL_GLOWSTONE_BUD,
                 BlockRegistry.MEDIUM_GLOWSTONE_BUD,
                 BlockRegistry.LARGE_GLOWSTONE_BUD,
-                BlockRegistry.GLOWSTONE_CLUSTER,
+                BlockRegistry.GLOWSTONE_CRYSTAL,
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 properties);
     }
@@ -56,7 +56,7 @@ public class BuddingBlock extends BuddingAmethystBlock {
         return new BuddingBlock(BlockRegistry.SMALL_PRISMARINE_BUD,
                 BlockRegistry.MEDIUM_PRISMARINE_BUD,
                 BlockRegistry.LARGE_PRISMARINE_BUD,
-                BlockRegistry.PRISMARINE_CLUSTER,
+                BlockRegistry.PRISMARINE_CRYSTAL,
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 properties);
     }

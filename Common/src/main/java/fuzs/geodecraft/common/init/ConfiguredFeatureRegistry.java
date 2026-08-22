@@ -100,15 +100,15 @@ public class ConfiguredFeatureRegistry {
                 CaveSurface.FLOOR);
         registerCrystalSpike(context,
                 GLOWSTONE_CRYSTAL_SPIKE,
-                BlockRegistry.GLOWSTONE_CLUSTER_BLOCK.value(),
-                BlockRegistry.GLOWSTONE_CLUSTER.value(),
+                BlockRegistry.GLOWSTONE_CRYSTAL_BLOCK.value(),
+                BlockRegistry.GLOWSTONE_CRYSTAL.value(),
                 Blocks.BLACKSTONE,
                 TagRegistry.Blocks.GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON,
                 CaveSurface.CEILING);
         registerCrystalSpike(context,
                 GLOWSTONE_CRYSTAL_SPIKE_FLOOR,
-                BlockRegistry.GLOWSTONE_CLUSTER_BLOCK.value(),
-                BlockRegistry.GLOWSTONE_CLUSTER.value(),
+                BlockRegistry.GLOWSTONE_CRYSTAL_BLOCK.value(),
+                BlockRegistry.GLOWSTONE_CRYSTAL.value(),
                 Blocks.BLACKSTONE,
                 TagRegistry.Blocks.GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON,
                 CaveSurface.FLOOR);
@@ -135,8 +135,8 @@ public class ConfiguredFeatureRegistry {
                 CaveSurface.FLOOR);
         registerCrystalSpike(context,
                 PRISMARINE_CRYSTAL_SPIKE,
-                BlockRegistry.PRISMARINE_CLUSTER_BLOCK.value(),
-                BlockRegistry.PRISMARINE_CLUSTER.value(),
+                BlockRegistry.PRISMARINE_CRYSTAL_BLOCK.value(),
+                BlockRegistry.PRISMARINE_CRYSTAL.value(),
                 Blocks.PRISMARINE,
                 TagRegistry.Blocks.PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON,
                 CaveSurface.FLOOR);
@@ -147,7 +147,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(),
                         BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(),
                         BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(),
-                        BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value()));
+                        BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value()));
         registerGeode(context,
                 BASALT_ANCIENT_DEBRIS_GEODE,
                 BlockRegistry.BUDDING_BASALT_ANCIENT_DEBRIS.value(),
@@ -155,7 +155,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(),
                         BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(),
                         BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(),
-                        BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value()));
+                        BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value()));
         registerGeode(context,
                 BLACKSTONE_ANCIENT_DEBRIS_GEODE,
                 BlockRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS.value(),
@@ -163,7 +163,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(),
                         BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(),
                         BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(),
-                        BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value()));
+                        BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value()));
         registerGeode(context,
                 GLOWSTONE_GEODE,
                 BlockRegistry.BUDDING_GLOWSTONE.value(),
@@ -171,7 +171,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_GLOWSTONE_BUD.value(),
                         BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(),
                         BlockRegistry.LARGE_GLOWSTONE_BUD.value(),
-                        BlockRegistry.GLOWSTONE_CLUSTER.value()));
+                        BlockRegistry.GLOWSTONE_CRYSTAL.value()));
         registerGeode(context,
                 BASALT_GLOWSTONE_GEODE,
                 BlockRegistry.BUDDING_BASALT_GLOWSTONE.value(),
@@ -179,7 +179,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_GLOWSTONE_BUD.value(),
                         BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(),
                         BlockRegistry.LARGE_GLOWSTONE_BUD.value(),
-                        BlockRegistry.GLOWSTONE_CLUSTER.value()));
+                        BlockRegistry.GLOWSTONE_CRYSTAL.value()));
         registerGeode(context,
                 BLACKSTONE_GLOWSTONE_GEODE,
                 BlockRegistry.BUDDING_BLACKSTONE_GLOWSTONE.value(),
@@ -187,31 +187,31 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_GLOWSTONE_BUD.value(),
                         BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(),
                         BlockRegistry.LARGE_GLOWSTONE_BUD.value(),
-                        BlockRegistry.GLOWSTONE_CLUSTER.value()));
+                        BlockRegistry.GLOWSTONE_CRYSTAL.value()));
         registerGeode(context,
                 GOLD_NUGGET_GEODE,
-                BlockRegistry.BUDDING_GOLD_NUGGET.value(),
+                BlockRegistry.BUDDING_NETHER_GOLD.value(),
                 Blocks.NETHERRACK,
-                List.of(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.GOLD_NUGGET_CLUSTER.value()));
+                List.of(BlockRegistry.SMALL_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.MEDIUM_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.LARGE_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.NETHER_GOLD_CRYSTAL.value()));
         registerGeode(context,
                 BASALT_GOLD_NUGGET_GEODE,
-                BlockRegistry.BUDDING_BASALT_GOLD_NUGGET.value(),
+                BlockRegistry.BUDDING_BASALT_NETHER_GOLD.value(),
                 Blocks.NETHERRACK,
-                List.of(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.GOLD_NUGGET_CLUSTER.value()));
+                List.of(BlockRegistry.SMALL_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.MEDIUM_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.LARGE_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.NETHER_GOLD_CRYSTAL.value()));
         registerGeode(context,
                 BLACKSTONE_GOLD_NUGGET_GEODE,
-                BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value(),
+                BlockRegistry.BUDDING_BLACKSTONE_NETHER_GOLD.value(),
                 Blocks.NETHERRACK,
-                List.of(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(),
-                        BlockRegistry.GOLD_NUGGET_CLUSTER.value()));
+                List.of(BlockRegistry.SMALL_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.MEDIUM_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.LARGE_NETHER_GOLD_BUD.value(),
+                        BlockRegistry.NETHER_GOLD_CRYSTAL.value()));
         registerGeode(context,
                 QUARTZ_GEODE,
                 BlockRegistry.BUDDING_NETHER_QUARTZ.value(),
@@ -264,7 +264,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_PRISMARINE_BUD.value(),
                         BlockRegistry.MEDIUM_PRISMARINE_BUD.value(),
                         BlockRegistry.LARGE_PRISMARINE_BUD.value(),
-                        BlockRegistry.PRISMARINE_CLUSTER.value()));
+                        BlockRegistry.PRISMARINE_CRYSTAL.value()));
         registerGeode(context,
                 DIAMOND_GEODE,
                 BlockRegistry.BUDDING_DIAMOND.value(),
@@ -296,7 +296,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_EMERALD_BUD.value(),
                         BlockRegistry.MEDIUM_EMERALD_BUD.value(),
                         BlockRegistry.LARGE_EMERALD_BUD.value(),
-                        BlockRegistry.EMERALD_CLUSTER.value()));
+                        BlockRegistry.EMERALD_CRYSTAL.value()));
         registerGeode(context,
                 DEEPSLATE_EMERALD_GEODE,
                 BlockRegistry.BUDDING_DEEPSLATE_EMERALD.value(),
@@ -304,7 +304,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_EMERALD_BUD.value(),
                         BlockRegistry.MEDIUM_EMERALD_BUD.value(),
                         BlockRegistry.LARGE_EMERALD_BUD.value(),
-                        BlockRegistry.EMERALD_CLUSTER.value()));
+                        BlockRegistry.EMERALD_CRYSTAL.value()));
         registerGeode(context,
                 SCULK_EMERALD_GEODE,
                 BlockRegistry.BUDDING_SCULK_EMERALD.value(),
@@ -312,7 +312,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_EMERALD_BUD.value(),
                         BlockRegistry.MEDIUM_EMERALD_BUD.value(),
                         BlockRegistry.LARGE_EMERALD_BUD.value(),
-                        BlockRegistry.EMERALD_CLUSTER.value()));
+                        BlockRegistry.EMERALD_CRYSTAL.value()));
         registerGeode(context,
                 LAPIS_GEODE,
                 BlockRegistry.BUDDING_LAPIS_LAZULI.value(),
@@ -320,7 +320,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
                         BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
                         BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
-                        BlockRegistry.LAPIS_LAZULI_CLUSTER.value()));
+                        BlockRegistry.LAPIS_LAZULI_CRYSTAL.value()));
         registerGeode(context,
                 DEEPSLATE_LAPIS_GEODE,
                 BlockRegistry.BUDDING_DEEPSLATE_LAPIS_LAZULI.value(),
@@ -328,7 +328,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
                         BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
                         BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
-                        BlockRegistry.LAPIS_LAZULI_CLUSTER.value()));
+                        BlockRegistry.LAPIS_LAZULI_CRYSTAL.value()));
         registerGeode(context,
                 SCULK_LAPIS_GEODE,
                 BlockRegistry.BUDDING_SCULK_LAPIS_LAZULI.value(),
@@ -336,7 +336,7 @@ public class ConfiguredFeatureRegistry {
                 List.of(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
                         BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
                         BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
-                        BlockRegistry.LAPIS_LAZULI_CLUSTER.value()));
+                        BlockRegistry.LAPIS_LAZULI_CRYSTAL.value()));
         registerGeode(context,
                 REDSTONE_GEODE,
                 BlockRegistry.BUDDING_REDSTONE.value(),

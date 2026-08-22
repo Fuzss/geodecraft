@@ -34,7 +34,7 @@ public class GeodecraftClient implements ClientModConstructor {
         context.registerRenderType(BlockRegistry.MEDIUM_CELESTITE_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_CELESTITE_BUD.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.LAPIS_LAZULI_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LAPIS_LAZULI_CRYSTAL.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(), RenderType.cutout());
@@ -44,7 +44,7 @@ public class GeodecraftClient implements ClientModConstructor {
         context.registerRenderType(BlockRegistry.MEDIUM_REDSTONE_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_REDSTONE_BUD.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.EMERALD_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.EMERALD_CRYSTAL.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.LARGE_EMERALD_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.MEDIUM_EMERALD_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_EMERALD_BUD.value(), RenderType.cutout());
@@ -59,17 +59,17 @@ public class GeodecraftClient implements ClientModConstructor {
         context.registerRenderType(BlockRegistry.MEDIUM_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_NETHER_QUARTZ_BUD.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.GOLD_NUGGET_CLUSTER.value(), RenderType.cutout());
-        context.registerRenderType(BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(), RenderType.cutout());
-        context.registerRenderType(BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(), RenderType.cutout());
-        context.registerRenderType(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.NETHER_GOLD_CRYSTAL.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.LARGE_NETHER_GOLD_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.MEDIUM_NETHER_GOLD_BUD.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.SMALL_NETHER_GOLD_BUD.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.GLOWSTONE_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.GLOWSTONE_CRYSTAL.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.LARGE_GLOWSTONE_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_GLOWSTONE_BUD.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(), RenderType.cutout());
@@ -84,7 +84,7 @@ public class GeodecraftClient implements ClientModConstructor {
         context.registerRenderType(BlockRegistry.MEDIUM_WRAPPIST_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_WRAPPIST_BUD.value(), RenderType.cutout());
 
-        context.registerRenderType(BlockRegistry.PRISMARINE_CLUSTER.value(), RenderType.cutout());
+        context.registerRenderType(BlockRegistry.PRISMARINE_CRYSTAL.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.LARGE_PRISMARINE_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.MEDIUM_PRISMARINE_BUD.value(), RenderType.cutout());
         context.registerRenderType(BlockRegistry.SMALL_PRISMARINE_BUD.value(), RenderType.cutout());

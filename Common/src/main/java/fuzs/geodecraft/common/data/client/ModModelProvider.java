@@ -34,10 +34,10 @@ public class ModModelProvider extends AbstractModelProvider {
     public void addBlockModels(BlockModelGenerators generator) {
         generator.createTrivialBlock(BlockRegistry.PEDESTAL.value(), PEDESTAL_PROVIDER);
 
-        generator.createTrivialCube(BlockRegistry.ANCIENT_DEBRIS_CLUSTER_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.ANCIENT_DEBRIS_CRYSTAL_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.DIAMOND_CRYSTAL_BLOCK.value());
-        generator.createTrivialCube(BlockRegistry.EMERALD_CLUSTER_BLOCK.value());
-        generator.createTrivialCube(BlockRegistry.LAPIS_LAZULI_CLUSTER_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.EMERALD_CRYSTAL_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.LAPIS_LAZULI_CRYSTAL_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.REDSTONE_CRYSTAL_BLOCK.value());
 
         generator.family(BlockRegistry.SMOOTH_END_STONE.value())
@@ -54,12 +54,12 @@ public class ModModelProvider extends AbstractModelProvider {
         generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_NETHER_QUARTZ.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_GLOWSTONE.value());
         generator.createTrivialCube(BlockRegistry.NETHER_QUARTZ_CRYSTAL_BLOCK.value());
-        generator.createTrivialCube(BlockRegistry.GOLD_NUGGET_CLUSTER_BLOCK.value());
-        generator.createTrivialCube(BlockRegistry.GLOWSTONE_CLUSTER_BLOCK.value());
-        generator.createTrivialCube(BlockRegistry.PRISMARINE_CLUSTER_BLOCK.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_GOLD_NUGGET.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_GOLD_NUGGET.value());
-        generator.createTrivialCube(BlockRegistry.BUDDING_BLACKSTONE_GOLD_NUGGET.value());
+        generator.createTrivialCube(BlockRegistry.NETHER_GOLD_CRYSTAL_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.GLOWSTONE_CRYSTAL_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.PRISMARINE_CRYSTAL_BLOCK.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_NETHER_GOLD.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_NETHER_GOLD.value());
+        generator.createTrivialCube(BlockRegistry.BUDDING_BLACKSTONE_NETHER_GOLD.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_ANCIENT_DEBRIS.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_BASALT_ANCIENT_DEBRIS.value());
         generator.createTrivialCube(BlockRegistry.BUDDING_BLACKSTONE_ANCIENT_DEBRIS.value());
@@ -98,10 +98,10 @@ public class ModModelProvider extends AbstractModelProvider {
                 BlockRegistry.NETHER_QUARTZ_CRYSTAL.value(),
                 generator);
 
-        this.createAmethystClusters(BlockRegistry.SMALL_GOLD_NUGGET_BUD.value(),
-                BlockRegistry.MEDIUM_GOLD_NUGGET_BUD.value(),
-                BlockRegistry.LARGE_GOLD_NUGGET_BUD.value(),
-                BlockRegistry.GOLD_NUGGET_CLUSTER.value(),
+        this.createAmethystClusters(BlockRegistry.SMALL_NETHER_GOLD_BUD.value(),
+                BlockRegistry.MEDIUM_NETHER_GOLD_BUD.value(),
+                BlockRegistry.LARGE_NETHER_GOLD_BUD.value(),
+                BlockRegistry.NETHER_GOLD_CRYSTAL.value(),
                 generator);
 
         this.createAmethystClusters(BlockRegistry.SMALL_WRAPPIST_BUD.value(),
@@ -113,19 +113,19 @@ public class ModModelProvider extends AbstractModelProvider {
         this.createAmethystClusters(BlockRegistry.SMALL_GLOWSTONE_BUD.value(),
                 BlockRegistry.MEDIUM_GLOWSTONE_BUD.value(),
                 BlockRegistry.LARGE_GLOWSTONE_BUD.value(),
-                BlockRegistry.GLOWSTONE_CLUSTER.value(),
+                BlockRegistry.GLOWSTONE_CRYSTAL.value(),
                 generator);
 
         this.createAmethystClusters(BlockRegistry.SMALL_ANCIENT_DEBRIS_BUD.value(),
                 BlockRegistry.MEDIUM_ANCIENT_DEBRIS_BUD.value(),
                 BlockRegistry.LARGE_ANCIENT_DEBRIS_BUD.value(),
-                BlockRegistry.ANCIENT_DEBRIS_CLUSTER.value(),
+                BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value(),
                 generator);
 
         this.createAmethystClusters(BlockRegistry.SMALL_LAPIS_LAZULI_BUD.value(),
                 BlockRegistry.MEDIUM_LAPIS_LAZULI_BUD.value(),
                 BlockRegistry.LARGE_LAPIS_LAZULI_BUD.value(),
-                BlockRegistry.LAPIS_LAZULI_CLUSTER.value(),
+                BlockRegistry.LAPIS_LAZULI_CRYSTAL.value(),
                 generator);
 
         this.createAmethystClusters(BlockRegistry.SMALL_REDSTONE_BUD.value(),
@@ -137,7 +137,7 @@ public class ModModelProvider extends AbstractModelProvider {
         this.createAmethystClusters(BlockRegistry.SMALL_EMERALD_BUD.value(),
                 BlockRegistry.MEDIUM_EMERALD_BUD.value(),
                 BlockRegistry.LARGE_EMERALD_BUD.value(),
-                BlockRegistry.EMERALD_CLUSTER.value(),
+                BlockRegistry.EMERALD_CRYSTAL.value(),
                 generator);
 
         this.createAmethystClusters(BlockRegistry.SMALL_DIAMOND_BUD.value(),
@@ -149,7 +149,7 @@ public class ModModelProvider extends AbstractModelProvider {
         this.createAmethystClusters(BlockRegistry.SMALL_PRISMARINE_BUD.value(),
                 BlockRegistry.MEDIUM_PRISMARINE_BUD.value(),
                 BlockRegistry.LARGE_PRISMARINE_BUD.value(),
-                BlockRegistry.PRISMARINE_CLUSTER.value(),
+                BlockRegistry.PRISMARINE_CRYSTAL.value(),
                 generator);
 
         this.createAmethystClusters(BlockRegistry.SMALL_CELESTITE_BUD.value(),
@@ -191,7 +191,7 @@ public class ModModelProvider extends AbstractModelProvider {
         generator.generateFlatItem(ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE.value(), ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value(), ModelTemplates.FLAT_ITEM);
 
-        generator.generateFlatItem(ItemRegistry.PINK_TOPAZ.value(), ModelTemplates.FLAT_ITEM);
+        generator.generateFlatItem(ItemRegistry.PINK_TOPAZ_SHARD.value(), ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ItemRegistry.CELESTITE_SHARD.value(), ModelTemplates.FLAT_ITEM);
         generator.generateFlatItem(ItemRegistry.WRAPPIST_SHARD.value(), ModelTemplates.FLAT_ITEM);
     }
