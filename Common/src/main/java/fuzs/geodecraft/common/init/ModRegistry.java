@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModRegistry {
-    private static final Map<ResourceLocation, ResourceKey<LootTable>> ADDITIONAL_LOOT_TABLES = new HashMap<>();
+    private static final Map<ResourceLocation, ResourceKey<LootTable>> LOOT_TABLE_ADDITIONS = new HashMap<>();
     public static final RegistrySetBuilder REGISTRIES_BUILDER = new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE,
                     ConfiguredFeatureRegistry::bootstrap)
             .add(Registries.PLACED_FEATURE, PlacedFeatureRegistry::bootstrap)
@@ -28,7 +28,7 @@ public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(Geodecraft.MOD_ID);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
             ItemRegistry.WRAPPIST_SHARD);
-    public static final ResourceKey<LootTable> SIMPLE_DUNGEON_LOOT_TABLE = registerAdditionalLootTable(BuiltInLootTables.SIMPLE_DUNGEON);
+    public static final ResourceKey<LootTable> SIMPLE_DUNGEON_LOOT_TABLE = registerLootTableAddition(BuiltInLootTables.SIMPLE_DUNGEON);
 
     public static void bootstrap() {
         BlockRegistry.bootstrap();
@@ -38,18 +38,18 @@ public class ModRegistry {
         FeatureRegistry.bootstrap();
     }
 
-    private static ResourceKey<LootTable> registerAdditionalLootTable(ResourceKey<LootTable> key) {
+    private static ResourceKey<LootTable> registerLootTableAddition(ResourceKey<LootTable> key) {
         ResourceKey<LootTable> updatedKey = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
                 "inject/" + key.location().getPath());
-        ADDITIONAL_LOOT_TABLES.put(key.location(), updatedKey);
+        LOOT_TABLE_ADDITIONS.put(key.location(), updatedKey);
         return updatedKey;
     }
 
     public static void onLootTableLoad(ResourceLocation id, LootTable.Builder lootTable, HolderLookup.Provider context) {
-        if (ADDITIONAL_LOOT_TABLES.containsKey(id)) {
+        if (LOOT_TABLE_ADDITIONS.containsKey(id)) {
             lootTable.withPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1.0F))
-                    .add(NestedLootTable.lootTableReference(ADDITIONAL_LOOT_TABLES.get(id))));
+                    .add(NestedLootTable.lootTableReference(LOOT_TABLE_ADDITIONS.get(id))));
         }
     }
 }
