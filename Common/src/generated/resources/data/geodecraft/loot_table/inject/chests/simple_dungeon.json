@@ -1,0 +1,54 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "chance": 0.15,
+          "condition": "minecraft:random_chance"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#geodecraft:has_celestite_geode"
+              }
+            }
+          ],
+          "name": "geodecraft:celeste_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#geodecraft:has_pink_topaz_geode"
+              }
+            }
+          ],
+          "name": "geodecraft:heart_armor_trim_smithing_template"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#geodecraft:has_wrappist_geode"
+              }
+            }
+          ],
+          "name": "geodecraft:wrap_armor_trim_smithing_template"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "geodecraft:inject/chests/simple_dungeon"
+}

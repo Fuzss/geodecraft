@@ -3,6 +3,7 @@ package fuzs.geodecraft.neoforge;
 import fuzs.geodecraft.common.Geodecraft;
 import fuzs.geodecraft.common.data.ModRecipeProvider;
 import fuzs.geodecraft.common.data.loot.ModBlockLootProvider;
+import fuzs.geodecraft.common.data.loot.ModChestLootProvider;
 import fuzs.geodecraft.common.data.tags.ModBiomeTagsProvider;
 import fuzs.geodecraft.common.data.tags.ModBlockTagsProvider;
 import fuzs.geodecraft.common.data.tags.ModItemTagsProvider;
@@ -20,6 +21,7 @@ public class GeodecraftNeoForge {
         DataProviderHelper.registerDataProviders(Geodecraft.MOD_ID,
                 ModRegistry.REGISTRIES_BUILDER,
                 ModBlockLootProvider::new,
+                ModChestLootProvider::new,
                 ModBiomeTagsProvider::new,
                 ModBlockTagsProvider::new,
                 ModItemTagsProvider::new,

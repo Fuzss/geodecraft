@@ -203,7 +203,6 @@ public class ItemRegistry {
     public static final Holder.Reference<Item> CELESTITE_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.CELESTITE_GLASS);
     public static final Holder.Reference<Item> PINK_TOPAZ_GLASS = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PINK_TOPAZ_GLASS);
 
-    // TODO make these be found in dungeons in the biome rather than dropping from clusters randomly
     public static final Holder.Reference<Item> CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE = ModRegistry.REGISTRIES.registerItem(
             "celeste_armor_trim_smithing_template",
             () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.CELESTE));
@@ -214,8 +213,7 @@ public class ItemRegistry {
             "wrap_armor_trim_smithing_template",
             () -> SmithingTemplateItem.createArmorTrimTemplate(TrimPatternRegistry.WRAP));
 
-    public static final Holder.Reference<Item> WRAPPIST_PEDESTAL = ModRegistry.REGISTRIES.registerBlockItem(
-            BlockRegistry.PEDESTAL);
+    public static final Holder.Reference<Item> PEDESTAL = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PEDESTAL);
 
     public static void bootstrap() {
         // NO-OP

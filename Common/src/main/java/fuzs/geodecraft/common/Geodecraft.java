@@ -9,6 +9,7 @@ import fuzs.puzzleslib.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.context.PackRepositorySourcesContext;
 import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
+import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
 import fuzs.puzzleslib.api.event.v1.server.RegisterPotionBrewingMixesCallback;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -32,6 +33,7 @@ public class Geodecraft implements ModConstructor {
     }
 
     private static void registerEventHandlers() {
+        LootTableLoadCallback.EVENT.register(ModRegistry::onLootTableLoad);
         RegisterPotionBrewingMixesCallback.EVENT.register((RegisterPotionBrewingMixesCallback.Builder builder) -> {
             builder.registerStartPotionRecipe(ItemRegistry.CELESTITE_SHARD.value(), Potions.STRENGTH);
             builder.registerStartPotionRecipe(ItemRegistry.PINK_TOPAZ_SHARD.value(), Potions.LUCK);

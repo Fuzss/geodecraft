@@ -127,7 +127,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 0.1F,
                 200).unlockedBy(getHasName(Blocks.END_STONE), has(Blocks.END_STONE)).save(output);
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.WRAPPIST_PEDESTAL.value())
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ItemRegistry.PEDESTAL.value())
                 .define('#', Blocks.END_STONE_BRICKS)
                 .define('O', Items.PRISMARINE_SHARD)
                 .define('W', ItemRegistry.WRAPPIST_SHARD.value())
