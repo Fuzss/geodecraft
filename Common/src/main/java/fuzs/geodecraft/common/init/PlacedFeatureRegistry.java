@@ -40,6 +40,8 @@ public class PlacedFeatureRegistry {
     public static final ResourceKey<PlacedFeature> ECHO_CRYSTAL_SPIKE_FLOOR = createKey("echo_crystal_spike_floor");
     public static final ResourceKey<PlacedFeature> PRISMARINE_CRYSTAL_SPIKE = createKey("prismarine_crystal_spike");
     public static final ResourceKey<PlacedFeature> WRAPPIST_CRYSTAL_SPIKE = createKey("wrappist_crystal_spike");
+    public static final ResourceKey<PlacedFeature> WRAPPIST_CRYSTAL_SPIKE_FLOOR = createKey(
+            "wrappist_crystal_spike_floor");
     public static final ResourceKey<PlacedFeature> ANCIENT_DEBRIS_GEODE = createKey("ancient_debris_geode");
     public static final ResourceKey<PlacedFeature> BASALT_ANCIENT_DEBRIS_GEODE = createKey("basalt_ancient_debris_geode");
     public static final ResourceKey<PlacedFeature> BLACKSTONE_ANCIENT_DEBRIS_GEODE = createKey(
@@ -323,7 +325,14 @@ public class PlacedFeatureRegistry {
                 configuredFeatures.getOrThrow(ConfiguredFeatureRegistry.WRAPPIST_CRYSTAL_SPIKE),
                 CountPlacement.of(1),
                 InSquarePlacement.spread(),
-                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(6), VerticalAnchor.absolute(64)),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(64)),
+                BiomeFilter.biome());
+        register(context,
+                WRAPPIST_CRYSTAL_SPIKE_FLOOR,
+                configuredFeatures.getOrThrow(ConfiguredFeatureRegistry.WRAPPIST_CRYSTAL_SPIKE_FLOOR),
+                CountPlacement.of(1),
+                InSquarePlacement.spread(),
+                HeightRangePlacement.uniform(VerticalAnchor.aboveBottom(16), VerticalAnchor.aboveBottom(64)),
                 BiomeFilter.biome());
         register(context,
                 PRISMARINE_CRYSTAL_SPIKE,

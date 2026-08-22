@@ -17,7 +17,6 @@
         }
       }
     },
-    "crystal_direction": "floor",
     "crystal_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
@@ -25,10 +24,11 @@
       }
     },
     "placeable_on": "#geodecraft:echo_crystal_spike_may_place_on",
-    "xz_radius": {
+    "placement": "floor",
+    "radius": {
       "type": "minecraft:uniform",
-      "max_inclusive": 3,
-      "min_inclusive": 1
+      "max_inclusive": 8,
+      "min_inclusive": 5
     }
   }
 }

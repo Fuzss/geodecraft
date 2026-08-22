@@ -51,13 +51,13 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
         BlockPos origin = context.origin();
         RandomSource random = context.random();
         CrystalSpikeConfiguration config = context.config();
-        Direction direction = config.crystalDirection().getDirection();
+        Direction direction = config.placement().getDirection();
         if (!level.isStateAtPosition(origin.relative(direction.getOpposite()), DripstoneUtils::isEmptyOrWaterOrLava)) {
             return false;
         } else if (!level.getBlockState(origin).is(config.placeableOn())) {
             return false;
         } else {
-            int radius = config.xzRadius().sample(random) + 1;
+            int radius = config.radius().sample(random) + 1;
             float angle = SPIKE_ANGLES[random.nextInt(SPIKE_ANGLES.length)];
             int height = radius + 14 + Mth.nextInt(random, 10, 14);
             Set<BlockPos> crystalPositions = new HashSet<>();
@@ -72,7 +72,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
      * @return whether at least one position is free for the spike to occupy
      */
     private boolean placeSpike(WorldGenLevel level, CrystalSpikeConfiguration config, RandomSource random, BlockPos origin, int startRadius, int height, float angle, Set<BlockPos> crystalPositions) {
-        Direction direction = config.crystalDirection().getDirection();
+        Direction direction = config.placement().getDirection();
         // a ceiling spike is built downwards, so all offsets are mirrored
         int sign = direction == Direction.UP ? -1 : 1;
         boolean placed = false;

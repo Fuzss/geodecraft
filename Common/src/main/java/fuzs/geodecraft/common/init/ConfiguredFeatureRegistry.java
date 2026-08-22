@@ -40,6 +40,8 @@ public class ConfiguredFeatureRegistry {
             "prismarine_crystal_spike");
     public static final ResourceKey<ConfiguredFeature<?, ?>> WRAPPIST_CRYSTAL_SPIKE = registerKey(
             "wrappist_crystal_spike");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> WRAPPIST_CRYSTAL_SPIKE_FLOOR = registerKey(
+            "wrappist_crystal_spike_floor");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ANCIENT_DEBRIS_GEODE = registerKey("ancient_debris_geode");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BASALT_ANCIENT_DEBRIS_GEODE = registerKey(
             "basalt_ancient_debris_geode");
@@ -128,6 +130,14 @@ public class ConfiguredFeatureRegistry {
                 CaveSurface.FLOOR);
         registerCrystalSpike(context,
                 WRAPPIST_CRYSTAL_SPIKE,
+                BlockRegistry.WRAPPIST_BLOCK.value(),
+                BlockRegistry.WRAPPIST_CLUSTER.value(),
+                BlockRegistry.SMOOTH_END_STONE.value(),
+                TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON,
+                UniformInt.of(8, 12),
+                CaveSurface.CEILING);
+        registerCrystalSpike(context,
+                WRAPPIST_CRYSTAL_SPIKE_FLOOR,
                 BlockRegistry.WRAPPIST_BLOCK.value(),
                 BlockRegistry.WRAPPIST_CLUSTER.value(),
                 BlockRegistry.SMOOTH_END_STONE.value(),
@@ -391,7 +401,18 @@ public class ConfiguredFeatureRegistry {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
     }
 
-    private static void registerCrystalSpike(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block crystalBlock, Block clusterBlock, Block bloomBlock, TagKey<Block> placeableOn, CaveSurface crystalDirection) {
+    private static void registerCrystalSpike(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block crystalBlock, Block clusterBlock, Block bloomBlock, TagKey<Block> placeableOn, CaveSurface placement) {
+        registerCrystalSpike(context,
+                key,
+                crystalBlock,
+                clusterBlock,
+                bloomBlock,
+                placeableOn,
+                UniformInt.of(5, 8),
+                placement);
+    }
+
+    private static void registerCrystalSpike(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block crystalBlock, Block clusterBlock, Block bloomBlock, TagKey<Block> placeableOn, UniformInt radius, CaveSurface placement) {
         register(context,
                 key,
                 FeatureRegistry.CRYSTAL_SPIKE.value(),
@@ -399,8 +420,8 @@ public class ConfiguredFeatureRegistry {
                         BlockStateProvider.simple(clusterBlock),
                         BlockStateProvider.simple(bloomBlock),
                         placeableOn,
-                        UniformInt.of(1, 3),
-                        crystalDirection));
+                        radius,
+                        placement));
     }
 
     private static void registerGeode(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, Block buddingBlock, Block layerBlock, List<Block> innerPlacements) {

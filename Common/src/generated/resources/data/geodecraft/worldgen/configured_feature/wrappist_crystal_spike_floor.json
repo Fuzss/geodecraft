@@ -4,13 +4,13 @@
     "bloom_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:blackstone"
+        "Name": "geodecraft:smooth_end_stone"
       }
     },
     "cluster_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "geodecraft:glowstone_crystal",
+        "Name": "geodecraft:wrappist_cluster",
         "Properties": {
           "facing": "up",
           "waterlogged": "false"
@@ -20,11 +20,11 @@
     "crystal_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "geodecraft:glowstone_crystal_block"
+        "Name": "geodecraft:wrappist_block"
       }
     },
-    "placeable_on": "#geodecraft:glowstone_crystal_spike_may_place_on",
-    "placement": "ceiling",
+    "placeable_on": "#geodecraft:wrappist_crystal_spike_may_place_on",
+    "placement": "floor",
     "radius": {
       "type": "minecraft:uniform",
       "max_inclusive": 8,
