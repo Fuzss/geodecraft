@@ -12,73 +12,97 @@ public class BlockRegistry {
     // Pink Topaz
     public static final Holder.Reference<Block> PINK_TOPAZ_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "pink_topaz_cluster",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(7, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER).mapColor(MapColor.COLOR_PINK));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.CLUSTER_OFFSET,
+                    properties),
+            () -> clusterProperties(MapColor.COLOR_PINK));
     public static final Holder.Reference<Block> LARGE_PINK_TOPAZ_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_pink_topaz_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(5, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.LARGE_AMETHYST_BUD).mapColor(MapColor.COLOR_PINK));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.LARGE_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
+                    properties),
+            () -> largeBudProperties(MapColor.COLOR_PINK));
     public static final Holder.Reference<Block> MEDIUM_PINK_TOPAZ_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_pink_topaz_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(4, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.MEDIUM_AMETHYST_BUD).mapColor(MapColor.COLOR_PINK));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.MEDIUM_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
+                    properties),
+            () -> mediumBudProperties(MapColor.COLOR_PINK));
     public static final Holder.Reference<Block> SMALL_PINK_TOPAZ_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_pink_topaz_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(3, 4, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.SMALL_AMETHYST_BUD).mapColor(MapColor.COLOR_PINK));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.SMALL_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
+                    properties),
+            () -> smallBudProperties(MapColor.COLOR_PINK));
     public static final Holder.Reference<Block> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRY.registerBlock(
             "budding_pink_topaz",
             BuddingGrantEffectBlock::pinkTopaz,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(MapColor.COLOR_PINK));
+            () -> buddingProperties(MapColor.COLOR_PINK));
     public static final Holder.Reference<Block> PINK_TOPAZ_BLOCK = ModRegistry.REGISTRY.registerBlock("pink_topaz_block",
             Block::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.COLOR_PINK));
+            () -> clusterBlockProperties(MapColor.COLOR_PINK));
     // Celestite
     public static final Holder.Reference<Block> CELESTITE_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "celestite_cluster",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(7, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER).mapColor(MapColor.COLOR_CYAN));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.CLUSTER_OFFSET,
+                    properties),
+            () -> clusterProperties(MapColor.COLOR_CYAN));
     public static final Holder.Reference<Block> LARGE_CELESTITE_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_celestite_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(5, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.LARGE_AMETHYST_BUD).mapColor(MapColor.COLOR_CYAN));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.LARGE_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
+                    properties),
+            () -> largeBudProperties(MapColor.COLOR_CYAN));
     public static final Holder.Reference<Block> MEDIUM_CELESTITE_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_celestite_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(4, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.MEDIUM_AMETHYST_BUD).mapColor(MapColor.COLOR_CYAN));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.MEDIUM_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
+                    properties),
+            () -> mediumBudProperties(MapColor.COLOR_CYAN));
     public static final Holder.Reference<Block> SMALL_CELESTITE_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_celestite_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(3, 4, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.SMALL_AMETHYST_BUD).mapColor(MapColor.COLOR_CYAN));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.SMALL_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
+                    properties),
+            () -> smallBudProperties(MapColor.COLOR_CYAN));
     public static final Holder.Reference<Block> BUDDING_CELESTITE = ModRegistry.REGISTRY.registerBlock(
             "budding_celestite",
             BuddingGrantEffectBlock::celestite,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(MapColor.COLOR_CYAN));
+            () -> buddingProperties(MapColor.COLOR_CYAN));
     public static final Holder.Reference<Block> CELESTITE_BLOCK = ModRegistry.REGISTRY.registerBlock("celestite_block",
             Block::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.COLOR_CYAN));
+            () -> clusterBlockProperties(MapColor.COLOR_CYAN));
     // Wrappist
     public static final Holder.Reference<Block> WRAPPIST_CLUSTER = ModRegistry.REGISTRY.registerBlock("wrappist_cluster",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(7, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER).mapColor(MapColor.COLOR_LIGHT_BLUE));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.CLUSTER_OFFSET,
+                    properties),
+            () -> clusterProperties(MapColor.COLOR_LIGHT_BLUE));
     public static final Holder.Reference<Block> LARGE_WRAPPIST_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_wrappist_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(5, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.LARGE_AMETHYST_BUD).mapColor(MapColor.COLOR_LIGHT_BLUE));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.LARGE_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
+                    properties),
+            () -> largeBudProperties(MapColor.COLOR_LIGHT_BLUE));
     public static final Holder.Reference<Block> MEDIUM_WRAPPIST_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_wrappist_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(4, 3, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.MEDIUM_AMETHYST_BUD).mapColor(MapColor.COLOR_LIGHT_BLUE));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.MEDIUM_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
+                    properties),
+            () -> mediumBudProperties(MapColor.COLOR_LIGHT_BLUE));
     public static final Holder.Reference<Block> SMALL_WRAPPIST_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_wrappist_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(3, 4, properties),
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.SMALL_AMETHYST_BUD).mapColor(MapColor.COLOR_LIGHT_BLUE));
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.SMALL_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
+                    properties),
+            () -> smallBudProperties(MapColor.COLOR_LIGHT_BLUE));
     public static final Holder.Reference<Block> BUDDING_WRAPPIST = ModRegistry.REGISTRY.registerBlock("budding_wrappist",
             BuddingGrantEffectBlock::wrappist,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(MapColor.COLOR_LIGHT_BLUE));
+            () -> buddingProperties(MapColor.COLOR_LIGHT_BLUE));
     public static final Holder.Reference<Block> WRAPPIST_BLOCK = ModRegistry.REGISTRY.registerBlock("wrappist_block",
             Block::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(MapColor.COLOR_LIGHT_BLUE));
+            () -> clusterBlockProperties(MapColor.COLOR_LIGHT_BLUE));
 
     public static final Holder.Reference<Block> PRISMARINE_CLUSTER_BLOCK = ModRegistry.REGISTRY.registerBlock(
             "prismarine_cluster_block",
@@ -87,7 +111,9 @@ public class BlockRegistry {
     public static final Holder.Reference<Block> PRISMARINE_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "prismarine_cluster",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(7.0F, 3.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER)
                     .mapColor(MapColor.COLOR_CYAN)
@@ -96,19 +122,25 @@ public class BlockRegistry {
     public static final Holder.Reference<Block> LARGE_PRISMARINE_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_prismarine_bud",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(5.0F, 3.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.LARGE_CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CLUSTER.value()).lightLevel((BlockState state) -> 2));
     public static final Holder.Reference<Block> MEDIUM_PRISMARINE_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_prismarine_bud",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(4.0F, 3.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.MEDIUM_CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CLUSTER.value()).lightLevel((BlockState state) -> 1));
     public static final Holder.Reference<Block> SMALL_PRISMARINE_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_prismarine_bud",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(3.0F, 4.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.SMALL_CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(PRISMARINE_CLUSTER.value()));
 
@@ -503,7 +535,9 @@ public class BlockRegistry {
     public static final Holder.Reference<Block> GLOWSTONE_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "glowstone_cluster",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(7.0F, 3.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER)
                     .mapColor(MapColor.SAND)
@@ -513,19 +547,25 @@ public class BlockRegistry {
     public static final Holder.Reference<Block> LARGE_GLOWSTONE_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_glowstone_bud",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(5.0F, 3.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.LARGE_CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CLUSTER.value()).lightLevel((BlockState state) -> 13));
     public static final Holder.Reference<Block> MEDIUM_GLOWSTONE_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_glowstone_bud",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(4.0F, 3.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.MEDIUM_CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CLUSTER.value()).lightLevel((BlockState state) -> 11));
     public static final Holder.Reference<Block> SMALL_GLOWSTONE_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_glowstone_bud",
             (BlockBehaviour.Properties properties) -> {
-                return new AmethystClusterBlock(3.0F, 4.0F, properties);
+                return new AmethystClusterBlock(DropExperienceClusterBlock.SMALL_CLUSTER_HEIGHT,
+                        DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
+                        properties);
             },
             () -> BlockBehaviour.Properties.ofFullCopy(GLOWSTONE_CLUSTER.value()).lightLevel((BlockState state) -> 9));
 
@@ -570,7 +610,9 @@ public class BlockRegistry {
 
     public static final Holder.Reference<Block> ANCIENT_DEBRIS_CLUSTER = ModRegistry.REGISTRY.registerBlock(
             "ancient_debris_cluster",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(7, 3, properties),
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.CLUSTER_OFFSET,
+                    properties),
             () -> BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_BROWN)
                     .forceSolidOn()
@@ -581,19 +623,25 @@ public class BlockRegistry {
                     .lightLevel((BlockState state) -> 8));
     public static final Holder.Reference<Block> LARGE_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRY.registerBlock(
             "large_ancient_debris_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(5, 3, properties),
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.LARGE_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.LARGE_CLUSTER_OFFSET,
+                    properties),
             () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CLUSTER.value())
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .lightLevel((BlockState state) -> 5));
     public static final Holder.Reference<Block> MEDIUM_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRY.registerBlock(
             "medium_ancient_debris_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(4, 3, properties),
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.MEDIUM_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.MEDIUM_CLUSTER_OFFSET,
+                    properties),
             () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CLUSTER.value())
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .lightLevel((BlockState state) -> 3));
     public static final Holder.Reference<Block> SMALL_ANCIENT_DEBRIS_BUD = ModRegistry.REGISTRY.registerBlock(
             "small_ancient_debris_bud",
-            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(3, 4, properties),
+            (BlockBehaviour.Properties properties) -> new AmethystClusterBlock(DropExperienceClusterBlock.SMALL_CLUSTER_HEIGHT,
+                    DropExperienceClusterBlock.SMALL_CLUSTER_OFFSET,
+                    properties),
             () -> BlockBehaviour.Properties.ofFullCopy(ANCIENT_DEBRIS_CLUSTER.value())
                     .sound(SoundType.ANCIENT_DEBRIS)
                     .lightLevel((BlockState state) -> 2));
@@ -733,5 +781,35 @@ public class BlockRegistry {
 
     public static void bootstrap() {
         // NO-OP
+    }
+
+    private static BlockBehaviour.Properties clusterProperties(MapColor mapColor) {
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_CLUSTER).mapColor(mapColor);
+    }
+
+    private static BlockBehaviour.Properties largeBudProperties(MapColor mapColor) {
+        // Fix vanilla having the sound types switched for large and medium buds.
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.LARGE_AMETHYST_BUD)
+                .sound(SoundType.LARGE_AMETHYST_BUD)
+                .mapColor(mapColor);
+    }
+
+    private static BlockBehaviour.Properties mediumBudProperties(MapColor mapColor) {
+        // Fix vanilla having the sound types switched for large and medium buds.
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.MEDIUM_AMETHYST_BUD)
+                .sound(SoundType.MEDIUM_AMETHYST_BUD)
+                .mapColor(mapColor);
+    }
+
+    private static BlockBehaviour.Properties smallBudProperties(MapColor mapColor) {
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.SMALL_AMETHYST_BUD).mapColor(mapColor);
+    }
+
+    private static BlockBehaviour.Properties buddingProperties(MapColor mapColor) {
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.BUDDING_AMETHYST).mapColor(mapColor);
+    }
+
+    private static BlockBehaviour.Properties clusterBlockProperties(MapColor mapColor) {
+        return BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).mapColor(mapColor);
     }
 }

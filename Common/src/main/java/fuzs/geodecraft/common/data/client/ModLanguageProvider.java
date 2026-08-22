@@ -16,18 +16,25 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.addCreativeModeTab(ModRegistry.CREATIVE_MODE_TAB, Geodecraft.MOD_NAME);
 
         builder.add(BlockRegistry.BUDDING_PINK_TOPAZ.value(), "Budding Pink Topaz");
-        builder.add(BlockRegistry.PINK_TOPAZ_BLOCK.value(), "Pink Topaz Block");
-        builder.add(BlockRegistry.PINK_TOPAZ_CLUSTER.value(), "Pink Topaz Crystal");
+        builder.add(BlockRegistry.PINK_TOPAZ_BLOCK.value(), "Block of Pink Topaz");
+        builder.add(BlockRegistry.PINK_TOPAZ_CLUSTER.value(), "Pink Topaz Cluster");
         builder.add(BlockRegistry.LARGE_PINK_TOPAZ_BUD.value(), "Large Pink Topaz Bud");
         builder.add(BlockRegistry.MEDIUM_PINK_TOPAZ_BUD.value(), "Medium Pink Topaz Bud");
         builder.add(BlockRegistry.SMALL_PINK_TOPAZ_BUD.value(), "Small Pink Topaz Bud");
 
         builder.add(BlockRegistry.BUDDING_CELESTITE.value(), "Budding Celestite");
-        builder.add(BlockRegistry.CELESTITE_BLOCK.value(), "Celestite Block");
+        builder.add(BlockRegistry.CELESTITE_BLOCK.value(), "Block of Celestite");
         builder.add(BlockRegistry.CELESTITE_CLUSTER.value(), "Celestite Cluster");
         builder.add(BlockRegistry.LARGE_CELESTITE_BUD.value(), "Large Celestite Bud");
         builder.add(BlockRegistry.MEDIUM_CELESTITE_BUD.value(), "Medium Celestite Bud");
         builder.add(BlockRegistry.SMALL_CELESTITE_BUD.value(), "Small Celestite Bud");
+
+        builder.add(BlockRegistry.BUDDING_WRAPPIST.value(), "Budding Wrappist");
+        builder.add(BlockRegistry.WRAPPIST_BLOCK.value(), "Block of Wrappist");
+        builder.add(BlockRegistry.WRAPPIST_CLUSTER.value(), "Wrappist Cluster");
+        builder.add(BlockRegistry.LARGE_WRAPPIST_BUD.value(), "Large Wrappist Bud");
+        builder.add(BlockRegistry.MEDIUM_WRAPPIST_BUD.value(), "Medium Wrappist Bud");
+        builder.add(BlockRegistry.SMALL_WRAPPIST_BUD.value(), "Small Wrappist Bud");
 
         builder.add(BlockRegistry.BUDDING_PRISMARINE.value(), "Budding Prismarine");
         builder.add(BlockRegistry.PRISMARINE_CLUSTER_BLOCK.value(), "Prismarine Cluster Block");
@@ -117,13 +124,6 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         builder.add(BlockRegistry.GALCITE_STAIRS.value(), "Galcite Stairs");
         builder.add(BlockRegistry.GALCITE_SLAB.value(), "Galcite Slab");
         builder.add(BlockRegistry.GALCITE_WALL.value(), "Galcite Wall");
-
-        builder.add(BlockRegistry.WRAPPIST_BLOCK.value(), "Wrappist Block");
-        builder.add(BlockRegistry.BUDDING_WRAPPIST.value(), "Budding Wrappist");
-        builder.add(BlockRegistry.WRAPPIST_CLUSTER.value(), "Wrappist Cluster");
-        builder.add(BlockRegistry.LARGE_WRAPPIST_BUD.value(), "Large Wrappist Bud");
-        builder.add(BlockRegistry.MEDIUM_WRAPPIST_BUD.value(), "Medium Wrappist Bud");
-        builder.add(BlockRegistry.SMALL_WRAPPIST_BUD.value(), "Small Wrappist Bud");
 
         builder.add(BlockRegistry.ECHO_CRYSTAL_BLOCK.value(), "Echo Crystal Block");
         builder.add(BlockRegistry.BUDDING_ECHO.value(), "Budding Echo");
