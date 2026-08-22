@@ -47,7 +47,7 @@
           }
         },
         {
-          "Name": "geodecraft:emerald_cluster",
+          "Name": "geodecraft:emerald_crystal",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

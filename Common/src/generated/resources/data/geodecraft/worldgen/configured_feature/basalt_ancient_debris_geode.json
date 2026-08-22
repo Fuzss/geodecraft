@@ -44,7 +44,7 @@
           }
         },
         {
-          "Name": "geodecraft:ancient_debris_cluster",
+          "Name": "geodecraft:ancient_debris_crystal",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

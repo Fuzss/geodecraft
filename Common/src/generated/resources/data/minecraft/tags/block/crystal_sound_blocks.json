@@ -1,0 +1,20 @@
+{
+  "values": [
+    "geodecraft:ancient_debris_crystal_block",
+    "geodecraft:budding_celestite",
+    "geodecraft:budding_pink_topaz",
+    "geodecraft:budding_wrappist",
+    "geodecraft:celestite_block",
+    "geodecraft:diamond_crystal_block",
+    "geodecraft:echo_crystal_block",
+    "geodecraft:emerald_crystal_block",
+    "geodecraft:glowstone_crystal_block",
+    "geodecraft:lapis_lazuli_crystal_block",
+    "geodecraft:nether_gold_crystal_block",
+    "geodecraft:nether_quartz_crystal_block",
+    "geodecraft:pink_topaz_block",
+    "geodecraft:prismarine_crystal_block",
+    "geodecraft:redstone_crystal_block",
+    "geodecraft:wrappist_block"
+  ]
+}

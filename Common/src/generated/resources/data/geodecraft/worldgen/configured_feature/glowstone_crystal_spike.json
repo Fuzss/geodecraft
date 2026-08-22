@@ -10,7 +10,7 @@
     "cluster_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "geodecraft:glowstone_cluster",
+        "Name": "geodecraft:glowstone_crystal",
         "Properties": {
           "facing": "up",
           "waterlogged": "false"
@@ -21,7 +21,7 @@
     "crystal_state": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "geodecraft:glowstone_cluster_block"
+        "Name": "geodecraft:glowstone_crystal_block"
       }
     },
     "placeable_on": "#geodecraft:glowstone_crystal_spike_may_place_on",

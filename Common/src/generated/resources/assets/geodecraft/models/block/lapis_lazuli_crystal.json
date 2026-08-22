@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "geodecraft:block/lapis_lazuli_crystal"
+  }
+}

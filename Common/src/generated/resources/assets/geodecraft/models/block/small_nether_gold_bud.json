@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "geodecraft:block/small_nether_gold_bud"
+  }
+}

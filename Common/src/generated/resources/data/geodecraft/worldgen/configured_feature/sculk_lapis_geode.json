@@ -44,7 +44,7 @@
           }
         },
         {
-          "Name": "geodecraft:lapis_lazuli_cluster",
+          "Name": "geodecraft:lapis_lazuli_crystal",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

@@ -1,33 +1,7 @@
 {
   "values": [
-    "geodecraft:ancient_debris_cluster",
-    "geodecraft:ancient_debris_cluster_block",
     "geodecraft:budding_ancient_debris",
     "geodecraft:budding_basalt_ancient_debris",
-    "geodecraft:budding_blackstone_ancient_debris",
-    "geodecraft:budding_celestite",
-    "geodecraft:budding_pink_topaz",
-    "geodecraft:budding_wrappist",
-    "geodecraft:celestite_block",
-    "geodecraft:celestite_cluster",
-    "geodecraft:celestite_glass",
-    "geodecraft:large_ancient_debris_bud",
-    "geodecraft:large_celestite_bud",
-    "geodecraft:large_pink_topaz_bud",
-    "geodecraft:large_wrappist_bud",
-    "geodecraft:medium_ancient_debris_bud",
-    "geodecraft:medium_celestite_bud",
-    "geodecraft:medium_pink_topaz_bud",
-    "geodecraft:medium_wrappist_bud",
-    "geodecraft:pedestal",
-    "geodecraft:pink_topaz_block",
-    "geodecraft:pink_topaz_cluster",
-    "geodecraft:pink_topaz_glass",
-    "geodecraft:small_ancient_debris_bud",
-    "geodecraft:small_celestite_bud",
-    "geodecraft:small_pink_topaz_bud",
-    "geodecraft:wrappist_block",
-    "geodecraft:wrappist_cluster",
-    "geodecraft:wrappist_glass"
+    "geodecraft:budding_blackstone_ancient_debris"
   ]
 }

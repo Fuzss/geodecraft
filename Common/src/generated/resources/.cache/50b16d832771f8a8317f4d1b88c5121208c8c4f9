@@ -1,11 +1,13 @@
-// 1.21.1	2026-08-21T23:18:42.903074	Tags for minecraft:block mod id vanilla
+// 1.21.1	2026-08-22T09:52:05.570677	Tags for minecraft:block mod id vanilla
 44d5393159047af27759102362fcdfc46c2a9bc6 data/geodecraft/tags/block/echo_crystal_spike_may_place_on.json
 e0b8d9ce991f72b36151da1ae049cda119046548 data/geodecraft/tags/block/glowstone_crystal_spike_may_place_on.json
 e0b8d9ce991f72b36151da1ae049cda119046548 data/geodecraft/tags/block/nether_quartz_crystal_spike_may_place_on.json
 903ee453365faf0775d18fc9b6d583050624b617 data/geodecraft/tags/block/prismarine_crystal_spike_may_place_on.json
 9994f212884e8264af96eaba34aa7e89696d8994 data/geodecraft/tags/block/wrappist_crystal_spike_may_place_on.json
-88aa66e45f68289f1954ebd569cdcc222c90c417 data/minecraft/tags/block/mineable/pickaxe.json
-a301930b1f06eb839b0cbc11fe93aa649079acda data/minecraft/tags/block/needs_diamond_tool.json
-33dd9469a105dda8cdeba2e3d0638e00271fb861 data/minecraft/tags/block/needs_iron_tool.json
-e2bac8791e17f6cd90d57df7a575eaedf95361cb data/minecraft/tags/block/needs_stone_tool.json
-20c4ee1a65752a64f6cf63487dba1d1b4927221a data/minecraft/tags/block/walls.json
+6bb114d500ab9997c17f45fa314ec2332fa6125c data/minecraft/tags/block/crystal_sound_blocks.json
+97c74f7debd652ec325467d6687bf48d63277a8d data/minecraft/tags/block/mineable/pickaxe.json
+c5703ace74a2bcdba700c9128cfe9dffe5c4be64 data/minecraft/tags/block/needs_diamond_tool.json
+bfff15d315715769fca48ee5705e28964f46054c data/minecraft/tags/block/needs_iron_tool.json
+4f752f168a4e345295ed6c7b532207d64892c041 data/minecraft/tags/block/needs_stone_tool.json
+665e8947692da3f947645d964a6f12211838740b data/minecraft/tags/block/slabs.json
+c4ea56dafe363379d8b2e65720b07c9bc6a93739 data/minecraft/tags/block/stairs.json

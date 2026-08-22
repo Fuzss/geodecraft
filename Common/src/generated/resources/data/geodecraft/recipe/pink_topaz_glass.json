@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "crystal_glass",
+  "group": "luminous_glass",
   "key": {
-    "#": {
+    "G": {
       "item": "minecraft:glass"
     },
-    "X": {
-      "item": "geodecraft:pink_topaz"
+    "S": {
+      "item": "geodecraft:pink_topaz_shard"
     }
   },
   "pattern": [
-    "###",
-    "#X#",
-    "###"
+    " S ",
+    "SGS",
+    " S "
   ],
   "result": {
-    "count": 8,
+    "count": 2,
     "id": "geodecraft:pink_topaz_glass"
   }
 }

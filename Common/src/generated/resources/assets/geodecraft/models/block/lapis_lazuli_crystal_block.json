@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "geodecraft:block/lapis_lazuli_crystal_block"
+  }
+}

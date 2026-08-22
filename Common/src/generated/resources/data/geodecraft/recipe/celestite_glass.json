@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "building",
-  "group": "crystal_glass",
+  "group": "luminous_glass",
   "key": {
-    "#": {
+    "G": {
       "item": "minecraft:glass"
     },
-    "X": {
+    "S": {
       "item": "geodecraft:celestite_shard"
     }
   },
   "pattern": [
-    "###",
-    "#X#",
-    "###"
+    " S ",
+    "SGS",
+    " S "
   ],
   "result": {
-    "count": 8,
+    "count": 2,
     "id": "geodecraft:celestite_glass"
   }
 }

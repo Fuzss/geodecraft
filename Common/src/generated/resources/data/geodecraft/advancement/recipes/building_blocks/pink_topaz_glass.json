@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_for_glass_crystal": {
+    "has_pink_topaz_shard": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:glass"
+            "items": "geodecraft:pink_topaz_shard"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_for_glass_crystal"
+      "has_pink_topaz_shard"
     ]
   ],
   "rewards": {

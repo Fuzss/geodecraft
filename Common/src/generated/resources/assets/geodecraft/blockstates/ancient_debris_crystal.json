@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "geodecraft:block/ancient_debris_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "geodecraft:block/ancient_debris_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "geodecraft:block/ancient_debris_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "geodecraft:block/ancient_debris_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "geodecraft:block/ancient_debris_crystal"
+    },
+    "facing=west": {
+      "model": "geodecraft:block/ancient_debris_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

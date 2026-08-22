@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "geodecraft:block/ancient_debris_cluster_block"
-  }
-}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "crystals",
+  "ingredients": [
+    {
+      "item": "geodecraft:pink_topaz_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "geodecraft:pink_topaz_shard"
+  }
+}

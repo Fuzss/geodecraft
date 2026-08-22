@@ -5,7 +5,7 @@
       "alternate_inner_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "geodecraft:budding_gold_nugget"
+          "Name": "geodecraft:budding_nether_gold"
         }
       },
       "cannot_replace": "#minecraft:features_cannot_replace",
@@ -23,28 +23,28 @@
       },
       "inner_placements": [
         {
-          "Name": "geodecraft:small_gold_nugget_bud",
+          "Name": "geodecraft:small_nether_gold_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:medium_gold_nugget_bud",
+          "Name": "geodecraft:medium_nether_gold_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:large_gold_nugget_bud",
+          "Name": "geodecraft:large_nether_gold_bud",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"
           }
         },
         {
-          "Name": "geodecraft:gold_nugget_cluster",
+          "Name": "geodecraft:nether_gold_crystal",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

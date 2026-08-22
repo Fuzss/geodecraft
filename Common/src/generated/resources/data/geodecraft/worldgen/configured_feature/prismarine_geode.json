@@ -47,7 +47,7 @@
           }
         },
         {
-          "Name": "geodecraft:prismarine_cluster",
+          "Name": "geodecraft:prismarine_crystal",
           "Properties": {
             "facing": "up",
             "waterlogged": "false"

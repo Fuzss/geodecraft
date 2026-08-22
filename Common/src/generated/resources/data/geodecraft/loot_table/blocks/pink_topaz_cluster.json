@@ -53,7 +53,7 @@
                       "function": "minecraft:apply_bonus"
                     }
                   ],
-                  "name": "geodecraft:pink_topaz"
+                  "name": "geodecraft:pink_topaz_shard"
                 },
                 {
                   "type": "minecraft:item",
@@ -67,7 +67,7 @@
                       "function": "minecraft:explosion_decay"
                     }
                   ],
-                  "name": "geodecraft:pink_topaz"
+                  "name": "geodecraft:pink_topaz_shard"
                 }
               ]
             }
