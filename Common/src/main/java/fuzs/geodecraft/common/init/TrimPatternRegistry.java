@@ -18,6 +18,6 @@ public class TrimPatternRegistry {
     }
 
     private static ResourceKey<TrimPattern> createTrimPattern(String name) {
-        return ModRegistry.REGISTRY.makeResourceKey(Registries.TRIM_PATTERN, name);
+        return ModRegistry.REGISTRIES.makeResourceKey(Registries.TRIM_PATTERN, name);
     }
 }

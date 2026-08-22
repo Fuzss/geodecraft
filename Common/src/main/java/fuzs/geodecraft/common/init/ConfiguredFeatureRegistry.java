@@ -384,7 +384,7 @@ public class ConfiguredFeatureRegistry {
     }
 
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
-        return ModRegistry.REGISTRY.makeResourceKey(Registries.CONFIGURED_FEATURE, name);
+        return ModRegistry.REGISTRIES.makeResourceKey(Registries.CONFIGURED_FEATURE, name);
     }
 
     private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstrapContext<ConfiguredFeature<?, ?>> context, ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {

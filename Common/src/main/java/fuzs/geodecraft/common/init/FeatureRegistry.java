@@ -6,7 +6,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 
 public class FeatureRegistry {
-    public static final Holder.Reference<CrystalSpikeFeature> CRYSTAL_SPIKE = ModRegistry.REGISTRY.register(Registries.FEATURE,
+    public static final Holder.Reference<CrystalSpikeFeature> CRYSTAL_SPIKE = ModRegistry.REGISTRIES.register(Registries.FEATURE,
             "crystal_spike",
             () -> new CrystalSpikeFeature(CrystalSpikeConfiguration.CODEC));
 

@@ -18,7 +18,7 @@ public class GeodecraftNeoForge {
     public GeodecraftNeoForge() {
         ModConstructor.construct(Geodecraft.MOD_ID, Geodecraft::new);
         DataProviderHelper.registerDataProviders(Geodecraft.MOD_ID,
-                ModRegistry.BUILDER,
+                ModRegistry.REGISTRIES_BUILDER,
                 ModBlockLootProvider::new,
                 ModBiomeTagsProvider::new,
                 ModBlockTagsProvider::new,

@@ -5,7 +5,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class BlockEntityRegistry {
-    public static final Holder.Reference<BlockEntityType<PedestalBlockEntity>> PEDESTAL = ModRegistry.REGISTRY.registerBlockEntityType(
+    public static final Holder.Reference<BlockEntityType<PedestalBlockEntity>> PEDESTAL = ModRegistry.REGISTRIES.registerBlockEntityType(
             "pedestal",
             PedestalBlockEntity::new,
             BlockRegistry.PEDESTAL);

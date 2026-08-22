@@ -52,6 +52,6 @@ public class TrimMaterialRegistry {
     }
 
     static ResourceKey<TrimMaterial> createTrimMaterial(String name) {
-        return ModRegistry.REGISTRY.makeResourceKey(Registries.TRIM_MATERIAL, name);
+        return ModRegistry.REGISTRIES.makeResourceKey(Registries.TRIM_MATERIAL, name);
     }
 }

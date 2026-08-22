@@ -350,7 +350,7 @@ public class PlacedFeatureRegistry {
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {
-        return ModRegistry.REGISTRY.makeResourceKey(Registries.PLACED_FEATURE, name);
+        return ModRegistry.REGISTRIES.makeResourceKey(Registries.PLACED_FEATURE, name);
     }
 
     private static void register(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, Holder<ConfiguredFeature<?, ?>> configuration, List<PlacementModifier> modifiers) {

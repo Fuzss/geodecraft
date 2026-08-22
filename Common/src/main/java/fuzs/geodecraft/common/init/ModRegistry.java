@@ -9,13 +9,13 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
 public class ModRegistry {
-    public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE,
+    public static final RegistrySetBuilder REGISTRIES_BUILDER = new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE,
                     ConfiguredFeatureRegistry::bootstrap)
             .add(Registries.PLACED_FEATURE, PlacedFeatureRegistry::bootstrap)
             .add(Registries.TRIM_MATERIAL, TrimMaterialRegistry::bootstrapMaterials)
             .add(Registries.TRIM_PATTERN, TrimPatternRegistry::bootstrapPatterns);
-    static final RegistryManager REGISTRY = RegistryManager.from(Geodecraft.MOD_ID);
-    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRY.registerCreativeModeTab(() -> new ItemStack(
+    static final RegistryManager REGISTRIES = RegistryManager.from(Geodecraft.MOD_ID);
+    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(() -> new ItemStack(
                     ItemRegistry.WRAPPIST_SHARD),
             (CreativeModeTab.ItemDisplayParameters parameters, CreativeModeTab.Output output) -> {
                 output.accept(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE.value());
