@@ -1,5 +1,8 @@
 {
   "branches": {
     "1.21.1": "primary"
+  },
+  "properties": {
+    "distributions.github.slug": "geodecraft"
   }
 }
