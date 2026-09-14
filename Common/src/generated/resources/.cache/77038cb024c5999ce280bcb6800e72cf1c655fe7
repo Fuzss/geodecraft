@@ -1,4 +1,4 @@
-// 26.1.2	2026-09-14T10:28:13.832097	Model Definitions
+// 26.1.2	2026-09-14T10:44:39.713317	Model Definitions
 b97cc77ba6daae5b5263a2ac371cb12e62fda0a7 assets/geodecraft/blockstates/ancient_debris_crystal.json
 cdad4dcf283500716ec148da744fb13b819fdea5 assets/geodecraft/blockstates/ancient_debris_crystal_block.json
 ab5bb3e1cf3040dcd3347fe6fc73bfd6cc7b8548 assets/geodecraft/blockstates/budding_ancient_debris.json
@@ -240,7 +240,7 @@ e9cd30ff1e75e59352e9c189fdd9bdbeb26f8930 assets/geodecraft/models/block/budding_
 ef7e7b95a66f4932a7dcefa3b6400ec7cde77875 assets/geodecraft/models/block/budding_wrappist.json
 3417e81f725a43c1d50889db4b90b90adc3e8a3c assets/geodecraft/models/block/celestite_block.json
 980184581e1a25a2dab1ea48406b24ca1a288259 assets/geodecraft/models/block/celestite_cluster.json
-e94bf5785c394a7edbf9e0633ea21c134012ffe8 assets/geodecraft/models/block/celestite_glass.json
+690b1e8ea282d00b11a8f4507ce8a5efbeb4e714 assets/geodecraft/models/block/celestite_glass.json
 fb5bfb133222d5da5c7432f148fdd1be17309d0b assets/geodecraft/models/block/diamond_crystal.json
 1da1709bf5d41b4afa773f589c1d971362570f08 assets/geodecraft/models/block/diamond_crystal_block.json
 39febe3071b5fd469dd9fe3d6104cf60c61b2359 assets/geodecraft/models/block/echo_crystal.json
@@ -284,7 +284,7 @@ ac815a7219c5f3c108c7b5984e63d75010e961c5 assets/geodecraft/models/block/nether_q
 3cbafdece3d3457432501a643657731329771f56 assets/geodecraft/models/block/pedestal.json
 d45deac01ad9e76aeee19eb9dcf1bfed7b448526 assets/geodecraft/models/block/pink_topaz_block.json
 21e201b1733cd77e25d1968874dc7bb97d502113 assets/geodecraft/models/block/pink_topaz_cluster.json
-28134973c82657583f6a16c63364e7d799498801 assets/geodecraft/models/block/pink_topaz_glass.json
+07d814ed101f7c6b339b7d369f9f1614d4f8a868 assets/geodecraft/models/block/pink_topaz_glass.json
 504f081d895fbc930d64c0541101d2c5d17f72d1 assets/geodecraft/models/block/prismarine_crystal.json
 51bad36960b986de51db0205d685a58ce4238d19 assets/geodecraft/models/block/prismarine_crystal_block.json
 6ffb76f114e5030459699bb112f71a30a5b91ec3 assets/geodecraft/models/block/redstone_crystal.json
@@ -310,7 +310,7 @@ a098f454006fa2f0350c27c69fbded688e9c0d25 assets/geodecraft/models/block/smooth_e
 c977ea3d73e1183be8e77f8671f7acb76b8cac12 assets/geodecraft/models/block/smooth_end_stone_stairs_outer.json
 69d5f94f4fca4a8dee38612d14fe9d95019c0522 assets/geodecraft/models/block/wrappist_block.json
 ee4bfee1fd902ccac4af175f58b1b6b12565a994 assets/geodecraft/models/block/wrappist_cluster.json
-513d685f94f7789af70d20226e129ed45ca19030 assets/geodecraft/models/block/wrappist_glass.json
+ce2d659d6eeb68826dad29e6c148bfa99a9a817d assets/geodecraft/models/block/wrappist_glass.json
 8daf95e8f7a590159fc432483889587bcf4c2847 assets/geodecraft/models/item/ancient_debris_crystal.json
 6168fc7644a6b7ddbc96213beb91ee6e27822dac assets/geodecraft/models/item/celeste_armor_trim_smithing_template.json
 a299f714325840e3297520e95b458bc820b604c0 assets/geodecraft/models/item/celestite_cluster.json
