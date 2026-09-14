@@ -32,8 +32,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class RedstoneOreClusterBlock extends DropExperienceClusterBlock {
     public static final BooleanProperty LIT = RedstoneTorchBlock.LIT;
 
-    public RedstoneOreClusterBlock(float height, float aabbOffset, IntProvider xpRange, Properties properties) {
-        super(height, aabbOffset, xpRange, properties);
+    public RedstoneOreClusterBlock(float height, float width, IntProvider xpRange, Properties properties) {
+        super(height, width, xpRange, properties);
         this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.FALSE));
     }
 

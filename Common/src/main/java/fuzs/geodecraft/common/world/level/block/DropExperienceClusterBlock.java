@@ -32,41 +32,41 @@ public class DropExperienceClusterBlock extends AmethystClusterBlock {
     /**
      * @see net.minecraft.world.level.block.Blocks#AMETHYST_CLUSTER
      */
-    public static final float CLUSTER_OFFSET = 3.0F;
+    public static final float CLUSTER_WIDTH = 10.0F;
     /**
      * @see net.minecraft.world.level.block.Blocks#LARGE_AMETHYST_BUD
      */
-    public static final float LARGE_CLUSTER_OFFSET = 3.0F;
+    public static final float LARGE_CLUSTER_WIDTH = 10.0F;
     /**
      * @see net.minecraft.world.level.block.Blocks#MEDIUM_AMETHYST_BUD
      */
-    public static final float MEDIUM_CLUSTER_OFFSET = 3.0F;
+    public static final float MEDIUM_CLUSTER_WIDTH = 10.0F;
     /**
      * @see net.minecraft.world.level.block.Blocks#SMALL_AMETHYST_BUD
      */
-    public static final float SMALL_CLUSTER_OFFSET = 4.0F;
+    public static final float SMALL_CLUSTER_WIDTH = 8.0F;
 
     private final IntProvider xpRange;
 
-    protected DropExperienceClusterBlock(float height, float aabbOffset, IntProvider xpRange, Properties properties) {
-        super(height, aabbOffset, properties);
+    protected DropExperienceClusterBlock(float height, float width, IntProvider xpRange, Properties properties) {
+        super(height, width, properties);
         this.xpRange = xpRange;
     }
 
     public static Block cluster(IntProvider xpRange, Properties properties) {
-        return new DropExperienceClusterBlock(CLUSTER_HEIGHT, CLUSTER_OFFSET, xpRange, properties);
+        return new DropExperienceClusterBlock(CLUSTER_HEIGHT, CLUSTER_WIDTH, xpRange, properties);
     }
 
     public static Block large(IntProvider xpRange, Properties properties) {
-        return new DropExperienceClusterBlock(LARGE_CLUSTER_HEIGHT, LARGE_CLUSTER_OFFSET, xpRange, properties);
+        return new DropExperienceClusterBlock(LARGE_CLUSTER_HEIGHT, LARGE_CLUSTER_WIDTH, xpRange, properties);
     }
 
     public static Block medium(IntProvider xpRange, Properties properties) {
-        return new DropExperienceClusterBlock(MEDIUM_CLUSTER_HEIGHT, MEDIUM_CLUSTER_OFFSET, xpRange, properties);
+        return new DropExperienceClusterBlock(MEDIUM_CLUSTER_HEIGHT, MEDIUM_CLUSTER_WIDTH, xpRange, properties);
     }
 
     public static Block small(IntProvider xpRange, Properties properties) {
-        return new DropExperienceClusterBlock(SMALL_CLUSTER_HEIGHT, SMALL_CLUSTER_OFFSET, xpRange, properties);
+        return new DropExperienceClusterBlock(SMALL_CLUSTER_HEIGHT, SMALL_CLUSTER_WIDTH, xpRange, properties);
     }
 
     @Override
