@@ -1,8 +1,8 @@
 package fuzs.geodecraft.common.data.client;
 
 import com.google.common.base.Preconditions;
-import fuzs.puzzleslib.api.client.data.v2.models.MaterialMapper;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.client.data.v2.models.MaterialMapper;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.renderer.texture.atlas.SpriteSource;
 import net.minecraft.client.renderer.texture.atlas.SpriteSources;
 import net.minecraft.client.renderer.texture.atlas.sources.DirectoryLister;
@@ -17,11 +17,11 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.armortrim.TrimPattern;
 import net.minecraft.world.item.armortrim.TrimPatterns;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -32,7 +32,7 @@ public abstract class AbstractAtlasProvider implements DataProvider {
     /**
      * Copied from Minecraft 26.2.
      */
-    public static final ResourceLocation TRIM_PALETTE_KEY = ResourceLocation.withDefaultNamespace(
+    public static final Identifier TRIM_PALETTE_KEY = Identifier.withDefaultNamespace(
             "trims/color_palettes/trim_palette");
     /**
      * Copied from Minecraft 26.2.
@@ -56,7 +56,7 @@ public abstract class AbstractAtlasProvider implements DataProvider {
             TrimPatterns.FLOW,
             TrimPatterns.BOLT);
 
-    private final Map<ResourceLocation, List<SpriteSource>> values = new LinkedHashMap<>();
+    private final Map<Identifier, List<SpriteSource>> values = new LinkedHashMap<>();
     private final PackOutput.PathProvider pathProvider;
 
     public AbstractAtlasProvider(DataProviderContext context) {
@@ -100,13 +100,13 @@ public abstract class AbstractAtlasProvider implements DataProvider {
         this.addAtlases();
         return CompletableFuture.allOf(this.values.entrySet()
                 .stream()
-                .map((Map.Entry<ResourceLocation, List<SpriteSource>> entry) -> {
+                .map((Map.Entry<Identifier, List<SpriteSource>> entry) -> {
                     return this.storeAtlas(output, entry.getKey(), entry.getValue());
                 })
                 .toArray(CompletableFuture[]::new));
     }
 
-    public final CompletableFuture<?> storeAtlas(CachedOutput output, ResourceLocation atlasId, List<SpriteSource> sources) {
+    public final CompletableFuture<?> storeAtlas(CachedOutput output, Identifier atlasId, List<SpriteSource> sources) {
         return DataProvider.saveStable(output,
                 RegistryAccess.EMPTY,
                 SpriteSources.FILE_CODEC,
@@ -120,12 +120,12 @@ public abstract class AbstractAtlasProvider implements DataProvider {
         this.add(ModelManager.VANILLA_ATLASES.get(material.atlasLocation()), forMaterial(material));
     }
 
-    protected void add(ResourceLocation id, SpriteSource... spriteSources) {
+    protected void add(Identifier id, SpriteSource... spriteSources) {
         this.add(id, Arrays.asList(spriteSources));
     }
 
-    protected void add(ResourceLocation id, List<SpriteSource> spriteSources) {
-        this.values.computeIfAbsent(id, (ResourceLocation location) -> new ArrayList<>()).addAll(spriteSources);
+    protected void add(Identifier id, List<SpriteSource> spriteSources) {
+        this.values.computeIfAbsent(id, (Identifier location) -> new ArrayList<>()).addAll(spriteSources);
     }
 
     @Override
@@ -136,8 +136,8 @@ public abstract class AbstractAtlasProvider implements DataProvider {
     public static class TrimPatternBuilder {
         private final List<ResourceKey<TrimPattern>> patterns = new ArrayList<>();
         private final List<UnaryOperator<String>> layers = new ArrayList<>();
-        private final Map<String, ResourceLocation> permutations = new TreeMap<>();
-        private ResourceLocation palette = TRIM_PALETTE_KEY;
+        private final Map<String, Identifier> permutations = new TreeMap<>();
+        private Identifier palette = TRIM_PALETTE_KEY;
         private @Nullable String namespaceOverride;
 
         TrimPatternBuilder() {
@@ -185,36 +185,36 @@ public abstract class AbstractAtlasProvider implements DataProvider {
 
         public TrimPatternBuilder addPermutation(String asset) {
             Objects.requireNonNull(this.namespaceOverride, "namespace is null");
-            return this.addPermutation(ResourceLocation.fromNamespaceAndPath(this.namespaceOverride, asset));
+            return this.addPermutation(Identifier.fromNamespaceAndPath(this.namespaceOverride, asset));
         }
 
-        public TrimPatternBuilder addPermutation(ResourceLocation base, Map<Holder<ArmorMaterial>, ResourceLocation> overrides) {
+        public TrimPatternBuilder addPermutation(Identifier base, Map<Holder<ArmorMaterial>, Identifier> overrides) {
             overrides.values().forEach(this::addPermutation);
             return this.addPermutation(base);
         }
 
-        public TrimPatternBuilder addPermutation(ResourceLocation asset) {
+        public TrimPatternBuilder addPermutation(Identifier asset) {
             this.permutations.put(asset.getPath(), asset.withPrefix("trims/color_palettes/"));
             return this;
         }
 
-        public TrimPatternBuilder addPermutation(String suffix, ResourceLocation palette) {
+        public TrimPatternBuilder addPermutation(String suffix, Identifier palette) {
             this.permutations.put(suffix, palette);
             return this;
         }
 
-        public TrimPatternBuilder addPermutations(Map<String, ResourceLocation> permutations) {
+        public TrimPatternBuilder addPermutations(Map<String, Identifier> permutations) {
             this.permutations.putAll(permutations);
             return this;
         }
 
         public TrimPatternBuilder addVanillaPermutations() {
-            return this.setNamespaceOverride(ResourceLocation.DEFAULT_NAMESPACE)
+            return this.setNamespaceOverride(Identifier.DEFAULT_NAMESPACE)
                     .addPermutations(ItemModelGenerators.GENERATED_TRIM_MODELS)
                     .setNamespaceOverride(null);
         }
 
-        public TrimPatternBuilder setPalette(ResourceLocation palette) {
+        public TrimPatternBuilder setPalette(Identifier palette) {
             Objects.requireNonNull(palette, "palette is null");
             this.palette = palette;
             return this;
@@ -229,14 +229,14 @@ public abstract class AbstractAtlasProvider implements DataProvider {
             Preconditions.checkArgument(!this.patterns.isEmpty(), "patterns is empty");
             Preconditions.checkArgument(!this.layers.isEmpty(), "layers is empty");
             Preconditions.checkArgument(!this.permutations.isEmpty(), "permutations is empty");
-            List<ResourceLocation> textures = patternTextures(this.patterns, this.layers);
+            List<Identifier> textures = patternTextures(this.patterns, this.layers);
             return List.of(new PalettedPermutations(textures, this.palette, this.permutations));
         }
 
-        private static List<ResourceLocation> patternTextures(List<ResourceKey<TrimPattern>> patterns, List<UnaryOperator<String>> layers) {
-            List<ResourceLocation> result = new ArrayList<>(patterns.size() * layers.size());
+        private static List<Identifier> patternTextures(List<ResourceKey<TrimPattern>> patterns, List<UnaryOperator<String>> layers) {
+            List<Identifier> result = new ArrayList<>(patterns.size() * layers.size());
             for (ResourceKey<TrimPattern> vanillaPattern : patterns) {
-                ResourceLocation assetId = vanillaPattern.location();
+                Identifier assetId = vanillaPattern.location();
                 for (UnaryOperator<String> humanoidLayer : layers) {
                     result.add(assetId.withPath(humanoidLayer));
                 }

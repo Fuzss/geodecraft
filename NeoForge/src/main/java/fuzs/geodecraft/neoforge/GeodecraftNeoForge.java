@@ -8,7 +8,7 @@ import fuzs.geodecraft.common.data.tags.ModBiomeTagsProvider;
 import fuzs.geodecraft.common.data.tags.ModBlockTagsProvider;
 import fuzs.geodecraft.common.data.tags.ModItemTagsProvider;
 import fuzs.geodecraft.common.init.ModRegistry;
-import fuzs.puzzleslib.api.core.v1.ModConstructor;
+import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
 import net.minecraft.server.packs.PackType;
 import net.neoforged.fml.common.Mod;

@@ -1,7 +1,7 @@
 package fuzs.geodecraft.common.init;
 
 import fuzs.geodecraft.common.Geodecraft;
-import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
+import fuzs.puzzleslib.common.api.init.v3.tags.TagFactory;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;

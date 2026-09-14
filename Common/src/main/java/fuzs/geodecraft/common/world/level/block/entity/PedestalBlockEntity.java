@@ -1,8 +1,8 @@
 package fuzs.geodecraft.common.world.level.block.entity;
 
 import fuzs.geodecraft.common.init.BlockEntityRegistry;
-import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
-import fuzs.puzzleslib.api.container.v1.ListBackedContainer;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.common.api.container.v1.ListBackedContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -21,7 +21,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 public class PedestalBlockEntity extends BlockEntity implements ListBackedContainer, WorldlyContainer, TickingBlockEntity {
     private static final int[] SLOTS = new int[]{0};

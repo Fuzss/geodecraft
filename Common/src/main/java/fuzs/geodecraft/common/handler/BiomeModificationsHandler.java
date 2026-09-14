@@ -4,10 +4,10 @@ import fuzs.geodecraft.common.Geodecraft;
 import fuzs.geodecraft.common.config.CommonConfig;
 import fuzs.geodecraft.common.init.PlacedFeatureRegistry;
 import fuzs.geodecraft.common.init.TagRegistry;
-import fuzs.puzzleslib.api.biome.v1.BiomeLoadingContext;
-import fuzs.puzzleslib.api.biome.v1.BiomeLoadingPhase;
-import fuzs.puzzleslib.api.biome.v1.BiomeModificationContext;
-import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
+import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingContext;
+import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingPhase;
+import fuzs.puzzleslib.common.api.biome.v1.BiomeModificationContext;
+import fuzs.puzzleslib.common.api.core.v1.context.BiomeModificationsContext;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class BiomeModificationsHandler {

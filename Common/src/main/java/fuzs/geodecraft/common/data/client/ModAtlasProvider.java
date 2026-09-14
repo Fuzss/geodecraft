@@ -3,7 +3,7 @@ package fuzs.geodecraft.common.data.client;
 import fuzs.geodecraft.common.Geodecraft;
 import fuzs.geodecraft.common.client.renderer.blockentity.PedestalRenderer;
 import fuzs.geodecraft.common.init.TrimPatternRegistry;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.resources.model.ModelManager;
 

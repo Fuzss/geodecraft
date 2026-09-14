@@ -1,7 +1,7 @@
 package fuzs.geodecraft.common.config;
 
-import fuzs.puzzleslib.api.config.v3.Config;
-import fuzs.puzzleslib.api.config.v3.ConfigCore;
+import fuzs.puzzleslib.common.api.config.v3.Config;
+import fuzs.puzzleslib.common.api.config.v3.ConfigCore;
 
 public class CommonConfig implements ConfigCore {
     private static final String OVERWORLD_CATEGORY = "overworld";

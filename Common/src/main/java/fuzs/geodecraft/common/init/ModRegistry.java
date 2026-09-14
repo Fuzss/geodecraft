@@ -1,13 +1,13 @@
 package fuzs.geodecraft.common.init;
 
 import fuzs.geodecraft.common.Geodecraft;
-import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
+import fuzs.puzzleslib.common.api.init.v3.registry.RegistryManager;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ModRegistry {
-    private static final Map<ResourceLocation, ResourceKey<LootTable>> LOOT_TABLE_ADDITIONS = new HashMap<>();
+    private static final Map<Identifier, ResourceKey<LootTable>> LOOT_TABLE_ADDITIONS = new HashMap<>();
     public static final RegistrySetBuilder REGISTRIES_BUILDER = new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE,
                     ConfiguredFeatureRegistry::bootstrap)
             .add(Registries.PLACED_FEATURE, PlacedFeatureRegistry::bootstrap)
@@ -45,7 +45,7 @@ public class ModRegistry {
         return updatedKey;
     }
 
-    public static void onLootTableLoad(ResourceLocation id, LootTable.Builder lootTable, HolderLookup.Provider context) {
+    public static void onLootTableLoad(Identifier id, LootTable.Builder lootTable, HolderLookup.Provider context) {
         if (LOOT_TABLE_ADDITIONS.containsKey(id)) {
             lootTable.withPool(LootPool.lootPool()
                     .setRolls(ConstantValue.exactly(1.0F))

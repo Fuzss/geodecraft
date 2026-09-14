@@ -2,14 +2,14 @@ package fuzs.geodecraft.common.data;
 
 import fuzs.geodecraft.common.Geodecraft;
 import fuzs.geodecraft.common.init.ItemRegistry;
-import fuzs.puzzleslib.api.data.v2.AbstractRecipeProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v2.AbstractRecipeProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.packs.VanillaRecipeProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -146,7 +146,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value(),
                 ItemRegistry.PINK_TOPAZ_BLOCK.value());
 
-        smithingTrims().forEach((Item ingredient, ResourceLocation id) -> {
+        smithingTrims().forEach((Item ingredient, Identifier id) -> {
             trimSmithing(output, ingredient, id);
         });
     }
@@ -170,7 +170,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
     /**
      * @see VanillaRecipeProvider#smithingTrims()
      */
-    public static Map<Item, ResourceLocation> smithingTrims() {
+    public static Map<Item, Identifier> smithingTrims() {
         return Stream.of(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE.value(),
                         ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE.value(),
                         ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE.value())

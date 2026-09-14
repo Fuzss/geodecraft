@@ -1,7 +1,7 @@
 package fuzs.geodecraft.common.init;
 
-import fuzs.puzzleslib.api.data.v2.AbstractDatapackRegistriesProvider;
-import net.minecraft.Util;
+import fuzs.puzzleslib.common.api.data.v2.AbstractDatapackRegistriesProvider;
+import net.minecraft.util.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;

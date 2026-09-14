@@ -2,10 +2,10 @@ package fuzs.geodecraft.common.data.loot;
 
 import fuzs.geodecraft.common.init.BlockRegistry;
 import fuzs.geodecraft.common.init.ItemRegistry;
-import fuzs.puzzleslib.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.api.item.v2.EnchantingHelper;
-import net.minecraft.advancements.critereon.ItemPredicate;
+import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
+import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.item.v2.EnchantingHelper;
+import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;

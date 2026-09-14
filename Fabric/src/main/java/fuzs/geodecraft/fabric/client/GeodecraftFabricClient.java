@@ -2,7 +2,7 @@ package fuzs.geodecraft.fabric.client;
 
 import fuzs.geodecraft.common.Geodecraft;
 import fuzs.geodecraft.common.client.GeodecraftClient;
-import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
+import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import net.fabricmc.api.ClientModInitializer;
 
 public class GeodecraftFabricClient implements ClientModInitializer {

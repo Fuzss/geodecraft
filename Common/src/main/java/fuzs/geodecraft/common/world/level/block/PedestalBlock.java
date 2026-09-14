@@ -3,7 +3,7 @@ package fuzs.geodecraft.common.world.level.block;
 import com.mojang.serialization.MapCodec;
 import fuzs.geodecraft.common.init.BlockEntityRegistry;
 import fuzs.geodecraft.common.world.level.block.entity.PedestalBlockEntity;
-import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
