@@ -125,7 +125,7 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
         if (renderState.displayItem != null) {
             poseStack.pushPose();
             float offsetY = Mth.sin(renderState.rotation / 8.0F) * 0.025F;
-            poseStack.translate(0.0F, offsetY + 0.3125F, 0.0F);
+            poseStack.translate(0.5F, offsetY + 0.7125F, 0.5F);
             poseStack.mulPose(Axis.YP.rotationDegrees(Mth.wrapDegrees(renderState.rotation / 2.0F)));
             ItemEntityRenderer.renderMultipleFromCount(poseStack,
                     nodeCollector,

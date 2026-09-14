@@ -16,7 +16,8 @@ public class ItemRegistry {
             BlockRegistry.LARGE_CELESTITE_BUD);
     public static final Holder.Reference<Item> CELESTITE_CLUSTER = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.CELESTITE_CLUSTER);
-    public static final Holder.Reference<Item> CELESTITE_SHARD = ModRegistry.REGISTRIES.registerItem("celestite_shard");
+    public static final Holder.Reference<Item> CELESTITE_SHARD = ModRegistry.REGISTRIES.registerItem("celestite_shard",
+            (Item.Properties properties) -> new Item(properties.trimMaterial(TrimMaterialRegistry.CELESTITE)));
 
     public static final Holder.Reference<Item> PINK_TOPAZ_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.PINK_TOPAZ_BLOCK);
     public static final Holder.Reference<Item> BUDDING_PINK_TOPAZ = ModRegistry.REGISTRIES.registerBlockItem(
@@ -29,7 +30,8 @@ public class ItemRegistry {
             BlockRegistry.LARGE_PINK_TOPAZ_BUD);
     public static final Holder.Reference<Item> PINK_TOPAZ_CRYSTAL = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.PINK_TOPAZ_CLUSTER);
-    public static final Holder.Reference<Item> PINK_TOPAZ_SHARD = ModRegistry.REGISTRIES.registerItem("pink_topaz_shard");
+    public static final Holder.Reference<Item> PINK_TOPAZ_SHARD = ModRegistry.REGISTRIES.registerItem("pink_topaz_shard",
+            (Item.Properties properties) -> new Item(properties.trimMaterial(TrimMaterialRegistry.PINK_TOPAZ)));
 
     public static final Holder.Reference<Item> WRAPPIST_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_BLOCK);
     public static final Holder.Reference<Item> BUDDING_WRAPPIST = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.BUDDING_WRAPPIST);
@@ -40,7 +42,8 @@ public class ItemRegistry {
     public static final Holder.Reference<Item> LARGE_WRAPPIST_BUD = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.LARGE_WRAPPIST_BUD);
     public static final Holder.Reference<Item> WRAPPIST_CLUSTER = ModRegistry.REGISTRIES.registerBlockItem(BlockRegistry.WRAPPIST_CLUSTER);
-    public static final Holder.Reference<Item> WRAPPIST_SHARD = ModRegistry.REGISTRIES.registerItem("wrappist_shard");
+    public static final Holder.Reference<Item> WRAPPIST_SHARD = ModRegistry.REGISTRIES.registerItem("wrappist_shard",
+            (Item.Properties properties) -> new Item(properties.trimMaterial(TrimMaterialRegistry.WRAPPIST)));
 
     public static final Holder.Reference<Item> PRISMARINE_CRYSTAL_BLOCK = ModRegistry.REGISTRIES.registerBlockItem(
             BlockRegistry.PRISMARINE_CRYSTAL_BLOCK);

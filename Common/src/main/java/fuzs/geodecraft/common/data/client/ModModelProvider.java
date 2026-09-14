@@ -10,6 +10,7 @@ import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.*;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 
 public class ModModelProvider extends AbstractModelProvider {
@@ -177,13 +178,14 @@ public class ModModelProvider extends AbstractModelProvider {
     }
 
     /**
-     * @see BlockModelGenerators#createSimpleFlatItemModel(Block)
+     * @see BlockModelGenerators#registerSimpleFlatItemModel(Block)
      */
     public final void createAmethystCluster(Block block, ModelTemplate template, BlockModelGenerators generator) {
         generator.createAmethystCluster(block);
-        template.create(ModelLocationHelper.getItemModel(block.asItem()),
+        Identifier itemModel = template.create(ModelLocationHelper.getItemModel(block.asItem()),
                 TextureMapping.layer0(ModelLocationHelper.getBlockTexture(block)),
                 generator.modelOutput);
+        generator.itemModelOutput.accept(block.asItem(), ItemModelUtils.plainModel(itemModel));
     }
 
     @Override
