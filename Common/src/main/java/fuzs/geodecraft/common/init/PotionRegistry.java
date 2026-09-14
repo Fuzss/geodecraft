@@ -7,11 +7,11 @@ import net.minecraft.world.item.alchemy.Potion;
 
 public class PotionRegistry {
     public static final Holder.Reference<Potion> HASTE = ModRegistry.REGISTRIES.registerPotion("haste",
-            (String name) -> new Potion(name, new MobEffectInstance(MobEffects.DIG_SPEED, 3600)));
+            (String name) -> new Potion(name, new MobEffectInstance(MobEffects.HASTE, 3600)));
     public static final Holder.Reference<Potion> LONG_HASTE = ModRegistry.REGISTRIES.registerPotion("long_haste",
-            () -> new Potion("haste", new MobEffectInstance(MobEffects.DIG_SPEED, 9600)));
+            () -> new Potion("haste", new MobEffectInstance(MobEffects.HASTE, 9600)));
     public static final Holder.Reference<Potion> STRONG_HASTE = ModRegistry.REGISTRIES.registerPotion("strong_haste",
-            () -> new Potion("haste", new MobEffectInstance(MobEffects.DIG_SPEED, 1800, 1)));
+            () -> new Potion("haste", new MobEffectInstance(MobEffects.HASTE, 1800, 1)));
 
     public static void bootstrap() {
         // NO-OP

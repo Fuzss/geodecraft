@@ -7,9 +7,9 @@ import fuzs.puzzleslib.common.api.client.data.v2.AbstractModelProvider;
 import fuzs.puzzleslib.common.api.client.data.v2.models.ModelLocationHelper;
 import fuzs.puzzleslib.common.api.client.data.v2.models.ModelTemplateHelper;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
-import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.*;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.world.level.block.Block;
 
 public class ModModelProvider extends AbstractModelProvider {

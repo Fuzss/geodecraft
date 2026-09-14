@@ -146,7 +146,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
 
                     for (Direction direction : DIRECTIONS) {
                         if (level.isStateAtPosition(pos.relative(direction), DripstoneUtils::isEmptyOrWaterOrLava)) {
-                            level.setBlock(pos, config.bloomState().getState(random, pos), Block.UPDATE_CLIENTS);
+                            level.setBlock(pos, config.bloomState().getState(level, random, pos), Block.UPDATE_CLIENTS);
                             break;
                         }
                     }
@@ -165,7 +165,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
 
         for (BlockPos pos : crystalPositions) {
             if (level.isStateAtPosition(pos, DripstoneUtils::isEmptyOrWaterOrLava)) {
-                this.setBlock(level, pos, config.crystalState().getState(random, pos));
+                this.setBlock(level, pos, config.crystalState().getState(level, random, pos));
                 spikePositions.add(pos);
             }
         }
@@ -179,7 +179,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
                 BlockPos clusterPos = pos.relative(direction);
                 if (random.nextBoolean() && level.isStateAtPosition(clusterPos, DripstoneUtils::isEmptyOrWater)) {
                     BlockState blockState = config.clusterState()
-                            .getState(random, clusterPos)
+                            .getState(level, random, clusterPos)
                             .trySetValue(BlockStateProperties.FACING, direction)
                             .trySetValue(BlockStateProperties.WATERLOGGED,
                                     level.getFluidState(clusterPos).getType() == Fluids.WATER);

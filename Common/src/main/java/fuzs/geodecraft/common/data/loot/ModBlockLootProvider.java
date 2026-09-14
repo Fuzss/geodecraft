@@ -8,6 +8,7 @@ import fuzs.puzzleslib.common.api.item.v2.EnchantingHelper;
 import net.minecraft.advancements.criterion.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
@@ -181,7 +182,8 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
                 LootItem.lootTableItem(droppedItem)
                         .apply(SetItemCountFunction.setCount(ConstantValue.exactly(dropCountWithPickaxe)))
                         .apply(ApplyBonusCount.addOreBonusCount(EnchantingHelper.lookup(context, Enchantments.FORTUNE)))
-                        .when(MatchTool.toolMatches(ItemPredicate.Builder.item().of(ItemTags.CLUSTER_MAX_HARVESTABLES)))
+                        .when(MatchTool.toolMatches(ItemPredicate.Builder.item()
+                                .of(context.lookupOrThrow(Registries.ITEM), ItemTags.CLUSTER_MAX_HARVESTABLES)))
                         .otherwise(this.applyExplosionDecay(block,
                                 LootItem.lootTableItem(droppedItem)
                                         .apply(SetItemCountFunction.setCount(ConstantValue.exactly(

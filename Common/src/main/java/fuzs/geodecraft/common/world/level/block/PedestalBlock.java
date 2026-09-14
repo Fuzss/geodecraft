@@ -5,11 +5,13 @@ import fuzs.geodecraft.common.init.BlockEntityRegistry;
 import fuzs.geodecraft.common.world.level.block.entity.PedestalBlockEntity;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
@@ -60,11 +62,11 @@ public class PedestalBlock extends BaseEntityBlock implements TickingEntityBlock
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack heldItem, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+    protected InteractionResult useItemOn(ItemStack heldItem, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof PedestalBlockEntity blockEntity) {
             if (level.isClientSide()) {
-                return heldItem.isEmpty() ? ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION :
-                        ItemInteractionResult.SUCCESS;
+                return heldItem.isEmpty() ? InteractionResult.TRY_WITH_EMPTY_HAND :
+                        InteractionResult.SUCCESS;
             }
 
             ItemStack removedItem = blockEntity.swapItem(0, heldItem);
@@ -76,13 +78,13 @@ public class PedestalBlock extends BaseEntityBlock implements TickingEntityBlock
                 this.playInteractSound(level, pos, !heldItem.isEmpty());
             } else {
                 if (heldItem.isEmpty()) {
-                    return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+                    return InteractionResult.TRY_WITH_EMPTY_HAND;
                 } else {
                     this.playInteractSound(level, pos, true);
                 }
             }
 
-            return ItemInteractionResult.CONSUME;
+            return InteractionResult.CONSUME;
         } else {
             return super.useItemOn(heldItem, state, level, pos, player, hand, hitResult);
         }
@@ -95,9 +97,8 @@ public class PedestalBlock extends BaseEntityBlock implements TickingEntityBlock
     }
 
     @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
-        Containers.dropContentsOnDestroy(state, newState, level, pos);
-        super.onRemove(state, level, pos, newState, isMoving);
+    protected void affectNeighborsAfterRemoval(BlockState state, ServerLevel level, BlockPos pos, boolean isMoving) {
+        Containers.updateNeighboursAfterDestroy(state, level, pos);
     }
 
     @Override
@@ -106,7 +107,7 @@ public class PedestalBlock extends BaseEntityBlock implements TickingEntityBlock
     }
 
     @Override
-    protected int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos pos) {
+    protected int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos pos, Direction direction) {
         return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
     }
 

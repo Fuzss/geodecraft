@@ -29,7 +29,7 @@ public class BuddingGrantEffectBlock extends BuddingBlock {
                 BlockRegistry.LARGE_CELESTITE_BUD,
                 BlockRegistry.CELESTITE_CLUSTER,
                 BuddingAmethystBlock.GROWTH_CHANCE,
-                MobEffects.DAMAGE_BOOST,
+                MobEffects.STRENGTH,
                 properties);
     }
 
@@ -49,7 +49,7 @@ public class BuddingGrantEffectBlock extends BuddingBlock {
                 BlockRegistry.LARGE_WRAPPIST_BUD,
                 BlockRegistry.WRAPPIST_CLUSTER,
                 BuddingAmethystBlock.GROWTH_CHANCE,
-                MobEffects.DIG_SPEED,
+                MobEffects.HASTE,
                 properties);
     }
 

@@ -20,9 +20,5 @@ public class ModItemTagsProvider extends AbstractTagProvider<Item> {
                 .add(ItemRegistry.WRAPPIST_GLASS, ItemRegistry.CELESTITE_GLASS, ItemRegistry.PINK_TOPAZ_GLASS);
         this.tag(ItemTags.TRIM_MATERIALS)
                 .add(ItemRegistry.WRAPPIST_SHARD, ItemRegistry.CELESTITE_SHARD, ItemRegistry.PINK_TOPAZ_SHARD);
-        this.tag(ItemTags.TRIM_TEMPLATES)
-                .add(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE,
-                        ItemRegistry.CELESTE_ARMOR_TRIM_SMITHING_TEMPLATE,
-                        ItemRegistry.HEART_ARMOR_TRIM_SMITHING_TEMPLATE);
     }
 }

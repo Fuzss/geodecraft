@@ -40,8 +40,8 @@ public class ModRegistry {
 
     private static ResourceKey<LootTable> registerLootTableAddition(ResourceKey<LootTable> key) {
         ResourceKey<LootTable> updatedKey = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
-                "inject/" + key.location().getPath());
-        LOOT_TABLE_ADDITIONS.put(key.location(), updatedKey);
+                "inject/" + key.identifier().getPath());
+        LOOT_TABLE_ADDITIONS.put(key.identifier(), updatedKey);
         return updatedKey;
     }
 

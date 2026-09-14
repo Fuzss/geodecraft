@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.IntProviders;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -31,7 +32,7 @@ public record CrystalSpikeConfiguration(BlockStateProvider crystalState,
                     TagKey.hashedCodec(Registries.BLOCK)
                             .fieldOf("placeable_on")
                             .forGetter(CrystalSpikeConfiguration::placeableOn),
-                    IntProvider.CODEC.fieldOf("radius").forGetter(CrystalSpikeConfiguration::radius),
+                    IntProviders.CODEC.fieldOf("radius").forGetter(CrystalSpikeConfiguration::radius),
                     CaveSurface.CODEC.fieldOf("placement").forGetter(CrystalSpikeConfiguration::placement))
             .apply(instance, CrystalSpikeConfiguration::new));
 }

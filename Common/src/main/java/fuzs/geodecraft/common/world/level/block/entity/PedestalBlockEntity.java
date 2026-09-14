@@ -2,11 +2,13 @@ package fuzs.geodecraft.common.world.level.block.entity;
 
 import fuzs.geodecraft.common.init.BlockEntityRegistry;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.common.api.container.v1.ContainerSerializationHelper;
 import fuzs.puzzleslib.common.api.container.v1.ListBackedContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
@@ -21,6 +23,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.Nullable;
 
 public class PedestalBlockEntity extends BlockEntity implements ListBackedContainer, WorldlyContainer, TickingBlockEntity {
@@ -43,16 +47,15 @@ public class PedestalBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider context) {
-        super.loadAdditional(tag, context);
-        this.items.clear();
-        ContainerHelper.loadAllItems(tag, this.items, context);
+    protected void loadAdditional(ValueInput input) {
+        super.loadAdditional(input);
+        ContainerSerializationHelper.loadAllItems(input, this);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider context) {
-        super.saveAdditional(tag, context);
-        ContainerHelper.saveAllItems(tag, this.items, context);
+    protected void saveAdditional(ValueOutput output) {
+        super.saveAdditional(output);
+        ContainerSerializationHelper.saveAllItems(output, this);
     }
 
     @Override
@@ -62,9 +65,7 @@ public class PedestalBlockEntity extends BlockEntity implements ListBackedContai
 
     @Override
     public CompoundTag getUpdateTag(HolderLookup.Provider context) {
-        CompoundTag tag = new CompoundTag();
-        this.saveAdditional(tag, context);
-        return tag;
+        return this.saveCustomOnly(context);
     }
 
     @Override
@@ -106,9 +107,9 @@ public class PedestalBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    protected void applyImplicitComponents(BlockEntity.DataComponentInput componentInput) {
-        super.applyImplicitComponents(componentInput);
-        componentInput.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
+    protected void applyImplicitComponents(DataComponentGetter componentGetter) {
+        super.applyImplicitComponents(componentGetter);
+        componentGetter.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
                 .copyInto(this.getContainerItems());
     }
 
@@ -119,7 +120,7 @@ public class PedestalBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    public void removeComponentsFromTag(CompoundTag tag) {
-        tag.remove(ContainerHelper.TAG_ITEMS);
+    public void removeComponentsFromTag(ValueOutput output) {
+        output.discard(ContainerHelper.TAG_ITEMS);
     }
 }

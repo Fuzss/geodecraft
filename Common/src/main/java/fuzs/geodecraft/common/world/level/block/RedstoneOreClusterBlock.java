@@ -8,8 +8,9 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.valueproviders.IntProvider;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -48,17 +49,17 @@ public class RedstoneOreClusterBlock extends DropExperienceClusterBlock {
     }
 
     @Override
-    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+    protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity, InsideBlockEffectApplier effectApplier, boolean isBoundingBox) {
         if (!entity.isSteppingCarefully()) {
             interact(state, level, pos);
         }
 
-        super.entityInside(state, level, pos, entity);
+        super.entityInside(state, level, pos, entity, effectApplier, isBoundingBox);
     }
 
     @Override
-    protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.isClientSide) {
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (level.isClientSide()) {
             spawnParticles(state, level, pos, level.getRandom());
         } else {
             interact(state, level, pos);
@@ -67,8 +68,8 @@ public class RedstoneOreClusterBlock extends DropExperienceClusterBlock {
         return stack.getItem() instanceof BlockItem && new BlockPlaceContext(player,
                 hand,
                 stack,
-                hitResult).canPlace() ? ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION :
-                ItemInteractionResult.SUCCESS;
+                hitResult).canPlace() ? InteractionResult.PASS :
+                InteractionResult.SUCCESS;
     }
 
     private static void interact(BlockState state, Level level, BlockPos pos) {
