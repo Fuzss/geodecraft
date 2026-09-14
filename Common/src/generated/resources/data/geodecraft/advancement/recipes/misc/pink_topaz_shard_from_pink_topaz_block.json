@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:pink_topaz_shard_from_pink_topaz_block"
+        "recipe": "minecraft:pink_topaz_shard_from_pink_topaz_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:pink_topaz_shard_from_pink_topaz_block"
+      "minecraft:pink_topaz_shard_from_pink_topaz_block"
     ]
   }
 }

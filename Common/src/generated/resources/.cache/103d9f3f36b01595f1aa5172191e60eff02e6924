@@ -1,10 +1,10 @@
-// 1.21.1	2026-08-22T13:58:20.280366	Registries
-19a1129f8d7144b119f085ee191c5fcf88fc5b9b data/geodecraft/trim_material/celestite.json
-9f0fc29d84f7ed79053910b9830852acf08e454e data/geodecraft/trim_material/pink_topaz.json
-6cb5e21831afba494b9c31552b705a05de83704b data/geodecraft/trim_material/wrappist.json
-4688844805dca9afda59a6a8c9de834fab8804c8 data/geodecraft/trim_pattern/celeste.json
-f41e0a5626ff0344e6ae0b31884cf791c9528205 data/geodecraft/trim_pattern/heart.json
-3fb9e83782b596715d57babf9475088a149cdb3a data/geodecraft/trim_pattern/wrap.json
+// 26.1.2	2026-09-14T10:28:13.83412	Registries
+9ee32d3379396e63ec50c0b3294ec4c4e8528803 data/geodecraft/trim_material/celestite.json
+a6639b75dd78277c3b12080c767a7f082171d25f data/geodecraft/trim_material/pink_topaz.json
+5beba00f28b711610a632a7369e6f41f46c41986 data/geodecraft/trim_material/wrappist.json
+31605e159bc448942653fcd8a06adaaad39ce355 data/geodecraft/trim_pattern/celeste.json
+72ac16d5fbd18c4b18c792f17ab880c194bcd965 data/geodecraft/trim_pattern/heart.json
+40832f45985b92cc2dd66c44f810311ebe68389b data/geodecraft/trim_pattern/wrap.json
 a74e87fcbe984989a8f4f018ea29085e3ff67a50 data/geodecraft/worldgen/configured_feature/ancient_debris_geode.json
 b423506f434b1c901dbf00e2f1b1d7c391612171 data/geodecraft/worldgen/configured_feature/basalt_ancient_debris_geode.json
 39d79025d5ae187732f36a4f603959480edf9e2d data/geodecraft/worldgen/configured_feature/basalt_glowstone_geode.json

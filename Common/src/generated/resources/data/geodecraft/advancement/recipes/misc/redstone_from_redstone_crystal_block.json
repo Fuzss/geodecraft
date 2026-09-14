@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:redstone_from_redstone_crystal_block"
+        "recipe": "minecraft:redstone_from_redstone_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:redstone_from_redstone_crystal_block"
+      "minecraft:redstone_from_redstone_crystal_block"
     ]
   }
 }

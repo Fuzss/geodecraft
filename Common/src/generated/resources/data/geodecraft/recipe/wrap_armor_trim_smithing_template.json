@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:diamond"
-    },
-    "C": {
-      "item": "geodecraft:wrappist_block"
-    },
-    "S": {
-      "item": "geodecraft:wrap_armor_trim_smithing_template"
-    }
+    "#": "minecraft:diamond",
+    "C": "geodecraft:wrappist_block",
+    "S": "geodecraft:wrap_armor_trim_smithing_template"
   },
   "pattern": [
     "#S#",

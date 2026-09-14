@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:wrap_armor_trim_smithing_template_smithing_trim"
+        "recipe": "minecraft:wrap_armor_trim_smithing_template_smithing_trim"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:wrap_armor_trim_smithing_template_smithing_trim"
+      "minecraft:wrap_armor_trim_smithing_template_smithing_trim"
     ]
   }
 }

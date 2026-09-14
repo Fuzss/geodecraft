@@ -1,4 +1,10 @@
 {
+  "fabric:remove": [
+    {
+      "id": "alexscaves:abyssal_chasm",
+      "required": false
+    }
+  ],
   "remove": [
     {
       "id": "alexscaves:abyssal_chasm",

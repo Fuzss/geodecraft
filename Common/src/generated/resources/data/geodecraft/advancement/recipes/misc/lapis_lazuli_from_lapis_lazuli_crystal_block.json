@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:lapis_lazuli_from_lapis_lazuli_crystal_block"
+        "recipe": "minecraft:lapis_lazuli_from_lapis_lazuli_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:lapis_lazuli_from_lapis_lazuli_crystal_block"
+      "minecraft:lapis_lazuli_from_lapis_lazuli_crystal_block"
     ]
   }
 }

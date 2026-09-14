@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:netherite_scrap_from_ancient_debris_crystal_block"
+        "recipe": "minecraft:netherite_scrap_from_ancient_debris_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:netherite_scrap_from_ancient_debris_crystal_block"
+      "minecraft:netherite_scrap_from_ancient_debris_crystal_block"
     ]
   }
 }

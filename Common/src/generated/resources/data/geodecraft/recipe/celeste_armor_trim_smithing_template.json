@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:diamond"
-    },
-    "C": {
-      "item": "geodecraft:celestite_block"
-    },
-    "S": {
-      "item": "geodecraft:celeste_armor_trim_smithing_template"
-    }
+    "#": "minecraft:diamond",
+    "C": "geodecraft:celestite_block",
+    "S": "geodecraft:celeste_armor_trim_smithing_template"
   },
   "pattern": [
     "#S#",

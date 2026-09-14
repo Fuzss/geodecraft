@@ -2,16 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "geodecraft:nether_gold_crystal"
-    }
+    "#": "geodecraft:nether_gold_crystal"
   },
   "pattern": [
     "##",
     "##"
   ],
   "result": {
-    "count": 1,
     "id": "geodecraft:nether_gold_crystal_block"
   }
 }

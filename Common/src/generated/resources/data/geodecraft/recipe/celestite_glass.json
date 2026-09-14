@@ -3,12 +3,8 @@
   "category": "building",
   "group": "luminous_glass",
   "key": {
-    "G": {
-      "item": "minecraft:glass"
-    },
-    "S": {
-      "item": "geodecraft:celestite_shard"
-    }
+    "G": "minecraft:glass",
+    "S": "geodecraft:celestite_shard"
   },
   "pattern": [
     " S ",

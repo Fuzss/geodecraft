@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "crystals",
   "ingredients": [
-    {
-      "item": "geodecraft:emerald_crystal_block"
-    }
+    "geodecraft:emerald_crystal_block"
   ],
   "result": {
     "count": 4,

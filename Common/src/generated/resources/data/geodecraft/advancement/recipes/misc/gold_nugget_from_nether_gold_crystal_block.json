@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:gold_nugget_from_nether_gold_crystal_block"
+        "recipe": "minecraft:gold_nugget_from_nether_gold_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:gold_nugget_from_nether_gold_crystal_block"
+      "minecraft:gold_nugget_from_nether_gold_crystal_block"
     ]
   }
 }

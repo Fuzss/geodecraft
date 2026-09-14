@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "crystals",
   "ingredients": [
-    {
-      "item": "geodecraft:prismarine_crystal_block"
-    }
+    "geodecraft:prismarine_crystal_block"
   ],
   "result": {
     "count": 4,

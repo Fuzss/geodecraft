@@ -3,12 +3,8 @@
   "category": "building",
   "group": "luminous_glass",
   "key": {
-    "G": {
-      "item": "minecraft:glass"
-    },
-    "S": {
-      "item": "geodecraft:pink_topaz_shard"
-    }
+    "G": "minecraft:glass",
+    "S": "geodecraft:pink_topaz_shard"
   },
   "pattern": [
     " S ",

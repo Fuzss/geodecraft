@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "crystals",
   "ingredients": [
-    {
-      "item": "geodecraft:ancient_debris_crystal_block"
-    }
+    "geodecraft:ancient_debris_crystal_block"
   ],
   "result": {
     "count": 4,

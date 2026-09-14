@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "crystals",
   "ingredients": [
-    {
-      "item": "geodecraft:lapis_lazuli_crystal_block"
-    }
+    "geodecraft:lapis_lazuli_crystal_block"
   ],
   "result": {
     "count": 4,

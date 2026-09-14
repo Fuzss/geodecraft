@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:heart_armor_trim_smithing_template_smithing_trim"
+        "recipe": "minecraft:heart_armor_trim_smithing_template_smithing_trim"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:heart_armor_trim_smithing_template_smithing_trim"
+      "minecraft:heart_armor_trim_smithing_template_smithing_trim"
     ]
   }
 }

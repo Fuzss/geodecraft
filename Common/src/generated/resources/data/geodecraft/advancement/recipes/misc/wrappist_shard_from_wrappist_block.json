@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:wrappist_shard_from_wrappist_block"
+        "recipe": "minecraft:wrappist_shard_from_wrappist_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:wrappist_shard_from_wrappist_block"
+      "minecraft:wrappist_shard_from_wrappist_block"
     ]
   }
 }

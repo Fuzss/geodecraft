@@ -2,16 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "geodecraft:lapis_lazuli_crystal"
-    }
+    "#": "geodecraft:lapis_lazuli_crystal"
   },
   "pattern": [
     "##",
     "##"
   ],
   "result": {
-    "count": 1,
     "id": "geodecraft:lapis_lazuli_crystal_block"
   }
 }

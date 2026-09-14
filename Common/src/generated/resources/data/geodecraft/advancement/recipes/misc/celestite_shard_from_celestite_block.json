@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:celestite_shard_from_celestite_block"
+        "recipe": "minecraft:celestite_shard_from_celestite_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:celestite_shard_from_celestite_block"
+      "minecraft:celestite_shard_from_celestite_block"
     ]
   }
 }

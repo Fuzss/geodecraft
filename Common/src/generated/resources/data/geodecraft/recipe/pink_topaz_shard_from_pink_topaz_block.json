@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "crystals",
   "ingredients": [
-    {
-      "item": "geodecraft:pink_topaz_block"
-    }
+    "geodecraft:pink_topaz_block"
   ],
   "result": {
     "count": 4,

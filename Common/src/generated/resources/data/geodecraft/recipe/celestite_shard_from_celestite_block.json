@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "crystals",
   "ingredients": [
-    {
-      "item": "geodecraft:celestite_block"
-    }
+    "geodecraft:celestite_block"
   ],
   "result": {
     "count": 4,

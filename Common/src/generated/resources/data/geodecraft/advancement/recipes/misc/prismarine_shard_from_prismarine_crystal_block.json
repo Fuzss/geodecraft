@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:prismarine_shard_from_prismarine_crystal_block"
+        "recipe": "minecraft:prismarine_shard_from_prismarine_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "geodecraft:prismarine_shard_from_prismarine_crystal_block"
+      "minecraft:prismarine_shard_from_prismarine_crystal_block"
     ]
   }
 }

@@ -3,9 +3,7 @@
   "category": "misc",
   "group": "crystals",
   "ingredients": [
-    {
-      "item": "geodecraft:nether_gold_crystal_block"
-    }
+    "geodecraft:nether_gold_crystal_block"
   ],
   "result": {
     "count": 4,
