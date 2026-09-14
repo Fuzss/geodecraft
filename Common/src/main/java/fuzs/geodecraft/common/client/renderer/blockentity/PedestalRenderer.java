@@ -3,6 +3,7 @@ package fuzs.geodecraft.common.client.renderer.blockentity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import fuzs.geodecraft.common.Geodecraft;
+import fuzs.geodecraft.common.client.renderer.blockentity.state.PedestalRenderState;
 import fuzs.geodecraft.common.world.level.block.entity.PedestalBlockEntity;
 import fuzs.puzzleslib.common.api.client.init.v1.ModelLayerFactory;
 import net.minecraft.client.model.geom.ModelLayerLocation;

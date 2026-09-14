@@ -17,6 +17,7 @@ public class ModModelProvider extends AbstractModelProvider {
             "template_pedestal"), TextureSlot.TOP, TextureSlot.BOTTOM, TextureSlot.SIDE);
     public static final TexturedModel.Provider PEDESTAL_PROVIDER = TexturedModel.createDefault(TextureMapping::cubeBottomTop,
             PEDESTAL_TEMPLATE);
+    public static final TexturedModel.Provider TRANSLUCENT_CUBE = TexturedModel.CUBE.updateTexture(TextureMapping::forceAllTranslucent);
     public static final ModelTemplate SMALL_AMETHYST_BUD_INVENTORY = ModelTemplates.createItem("small_amethyst_bud",
             TextureSlot.LAYER0);
     public static final ModelTemplate MEDIUM_AMETHYST_BUD_INVENTORY = ModelTemplates.createItem("medium_amethyst_bud",
@@ -82,9 +83,9 @@ public class ModModelProvider extends AbstractModelProvider {
         generator.createTrivialCube(BlockRegistry.PINK_TOPAZ_BLOCK.value());
         generator.createTrivialCube(BlockRegistry.ECHO_CRYSTAL_BLOCK.value());
 
-        generator.createTrivialCube(BlockRegistry.WRAPPIST_GLASS.value());
-        generator.createTrivialCube(BlockRegistry.CELESTITE_GLASS.value());
-        generator.createTrivialCube(BlockRegistry.PINK_TOPAZ_GLASS.value());
+        generator.createTrivialBlock(BlockRegistry.WRAPPIST_GLASS.value(), TRANSLUCENT_CUBE);
+        generator.createTrivialBlock(BlockRegistry.CELESTITE_GLASS.value(), TRANSLUCENT_CUBE);
+        generator.createTrivialBlock(BlockRegistry.PINK_TOPAZ_GLASS.value(), TRANSLUCENT_CUBE);
 
         this.createAmethystClusters(BlockRegistry.SMALL_ECHO_BUD.value(),
                 BlockRegistry.MEDIUM_ECHO_BUD.value(),
