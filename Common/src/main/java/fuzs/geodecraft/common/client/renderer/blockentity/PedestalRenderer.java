@@ -16,6 +16,7 @@ import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
+import net.minecraft.client.renderer.blockentity.state.VaultRenderState;
 import net.minecraft.client.renderer.entity.ItemEntityRenderer;
 import net.minecraft.client.renderer.entity.state.ItemClusterRenderState;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
@@ -84,7 +85,11 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
 
     @Override
     public void extractRenderState(PedestalBlockEntity blockEntity, PedestalRenderState renderState, float partialTick, Vec3 cameraPos, ModelFeatureRenderer.CrumblingOverlay crumblingOverlay) {
-        BlockEntityRenderer.super.extractRenderState(blockEntity, renderState, partialTick, cameraPos, crumblingOverlay);
+        BlockEntityRenderer.super.extractRenderState(blockEntity,
+                renderState,
+                partialTick,
+                cameraPos,
+                crumblingOverlay);
         renderState.rotation = blockEntity.getTime(partialTick);
         ItemStack item = blockEntity.getItem(0);
         if (blockEntity.getLevel() != null && !item.isEmpty()) {
@@ -121,11 +126,16 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
         poseStack.popPose();
     }
 
+    /**
+     * @see net.minecraft.client.renderer.blockentity.VaultRenderer#submit(VaultRenderState, PoseStack,
+     *         SubmitNodeCollector, CameraRenderState)
+     */
     private void submitItem(PedestalRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector) {
         if (renderState.displayItem != null) {
             poseStack.pushPose();
+            poseStack.translate(0.5F, 0.4F, 0.5F);
             float offsetY = Mth.sin(renderState.rotation / 8.0F) * 0.025F;
-            poseStack.translate(0.5F, offsetY + 0.7125F, 0.5F);
+            poseStack.translate(0.0F, offsetY + 0.3125F, 0.0F);
             poseStack.mulPose(Axis.YP.rotationDegrees(Mth.wrapDegrees(renderState.rotation / 2.0F)));
             ItemEntityRenderer.renderMultipleFromCount(poseStack,
                     nodeCollector,
