@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/medium_lapis_lazuli_bud"
+    "model": "geodecraft:item/medium_lapis_lazuli_bud"
   }
 }

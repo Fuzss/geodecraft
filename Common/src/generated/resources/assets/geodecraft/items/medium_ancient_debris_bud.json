@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/medium_ancient_debris_bud"
+    "model": "geodecraft:item/medium_ancient_debris_bud"
   }
 }

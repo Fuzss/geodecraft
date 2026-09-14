@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/ancient_debris_crystal"
+    "model": "geodecraft:item/ancient_debris_crystal"
   }
 }

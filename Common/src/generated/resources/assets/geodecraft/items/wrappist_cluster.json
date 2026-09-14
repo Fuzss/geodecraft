@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/wrappist_cluster"
+    "model": "geodecraft:item/wrappist_cluster"
   }
 }

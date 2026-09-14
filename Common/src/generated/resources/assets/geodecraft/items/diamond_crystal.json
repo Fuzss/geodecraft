@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/diamond_crystal"
+    "model": "geodecraft:item/diamond_crystal"
   }
 }

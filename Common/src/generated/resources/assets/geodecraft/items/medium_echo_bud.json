@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/medium_echo_bud"
+    "model": "geodecraft:item/medium_echo_bud"
   }
 }

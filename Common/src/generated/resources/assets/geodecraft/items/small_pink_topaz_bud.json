@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/small_pink_topaz_bud"
+    "model": "geodecraft:item/small_pink_topaz_bud"
   }
 }

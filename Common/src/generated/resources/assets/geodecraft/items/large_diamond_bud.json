@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/large_diamond_bud"
+    "model": "geodecraft:item/large_diamond_bud"
   }
 }

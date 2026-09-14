@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/emerald_crystal"
+    "model": "geodecraft:item/emerald_crystal"
   }
 }

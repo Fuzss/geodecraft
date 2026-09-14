@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/medium_prismarine_bud"
+    "model": "geodecraft:item/medium_prismarine_bud"
   }
 }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/nether_quartz_crystal"
+    "model": "geodecraft:item/nether_quartz_crystal"
   }
 }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/pink_topaz_cluster"
+    "model": "geodecraft:item/pink_topaz_cluster"
   }
 }

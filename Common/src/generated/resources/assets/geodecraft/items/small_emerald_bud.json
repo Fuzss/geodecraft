@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/small_emerald_bud"
+    "model": "geodecraft:item/small_emerald_bud"
   }
 }

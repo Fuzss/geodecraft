@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/large_glowstone_bud"
+    "model": "geodecraft:item/large_glowstone_bud"
   }
 }

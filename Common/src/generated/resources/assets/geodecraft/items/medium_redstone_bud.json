@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/medium_redstone_bud"
+    "model": "geodecraft:item/medium_redstone_bud"
   }
 }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/redstone_crystal"
+    "model": "geodecraft:item/redstone_crystal"
   }
 }

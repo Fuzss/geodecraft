@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/lapis_lazuli_crystal"
+    "model": "geodecraft:item/lapis_lazuli_crystal"
   }
 }

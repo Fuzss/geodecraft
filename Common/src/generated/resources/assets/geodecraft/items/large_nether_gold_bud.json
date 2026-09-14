@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "geodecraft:block/large_nether_gold_bud"
+    "model": "geodecraft:item/large_nether_gold_bud"
   }
 }
