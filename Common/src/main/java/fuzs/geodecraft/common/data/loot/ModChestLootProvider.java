@@ -5,7 +5,7 @@ import fuzs.geodecraft.common.init.ModRegistry;
 import fuzs.geodecraft.common.init.TagRegistry;
 import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
-import net.minecraft.advancements.criterion.LocationPredicate;
+import net.minecraft.advancements.predicates.LocationPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.storage.loot.LootPool;

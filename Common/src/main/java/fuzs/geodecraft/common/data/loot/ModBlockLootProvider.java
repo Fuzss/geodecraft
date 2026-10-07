@@ -5,7 +5,7 @@ import fuzs.geodecraft.common.init.ItemRegistry;
 import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.common.api.item.v2.EnchantingHelper;
-import net.minecraft.advancements.criterion.ItemPredicate;
+import net.minecraft.advancements.predicates.ItemPredicate;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;

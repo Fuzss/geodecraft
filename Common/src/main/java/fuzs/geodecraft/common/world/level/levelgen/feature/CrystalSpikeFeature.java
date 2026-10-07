@@ -10,7 +10,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.levelgen.feature.DripstoneUtils;
+import net.minecraft.world.level.levelgen.feature.SpeleothemUtils;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.material.Fluids;
@@ -52,7 +52,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
         RandomSource random = context.random();
         CrystalSpikeConfiguration config = context.config();
         Direction direction = config.placement().getDirection();
-        if (!level.isStateAtPosition(origin.relative(direction.getOpposite()), DripstoneUtils::isEmptyOrWaterOrLava)) {
+        if (!level.isStateAtPosition(origin.relative(direction.getOpposite()), SpeleothemUtils::isEmptyOrWaterOrLava)) {
             return false;
         } else if (!level.getBlockState(origin).is(config.placeableOn())) {
             return false;
@@ -101,7 +101,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
                     BlockPos crystalPos = pos.offset(sign * (int) (Mth.cos(angle) * y),
                             sign * y,
                             sign * (int) (Mth.sin(angle) * y));
-                    if (level.isStateAtPosition(crystalPos, DripstoneUtils::isEmptyOrWaterOrLava)) {
+                    if (level.isStateAtPosition(crystalPos, SpeleothemUtils::isEmptyOrWaterOrLava)) {
                         crystalPositions.add(crystalPos);
                         placed = true;
                     } else {
@@ -122,11 +122,11 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
         BlockPos.MutableBlockPos mutablePos = pos.mutable();
 
         for (int i = 0; i < CEILING_SEARCH_DISTANCE && level.isStateAtPosition(mutablePos.above(),
-                DripstoneUtils::isEmptyOrWaterOrLava); i++) {
+                SpeleothemUtils::isEmptyOrWaterOrLava); i++) {
             mutablePos.move(Direction.UP);
         }
 
-        return level.isStateAtPosition(mutablePos.above(), DripstoneUtils::isEmptyOrWaterOrLava) ? null :
+        return level.isStateAtPosition(mutablePos.above(), SpeleothemUtils::isEmptyOrWaterOrLava) ? null :
                 mutablePos.immutable();
     }
 
@@ -145,7 +145,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
                     }
 
                     for (Direction direction : DIRECTIONS) {
-                        if (level.isStateAtPosition(pos.relative(direction), DripstoneUtils::isEmptyOrWaterOrLava)) {
+                        if (level.isStateAtPosition(pos.relative(direction), SpeleothemUtils::isEmptyOrWaterOrLava)) {
                             level.setBlock(pos, config.bloomState().getState(level, random, pos), Block.UPDATE_CLIENTS);
                             break;
                         }
@@ -164,7 +164,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
         List<BlockPos> spikePositions = new ArrayList<>();
 
         for (BlockPos pos : crystalPositions) {
-            if (level.isStateAtPosition(pos, DripstoneUtils::isEmptyOrWaterOrLava)) {
+            if (level.isStateAtPosition(pos, SpeleothemUtils::isEmptyOrWaterOrLava)) {
                 this.setBlock(level, pos, config.crystalState().getState(level, random, pos));
                 spikePositions.add(pos);
             }
@@ -177,7 +177,7 @@ public class CrystalSpikeFeature extends Feature<CrystalSpikeConfiguration> {
 
             for (Direction direction : DIRECTIONS) {
                 BlockPos clusterPos = pos.relative(direction);
-                if (random.nextBoolean() && level.isStateAtPosition(clusterPos, DripstoneUtils::isEmptyOrWater)) {
+                if (random.nextBoolean() && level.isStateAtPosition(clusterPos, SpeleothemUtils::isEmptyOrWater)) {
                     BlockState blockState = config.clusterState()
                             .getState(level, random, clusterPos)
                             .trySetValue(BlockStateProperties.FACING, direction)

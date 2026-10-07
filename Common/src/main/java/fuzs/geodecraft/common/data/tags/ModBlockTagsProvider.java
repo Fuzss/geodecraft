@@ -6,9 +6,9 @@ import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.common.api.data.v2.tags.AbstractTagProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.references.BlockItemIds;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 
 public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
 
@@ -180,9 +180,14 @@ public class ModBlockTagsProvider extends AbstractTagProvider<Block> {
 
         this.tag(TagRegistry.Blocks.NETHER_QUARTZ_CRYSTAL_SPIKE_MAY_PLACE_ON).addTag(BlockTags.BASE_STONE_NETHER);
         this.tag(TagRegistry.Blocks.GLOWSTONE_CRYSTAL_SPIKE_MAY_PLACE_ON).addTag(BlockTags.BASE_STONE_NETHER);
-        this.tag(TagRegistry.Blocks.ECHO_CRYSTAL_SPIKE_MAY_PLACE_ON).add(Blocks.SCULK, Blocks.STONE, Blocks.DEEPSLATE);
+        this.tag(TagRegistry.Blocks.ECHO_CRYSTAL_SPIKE_MAY_PLACE_ON)
+                .add(BlockItemIds.SCULK.block(), BlockItemIds.STONE.block(), BlockItemIds.DEEPSLATE.block());
         this.tag(TagRegistry.Blocks.PRISMARINE_CRYSTAL_SPIKE_MAY_PLACE_ON)
-                .add(Blocks.SAND, Blocks.STONE, Blocks.GRAVEL, Blocks.CLAY, Blocks.SANDSTONE);
-        this.tag(TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON).add(Blocks.END_STONE);
+                .add(BlockItemIds.SAND.block(),
+                        BlockItemIds.STONE.block(),
+                        BlockItemIds.GRAVEL.block(),
+                        BlockItemIds.CLAY.block(),
+                        BlockItemIds.SANDSTONE.block());
+        this.tag(TagRegistry.Blocks.WRAPPIST_CRYSTAL_SPIKE_MAY_PLACE_ON).add(BlockItemIds.END_STONE.block());
     }
 }

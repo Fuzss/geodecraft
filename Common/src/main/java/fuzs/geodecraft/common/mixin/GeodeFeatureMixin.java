@@ -34,6 +34,6 @@ abstract class GeodeFeatureMixin extends Feature<GeodeConfiguration> {
                                        target = "Lnet/minecraft/world/level/WorldGenLevel;scheduleTick(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/material/Fluid;I)V")))
     public BlockState place(WorldGenLevel level, BlockPos pos, BlockState state, Predicate<BlockState> oldState, @Local(
             argsOnly = true) FeaturePlaceContext<GeodeConfiguration> context) {
-        return context.config().geodeBlockSettings.fillingProvider.getState(context.level(), context.random(), pos);
+        return context.config().geodeBlockSettings().fillingProvider().getState(context.level(), context.random(), pos);
     }
 }
