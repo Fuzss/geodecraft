@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "group": "crystals",
   "ingredients": [
     "geodecraft:diamond_crystal_block"
