@@ -1,10 +1,16 @@
 # Geodecraft
 
+### Minecraft 26.x
+
+| Branch | Status | Links | Downloads |
+| --- | --- | --- | --- |
+| [26.1.x](https://github.com/Fuzss/geodecraft/tree/26.1.x) | ✅&nbsp;Primary | 📜&nbsp;[History](https://github.com/Fuzss/geodecraft/commits/26.1.x)<br />📖&nbsp;[README.md](https://github.com/Fuzss/geodecraft/blob/26.1.x/README.md)<br />📝&nbsp;[CHANGELOG.md](https://github.com/Fuzss/geodecraft/blob/26.1.x/CHANGELOG.md) | n/a |
+
 ### Minecraft 1.21.x
 
-| Branch | History | Status | Changelog |
+| Branch | Status | Links | Downloads |
 | --- | --- | --- | --- |
-| [1.21.1](https://github.com/Fuzss/geodecraft/tree/1.21.1) | [Commits](https://github.com/Fuzss/geodecraft/commits/1.21.1) | ✅&nbsp;Primary | [CHANGELOG.md](https://github.com/Fuzss/geodecraft/blob/1.21.1/CHANGELOG.md) |
+| [1.21.1](https://github.com/Fuzss/geodecraft/tree/1.21.1) | ✅&nbsp;Primary | 📜&nbsp;[History](https://github.com/Fuzss/geodecraft/commits/1.21.1)<br />📖&nbsp;[README.md](https://github.com/Fuzss/geodecraft/blob/1.21.1/README.md)<br />📝&nbsp;[CHANGELOG.md](https://github.com/Fuzss/geodecraft/blob/1.21.1/CHANGELOG.md) | n/a |
 
 ---
 
