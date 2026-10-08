@@ -1,6 +1,5 @@
 package fuzs.geodecraft.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.server.level.ServerLevel;
@@ -35,11 +34,6 @@ public class RedstoneOreClusterBlock extends DropExperienceClusterBlock {
     public RedstoneOreClusterBlock(float height, float width, IntProvider xpRange, Properties properties) {
         super(height, width, xpRange, properties);
         this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.FALSE));
-    }
-
-    @Override
-    public MapCodec<AmethystClusterBlock> codec() {
-        throw new UnsupportedOperationException();
     }
 
     @Override

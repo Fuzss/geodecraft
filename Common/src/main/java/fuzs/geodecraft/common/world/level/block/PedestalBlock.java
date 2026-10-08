@@ -1,6 +1,5 @@
 package fuzs.geodecraft.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.geodecraft.common.init.BlockEntityRegistry;
 import fuzs.geodecraft.common.world.level.block.entity.PedestalBlockEntity;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
@@ -34,11 +33,6 @@ public class PedestalBlock extends BaseEntityBlock implements TickingEntityBlock
 
     public PedestalBlock(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        throw new UnsupportedOperationException();
     }
 
     @Override

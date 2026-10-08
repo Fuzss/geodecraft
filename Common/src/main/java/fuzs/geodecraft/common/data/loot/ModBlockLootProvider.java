@@ -2,14 +2,10 @@ package fuzs.geodecraft.common.data.loot;
 
 import fuzs.geodecraft.common.init.BlockRegistry;
 import fuzs.geodecraft.common.init.ItemRegistry;
-import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
-import fuzs.puzzleslib.common.api.item.v2.EnchantingHelper;
+import fuzs.puzzleslib.common.api.data.v3.loot.AbstractBlockLootSubProvider;
 import net.minecraft.advancements.predicates.ItemPredicate;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -21,21 +17,18 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 import java.util.function.Consumer;
-import java.util.stream.Stream;
 
-public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
+public class ModBlockLootProvider extends AbstractBlockLootSubProvider {
 
-    public ModBlockLootProvider(DataProviderContext context) {
+    public ModBlockLootProvider(LootTableSubProvider.Context context) {
         super(context);
     }
 
     @Override
-    public void addLootTables() {
-        HolderLookup.Provider context = this.registries();
-
+    public void generate() {
         this.dropSelf(BlockRegistry.PEDESTAL.value());
         this.dropSelf(BlockRegistry.WRAPPIST_GLASS.value());
         this.dropSelf(BlockRegistry.CELESTITE_GLASS.value());
@@ -61,43 +54,43 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         this.add(BlockRegistry.SMOOTH_END_STONE_SLAB.value(), this::createSlabItemTable);
 
         this.add(BlockRegistry.ECHO_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.ECHO_SHARD, 4.0F, 2.0F, context);
+            return this.createClusterDrops(block, Items.ECHO_SHARD, 4, 2);
         });
         this.add(BlockRegistry.NETHER_GOLD_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.GOLD_NUGGET, 4.0F, 2.0F, context);
+            return this.createClusterDrops(block, Items.GOLD_NUGGET, 4, 2);
         });
         this.add(BlockRegistry.NETHER_QUARTZ_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.QUARTZ, 4.0F, 3.0F, context);
+            return this.createClusterDrops(block, Items.QUARTZ, 4, 3);
         });
         this.add(BlockRegistry.WRAPPIST_CLUSTER.value(), (Block block) -> {
-            return this.createClusterDrops(block, ItemRegistry.WRAPPIST_SHARD.value(), 2.0F, 1.0F, context);
+            return this.createClusterDrops(block, ItemRegistry.WRAPPIST_SHARD.value(), 2, 1);
         });
         this.add(BlockRegistry.GLOWSTONE_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.GLOWSTONE_DUST, 3.0F, 2.0F, context);
+            return this.createClusterDrops(block, Items.GLOWSTONE_DUST, 3, 2);
         });
         this.add(BlockRegistry.LAPIS_LAZULI_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.LAPIS_LAZULI, 3.0F, 1.0F, context);
+            return this.createClusterDrops(block, Items.LAPIS_LAZULI, 3, 1);
         });
         this.add(BlockRegistry.REDSTONE_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.REDSTONE, 6.0F, 3.0F, context);
+            return this.createClusterDrops(block, Items.REDSTONE, 6, 3);
         });
         this.add(BlockRegistry.EMERALD_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.EMERALD, 1.0F, 1.0F, context);
+            return this.createClusterDrops(block, Items.EMERALD, 1, 1);
         });
         this.add(BlockRegistry.DIAMOND_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.DIAMOND, 2.0F, 1.0F, context);
+            return this.createClusterDrops(block, Items.DIAMOND, 2, 1);
         });
         this.add(BlockRegistry.ANCIENT_DEBRIS_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.NETHERITE_SCRAP, 2.0F, 1.0F, context);
+            return this.createClusterDrops(block, Items.NETHERITE_SCRAP, 2, 1);
         });
         this.add(BlockRegistry.PRISMARINE_CRYSTAL.value(), (Block block) -> {
-            return this.createClusterDrops(block, Items.PRISMARINE_SHARD, 4.0F, 1.0F, context);
+            return this.createClusterDrops(block, Items.PRISMARINE_SHARD, 4, 1);
         });
         this.add(BlockRegistry.CELESTITE_CLUSTER.value(), (Block block) -> {
-            return this.createClusterDrops(block, ItemRegistry.CELESTITE_SHARD.value(), 4.0F, 2.0F, context);
+            return this.createClusterDrops(block, ItemRegistry.CELESTITE_SHARD.value(), 4, 2);
         });
         this.add(BlockRegistry.PINK_TOPAZ_CLUSTER.value(), (Block block) -> {
-            return this.createClusterDrops(block, ItemRegistry.PINK_TOPAZ_SHARD.value(), 4.0F, 2.0F, context);
+            return this.createClusterDrops(block, ItemRegistry.PINK_TOPAZ_SHARD.value(), 4, 2);
         });
 
         this.dropWhenSilkTouch(BlockRegistry.LARGE_NETHER_QUARTZ_BUD.value());
@@ -177,27 +170,29 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         dropBlock.accept(BlockRegistry.BUDDING_PINK_TOPAZ.value());
     }
 
-    public final LootTable.Builder createClusterDrops(Block block, ItemLike droppedItem, float dropCountWithPickaxe, float dropCountWithoutPickaxe, HolderLookup.Provider context) {
+    public final LootTable.Builder createClusterDrops(Block block, ItemLike droppedItem, int dropCountWithPickaxe, int dropCountWithoutPickaxe) {
         return this.createSilkTouchDispatchTable(block,
                 LootItem.lootTableItem(droppedItem)
-                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(dropCountWithPickaxe)))
-                        .apply(ApplyBonusCount.addOreBonusCount(EnchantingHelper.lookup(context, Enchantments.FORTUNE)))
+                        .apply(SetItemCountFunction.setCount(ContextIntProviders.exactly(dropCountWithPickaxe)))
+                        .apply(ApplyBonusCount.addOreBonusCount(this.output.lookup(Registries.ENCHANTMENT)
+                                .getOrThrow(Enchantments.FORTUNE)))
                         .when(MatchTool.toolMatches(ItemPredicate.Builder.item()
-                                .of(context.lookupOrThrow(Registries.ITEM), ItemTags.CLUSTER_MAX_HARVESTABLES)))
+                                .of(this.output.lookup(Registries.ITEM), ItemTags.CLUSTER_MAX_HARVESTABLES)))
                         .otherwise(this.applyExplosionDecay(block,
                                 LootItem.lootTableItem(droppedItem)
-                                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(
+                                        .apply(SetItemCountFunction.setCount(ContextIntProviders.exactly(
                                                 dropCountWithoutPickaxe))))));
     }
 
     public static class SilkTouchBuddingBlocks extends ModBlockLootProvider {
 
-        public SilkTouchBuddingBlocks(DataProviderContext context) {
+        public SilkTouchBuddingBlocks(LootTableSubProvider.Context context) {
             super(context);
         }
 
         @Override
-        public void addLootTables() {
+        public void generate() {
+            super.generate();
             this.addBuddingBlocks(this::dropWhenSilkTouch);
         }
 
@@ -205,17 +200,6 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
         public void addBuddingBlocks(Consumer<Block> dropBlock) {
             dropBlock.accept(Blocks.BUDDING_AMETHYST);
             super.addBuddingBlocks(dropBlock);
-        }
-
-        @Override
-        public boolean skipValidationFor(ResourceKey<LootTable> resourceKey) {
-            return true;
-        }
-
-        @Override
-        protected Stream<Holder.Reference<Block>> getRegistryEntries() {
-            return Stream.concat(Stream.of(Blocks.BUDDING_AMETHYST).map(Block::builtInRegistryHolder),
-                    super.getRegistryEntries());
         }
     }
 }

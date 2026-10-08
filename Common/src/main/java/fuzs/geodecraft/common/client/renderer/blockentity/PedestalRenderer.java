@@ -115,7 +115,7 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
     private void submitCrystals(PedestalRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector) {
         poseStack.pushPose();
         this.crystals.yRot = -(renderState.rotation / 35.0F) % 360.0F;
-        poseStack.mulPose(Axis.XP.rotationDegrees(-180.0F));
+        poseStack.rotate(Axis.XP.rotationDegrees(-180.0F));
         TextureAtlasSprite sprite = this.sprites.get(MATERIAL);
         nodeCollector.submitModelPart(this.crystals,
                 poseStack,
@@ -136,7 +136,7 @@ public class PedestalRenderer implements BlockEntityRenderer<PedestalBlockEntity
             poseStack.translate(0.5F, 0.4F, 0.5F);
             float offsetY = Mth.sin(renderState.rotation / 8.0F) * 0.025F;
             poseStack.translate(0.0F, offsetY + 0.3125F, 0.0F);
-            poseStack.mulPose(Axis.YP.rotationDegrees(Mth.wrapDegrees(renderState.rotation / 2.0F)));
+            poseStack.rotate(Axis.YP.rotationDegrees(Mth.wrapDegrees(renderState.rotation / 2.0F)));
             ItemEntityRenderer.renderMultipleFromCount(poseStack,
                     nodeCollector,
                     renderState.lightCoords,

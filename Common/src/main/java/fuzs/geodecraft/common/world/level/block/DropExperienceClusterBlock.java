@@ -1,6 +1,5 @@
 package fuzs.geodecraft.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.valueproviders.IntProvider;
@@ -67,11 +66,6 @@ public class DropExperienceClusterBlock extends AmethystClusterBlock {
 
     public static Block small(IntProvider xpRange, Properties properties) {
         return new DropExperienceClusterBlock(SMALL_CLUSTER_HEIGHT, SMALL_CLUSTER_WIDTH, xpRange, properties);
-    }
-
-    @Override
-    public MapCodec<AmethystClusterBlock> codec() {
-        throw new UnsupportedOperationException();
     }
 
     @Override

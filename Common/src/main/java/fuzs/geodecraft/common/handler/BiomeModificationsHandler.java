@@ -4,311 +4,373 @@ import fuzs.geodecraft.common.Geodecraft;
 import fuzs.geodecraft.common.config.CommonConfig;
 import fuzs.geodecraft.common.init.PlacedFeatureRegistry;
 import fuzs.geodecraft.common.init.TagRegistry;
-import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingContext;
-import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingPhase;
-import fuzs.puzzleslib.common.api.biome.v1.BiomeModificationContext;
-import fuzs.puzzleslib.common.api.core.v1.context.BiomeModificationsContext;
+import fuzs.puzzleslib.common.api.biome.v2.BiomeLoadingPhase;
+import fuzs.puzzleslib.common.api.biome.v2.BiomeTransformer;
+import fuzs.puzzleslib.common.api.core.v1.context.BiomeTransformationsContext;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 
 public class BiomeModificationsHandler {
 
-    public static void init(BiomeModificationsContext registrar) {
+    public static void init(BiomeTransformationsContext registrar) {
         if (Geodecraft.CONFIG.get(CommonConfig.class).celestiteGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_CELESTITE_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_CELESTITE_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.CELESTITE_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.CELESTITE_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).pinkTopazGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PINK_TOPAZ_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_PINK_TOPAZ_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.PINK_TOPAZ_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.PINK_TOPAZ_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).wrappistGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_WRAPPIST_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_WRAPPIST_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.WRAPPIST_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.WRAPPIST_GEODE));
                     });
         }
         if (Geodecraft.CONFIG.get(CommonConfig.class).prismarineGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PRISMARINE_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_PRISMARINE_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.PRISMARINE_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.PRISMARINE_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).echoGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_ECHO_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.ECHO_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.ECHO_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).redstoneGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_REDSTONE_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_REDSTONE_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.REDSTONE_GEODE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.REDSTONE_GEODE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.DEEPSLATE_REDSTONE_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.DEEPSLATE_REDSTONE_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_ECHO_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.SCULK_REDSTONE_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.SCULK_REDSTONE_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).emeraldGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_EMERALD_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_EMERALD_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.EMERALD_GEODE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.EMERALD_GEODE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.DEEPSLATE_EMERALD_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.DEEPSLATE_EMERALD_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_ECHO_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.SCULK_EMERALD_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.SCULK_EMERALD_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).lapisGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_LAPIS_LAZULI_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_LAPIS_LAZULI_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.LAPIS_GEODE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.LAPIS_GEODE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.DEEPSLATE_LAPIS_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.DEEPSLATE_LAPIS_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_ECHO_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.SCULK_LAPIS_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.SCULK_LAPIS_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).diamondGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_DIAMOND_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_DIAMOND_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.DIAMOND_GEODE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.DIAMOND_GEODE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.DEEPSLATE_DIAMOND_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.DEEPSLATE_DIAMOND_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_ECHO_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.SCULK_DIAMOND_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.SCULK_DIAMOND_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).glowstoneGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_GLOWSTONE_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_NETHER_GLOWSTONE_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.GLOWSTONE_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.GLOWSTONE_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_GLOWSTONE_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BASALT_GLOWSTONE_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BASALT_GLOWSTONE_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BASALT_GLOWSTONE_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_GLOWSTONE_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BLACKSTONE_GLOWSTONE_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BLACKSTONE_GLOWSTONE_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BLACKSTONE_GLOWSTONE_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).netherGoldGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_GOLD_NUGGET_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_NETHER_GOLD_NUGGET_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.GOLD_NUGGET_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.GOLD_NUGGET_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_GOLD_NUGGET_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BASALT_GOLD_NUGGET_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BASALT_GOLD_NUGGET_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BASALT_GOLD_NUGGET_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_GOLD_NUGGET_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BLACKSTONE_GOLD_NUGGET_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BLACKSTONE_GOLD_NUGGET_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BLACKSTONE_GOLD_NUGGET_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).netherQuartzGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_QUARTZ_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_NETHER_QUARTZ_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.QUARTZ_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.QUARTZ_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_QUARTZ_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BASALT_QUARTZ_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BASALT_QUARTZ_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BASALT_QUARTZ_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_QUARTZ_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BLACKSTONE_QUARTZ_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BLACKSTONE_QUARTZ_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BLACKSTONE_QUARTZ_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).ancientDebrisGeodes) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_NETHER_ANCIENT_DEBRIS_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_NETHER_ANCIENT_DEBRIS_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.ANCIENT_DEBRIS_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.ANCIENT_DEBRIS_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BASALT_ANCIENT_DEBRIS_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BASALT_ANCIENT_DEBRIS_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BASALT_ANCIENT_DEBRIS_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BASALT_ANCIENT_DEBRIS_GEODE));
                     });
 
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_BLACKSTONE_ANCIENT_DEBRIS_GEODE),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_BLACKSTONE_ANCIENT_DEBRIS_GEODE);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.BLACKSTONE_ANCIENT_DEBRIS_GEODE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.BLACKSTONE_ANCIENT_DEBRIS_GEODE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).prismarineCrystals) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_PRISMARINE_CRYSTAL),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_PRISMARINE_CRYSTAL);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_STRUCTURES,
-                                        PlacedFeatureRegistry.PRISMARINE_CRYSTAL_SPIKE);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.PRISMARINE_CRYSTAL_SPIKE));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).echoCrystals) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_ECHO_CRYSTAL),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_ECHO_CRYSTAL);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.ECHO_CRYSTAL_SPIKE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.ECHO_CRYSTAL_SPIKE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.ECHO_CRYSTAL_SPIKE_FLOOR);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.ECHO_CRYSTAL_SPIKE_FLOOR));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).glowstoneCrystals) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_GLOWSTONE_CRYSTAL),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_GLOWSTONE_CRYSTAL);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.GLOWSTONE_CRYSTAL_SPIKE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.GLOWSTONE_CRYSTAL_SPIKE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.GLOWSTONE_CRYSTAL_SPIKE_FLOOR);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.GLOWSTONE_CRYSTAL_SPIKE_FLOOR));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).netherQuartzCrystals) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_QUARTZ_CRYSTAL),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_QUARTZ_CRYSTAL);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.QUARTZ_CRYSTAL_SPIKE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.QUARTZ_CRYSTAL_SPIKE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.QUARTZ_CRYSTAL_SPIKE_FLOOR);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.QUARTZ_CRYSTAL_SPIKE_FLOOR));
                     });
         }
 
         if (Geodecraft.CONFIG.get(CommonConfig.class).wrappistCrystals) {
-            registrar.registerBiomeModification(BiomeLoadingPhase.ADDITIONS,
-                    (BiomeLoadingContext context) -> context.is(TagRegistry.Biomes.HAS_WRAPPIST_CRYSTAL),
-                    (BiomeModificationContext context) -> {
-                        context.generationSettings()
+            registrar.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome) -> {
+                        return biome.is(TagRegistry.Biomes.HAS_WRAPPIST_CRYSTAL);
+                    },
+                    (HolderGetter.Provider registryAccess, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.WRAPPIST_CRYSTAL_SPIKE);
-                        context.generationSettings()
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.WRAPPIST_CRYSTAL_SPIKE));
+                        transformation.generation()
                                 .addFeature(GenerationStep.Decoration.UNDERGROUND_DECORATION,
-                                        PlacedFeatureRegistry.WRAPPIST_CRYSTAL_SPIKE_FLOOR);
+                                        registryAccess.getOrThrow(PlacedFeatureRegistry.WRAPPIST_CRYSTAL_SPIKE_FLOOR));
                     });
         }
     }

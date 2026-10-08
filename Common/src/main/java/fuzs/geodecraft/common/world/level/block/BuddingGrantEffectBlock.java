@@ -1,6 +1,5 @@
 package fuzs.geodecraft.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -51,11 +50,6 @@ public class BuddingGrantEffectBlock extends BuddingBlock {
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 MobEffects.HASTE,
                 properties);
-    }
-
-    @Override
-    public MapCodec<BuddingAmethystBlock> codec() {
-        throw new UnsupportedOperationException();
     }
 
     @Override

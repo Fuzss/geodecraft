@@ -1,22 +1,23 @@
-package fuzs.geodecraft.common.data;
+package fuzs.geodecraft.common.data.recipes;
 
 import com.mojang.datafixers.util.Pair;
 import fuzs.geodecraft.common.init.ItemRegistry;
 import fuzs.geodecraft.common.init.TrimPatternRegistry;
-import fuzs.puzzleslib.common.api.data.v2.AbstractRecipeProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v3.recipes.AbstractRecipeProvider;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.packs.VanillaRecipeProvider;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.equipment.trim.TrimPattern;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
@@ -25,12 +26,12 @@ import java.util.stream.Stream;
 
 public class ModRecipeProvider extends AbstractRecipeProvider {
 
-    public ModRecipeProvider(DataProviderContext context) {
-        super(context);
+    public ModRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, advancementOutput);
     }
 
     @Override
-    public void addRecipes(RecipeOutput output) {
+    public void buildRecipes() {
         this.luminousGlass(ItemRegistry.WRAPPIST_GLASS.value(), ItemRegistry.WRAPPIST_SHARD.value());
         this.luminousGlass(ItemRegistry.CELESTITE_GLASS.value(), ItemRegistry.CELESTITE_SHARD.value());
         this.luminousGlass(ItemRegistry.PINK_TOPAZ_GLASS.value(), ItemRegistry.PINK_TOPAZ_SHARD.value());
@@ -97,12 +98,12 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                         Ingredient.of(ItemRegistry.SMOOTH_END_STONE.value()))
                 .unlockedBy(getHasName(ItemRegistry.SMOOTH_END_STONE.value()),
                         this.has(ItemRegistry.SMOOTH_END_STONE.value()))
-                .save(output);
+                .save(this.output);
         this.stairBuilder(ItemRegistry.SMOOTH_END_STONE_STAIRS.value(),
                         Ingredient.of(ItemRegistry.SMOOTH_END_STONE.value()))
                 .unlockedBy(getHasName(ItemRegistry.SMOOTH_END_STONE.value()),
                         this.has(ItemRegistry.SMOOTH_END_STONE.value()))
-                .save(output);
+                .save(this.output);
 
         this.stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
                 ItemRegistry.SMOOTH_END_STONE_STAIRS.value(),
@@ -117,9 +118,9 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 CookingBookCategory.BLOCKS,
                 ItemRegistry.SMOOTH_END_STONE.value().asItem(),
                 0.1F,
-                200).unlockedBy(getHasName(Blocks.END_STONE), this.has(Blocks.END_STONE)).save(output);
+                200).unlockedBy(getHasName(Blocks.END_STONE), this.has(Blocks.END_STONE)).save(this.output);
 
-        ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.BUILDING_BLOCKS, ItemRegistry.PEDESTAL.value())
+        ShapedRecipeBuilder.shaped(this.items, RecipeCategory.BUILDING_BLOCKS, ItemRegistry.PEDESTAL.value())
                 .define('#', Blocks.END_STONE_BRICKS)
                 .define('O', Items.PRISMARINE_SHARD)
                 .define('W', ItemRegistry.WRAPPIST_SHARD.value())
@@ -127,7 +128,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 .pattern("O#O")
                 .unlockedBy(getHasName(ItemRegistry.WRAPPIST_SHARD.value()),
                         this.has(ItemRegistry.WRAPPIST_SHARD.value()))
-                .save(output);
+                .save(this.output);
 
         this.copySmithingTemplate(ItemRegistry.WRAP_ARMOR_TRIM_SMITHING_TEMPLATE.value(),
                 ItemRegistry.WRAPPIST_BLOCK.value());
@@ -146,7 +147,7 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
     }
 
     protected void luminousGlass(ItemLike result, ItemLike material) {
-        ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.BUILDING_BLOCKS, result, 2)
+        ShapedRecipeBuilder.shaped(this.items, RecipeCategory.BUILDING_BLOCKS, result, 2)
                 .define('G', Blocks.GLASS)
                 .define('S', material)
                 .pattern(" S ")

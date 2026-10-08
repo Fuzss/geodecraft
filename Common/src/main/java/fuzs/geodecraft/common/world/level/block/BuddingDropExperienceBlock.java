@@ -1,6 +1,5 @@
 package fuzs.geodecraft.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -81,11 +80,6 @@ public class BuddingDropExperienceBlock extends BuddingBlock {
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 UniformInt.of(1, 5),
                 properties);
-    }
-
-    @Override
-    public MapCodec<BuddingAmethystBlock> codec() {
-        throw new UnsupportedOperationException();
     }
 
     @Override

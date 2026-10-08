@@ -2,19 +2,15 @@ package fuzs.geodecraft.common;
 
 import fuzs.geodecraft.common.config.CommonConfig;
 import fuzs.geodecraft.common.handler.BiomeModificationsHandler;
-import fuzs.geodecraft.common.init.ItemRegistry;
+import fuzs.geodecraft.common.init.LootRegistry;
 import fuzs.geodecraft.common.init.ModRegistry;
-import fuzs.geodecraft.common.init.PotionRegistry;
 import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.core.v1.context.PackRepositorySourcesContext;
-import fuzs.puzzleslib.common.api.core.v1.context.BiomeModificationsContext;
+import fuzs.puzzleslib.common.api.core.v1.context.BiomeTransformationsContext;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
-import fuzs.puzzleslib.common.api.event.v1.server.RegisterPotionBrewingMixesCallback;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.alchemy.Potions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,18 +29,11 @@ public class Geodecraft implements ModConstructor {
     }
 
     private static void registerEventHandlers() {
-        LootTableLoadCallback.EVENT.register(ModRegistry::onLootTableLoad);
-        RegisterPotionBrewingMixesCallback.EVENT.register((RegisterPotionBrewingMixesCallback.Builder builder) -> {
-            builder.registerStartPotionRecipe(ItemRegistry.CELESTITE_SHARD.value(), Potions.STRENGTH);
-            builder.registerStartPotionRecipe(ItemRegistry.PINK_TOPAZ_SHARD.value(), Potions.LUCK);
-            builder.registerStartPotionRecipe(ItemRegistry.WRAPPIST_SHARD.value(), PotionRegistry.HASTE);
-            builder.registerPotionRecipe(PotionRegistry.HASTE, Items.REDSTONE, PotionRegistry.LONG_HASTE);
-            builder.registerPotionRecipe(PotionRegistry.HASTE, Items.GLOWSTONE_DUST, PotionRegistry.STRONG_HASTE);
-        });
+        LootTableLoadCallback.EVENT.register(LootRegistry::onLootTableLoad);
     }
 
     @Override
-    public void onRegisterBiomeModifications(BiomeModificationsContext context) {
+    public void onRegisterBiomeTransformations(BiomeTransformationsContext context) {
         BiomeModificationsHandler.init(context);
     }
 

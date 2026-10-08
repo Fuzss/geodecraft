@@ -1,6 +1,5 @@
 package fuzs.geodecraft.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.geodecraft.common.init.BlockRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -59,11 +58,6 @@ public class BuddingBlock extends BuddingAmethystBlock {
                 BlockRegistry.PRISMARINE_CRYSTAL,
                 BuddingAmethystBlock.GROWTH_CHANCE,
                 properties);
-    }
-
-    @Override
-    public MapCodec<BuddingAmethystBlock> codec() {
-        throw new UnsupportedOperationException();
     }
 
     @Override

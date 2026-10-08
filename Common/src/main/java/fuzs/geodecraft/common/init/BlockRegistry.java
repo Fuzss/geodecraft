@@ -555,7 +555,7 @@ public class BlockRegistry {
     }
 
     private static BlockBehaviour.Properties buddingProperties(Block block) {
-        return BlockBehaviour.Properties.ofFullCopy(block).randomTicks().pushReaction(PushReaction.DESTROY);
+        return BlockBehaviour.Properties.ofFullCopy(block).randomTicks().pushReaction(PushReaction.POPPED);
     }
 
     private static BlockBehaviour.Properties buddingStoneProperties() {
