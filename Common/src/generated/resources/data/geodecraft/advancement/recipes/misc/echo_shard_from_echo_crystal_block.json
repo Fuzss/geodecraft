@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:echo_shard_from_echo_crystal_block"
+        "recipes": "geodecraft:echo_shard_from_echo_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:echo_shard_from_echo_crystal_block"
+      "geodecraft:echo_shard_from_echo_crystal_block"
     ]
   }
 }

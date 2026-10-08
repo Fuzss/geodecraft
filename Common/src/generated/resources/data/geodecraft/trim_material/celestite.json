@@ -1,7 +1,7 @@
 {
-  "asset_name": "celestite",
   "description": {
     "color": "#B2D3F7",
     "translate": "trim_material.geodecraft.celestite"
-  }
+  },
+  "palette_id": "geodecraft:trim/celestite"
 }

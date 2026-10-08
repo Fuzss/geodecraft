@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:echo_crystal_block"
+        "recipes": "geodecraft:echo_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

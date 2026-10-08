@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:pink_topaz_glass"
+        "recipes": "geodecraft:pink_topaz_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,7 +1,7 @@
 {
-  "asset_name": "wrappist",
   "description": {
     "color": "#5E9FCE",
     "translate": "trim_material.geodecraft.wrappist"
-  }
+  },
+  "palette_id": "geodecraft:trim/wrappist"
 }

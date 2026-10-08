@@ -1,0 +1,23 @@
+{
+  "type": "geodecraft:crystal_spike",
+  "bloom_state": {
+    "id": "geodecraft:smooth_end_stone"
+  },
+  "cluster_state": {
+    "id": "geodecraft:wrappist_cluster",
+    "properties": {
+      "facing": "up",
+      "waterlogged": "false"
+    }
+  },
+  "crystal_state": {
+    "id": "geodecraft:wrappist_block"
+  },
+  "placeable_on": "#geodecraft:wrappist_crystal_spike_may_place_on",
+  "placement": "floor",
+  "radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 8,
+    "min_inclusive": 5
+  }
+}

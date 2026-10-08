@@ -1,7 +1,7 @@
 {
-  "asset_name": "pink_topaz",
   "description": {
     "color": "#FBB7E7",
     "translate": "trim_material.geodecraft.pink_topaz"
-  }
+  },
+  "palette_id": "geodecraft:trim/pink_topaz"
 }

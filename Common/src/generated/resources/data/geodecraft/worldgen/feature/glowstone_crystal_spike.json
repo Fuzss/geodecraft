@@ -1,0 +1,23 @@
+{
+  "type": "geodecraft:crystal_spike",
+  "bloom_state": {
+    "id": "minecraft:blackstone"
+  },
+  "cluster_state": {
+    "id": "geodecraft:glowstone_crystal",
+    "properties": {
+      "facing": "up",
+      "waterlogged": "false"
+    }
+  },
+  "crystal_state": {
+    "id": "geodecraft:glowstone_crystal_block"
+  },
+  "placeable_on": "#geodecraft:glowstone_crystal_spike_may_place_on",
+  "placement": "ceiling",
+  "radius": {
+    "type": "minecraft:uniform",
+    "max_inclusive": 8,
+    "min_inclusive": 5
+  }
+}

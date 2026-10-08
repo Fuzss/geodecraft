@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:pink_topaz_block"
+        "recipes": "geodecraft:pink_topaz_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

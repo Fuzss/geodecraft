@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:emerald_crystal_block"
+        "recipes": "geodecraft:emerald_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

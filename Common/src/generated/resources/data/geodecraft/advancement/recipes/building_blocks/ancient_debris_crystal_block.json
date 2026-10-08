@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:ancient_debris_crystal_block"
+        "recipes": "geodecraft:ancient_debris_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

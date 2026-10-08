@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:diamond_crystal_block"
+        "recipes": "geodecraft:diamond_crystal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

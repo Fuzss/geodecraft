@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:pedestal"
+        "recipes": "geodecraft:pedestal"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

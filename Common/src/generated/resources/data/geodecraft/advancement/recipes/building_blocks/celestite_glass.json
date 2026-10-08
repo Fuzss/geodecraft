@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "geodecraft:celestite_glass"
+        "recipes": "geodecraft:celestite_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
