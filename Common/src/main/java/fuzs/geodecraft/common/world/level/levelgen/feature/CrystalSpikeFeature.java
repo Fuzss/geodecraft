@@ -17,8 +17,8 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.levelgen.feature.SpeleothemUtils;
 import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.SpeleothemUtils;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
 import net.minecraft.world.level.levelgen.placement.CaveSurface;
 import net.minecraft.world.level.material.Fluids;
@@ -44,6 +44,14 @@ public record CrystalSpikeFeature(Holder<BlockStateProvider> crystalState,
                                   IntProvider radius,
                                   CaveSurface placement) implements Feature {
     private static final Direction[] DIRECTIONS = Direction.values();
+    public static final MapCodec<CrystalSpikeFeature> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+                    BlockStateProvider.CODEC.fieldOf("crystal_state").forGetter(CrystalSpikeFeature::crystalState),
+                    BlockStateProvider.CODEC.fieldOf("cluster_state").forGetter(CrystalSpikeFeature::clusterState),
+                    BlockStateProvider.CODEC.fieldOf("bloom_state").forGetter(CrystalSpikeFeature::bloomState),
+                    TagKey.hashedCodec(Registries.BLOCK).fieldOf("placeable_on").forGetter(CrystalSpikeFeature::placeableOn),
+                    IntProviders.CODEC.fieldOf("radius").forGetter(CrystalSpikeFeature::radius),
+                    CaveSurface.CODEC.fieldOf("placement").forGetter(CrystalSpikeFeature::placement))
+            .apply(instance, CrystalSpikeFeature::new));
     /**
      * The horizontal directions a spike may lean towards, in radians: 30°, 150°, 210°, and 330°.
      */
@@ -60,17 +68,6 @@ public record CrystalSpikeFeature(Holder<BlockStateProvider> crystalState,
      * Chance for an individual spike block to grow clusters, as a one in n chance.
      */
     private static final int CLUSTER_CHANCE = 6;
-
-    public static final MapCodec<CrystalSpikeFeature> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-                    BlockStateProvider.CODEC.fieldOf("crystal_state").forGetter(CrystalSpikeFeature::crystalState),
-                    BlockStateProvider.CODEC.fieldOf("cluster_state").forGetter(CrystalSpikeFeature::clusterState),
-                    BlockStateProvider.CODEC.fieldOf("bloom_state").forGetter(CrystalSpikeFeature::bloomState),
-                    TagKey.hashedCodec(Registries.BLOCK)
-                            .fieldOf("placeable_on")
-                            .forGetter(CrystalSpikeFeature::placeableOn),
-                    IntProviders.CODEC.fieldOf("radius").forGetter(CrystalSpikeFeature::radius),
-                    CaveSurface.CODEC.fieldOf("placement").forGetter(CrystalSpikeFeature::placement))
-            .apply(instance, CrystalSpikeFeature::new));
 
     @Override
     public MapCodec<CrystalSpikeFeature> codec() {
@@ -95,7 +92,7 @@ public record CrystalSpikeFeature(Holder<BlockStateProvider> crystalState,
     }
 
     /**
-     * Collects the positions the spike is built from, and blooms the terrain it grows out of.
+     * Collects the positions the spike is built from and blooms the terrain it grows out of.
      *
      * @return whether at least one position is free for the spike to occupy
      */
@@ -106,7 +103,7 @@ public record CrystalSpikeFeature(Holder<BlockStateProvider> crystalState,
         boolean placed = false;
 
         for (int y = 0; y < height; y++) {
-            // the spike tapers off, once nothing is left there is no point in going any higher
+            // the spike tapers off; once nothing is left, there is no point in going any higher
             int radius = startRadius - y / 2;
             if (radius < 0) {
                 break;
